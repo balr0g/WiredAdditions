@@ -31,12 +31,18 @@
 @implementation NSString(WINetworking)
 
 + (NSString *)stringWithWiredString:(wi_string_t *)string {
+	if(!string)
+		return NULL;
+	
 	return [self stringWithUTF8String:wi_string_cstring(string)];
 }
 
 
 
 - (id)initWithWiredString:(wi_string_t *)string {
+	if(!string)
+		return NULL;
+	
 	return [self initWithUTF8String:wi_string_cstring(string)];
 }
 

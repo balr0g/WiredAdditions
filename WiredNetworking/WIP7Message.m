@@ -76,7 +76,7 @@
 	self = [super init];
 	
 	_message = wi_retain(message);
-	_name = [[NSString alloc] initWithUTF8String:wi_string_cstring(wi_p7_message_name(message))];
+	_name = [[NSString alloc] initWithWiredString:wi_p7_message_name(message)];
 	_spec = [spec retain];
 	
 	return self;
