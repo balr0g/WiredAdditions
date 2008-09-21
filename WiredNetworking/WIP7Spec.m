@@ -113,8 +113,10 @@
 			*error = [WIError errorWithDomain:WIWiredNetworkingErrorDomain
 										 code:WIP7SpecLoadFailed
 									 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-										 [WIError errorWithDomain:WILibWiredErrorDomain],	WILibWiredErrorKey,
-										 path,												WIArgumentErrorKey,
+										 [WIError errorWithDomain:WILibWiredErrorDomain],
+											 WILibWiredErrorKey,
+										 path,
+											 WIArgumentErrorKey,
 										 NULL]];
 		}
 		
@@ -142,14 +144,15 @@
 	self = [super init];
 	
 	pool = wi_pool_init(wi_pool_alloc());
-	spec = wi_p7_spec_init_with_string(wi_p7_spec_alloc(), wi_string_with_cstring([string UTF8String]), originator);
+	spec = wi_p7_spec_init_with_string(wi_p7_spec_alloc(), [string wiredString], originator);
 	
 	if(!spec) {
 		if(error) {
 			*error = [WIError errorWithDomain:WIWiredNetworkingErrorDomain
 										 code:WIP7SpecLoadFailed
 									 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-										 [WIError errorWithDomain:WILibWiredErrorDomain],	WILibWiredErrorKey,
+										 [WIError errorWithDomain:WILibWiredErrorDomain],
+											 WILibWiredErrorKey,
 										 NULL]];
 		}
 		

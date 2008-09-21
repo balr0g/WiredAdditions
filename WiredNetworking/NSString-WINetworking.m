@@ -46,4 +46,12 @@
 	return [self initWithUTF8String:wi_string_cstring(string)];
 }
 
+
+
+#pragma mark -
+
+- (wi_string_t *)wiredString {
+	return wi_string_with_cstring([self UTF8String]);
+}
+
 @end

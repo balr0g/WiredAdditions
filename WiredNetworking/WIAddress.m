@@ -30,6 +30,28 @@
 #import <WiredNetworking/WIAddress.h>
 #import <WiredNetworking/WIError.h>
 
+@interface WIAddress(Private)
+
+- (id)_initWithAddress:(wi_address_t *)address;
+
+@end
+
+
+@implementation WIAddress(Private)
+
+- (id)_initWithAddress:(wi_address_t *)address {
+	self = [super init];
+	
+	_address = wi_retain(address);
+	_string = [[NSString alloc] initWithWiredString:wi_address_string(_address)];
+	
+	return self;
+}
+
+@end
+
+
+
 @implementation WIAddress
 
 + (WIAddress *)addressWithString:(NSString *)address error:(WIError **)error {
@@ -44,29 +66,35 @@
 
 
 
-- (id)initWithString:(NSString *)address error:(WIError **)error {
+- (id)initWithString:(NSString *)string error:(WIError **)error {
 	wi_pool_t		*pool;
+	wi_address_t	*address;
 
-	self = [super init];
-	
 	pool = wi_pool_init(wi_pool_alloc());
-	_address = wi_retain(wi_host_address(wi_host_with_string(wi_string_with_cstring([address UTF8String]))));
-	wi_release(pool);
+	address = wi_host_address(wi_host_with_string([string wiredString]));
 	
-	if(!_address) {
+	if(!address) {
 		if(error) {
 			*error = [WIError errorWithDomain:WIWiredNetworkingErrorDomain
 										 code:WIAddressLookupFailed
 									 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-										 [WIError errorWithDomain:WILibWiredErrorDomain],	WILibWiredErrorKey,
-										 address,											WIArgumentErrorKey,
+										 [WIError errorWithDomain:WILibWiredErrorDomain],
+											 WILibWiredErrorKey,
+										 string,
+											 WIArgumentErrorKey,
 										 NULL]];
 		}
 		
 		[self release];
 		
+		wi_release(pool);
+
 		return NULL;
 	}
+	
+	self = [self _initWithAddress:address];
+
+	wi_release(pool);
 	
 	return self;
 }
@@ -74,9 +102,10 @@
 
 
 - (id)initWithNetService:(NSNetService *)netService error:(WIError **)error {
-	NSArray		*addresses;
-	NSData		*data;
-	wi_pool_t	*pool;
+	NSArray			*addresses;
+	NSData			*data;
+	wi_pool_t		*pool;
+	wi_address_t	*address;
 	
 	self = [super init];
 	
@@ -96,20 +125,22 @@
 	data = [addresses objectAtIndex:0];
 	
 	pool = wi_pool_init(wi_pool_alloc());
-	_address = wi_address_init_with_sa(wi_address_alloc(), (struct sockaddr *) [data bytes]);
-	wi_release(pool);
+	address = wi_address_init_with_sa(wi_address_alloc(), (struct sockaddr *) [data bytes]);
 	
+	self = [self _initWithAddress:address];
+	
+	wi_release(address);
+	wi_release(pool);
+
 	return self;
 }
 
 
 
 - (void)dealloc {
-	wi_pool_t	*pool;
-
-	pool = wi_pool_init(wi_pool_alloc());
+	[_string release];
+	
 	wi_release(_address);
-	wi_release(pool);
 	
 	[super dealloc];
 }
@@ -139,14 +170,7 @@
 
 
 - (NSString *)string {
-	NSString	*string;
-	wi_pool_t	*pool;
-	
-	pool = wi_pool_init(wi_pool_alloc());
-	string = [NSString stringWithWiredString:wi_address_string(_address)];
-	wi_release(pool);
-	
-	return string;
+	return _string;
 }
 
 

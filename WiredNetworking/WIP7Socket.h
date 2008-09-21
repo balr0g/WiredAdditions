@@ -50,6 +50,8 @@ typedef enum _WIP7Options						WIP7Options;
 	WISocket									*_socket;
 	WIP7Spec									*_spec;
 	
+	WIError										*_readTimeoutError;
+	
 	wi_p7_socket_t								*_p7Socket;
 }
 

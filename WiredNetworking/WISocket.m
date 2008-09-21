@@ -69,6 +69,7 @@ static void _WISocketCallback(CFSocketRef socketRef, CFSocketCallBackType callba
 @end
 
 
+
 @implementation WISocketTLS
 
 + (WISocketTLS *)socketTLSForClient {
@@ -99,11 +100,36 @@ static void _WISocketCallback(CFSocketRef socketRef, CFSocketCallBackType callba
 	wi_pool_t	*pool;
 	
 	pool = wi_pool_init(wi_pool_alloc());
-	wi_socket_tls_set_ciphers(_tls, wi_string_with_cstring([ciphers UTF8String]));
+	wi_socket_tls_set_ciphers(_tls, [ciphers wiredString]);
 	wi_release(pool);
 }
 
 @end
+
+
+
+@interface WISocket(Private)
+
+- (WIError *)_errorWithCode:(NSInteger)code;
+
+@end
+
+
+@implementation WISocket(Private)
+
+- (WIError *)_errorWithCode:(NSInteger)code {
+	return [WIError errorWithDomain:WIWiredNetworkingErrorDomain
+							   code:code
+						   userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+									 [WIError errorWithDomain:WILibWiredErrorDomain],
+										 WILibWiredErrorKey,
+									 [_address string],
+										 WIArgumentErrorKey,
+									 NULL]];
+}
+
+@end
+
 
 
 @implementation WISocket
@@ -363,14 +389,8 @@ static void _WISocketCallback(CFSocketRef socketRef, CFSocketCallBackType callba
 	pool = wi_pool_init(wi_pool_alloc());
 	
 	if(!wi_socket_connect(_socket, timeout)) {
-		if(error) {
-			*error = [WIError errorWithDomain:WIWiredNetworkingErrorDomain
-										 code:WISocketConnectFailed
-									 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-										 [WIError errorWithDomain:WILibWiredErrorDomain],	WILibWiredErrorKey,
-										 [_address string],									WIArgumentErrorKey,
-										 NULL]];
-		}
+		if(error)
+			*error = [self _errorWithCode:WISocketConnectFailed];
 		
 		result = NO;
 	}
@@ -389,14 +409,8 @@ static void _WISocketCallback(CFSocketRef socketRef, CFSocketCallBackType callba
 	pool = wi_pool_init(wi_pool_alloc());
 	
 	if(!wi_socket_connect_tls(_socket, [tls TLS], timeout)) {
-		if(error) {
-			*error = [WIError errorWithDomain:WIWiredNetworkingErrorDomain
-										 code:WISocketConnectFailed
-									 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-										 [WIError errorWithDomain:WILibWiredErrorDomain],	WILibWiredErrorKey,
-										 [_address string],									WIArgumentErrorKey,
-										 NULL]];
-		}
+		if(error)
+			*error = [self _errorWithCode:WISocketConnectFailed];
 		
 		result = NO;
 	}
@@ -429,14 +443,8 @@ static void _WISocketCallback(CFSocketRef socketRef, CFSocketCallBackType callba
 	data = [string dataUsingEncoding:encoding];
 	
 	if(wi_socket_write_buffer(_socket, timeout, [data bytes], [data length]) < 0) {
-		if(error) {
-			*error = [WIError errorWithDomain:WIWiredNetworkingErrorDomain
-										 code:WISocketWriteFailed
-									 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-										 [WIError errorWithDomain:WILibWiredErrorDomain],	WILibWiredErrorKey,
-										 [_address string],									WIArgumentErrorKey,
-										 NULL]];
-		}
+		if(error)
+			*error = [self _errorWithCode:WISocketWriteFailed];
 		
 		result = NO;
 	}
@@ -495,14 +503,16 @@ end:
 	if([string length] == 0) {
 		if(bytes < 0) {
 			if(error) {
-				*error = [WIError errorWithDomain:WIWiredNetworkingErrorDomain
-											 code:WISocketReadFailed
-										 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-											 [WIError errorWithDomain:WILibWiredErrorDomain],	WILibWiredErrorKey,
-											 [_address string],									WIArgumentErrorKey,
-											 NULL]];
+				if(wi_error_domain() == WI_ERROR_DOMAIN_ERRNO && wi_error_code() == ETIMEDOUT) {
+					if(!_readTimeoutError)
+						_readTimeoutError = [[self _errorWithCode:WISocketReadFailed] retain];
+					
+					*error = _readTimeoutError;
+				} else {
+					*error = [self _errorWithCode:WISocketReadFailed];
+				}
 			}
-
+			
 			[string release];
 			
 			string = NULL;

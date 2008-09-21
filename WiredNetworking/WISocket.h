@@ -74,6 +74,8 @@ typedef enum _WISocketEvent			WISocketEvent;
 	WIAddress						*_address;
 	
 	NSMutableString					*_buffer;
+	
+	WIError							*_readTimeoutError;
 
 	NSUInteger						_sources;
 	CFSocketRef						_socketRef;

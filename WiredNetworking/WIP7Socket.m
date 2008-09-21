@@ -37,7 +37,6 @@ static void _WIP7SocketReadMessage(wi_p7_socket_t *, wi_p7_message_t *, void *);
 static void _WIP7SocketWroteMessage(wi_p7_socket_t *, wi_p7_message_t *, void *);
 
 
-
 static void _WIP7SocketReadMessage(wi_p7_socket_t *p7Socket, wi_p7_message_t *p7Message, void *contextInfo) {
 	[[(id) contextInfo delegate] P7Socket:contextInfo readMessage:[WIP7Message messageWithMessage:p7Message spec:[(id) contextInfo spec]]];
 }
@@ -47,6 +46,30 @@ static void _WIP7SocketReadMessage(wi_p7_socket_t *p7Socket, wi_p7_message_t *p7
 static void _WIP7SocketWroteMessage(wi_p7_socket_t *p7Socket, wi_p7_message_t *p7Message, void *contextInfo) {
 	[[(id) contextInfo delegate] P7Socket:contextInfo wroteMessage:[WIP7Message messageWithMessage:p7Message spec:[(id) contextInfo spec]]];
 }
+
+
+
+@interface WIP7Socket(Private)
+
+- (WIError *)_errorWithCode:(NSInteger)code;
+
+@end
+
+
+@implementation WIP7Socket(Private)
+
+- (WIError *)_errorWithCode:(NSInteger)code {
+	return [WIError errorWithDomain:WIWiredNetworkingErrorDomain
+							   code:code
+						   userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+									 [WIError errorWithDomain:WILibWiredErrorDomain],
+										 WILibWiredErrorKey,
+									 [[_socket address] string],
+										 WIArgumentErrorKey,
+									 NULL]];
+}
+
+@end
 
 
 
@@ -77,6 +100,8 @@ static void _WIP7SocketWroteMessage(wi_p7_socket_t *p7Socket, wi_p7_message_t *p
 - (void)dealloc {
 	[_socket release];
 	[_spec release];
+	
+	[_readTimeoutError release];
 	
 	wi_release(_p7Socket);
 	
@@ -195,24 +220,15 @@ static void _WIP7SocketWroteMessage(wi_p7_socket_t *p7Socket, wi_p7_message_t *p
 
 - (BOOL)connectWithOptions:(NSUInteger)options serialization:(WIP7Serialization)serialization username:(NSString *)username password:(NSString *)password timeout:(NSTimeInterval)timeout error:(WIError **)error {
 	wi_pool_t		*pool;
-	wi_string_t		*user, *pass;
 	wi_boolean_t	result;
 	
 	pool = wi_pool_init(wi_pool_alloc());
-	user = username ? wi_string_with_cstring([username UTF8String]) : NULL;
-	pass = password ? wi_string_with_cstring([password UTF8String]) : NULL;
-	result = wi_p7_socket_connect(_p7Socket, timeout, options, serialization, user, pass);
+	result = wi_p7_socket_connect(_p7Socket, timeout, options, serialization, [username wiredString], [password wiredString]);
 	wi_release(pool);
 
 	if(!result) {
-		if(error) {
-			*error = [WIError errorWithDomain:WIWiredNetworkingErrorDomain
-										 code:WISocketConnectFailed
-									 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-											   [WIError errorWithDomain:WILibWiredErrorDomain],	WILibWiredErrorKey,
-											   [[_socket address] string],						WIArgumentErrorKey,
-											   NULL]];
-		}
+		if(error)
+			*error = [self _errorWithCode:WISocketConnectFailed];
 		
 		return NO;
 	}
@@ -239,14 +255,8 @@ static void _WIP7SocketWroteMessage(wi_p7_socket_t *p7Socket, wi_p7_message_t *p
 	wi_release(pool);
 	
 	if(!result) {
-		if(error) {
-			*error = [WIError errorWithDomain:WIWiredNetworkingErrorDomain
-										 code:WISocketWriteFailed
-									 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-											   [WIError errorWithDomain:WILibWiredErrorDomain],	WILibWiredErrorKey,
-											   [[_socket address] string],						WIArgumentErrorKey,
-											   NULL]];
-		}
+		if(error)
+			*error = [self _errorWithCode:WISocketWriteFailed];
 		
 		return NO;
 	}
@@ -266,12 +276,14 @@ static void _WIP7SocketWroteMessage(wi_p7_socket_t *p7Socket, wi_p7_message_t *p
 	
 	if(!result) {
 		if(error) {
-			*error = [WIError errorWithDomain:WIWiredNetworkingErrorDomain
-										 code:WISocketReadFailed
-									 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-											   [WIError errorWithDomain:WILibWiredErrorDomain],	WILibWiredErrorKey,
-											   [[_socket address] string],						WIArgumentErrorKey,
-											   NULL]];
+			if(wi_error_domain() == WI_ERROR_DOMAIN_ERRNO && wi_error_code() == ETIMEDOUT) {
+				if(!_readTimeoutError)
+					_readTimeoutError = [[self _errorWithCode:WISocketReadFailed] retain];
+				
+				*error = _readTimeoutError;
+			} else {
+				*error = [self _errorWithCode:WISocketReadFailed];
+			}
 		}
 		
 		wi_release(pool);
@@ -294,14 +306,8 @@ static void _WIP7SocketWroteMessage(wi_p7_socket_t *p7Socket, wi_p7_message_t *p
 	result = wi_p7_socket_write_oobdata(_p7Socket, timeout, data, length);
 
 	if(!result) {
-		if(error) {
-			*error = [WIError errorWithDomain:WIWiredNetworkingErrorDomain
-										 code:WISocketWriteFailed
-									 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-											   [WIError errorWithDomain:WILibWiredErrorDomain],	WILibWiredErrorKey,
-											   [[_socket address] string],						WIArgumentErrorKey,
-											   NULL]];
-		}
+		if(error)
+			*error = [self _errorWithCode:WISocketWriteFailed];
 		
 		return NO;
 	}
@@ -317,14 +323,14 @@ static void _WIP7SocketWroteMessage(wi_p7_socket_t *p7Socket, wi_p7_message_t *p
 	result = wi_p7_socket_read_oobdata(_p7Socket, timeout, data);
 	
 	if(result < 0) {
-		if(error) {
-			*error = [WIError errorWithDomain:WIWiredNetworkingErrorDomain
-										 code:WISocketReadFailed
-									 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-											   [WIError errorWithDomain:WILibWiredErrorDomain],	WILibWiredErrorKey,
-											   [[_socket address] string],						WIArgumentErrorKey,
-											   NULL]];
-		}
+			if(wi_error_domain() == WI_ERROR_DOMAIN_ERRNO && wi_error_code() == ETIMEDOUT) {
+				if(!_readTimeoutError)
+					_readTimeoutError = [[self _errorWithCode:WISocketReadFailed] retain];
+				
+				*error = _readTimeoutError;
+			} else {
+				*error = [self _errorWithCode:WISocketReadFailed];
+			}
 		
 		return result;
 	}

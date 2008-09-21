@@ -38,6 +38,8 @@ typedef enum _WIAddressFamily		WIAddressFamily;
 
 @interface WIAddress : WIObject {
 	wi_address_t					*_address;
+	
+	NSString						*_string;
 }
 
 

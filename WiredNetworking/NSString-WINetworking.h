@@ -31,4 +31,6 @@
 + (NSString *)stringWithWiredString:(wi_string_t *)string;
 - (id)initWithWiredString:(wi_string_t *)string;
 
+- (wi_string_t *)wiredString;
+
 @end
