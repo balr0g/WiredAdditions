@@ -373,7 +373,7 @@
 			instance = WI_ARRAY(array, i);
 			
 			if(wi_runtime_id(instance) == wi_string_runtime_id())
-				object = [NSString stringWithUTF8String:instance];
+				object = [NSString stringWithWiredString:instance];
 			else
 				object = NULL;
 			
