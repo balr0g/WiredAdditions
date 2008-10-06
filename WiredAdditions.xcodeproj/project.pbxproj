@@ -727,7 +727,7 @@
 		A5983830096C894500EC0FC4 /* WIProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WIProgressIndicator.m; path = WiredAppKit/WIProgressIndicator.m; sourceTree = "<group>"; };
 		A5983837096C89DD00EC0FC4 /* NSView-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSView-WIAppKit.h"; path = "WiredAppKit/NSView-WIAppKit.h"; sourceTree = "<group>"; };
 		A5983838096C89DD00EC0FC4 /* NSView-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSView-WIAppKit.m"; path = "WiredAppKit/NSView-WIAppKit.m"; sourceTree = "<group>"; };
-		A5B34B0B0E9ACB82005B7884 /* wired */ = {isa = PBXFileReference; lastKnownFileType = folder; name = wired; path = build/Debug/Native/32/wired; sourceTree = "<group>"; };
+		A5B34B0B0E9ACB82005B7884 /* wired */ = {isa = PBXFileReference; lastKnownFileType = folder; path = wired; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B452940880BD95003B1DA1 /* WIEventQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WIEventQueue.h; path = WiredFoundation/WIEventQueue.h; sourceTree = "<group>"; };
 		A5B452950880BD95003B1DA1 /* WIEventQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WIEventQueue.m; path = WiredFoundation/WIEventQueue.m; sourceTree = "<group>"; };
 		A5B9225A0E3A82B1001D4F6D /* Italian */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Italian; path = WiredNetworking/Italian.lproj/InfoPlist.strings; sourceTree = "<group>"; };
