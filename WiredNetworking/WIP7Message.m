@@ -250,7 +250,6 @@
 
 - (NSString *)stringForName:(NSString *)name {
 	unsigned char		*binary;
-	char				*xml;
 	uint32_t			length;
 	
 	if(!wi_p7_message_read_binary(_message, &binary, &length, [_spec fieldIDForName:name]))
@@ -268,9 +267,7 @@
 
 
 - (NSData *)dataForName:(NSString *)name {
-	NSString			*string;
 	unsigned char		*binary;
-	char				*xml;
 	uint32_t			length;
 	
 	if(!wi_p7_message_read_binary(_message, &binary, &length, [_spec fieldIDForName:name]))
