@@ -297,6 +297,44 @@
 
 
 
+- (BOOL)setUUID:(NSString *)string forName:(NSString *)name {
+	wi_pool_t			*pool;
+	wi_uuid_t			*uuid;
+	BOOL				result = NO;
+	
+	pool = wi_pool_init(wi_pool_alloc());
+	
+	uuid = wi_uuid_with_string([string wiredString]);
+	
+	if(uuid)
+		result = wi_p7_message_set_uuid_for_name(_message, uuid, [name wiredString]);
+	else
+		result = NO;
+	
+	wi_release(pool);
+	
+	return result;
+}
+
+
+
+- (NSString *)UUIDForName:(NSString *)name {
+	NSString			*string;
+	wi_pool_t			*pool;
+	wi_uuid_t			*uuid;
+	
+	pool = wi_pool_init(wi_pool_alloc());
+	
+	uuid = wi_p7_message_uuid_for_name(_message, [name wiredString]);
+	string = uuid ? [NSString stringWithWiredString:wi_uuid_string(uuid)] : NULL;
+	
+	wi_release(pool);
+	
+	return string;
+}
+
+
+
 - (BOOL)setList:(NSArray *)list forName:(NSString *)name {
 	NSEnumerator			*enumerator;
 	wi_pool_t				*pool;
@@ -313,7 +351,7 @@
 	while((object = [enumerator nextObject])) {
 		
 		if([object isKindOfClass:[NSString class]])
-			instance = wi_string_init_with_cstring(wi_string_alloc(), [object UTF8String]);
+			instance = [object wiredString];
 		else
 			instance = NULL;
 		
