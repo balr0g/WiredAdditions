@@ -592,6 +592,18 @@
 
 @implementation NSMutableString(WIFoundation)
 
+- (NSUInteger)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement {
+	return [self replaceOccurrencesOfString:target withString:replacement options:0 range:NSMakeRange(0, [self length])];
+}
+
+
+
+- (NSUInteger)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement options:(unsigned int)options {
+	return [self replaceOccurrencesOfString:target withString:replacement options:options range:NSMakeRange(0, [self length])];
+}
+
+
+
 - (void)removeSurroundingWhitespace {
 	[self setString:[self stringByRemovingSurroundingWhitespace]];
 }

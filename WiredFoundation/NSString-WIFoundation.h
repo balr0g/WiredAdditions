@@ -91,6 +91,8 @@
 
 @interface NSMutableString(WIFoundation)
 
+- (NSUInteger)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement;
+- (NSUInteger)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement options:(unsigned int)options;
 - (void)removeSurroundingWhitespace;
 
 - (void)applyFilter:(WITextFilter *)filter;
