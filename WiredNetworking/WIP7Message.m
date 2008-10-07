@@ -253,19 +253,10 @@
 	char				*xml;
 	uint32_t			length;
 	
-	if(wi_p7_message_serialization(_message) == WI_P7_BINARY) {
-		if(!wi_p7_message_read_binary(_message, &binary, &length, [_spec fieldIDForName:name]))
-			return NULL;
-		
-		return [NSString stringWithUTF8String:(char *) binary];
-	} else {
-		xml = wi_p7_message_copy_xml_for_name(_message, [name UTF8String]);
-		
-		if(!xml)
-			return NULL;
-		
-		return [[[NSString alloc] initWithBytesNoCopy:xml length:strlen(xml) encoding:NSUTF8StringEncoding freeWhenDone:YES] autorelease];
-	}
+	if(!wi_p7_message_read_binary(_message, &binary, &length, [_spec fieldIDForName:name]))
+		return NULL;
+	
+	return [NSString stringWithUTF8String:(char *) binary];
 }
 
 
@@ -282,21 +273,10 @@
 	char				*xml;
 	uint32_t			length;
 	
-	if(wi_p7_message_serialization(_message) == WI_P7_BINARY) {
-		if(!wi_p7_message_read_binary(_message, &binary, &length, [_spec fieldIDForName:name]))
-			return NULL;
-		
-		return [NSData dataWithBytes:binary length:length];
-	} else {
-		xml = wi_p7_message_copy_xml_for_name(_message, [name UTF8String]);
-		
-		if(!xml)
-			return NULL;
-
-		string = [[[NSString alloc] initWithBytesNoCopy:xml length:strlen(xml) encoding:NSUTF8StringEncoding freeWhenDone:YES] autorelease];
-		
-		return [NSData dataWithBase64EncodedString:string];
-	}
+	if(!wi_p7_message_read_binary(_message, &binary, &length, [_spec fieldIDForName:name]))
+		return NULL;
+	
+	return [NSData dataWithBytes:binary length:length];
 }
 
 

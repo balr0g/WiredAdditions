@@ -39,8 +39,7 @@ static void _WISocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, cons
 static void _WISocketCallback(CFSocketRef socketRef, CFSocketCallBackType callbackType, CFDataRef address, const void *data, void *info) {
 	WISocket		*socket = info;
 	
-	if(callbackType == kCFSocketReadCallBack)
-		[[socket delegate] socket:socket handleEvent:WISocketEventHasBytesAvailable];
+	[[socket delegate] socket:socket handleEvent:callbackType];
 }
 
 
@@ -110,12 +109,27 @@ static void _WISocketCallback(CFSocketRef socketRef, CFSocketCallBackType callba
 
 @interface WISocket(Private)
 
+- (id)_initWithSocket:(wi_socket_t *)socket address:(WIAddress *)address;
+
 - (WIError *)_errorWithCode:(NSInteger)code;
 
 @end
 
 
 @implementation WISocket(Private)
+
+- (id)_initWithSocket:(wi_socket_t *)socket address:(WIAddress *)address {
+	self = [self init];
+	
+	_socket		= wi_retain(socket);
+	_address	= [address retain];
+	
+	return self;
+}
+
+
+
+#pragma mark -
 
 - (WIError *)_errorWithCode:(NSInteger)code {
 	return [WIError errorWithDomain:WIWiredNetworkingErrorDomain
@@ -147,15 +161,16 @@ static void _WISocketCallback(CFSocketRef socketRef, CFSocketCallBackType callba
 
 
 - (id)initWithAddress:(WIAddress *)address type:(WISocketType)type {
-	wi_pool_t	*pool;
-	
-	self = [self init];
+	wi_pool_t		*pool;
+	wi_socket_t		*socket;
 	
 	pool = wi_pool_init(wi_pool_alloc());
-	_socket = wi_socket_init_with_address(wi_socket_alloc(), [address address], type);
-	wi_release(pool);
+	socket = wi_socket_init_with_address(wi_socket_alloc(), [address address], type);
 
-	_address = [address retain];
+	self = [self _initWithSocket:socket address:address];
+	
+	wi_release(socket);
+	wi_release(pool);
 	
 	return self;
 }
@@ -163,12 +178,18 @@ static void _WISocketCallback(CFSocketRef socketRef, CFSocketCallBackType callba
 
 
 - (id)initWithFileDescriptor:(int)sd {
-	wi_pool_t	*pool;
-	
-	self = [self init];
+	WIAddress		*address;
+	wi_pool_t		*pool;
+	wi_socket_t		*socket;
 	
 	pool = wi_pool_init(wi_pool_alloc());
-	_socket = wi_socket_init_with_descriptor(wi_socket_alloc(), sd);
+	socket = wi_socket_init_with_descriptor(wi_socket_alloc(), sd);
+	address = [[WIAddress alloc] initWithAddress:wi_socket_address(socket)];
+
+	self = [self _initWithSocket:socket address:address];
+	
+	[address release];
+	wi_release(socket);
 	wi_release(pool);
 	
 	return self;
@@ -422,6 +443,51 @@ static void _WISocketCallback(CFSocketRef socketRef, CFSocketCallBackType callba
 
 
 
+- (BOOL)listenWithBacklog:(NSUInteger)backlog error:(WIError **)error {
+	wi_pool_t		*pool;
+	BOOL			result = YES;
+	
+	pool = wi_pool_init(wi_pool_alloc());
+	
+	if(!wi_socket_listen(_socket, backlog)) {
+		if(error)
+			*error = [self _errorWithCode:WISocketListenFailed];
+		
+		result = NO;
+	}
+	
+	if([_address port] == 0)
+		[_address setPort:wi_socket_port(_socket)];
+	
+	wi_release(pool);
+	
+	return result;
+}
+
+
+
+- (WISocket *)acceptWithTimeout:(NSTimeInterval)timeout error:(WIError **)error {
+	WISocket		*remoteSocket = NULL;
+	wi_pool_t		*pool;
+	wi_socket_t		*socket;
+	wi_address_t	*address;
+	
+	pool = wi_pool_init(wi_pool_alloc());
+
+	socket = wi_socket_accept(_socket, timeout, &address);
+	
+	if(socket)
+		remoteSocket = [[[WISocket alloc] _initWithSocket:socket address:[[[WIAddress alloc] initWithAddress:address] autorelease]] autorelease];
+	else if(error)
+		*error = [self _errorWithCode:WISocketListenFailed];
+	
+	wi_release(pool);
+	
+	return remoteSocket;
+}
+
+
+
 - (void)close {
 	wi_pool_t		*pool;
 
@@ -572,6 +638,7 @@ end:
 
 - (void)scheduleInRunLoop:(NSRunLoop *)runLoop forMode:(NSString *)mode {
 	CFSocketContext			context;
+	CFSocketCallBackType	type;
 	
 	if(!_sourceRef) {
 		context.version				= 0;
@@ -580,9 +647,17 @@ end:
 		context.release				= NULL;
 		context.copyDescription		= NULL;
 		
+		type = kCFSocketNoCallBack;
+		
+		if([self direction] & WISocketRead)
+			type |= kCFSocketReadCallBack;
+
+		if([self direction] & WISocketWrite)
+			type |= kCFSocketWriteCallBack;
+		
 		_socketRef = CFSocketCreateWithNative(NULL,
 											  wi_socket_descriptor(_socket),
-											  kCFSocketReadCallBack,
+											  type,
 											  _WISocketCallback,
 											  &context);
 		

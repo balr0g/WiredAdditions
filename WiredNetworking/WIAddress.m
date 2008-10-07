@@ -54,6 +54,12 @@
 
 @implementation WIAddress
 
++ (WIAddress *)addressWildcardForFamily:(WIAddressFamily)family {
+	return [[[self alloc] initWildcardForFamily:family] autorelease];
+}
+
+
+
 + (WIAddress *)addressWithString:(NSString *)address error:(WIError **)error {
 	return [[[self alloc] initWithString:address error:error] autorelease];
 }
@@ -62,6 +68,22 @@
 
 + (WIAddress *)addressWithNetService:(NSNetService *)netService error:(WIError **)error {
 	return [[[self alloc] initWithNetService:netService error:error] autorelease];
+}
+
+
+
+- (id)initWildcardForFamily:(WIAddressFamily)family {
+	wi_pool_t		*pool;
+	wi_address_t	*address;
+	
+	pool = wi_pool_init(wi_pool_alloc());
+	address = wi_address_wildcard_for_family(family);
+	
+	self = [self _initWithAddress:address];
+	
+	wi_retain(pool);
+	
+	return self;
 }
 
 
@@ -191,6 +213,12 @@
 
 
 @implementation WIAddress(WISocketAdditions)
+
+- (id)initWithAddress:(wi_address_t *)address {
+	return [self _initWithAddress:address];
+}
+
+
 
 - (wi_address_t *)address {
 	return _address;

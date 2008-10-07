@@ -74,6 +74,7 @@ typedef enum _WIP7Options						WIP7Options;
 - (double)compressionRatio;
 
 - (BOOL)connectWithOptions:(NSUInteger)options serialization:(WIP7Serialization)serialization username:(NSString *)username password:(NSString *)password timeout:(NSTimeInterval)timeout error:(WIError **)error;
+- (BOOL)acceptWithOptions:(NSUInteger)options timeout:(NSTimeInterval)timeout error:(WIError **)error;
 - (void)close;
 
 - (BOOL)writeMessage:(WIP7Message *)message timeout:(NSTimeInterval)timeout error:(WIError **)error;

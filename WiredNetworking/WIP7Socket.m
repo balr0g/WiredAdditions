@@ -238,6 +238,26 @@ static void _WIP7SocketWroteMessage(wi_p7_socket_t *p7Socket, wi_p7_message_t *p
 
 
 
+- (BOOL)acceptWithOptions:(NSUInteger)options timeout:(NSTimeInterval)timeout error:(WIError **)error {
+	wi_pool_t		*pool;
+	wi_boolean_t	result;
+	
+	pool = wi_pool_init(wi_pool_alloc());
+	result = wi_p7_socket_accept(_p7Socket, timeout, options);
+	wi_release(pool);
+	
+	if(!result) {
+		if(error)
+			*error = [self _errorWithCode:WISocketConnectFailed];
+		
+		return NO;
+	}
+	
+	return YES;
+}
+
+
+
 - (void)close {
 	wi_p7_socket_close(_p7Socket);
 }

@@ -31,6 +31,8 @@ enum _WIWiredAdditionsErrorDomain {
 	WIAddressNetServiceLookupFailed,
 
 	WISocketConnectFailed,
+	WISocketListenFailed,
+	WISocketAcceptFailed,
 	WISocketWriteFailed,
 	WISocketReadFailed,
 	

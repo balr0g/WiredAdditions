@@ -57,8 +57,9 @@ typedef enum _WISocketDirection		WISocketDirection;
 
 
 enum _WISocketEvent {
-	WISocketEventNone				= (0 << 0),
-	WISocketEventHasBytesAvailable	= (1 << 0)
+	WISocketEventNone				= kCFSocketNoCallBack,
+	WISocketEventRead				= kCFSocketReadCallBack,
+	WISocketEventWrite				= kCFSocketWriteCallBack
 };
 typedef enum _WISocketEvent			WISocketEvent;
 
@@ -114,6 +115,8 @@ typedef enum _WISocketEvent			WISocketEvent;
 
 - (BOOL)connectWithTimeout:(NSTimeInterval)timeout error:(WIError **)error;
 - (BOOL)connectWithTLS:(WISocketTLS *)tls timeout:(NSTimeInterval)timeout error:(WIError **)error;
+- (BOOL)listenWithBacklog:(NSUInteger)backlog error:(WIError **)error;
+- (WISocket *)acceptWithTimeout:(NSTimeInterval)timeout error:(WIError **)error;
 - (void)close;
 
 - (BOOL)writeString:(NSString *)string encoding:(NSStringEncoding)encoding timeout:(NSTimeInterval)timeout error:(WIError **)error;

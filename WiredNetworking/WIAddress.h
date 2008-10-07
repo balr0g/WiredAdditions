@@ -42,10 +42,11 @@ typedef enum _WIAddressFamily		WIAddressFamily;
 	NSString						*_string;
 }
 
-
++ (WIAddress *)addressWildcardForFamily:(WIAddressFamily)family;
 + (WIAddress *)addressWithString:(NSString *)address error:(WIError **)error;
 + (WIAddress *)addressWithNetService:(NSNetService *)netService error:(WIError **)error;
 
+- (id)initWildcardForFamily:(WIAddressFamily)family;
 - (id)initWithString:(NSString *)address error:(WIError **)error;
 - (id)initWithNetService:(NSNetService *)netService error:(WIError **)error;
 
@@ -61,6 +62,7 @@ typedef enum _WIAddressFamily		WIAddressFamily;
 
 @interface WIAddress(WISocketAdditions)
 
+- (id)initWithAddress:(wi_address_t *)address;
 - (wi_address_t *)address;
 
 @end

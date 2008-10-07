@@ -87,6 +87,14 @@
 			case WISocketConnectFailed:
 				return WILS(@"Connect Failed", @"WIError: WISocketConnectFailed title");
 				break;
+			
+			case WISocketListenFailed:
+				return WILS(@"Listen Failed", @"WIError: WISocketListenFailed title");
+				break;
+				
+			case WISocketAcceptFailed:
+				return WILS(@"Accept Failed", @"WIError: WISocketAcceptFailed title");
+				break;
 				
 			case WISocketWriteFailed:
 				return WILS(@"Socket Write Failed", @"WIError: WISocketWriteFailed title");
@@ -130,6 +138,16 @@
 				
 			case WISocketConnectFailed:
 				return [NSSWF:WILS(@"Could not connect to %@: %@.", @"WIError: WISocketConnectFailed description (address, underlying error)"),
+					argument, error];
+				break;
+			
+			case WISocketListenFailed:
+				return [NSSWF:WILS(@"Could not listen on %@: %@.", @"WIError: WISocketListenFailed description (address, underlying error)"),
+					argument, error];
+				break;
+				
+			case WISocketAcceptFailed:
+				return [NSSWF:WILS(@"Could not accept a connection for %@: %@.", @"WIError: WISocketAcceptFailed description (address, underlying error)"),
 					argument, error];
 				break;
 				
