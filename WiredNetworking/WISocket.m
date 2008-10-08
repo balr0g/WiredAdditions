@@ -687,6 +687,7 @@ end:
 		}
 		
 		if(_socketRef) {
+			CFSocketInvalidate(_socketRef);
 			CFRelease(_socketRef);
 			_socketRef = NULL;
 		}
