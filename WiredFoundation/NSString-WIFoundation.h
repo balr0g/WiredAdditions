@@ -30,10 +30,10 @@
 
 @interface NSString(WIFoundation)
 
-+ (NSString *)stringWithFormat:(NSString *)format arguments:(va_list)arguments;
-+ (NSString *)stringWithData:(NSData *)data encoding:(NSStringEncoding)encoding;
-
-+ (NSString *)UUIDString;
++ (id)stringWithFormat:(NSString *)format arguments:(va_list)arguments;
++ (id)stringWithData:(NSData *)data encoding:(NSStringEncoding)encoding;
++ (id)stringWithRandomCharactersFromString:(NSString *)string length:(NSUInteger)length;
++ (id)UUIDString;
 
 - (NSUInteger)UTF8StringLength;
 #if MAC_OS_X_VERSION_10_5 > MAC_OS_X_VERSION_MAX_ALLOWED
@@ -45,7 +45,7 @@
 - (NSUInteger)unsignedIntegerValue;
 
 - (BOOL)containsSubstring:(NSString *)string;
-- (BOOL)containsSubstring:(NSString *)string options:(unsigned int)options;
+- (BOOL)containsSubstring:(NSString *)string options:(NSUInteger)options;
 - (BOOL)containsCharactersFromSet:(NSCharacterSet *)set;
 - (BOOL)isComposedOfCharactersFromSet:(NSCharacterSet *)characterSet;
 
@@ -92,7 +92,7 @@
 @interface NSMutableString(WIFoundation)
 
 - (NSUInteger)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement;
-- (NSUInteger)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement options:(unsigned int)options;
+- (NSUInteger)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement options:(NSUInteger)options;
 - (void)removeSurroundingWhitespace;
 
 - (void)applyFilter:(WITextFilter *)filter;

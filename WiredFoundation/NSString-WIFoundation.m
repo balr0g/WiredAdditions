@@ -31,29 +31,50 @@
 
 @implementation NSString(WIFoundation)
 
-+ (NSString *)stringWithFormat:(NSString *)format arguments:(va_list)arguments {
-	return [[[NSString alloc] initWithFormat:format arguments:arguments] autorelease];
++ (id)stringWithFormat:(NSString *)format arguments:(va_list)arguments {
+	return [[[self alloc] initWithFormat:format arguments:arguments] autorelease];
 }
 
 
 
-+ (NSString *)stringWithData:(NSData *)data encoding:(NSStringEncoding)encoding {
-	return [[[NSString alloc] initWithData:data encoding:encoding] autorelease];
++ (id)stringWithData:(NSData *)data encoding:(NSStringEncoding)encoding {
+	return [[[self alloc] initWithData:data encoding:encoding] autorelease];
 }
 
 
 
-#pragma mark -
++ (id)stringWithRandomCharactersFromString:(NSString *)characters length:(NSUInteger)length {
+	NSMutableString		*string;
+	NSUInteger			count;
+	
+	string = [NSMutableString string];
+	count = [characters length];
+	
+	while(length > 0) {
+		[string appendFormat:@"%C", [characters characterAtIndex:random() % count]];
+		
+		length--;
+	}
+	
+	return string;
+}
 
-+ (NSString *)UUIDString { 
-	CFUUIDRef		uuid;
-	CFStringRef		string;
 
-	uuid = CFUUIDCreate(NULL);
-	string = CFUUIDCreateString(NULL, uuid);
-	CFRelease(uuid);
 
-	return [(NSString *) string autorelease];
++ (id)UUIDString { 
+	NSString		*string;
+	CFUUIDRef		uuidRef;
+	CFStringRef		stringRef;
+
+	uuidRef = CFUUIDCreate(NULL);
+	stringRef = CFUUIDCreateString(NULL, uuidRef);
+	CFRelease(uuidRef);
+	
+	string = [[self alloc] initWithString:(NSString *) stringRef];
+	
+	CFRelease(stringRef);
+	
+	return [string autorelease];
 }
 
 
@@ -121,7 +142,7 @@
 }
  
 
-- (BOOL)containsSubstring:(NSString *)string options:(unsigned int)options {
+- (BOOL)containsSubstring:(NSString *)string options:(NSUInteger)options {
 	return ([self rangeOfString:string options:options].location != NSNotFound);
 }
  
@@ -598,7 +619,7 @@
 
 
 
-- (NSUInteger)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement options:(unsigned int)options {
+- (NSUInteger)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement options:(NSUInteger)options {
 	return [self replaceOccurrencesOfString:target withString:replacement options:options range:NSMakeRange(0, [self length])];
 }
 
