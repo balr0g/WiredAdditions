@@ -920,7 +920,7 @@
 			children = (
 				7712BB4C0E5C1789001C4210 /* WiredFoundation */,
 				7712BC730E5C19BC001C4210 /* WiredAppKit */,
-				774896E70CC8A5CC00E95A83 /* Wired Networking */,
+				774896E70CC8A5CC00E95A83 /* WiredNetworking */,
 				A5C23D1C0E9AC48900A81F49 /* libwired */,
 				773966D8085753BC00058AF5 /* Config */,
 				77A153BB08B0A59500FC27ED /* Scripts */,
@@ -1042,7 +1042,7 @@
 			name = Config;
 			sourceTree = "<group>";
 		};
-		774896E70CC8A5CC00E95A83 /* Wired Networking */ = {
+		774896E70CC8A5CC00E95A83 /* WiredNetworking */ = {
 			isa = PBXGroup;
 			children = (
 				774897A50CC8A66000E95A83 /* WiredNetworking.h */,
@@ -1051,7 +1051,7 @@
 				7748985F0CC8A71700E95A83 /* Resources */,
 				77489BFC0CC8B01C00E95A83 /* Sources */,
 			);
-			name = "Wired Networking";
+			name = WiredNetworking;
 			sourceTree = "<group>";
 		};
 		7748985F0CC8A71700E95A83 /* Resources */ = {
