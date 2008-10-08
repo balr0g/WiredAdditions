@@ -159,6 +159,12 @@
 
 
 
+- (NSString *)description {
+	return [NSSWF:@"<%@: %p>{address = %@}", [self class], self, [self string]];
+}
+
+
+
 - (void)dealloc {
 	[_string release];
 	
