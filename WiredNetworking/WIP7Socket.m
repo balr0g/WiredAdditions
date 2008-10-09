@@ -90,7 +90,10 @@ static void _WIP7SocketWroteMessage(wi_p7_socket_t *p7Socket, wi_p7_message_t *p
 	_spec		= [spec retain];
 	
 	_p7Socket = wi_p7_socket_init_with_socket(wi_p7_socket_alloc(), [_socket socket], [_spec spec]);
+	
+#ifdef WI_SSL
 	wi_p7_socket_set_tls(_p7Socket, [tls TLS]);
+#endif
 	
 	return self;
 }
@@ -185,21 +188,29 @@ static void _WIP7SocketWroteMessage(wi_p7_socket_t *p7Socket, wi_p7_message_t *p
 
 
 - (NSString *)cipherName {
+#ifdef WI_RSA
 	NSString		*string;
 	
 	string = [NSString stringWithWiredString:wi_cipher_name(wi_p7_socket_cipher(_p7Socket))];
 	
 	return string;
+#else
+	return NULL;
+#endif
 }
 
 
 
 - (NSUInteger)cipherBits {
+#ifdef WI_RSA
 	wi_cipher_t		*cipher;
 	
 	cipher = wi_p7_socket_cipher(_p7Socket);
 	
 	return cipher ? wi_cipher_bits(cipher) : 0;
+#else
+	return 0;
+#endif
 }
 
 

@@ -54,6 +54,7 @@ static void _WISocketCallback(CFSocketRef socketRef, CFSocketCallBackType callba
 @implementation WISocketTLS(Private)
 
 - (id)_initForClient {
+#ifdef WI_SSL
 	wi_pool_t	*pool;
 	
 	self = [super init];
@@ -63,6 +64,11 @@ static void _WISocketCallback(CFSocketRef socketRef, CFSocketCallBackType callba
 	wi_release(pool);
 
 	return self;
+#else
+	[self release];
+	
+	return NULL;
+#endif
 }
 
 @end
@@ -96,11 +102,13 @@ static void _WISocketCallback(CFSocketRef socketRef, CFSocketCallBackType callba
 #pragma mark -
 
 - (void)setSSLCiphers:(NSString *)ciphers {
+#ifdef WI_SSL
 	wi_pool_t	*pool;
 	
 	pool = wi_pool_init(wi_pool_alloc());
 	wi_socket_tls_set_ciphers(_tls, [ciphers wiredString]);
 	wi_release(pool);
+#endif
 }
 
 @end
@@ -424,6 +432,7 @@ static void _WISocketCallback(CFSocketRef socketRef, CFSocketCallBackType callba
 
 
 - (BOOL)connectWithTLS:(WISocketTLS *)tls timeout:(NSTimeInterval)timeout error:(WIError **)error {
+#ifdef WI_SSL
 	wi_pool_t		*pool;
 	BOOL			result = YES;
 	
@@ -439,6 +448,9 @@ static void _WISocketCallback(CFSocketRef socketRef, CFSocketCallBackType callba
 	wi_release(pool);
 	
 	return result;
+#else
+	return NO;
+#endif
 }
 
 

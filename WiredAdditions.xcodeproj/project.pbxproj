@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 45;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -165,9 +165,9 @@
 		7712BDAD0E5C1FC5001C4210 /* WIURL.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C11C0758DFA9008446CF /* WIURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BDAF0E5C1FD9001C4210 /* WISettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 776627E80795354B00F691E2 /* WISettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BDB10E5C1FED001C4210 /* WITextFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C11D0758DFA9008446CF /* WITextFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7712BDC30E5C205C001C4210 /* WiredFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation.framework */; };
+		7712BDC30E5C205C001C4210 /* WiredFoundation in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation */; };
 		7712BDE60E5C20AE001C4210 /* NSEvent-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C08F0758DEEE008446CF /* NSEvent-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7712BECB0E5C2216001C4210 /* WiredFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation.framework */; };
+		7712BECB0E5C2216001C4210 /* WiredFoundation in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation */; };
 		7712BF130E5C224F001C4210 /* WiredAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7712BC930E5C1A87001C4210 /* WiredAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BF150E5C2292001C4210 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		7712C0A20E5C23D1001C4210 /* NSApplication-WIAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C4AA0973FF5E009367B0 /* NSApplication-WIAppKit.m */; };
@@ -487,6 +487,13 @@
 			remoteGlobalIDString = 7712BA960E5C1726001C4210;
 			remoteInfo = WiredFoundation;
 		};
+		77CBEAE10E9E350F00EB2878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5C23CFE0E9AC2AB00A81F49;
+			remoteInfo = libwired;
+		};
 		77DBEBD60E62BA0600B738D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
@@ -516,10 +523,10 @@
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		77056C8809D7E9C4002AC912 /* NSSplitView-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSSplitView-WIAppKit.m"; path = "WiredAppKit/NSSplitView-WIAppKit.m"; sourceTree = "<group>"; };
 		77056C8909D7E9C4002AC912 /* NSSplitView-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSSplitView-WIAppKit.h"; path = "WiredAppKit/NSSplitView-WIAppKit.h"; sourceTree = "<group>"; };
-		7712BB320E5C1726001C4210 /* WiredFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiredFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7712BB320E5C1726001C4210 /* WiredFoundation */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = folder; path = WiredFoundation; sourceTree = BUILT_PRODUCTS_DIR; };
 		7712BB510E5C17A7001C4210 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = prefix.pch; path = WiredFoundation/prefix.pch; sourceTree = "<group>"; };
 		7712BB520E5C17B0001C4210 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WiredFoundation/Info.plist; sourceTree = "<group>"; };
-		7712BC030E5C1964001C4210 /* WiredAppKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiredAppKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7712BC030E5C1964001C4210 /* WiredAppKit */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = WiredAppKit; sourceTree = BUILT_PRODUCTS_DIR; };
 		7712BC780E5C19D6001C4210 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WiredAppKit/Info.plist; sourceTree = "<group>"; };
 		7712BC790E5C19DB001C4210 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = prefix.pch; path = WiredAppKit/prefix.pch; sourceTree = "<group>"; };
 		7712BC8D0E5C1A5A001C4210 /* WiredFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WiredFoundation.h; path = WiredFoundation/WiredFoundation.h; sourceTree = "<group>"; };
@@ -566,7 +573,7 @@
 		773F64380E5DBC21001A753B /* NSFileManager-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager-WIAppKit.h"; path = "WiredAppKit/NSFileManager-WIAppKit.h"; sourceTree = "<group>"; };
 		773F64390E5DBC21001A753B /* NSFileManager-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager-WIAppKit.m"; path = "WiredAppKit/NSFileManager-WIAppKit.m"; sourceTree = "<group>"; };
 		773F65070E5DBDC1001A753B /* libWiredFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWiredFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		774897900CC8A63200E95A83 /* WiredNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiredNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		774897900CC8A63200E95A83 /* WiredNetworking */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = WiredNetworking; sourceTree = BUILT_PRODUCTS_DIR; };
 		774897A50CC8A66000E95A83 /* WiredNetworking.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = WiredNetworking.h; path = WiredNetworking/WiredNetworking.h; sourceTree = "<group>"; };
 		774898740CC8A82600E95A83 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Info.plist; path = WiredNetworking/Info.plist; sourceTree = "<group>"; };
 		77489B610CC8ACCE00E95A83 /* WIThread.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = WIThread.m; path = WiredNetworking/WIThread.m; sourceTree = "<group>"; };
@@ -868,7 +875,7 @@
 				7712BBFA0E5C1964001C4210 /* Cocoa.framework in Frameworks */,
 				7712BBFB0E5C1964001C4210 /* ExceptionHandling.framework in Frameworks */,
 				7712BBFC0E5C1964001C4210 /* Quartz.framework in Frameworks */,
-				7712BDC30E5C205C001C4210 /* WiredFoundation.framework in Frameworks */,
+				7712BDC30E5C205C001C4210 /* WiredFoundation in Frameworks */,
 				7712BBFD0E5C1964001C4210 /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -881,7 +888,7 @@
 				774897870CC8A63200E95A83 /* Carbon.framework in Frameworks */,
 				774897890CC8A63200E95A83 /* ExceptionHandling.framework in Frameworks */,
 				7712BF150E5C2292001C4210 /* Foundation.framework in Frameworks */,
-				7712BECB0E5C2216001C4210 /* WiredFoundation.framework in Frameworks */,
+				7712BECB0E5C2216001C4210 /* WiredFoundation in Frameworks */,
 				A565B3B20D5D99BC00AF91BA /* libcrypto.dylib in Frameworks */,
 				A565B3B30D5D99BC00AF91BA /* libssl.dylib in Frameworks */,
 				A5C2403C0E9AC9E100A81F49 /* libwired.a in Frameworks */,
@@ -903,9 +910,9 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7712BB320E5C1726001C4210 /* WiredFoundation.framework */,
-				7712BC030E5C1964001C4210 /* WiredAppKit.framework */,
-				774897900CC8A63200E95A83 /* WiredNetworking.framework */,
+				7712BB320E5C1726001C4210 /* WiredFoundation */,
+				7712BC030E5C1964001C4210 /* WiredAppKit */,
+				774897900CC8A63200E95A83 /* WiredNetworking */,
 				773F65070E5DBDC1001A753B /* libWiredFoundation.a */,
 				77DBEA800E62B8F500B738D3 /* libWiredAppKit.a */,
 				77DBEB930E62B97300B738D3 /* libWiredNetworking.a */,
@@ -1684,7 +1691,7 @@
 			name = WiredFoundation;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = WiredAdditions;
-			productReference = 7712BB320E5C1726001C4210 /* WiredFoundation.framework */;
+			productReference = 7712BB320E5C1726001C4210 /* WiredFoundation */;
 			productType = "com.apple.product-type.framework";
 		};
 		7712BB670E5C1964001C4210 /* WiredAppKit */ = {
@@ -1704,7 +1711,7 @@
 			name = WiredAppKit;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = WiredAdditions;
-			productReference = 7712BC030E5C1964001C4210 /* WiredAppKit.framework */;
+			productReference = 7712BC030E5C1964001C4210 /* WiredAppKit */;
 			productType = "com.apple.product-type.framework";
 		};
 		773F65060E5DBDC1001A753B /* StaticWiredFoundation */ = {
@@ -1741,7 +1748,7 @@
 			name = WiredNetworking;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = WiredAdditions;
-			productReference = 774897900CC8A63200E95A83 /* WiredNetworking.framework */;
+			productReference = 774897900CC8A63200E95A83 /* WiredNetworking */;
 			productType = "com.apple.product-type.framework";
 		};
 		77DBEA470E62B8F500B738D3 /* StaticWiredAppKit */ = {
@@ -1772,6 +1779,7 @@
 			);
 			dependencies = (
 				77DBEBD70E62BA0600B738D3 /* PBXTargetDependency */,
+				77CBEAE20E9E350F00EB2878 /* PBXTargetDependency */,
 			);
 			name = StaticWiredNetworking;
 			productName = StaticWiredFoundation;
@@ -1802,7 +1810,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 773966CD0857539700058AF5 /* Build configuration list for PBXProject "WiredAdditions" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -1887,15 +1895,15 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/libwired/Makefile.in",
+				"$(SRCROOT)/libwired/Makefile",
 			);
 			name = "Run Script (configure)";
 			outputPaths = (
-				"$(SRCROOT)/libwired/Makefile",
+				"$(DERIVED_SOURCES_DIR)/config.h",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -z \"$SDKROOT\" ]; then\n\tSDKROOT=$(eval echo SDKROOT_i386); SDKROOT=$(eval echo \\$$SDKROOT)\nfi\n\nif [ -z \"$MACOSX_DEPLOYMENT_TARGET\" ]; then\n\tMACOSX_DEPLOYMENT_TARGET=$(eval echo MACOSX_DEPLOYMENT_TARGET_i386); MACOSX_DEPLOYMENT_TARGET=$(eval echo \\$$MACOSX_DEPLOYMENT_TARGET)\nfi\n\nif [ \"$CONFIGURATION\" = \"Debug/Native/32\" -o \"$CONFIGURATION\" = \"Debug/Native/64\" ]; then\n\tCFLAGS=\"-gdwarf-2 -O0\"\nelse\n\tCFLAGS=\"-gdwarf-2 -O2\"\nfi\n\nif [ -d \"$SRCROOT/libwired/openssl\" ]; then\n\tCPPFLAGS=\"-I$SRCROOT/libwired/openssl/include\"\n\tLDFLAGS=\"-L$SRCROOT/libwired/openssl/lib\"\nfi\n\nif [ \"$IPHONEOS_DEPLOYMENT_TARGET\" ]; then\n\tCFLAGS=\"$CFLAGS -miphoneos-version-min=$IPHONEOS_DEPLOYMENT_TARGET\"\nelif [ \"$MACOSX_DEPLOYMENT_TARGET\" ]; then\n\tCFLAGS=\"$CFLAGS -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET\"\nfi\n\ncd libwired\n\nif [ ! -f Makefile ]; then\n\tCFLAGS=\"$CFLAGS\" CPPFLAGS=\"$CPPFLAGS -isysroot $SDKROOT\" LDFLAGS=\"$LDFLAGS\"  ./configure --enable-warnings --enable-pthreads --enable-ssl --enable-p7 || exit 1\nfi";
+			shellScript = "ARCH=$(echo \"$ARCHS\" | awk '{print $0'})\n\nif [ -z \"$SDKROOT\" ]; then\n\tSDKROOT=$(eval echo SDKROOT_$ARCH); SDKROOT=$(eval echo \\$$SDKROOT)\nfi\n\nif [ -z \"$MACOSX_DEPLOYMENT_TARGET\" ]; then\n\tMACOSX_DEPLOYMENT_TARGET=$(eval echo MACOSX_DEPLOYMENT_TARGET_$ARCH); MACOSX_DEPLOYMENT_TARGET=$(eval echo \\$$MACOSX_DEPLOYMENT_TARGET)\nfi\n\nif [ $(echo \"$CONFIGURATION\" | grep -c \"Debug\") = 1 ]; then\n\tCFLAGS=\"-gdwarf-2 -O0\"\nelse\n\tCFLAGS=\"-gdwarf-2 -O2\"\nfi\n\nif [ \"$IPHONEOS_DEPLOYMENT_TARGET\" ]; then\n\tCFLAGS=\"$CFLAGS -miphoneos-version-min=$IPHONEOS_DEPLOYMENT_TARGET\"\nelif [ \"$MACOSX_DEPLOYMENT_TARGET\" ]; then\n\tCFLAGS=\"$CFLAGS -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET\"\nfi\n\nBUILD=$(\"$SRCROOT/libwired/config.guess\")\nHOST=\"$ARCH-apple-darwin$(uname -r)\"\n\ncd libwired\n\nif [ ! -f \"$DERIVED_SOURCES_DIR/config.h\" ]; then\n\tCC=\"gcc -arch $ARCH\" CFLAGS=\"$CFLAGS\" CPPFLAGS=\"$CPPFLAGS -isysroot $SDKROOT\" LDFLAGS=\"$LDFLAGS\" ./configure --host=\"$HOST\" --build=\"$BUILD\" --enable-warnings --enable-pthreads --enable-ssl --enable-p7 || exit 1\n\n\tmv config.h \"$DERIVED_SOURCES_DIR/config.h\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2161,6 +2169,11 @@
 			target = 7712BA960E5C1726001C4210 /* WiredFoundation */;
 			targetProxy = 7712BEC90E5C2213001C4210 /* PBXContainerItemProxy */;
 		};
+		77CBEAE20E9E350F00EB2878 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5C23CFE0E9AC2AB00A81F49 /* libwired */;
+			targetProxy = 77CBEAE10E9E350F00EB2878 /* PBXContainerItemProxy */;
+		};
 		77DBEBD70E62BA0600B738D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 773F65060E5DBDC1001A753B /* StaticWiredFoundation */;
@@ -2278,7 +2291,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		7712BB2E0E5C1726001C4210 /* Debug/Native/32 */ = {
+		7712BB2E0E5C1726001C4210 /* Debug/Native */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2299,30 +2312,7 @@
 				PRODUCT_NAME = WiredFoundation;
 				WRAPPER_EXTENSION = framework;
 			};
-			name = Debug/Native/32;
-		};
-		7712BB2F0E5C1726001C4210 /* Debug/Native/64 */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
-				HEADER_SEARCH_PATHS = (
-					"$(HEADER_SEARCH_PATHS)",
-					"$(BUILT_PRODUCTS_DIR)",
-				);
-				INFOPLIST_FILE = WiredFoundation/Info.plist;
-				INSTALL_PATH = "@executable_path/../Frameworks";
-				OTHER_LDFLAGS = (
-					"-seg1addr",
-					0xb0000000,
-				);
-				PRODUCT_NAME = WiredFoundation;
-				WRAPPER_EXTENSION = framework;
-			};
-			name = Debug/Native/64;
+			name = Debug/Native;
 		};
 		7712BB300E5C1726001C4210 /* Test/Universal */ = {
 			isa = XCBuildConfiguration;
@@ -2370,7 +2360,7 @@
 			};
 			name = Release/Universal;
 		};
-		7712BBFF0E5C1964001C4210 /* Debug/Native/32 */ = {
+		7712BBFF0E5C1964001C4210 /* Debug/Native */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2391,30 +2381,7 @@
 				PRODUCT_NAME = WiredAppKit;
 				WRAPPER_EXTENSION = framework;
 			};
-			name = Debug/Native/32;
-		};
-		7712BC000E5C1964001C4210 /* Debug/Native/64 */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = WiredAppKit/prefix.pch;
-				HEADER_SEARCH_PATHS = (
-					"$(HEADER_SEARCH_PATHS)",
-					"$(BUILT_PRODUCTS_DIR)",
-				);
-				INFOPLIST_FILE = WiredAppKit/Info.plist;
-				INSTALL_PATH = "@executable_path/../Frameworks";
-				OTHER_LDFLAGS = (
-					"-seg1addr",
-					0xb0000000,
-				);
-				PRODUCT_NAME = WiredAppKit;
-				WRAPPER_EXTENSION = framework;
-			};
-			name = Debug/Native/64;
+			name = Debug/Native;
 		};
 		7712BC010E5C1964001C4210 /* Test/Universal */ = {
 			isa = XCBuildConfiguration;
@@ -2462,7 +2429,7 @@
 			};
 			name = Release/Universal;
 		};
-		773966BE0857539700058AF5 /* Debug/Native/32 */ = {
+		773966BE0857539700058AF5 /* Debug/Native */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
@@ -2481,7 +2448,7 @@
 				);
 				ZERO_LINK = YES;
 			};
-			name = Debug/Native/32;
+			name = Debug/Native;
 		};
 		773966C00857539700058AF5 /* Release/Universal */ = {
 			isa = XCBuildConfiguration;
@@ -2499,35 +2466,63 @@
 			};
 			name = Release/Universal;
 		};
-		773966CE0857539700058AF5 /* Debug/Native/32 */ = {
+		773966CE0857539700058AF5 /* Debug/Native */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
-				PREBINDING = NO;
-				ZERO_LINK = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG,
+					WI_DIGESTS,
+					WI_CIPHERS,
+					WI_RSA,
+					WI_SSL,
+					WI_PTHREADS,
+					WI_PLIST,
+					WI_P7,
+				);
+				MACOSX_DEPLOYMENT_TARGET_i386 = 10.4;
+				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
+				MACOSX_DEPLOYMENT_TARGET_ppc64 = 10.5;
+				MACOSX_DEPLOYMENT_TARGET_x86_64 = 10.5;
+				SDKROOT_i386 = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
+				SDKROOT_ppc = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
+				SDKROOT_ppc64 = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT_x86_64 = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 			};
-			name = Debug/Native/32;
+			name = Debug/Native;
 		};
 		773966D00857539700058AF5 /* Release/Universal */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */;
 			buildSettings = {
-				ARCHS = (
-					i386,
-					ppc,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_PREPROCESSOR_DEFINITIONS = RELEASE;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					RELEASE,
+					WI_DIGESTS,
+					WI_CIPHERS,
+					WI_RSA,
+					WI_SSL,
+					WI_PTHREADS,
+					WI_PLIST,
+					WI_P7,
+				);
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET_i386 = 10.4;
+				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
+				MACOSX_DEPLOYMENT_TARGET_ppc64 = 10.5;
+				MACOSX_DEPLOYMENT_TARGET_x86_64 = 10.5;
 				PREBINDING = NO;
+				SDKROOT_i386 = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
+				SDKROOT_ppc = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
+				SDKROOT_ppc64 = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT_x86_64 = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 			};
 			name = Release/Universal;
 		};
-		773F65080E5DBDC2001A753B /* Debug/Native/32 */ = {
+		773F65080E5DBDC2001A753B /* Debug/Native */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2540,22 +2535,7 @@
 				PRODUCT_NAME = WiredFoundation;
 				PUBLIC_HEADERS_FOLDER_PATH = WiredFoundation;
 			};
-			name = Debug/Native/32;
-		};
-		773F65090E5DBDC2001A753B /* Debug/Native/64 */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
-				HEADER_SEARCH_PATHS = (
-					"$(HEADER_SEARCH_PATHS)",
-					"$(BUILT_PRODUCTS_DIR)",
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = WiredFoundation;
-				PUBLIC_HEADERS_FOLDER_PATH = WiredFoundation;
-			};
-			name = Debug/Native/64;
+			name = Debug/Native;
 		};
 		773F650A0E5DBDC2001A753B /* Test/Universal */ = {
 			isa = XCBuildConfiguration;
@@ -2587,7 +2567,7 @@
 			};
 			name = Release/Universal;
 		};
-		7748978C0CC8A63200E95A83 /* Debug/Native/32 */ = {
+		7748978C0CC8A63200E95A83 /* Debug/Native */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2608,30 +2588,7 @@
 				PRODUCT_NAME = WiredNetworking;
 				WRAPPER_EXTENSION = framework;
 			};
-			name = Debug/Native/32;
-		};
-		7748978D0CC8A63200E95A83 /* Debug/Native/64 */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
-				HEADER_SEARCH_PATHS = (
-					"$(HEADER_SEARCH_PATHS)",
-					"$(BUILT_PRODUCTS_DIR)",
-				);
-				INFOPLIST_FILE = WiredNetworking/Info.plist;
-				INSTALL_PATH = "@executable_path/../Frameworks";
-				OTHER_LDFLAGS = (
-					"-seg1addr",
-					0xb0000000,
-				);
-				PRODUCT_NAME = WiredNetworking;
-				WRAPPER_EXTENSION = framework;
-			};
-			name = Debug/Native/64;
+			name = Debug/Native;
 		};
 		7748978E0CC8A63200E95A83 /* Test/Universal */ = {
 			isa = XCBuildConfiguration;
@@ -2679,22 +2636,110 @@
 			};
 			name = Release/Universal;
 		};
-		77DBEA7C0E62B8F500B738D3 /* Debug/Native/32 */ = {
+		77CBE7500E9E309B00EB2878 /* Debug/iPhone */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */;
 			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = WiredAppKit/prefix.pch;
-				HEADER_SEARCH_PATHS = (
-					"$(HEADER_SEARCH_PATHS)",
-					"$(BUILT_PRODUCTS_DIR)",
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG,
+					WI_DIGESTS,
+					WI_CIPHERS,
+					WI_PTHREADS,
+					WI_PLIST,
+					WI_P7,
 				);
-				PREBINDING = NO;
-				PRODUCT_NAME = WiredAppKit;
-				PUBLIC_HEADERS_FOLDER_PATH = WiredAppKit;
+				SDKROOT = iphoneos2.0;
 			};
-			name = Debug/Native/32;
+			name = Debug/iPhone;
 		};
-		77DBEA7D0E62B8F500B738D3 /* Debug/Native/64 */ = {
+		77CBE7510E9E309B00EB2878 /* Debug/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				INFOPLIST_FILE = WiredFoundation/Info.plist;
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0xb0000000,
+				);
+				PRODUCT_NAME = WiredFoundation;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug/iPhone;
+		};
+		77CBE7520E9E309B00EB2878 /* Debug/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredAppKit/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				INFOPLIST_FILE = WiredAppKit/Info.plist;
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0xb0000000,
+				);
+				PRODUCT_NAME = WiredAppKit;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug/iPhone;
+		};
+		77CBE7530E9E309B00EB2878 /* Debug/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				INFOPLIST_FILE = WiredNetworking/Info.plist;
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0xb0000000,
+				);
+				PRODUCT_NAME = WiredNetworking;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug/iPhone;
+		};
+		77CBE7540E9E309B00EB2878 /* Debug/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = WiredFoundation;
+				PUBLIC_HEADERS_FOLDER_PATH = WiredFoundation;
+			};
+			name = Debug/iPhone;
+		};
+		77CBE7550E9E309B00EB2878 /* Debug/iPhone */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2707,7 +2752,397 @@
 				PRODUCT_NAME = WiredAppKit;
 				PUBLIC_HEADERS_FOLDER_PATH = WiredAppKit;
 			};
-			name = Debug/Native/64;
+			name = Debug/iPhone;
+		};
+		77CBE7560E9E309B00EB2878 /* Debug/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = WiredNetworking;
+				PUBLIC_HEADERS_FOLDER_PATH = WiredNetworking;
+			};
+			name = Debug/iPhone;
+		};
+		77CBE7570E9E309B00EB2878 /* Debug/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)",
+					/usr/include/libxml2,
+				);
+				LIBRARY_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)\"";
+				PRODUCT_NAME = wired;
+				PUBLIC_HEADERS_FOLDER_PATH = wired;
+			};
+			name = Debug/iPhone;
+		};
+		77CBE7580E9E309B00EB2878 /* Debug/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "-DDEVELOPMENT";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Localization;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = YES;
+			};
+			name = Debug/iPhone;
+		};
+		77CBE7590E9E30A400EB2878 /* Test/iPhone */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					TEST,
+					WI_DIGESTS,
+					WI_CIPHERS,
+					WI_PTHREADS,
+					WI_PLIST,
+					WI_P7,
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos2.0;
+			};
+			name = Test/iPhone;
+		};
+		77CBE75A0E9E30A400EB2878 /* Test/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				INFOPLIST_FILE = WiredFoundation/Info.plist;
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0xb0000000,
+				);
+				PRODUCT_NAME = WiredFoundation;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Test/iPhone;
+		};
+		77CBE75B0E9E30A400EB2878 /* Test/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredAppKit/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				INFOPLIST_FILE = WiredAppKit/Info.plist;
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0xb0000000,
+				);
+				PRODUCT_NAME = WiredAppKit;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Test/iPhone;
+		};
+		77CBE75C0E9E30A400EB2878 /* Test/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				INFOPLIST_FILE = WiredNetworking/Info.plist;
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0xb0000000,
+				);
+				PRODUCT_NAME = WiredNetworking;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Test/iPhone;
+		};
+		77CBE75D0E9E30A400EB2878 /* Test/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = WiredFoundation;
+				PUBLIC_HEADERS_FOLDER_PATH = WiredFoundation;
+			};
+			name = Test/iPhone;
+		};
+		77CBE75E0E9E30A400EB2878 /* Test/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredAppKit/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = WiredAppKit;
+				PUBLIC_HEADERS_FOLDER_PATH = WiredAppKit;
+			};
+			name = Test/iPhone;
+		};
+		77CBE75F0E9E30A400EB2878 /* Test/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = WiredNetworking;
+				PUBLIC_HEADERS_FOLDER_PATH = WiredNetworking;
+			};
+			name = Test/iPhone;
+		};
+		77CBE7600E9E30A400EB2878 /* Test/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)",
+					/usr/include/libxml2,
+				);
+				LIBRARY_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)\"";
+				PRODUCT_NAME = wired;
+				PUBLIC_HEADERS_FOLDER_PATH = wired;
+			};
+			name = Test/iPhone;
+		};
+		77CBE7610E9E30A400EB2878 /* Test/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Localization;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Test/iPhone;
+		};
+		77CBE7620E9E30AA00EB2878 /* Release/iPhone */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					RELEASE,
+					WI_DIGESTS,
+					WI_CIPHERS,
+					WI_PTHREADS,
+					WI_PLIST,
+					WI_P7,
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos2.0;
+			};
+			name = Release/iPhone;
+		};
+		77CBE7630E9E30AA00EB2878 /* Release/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				INFOPLIST_FILE = WiredFoundation/Info.plist;
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0xb0000000,
+				);
+				PRODUCT_NAME = WiredFoundation;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release/iPhone;
+		};
+		77CBE7640E9E30AA00EB2878 /* Release/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredAppKit/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				INFOPLIST_FILE = WiredAppKit/Info.plist;
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0xb0000000,
+				);
+				PRODUCT_NAME = WiredAppKit;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release/iPhone;
+		};
+		77CBE7650E9E30AA00EB2878 /* Release/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				INFOPLIST_FILE = WiredNetworking/Info.plist;
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0xb0000000,
+				);
+				PRODUCT_NAME = WiredNetworking;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release/iPhone;
+		};
+		77CBE7660E9E30AA00EB2878 /* Release/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = WiredFoundation;
+				PUBLIC_HEADERS_FOLDER_PATH = WiredFoundation;
+			};
+			name = Release/iPhone;
+		};
+		77CBE7670E9E30AA00EB2878 /* Release/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredAppKit/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = WiredAppKit;
+				PUBLIC_HEADERS_FOLDER_PATH = WiredAppKit;
+			};
+			name = Release/iPhone;
+		};
+		77CBE7680E9E30AA00EB2878 /* Release/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = WiredNetworking;
+				PUBLIC_HEADERS_FOLDER_PATH = WiredNetworking;
+			};
+			name = Release/iPhone;
+		};
+		77CBE7690E9E30AA00EB2878 /* Release/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(BUILT_PRODUCTS_DIR)",
+					/usr/include/libxml2,
+				);
+				LIBRARY_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)\"";
+				PRODUCT_NAME = wired;
+				PUBLIC_HEADERS_FOLDER_PATH = wired;
+			};
+			name = Release/iPhone;
+		};
+		77CBE76A0E9E30AA00EB2878 /* Release/iPhone */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Localization;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release/iPhone;
+		};
+		77DBEA7C0E62B8F500B738D3 /* Debug/Native */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WiredAppKit/prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS)",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = WiredAppKit;
+				PUBLIC_HEADERS_FOLDER_PATH = WiredAppKit;
+			};
+			name = Debug/Native;
 		};
 		77DBEA7E0E62B8F500B738D3 /* Test/Universal */ = {
 			isa = XCBuildConfiguration;
@@ -2739,7 +3174,7 @@
 			};
 			name = Release/Universal;
 		};
-		77DBEB8F0E62B97300B738D3 /* Debug/Native/32 */ = {
+		77DBEB8F0E62B97300B738D3 /* Debug/Native */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2752,22 +3187,7 @@
 				PRODUCT_NAME = WiredNetworking;
 				PUBLIC_HEADERS_FOLDER_PATH = WiredNetworking;
 			};
-			name = Debug/Native/32;
-		};
-		77DBEB900E62B97300B738D3 /* Debug/Native/64 */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
-				HEADER_SEARCH_PATHS = (
-					"$(HEADER_SEARCH_PATHS)",
-					"$(BUILT_PRODUCTS_DIR)",
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = WiredNetworking;
-				PUBLIC_HEADERS_FOLDER_PATH = WiredNetworking;
-			};
-			name = Debug/Native/64;
+			name = Debug/Native;
 		};
 		77DBEB910E62B97300B738D3 /* Test/Universal */ = {
 			isa = XCBuildConfiguration;
@@ -2799,99 +3219,22 @@
 			};
 			name = Release/Universal;
 		};
-		A59684580B6A402A00A59623 /* Debug/Native/64 */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_64_BIT)";
-				COPY_PHASE_STRIP = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
-				PREBINDING = NO;
-				ZERO_LINK = YES;
-			};
-			name = Debug/Native/64;
-		};
-		A596845B0B6A402A00A59623 /* Debug/Native/64 */ = {
+		A5C23D030E9AC2AC00A81F49 /* Debug/Native */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				OTHER_CFLAGS = "-DDEVELOPMENT";
-				OTHER_LDFLAGS = "";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = Localization;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-				ZERO_LINK = YES;
-			};
-			name = Debug/Native/64;
-		};
-		A5C23D030E9AC2AC00A81F49 /* Debug/Native/32 */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					WI_DIGESTS,
-					WI_CIPHERS,
-					WI_RSA,
-					WI_SSL,
-					WI_PTHREADS,
-					WI_PLIST,
-					WI_P7,
-				);
 				HEADER_SEARCH_PATHS = (
-					libwired,
 					"$(BUILT_PRODUCTS_DIR)",
 					/usr/include/libxml2,
 				);
 				PRODUCT_NAME = wired;
 				PUBLIC_HEADERS_FOLDER_PATH = wired;
 			};
-			name = Debug/Native/32;
-		};
-		A5C23D040E9AC2AC00A81F49 /* Debug/Native/64 */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					WI_DIGESTS,
-					WI_CIPHERS,
-					WI_RSA,
-					WI_SSL,
-					WI_PTHREADS,
-					WI_PLIST,
-					WI_P7,
-				);
-				HEADER_SEARCH_PATHS = (
-					libwired,
-					"$(BUILT_PRODUCTS_DIR)",
-					/usr/include/libxml2,
-				);
-				PRODUCT_NAME = wired;
-				PUBLIC_HEADERS_FOLDER_PATH = wired;
-			};
-			name = Debug/Native/64;
+			name = Debug/Native;
 		};
 		A5C23D050E9AC2AC00A81F49 /* Test/Universal */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					WI_DIGESTS,
-					WI_CIPHERS,
-					WI_RSA,
-					WI_SSL,
-					WI_PTHREADS,
-					WI_PLIST,
-					WI_P7,
-				);
 				HEADER_SEARCH_PATHS = (
-					libwired,
 					"$(BUILT_PRODUCTS_DIR)",
 					/usr/include/libxml2,
 				);
@@ -2903,17 +3246,7 @@
 		A5C23D060E9AC2AC00A81F49 /* Release/Universal */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					WI_DIGESTS,
-					WI_CIPHERS,
-					WI_RSA,
-					WI_SSL,
-					WI_PTHREADS,
-					WI_PLIST,
-					WI_P7,
-				);
 				HEADER_SEARCH_PATHS = (
-					libwired,
 					"$(BUILT_PRODUCTS_DIR)",
 					/usr/include/libxml2,
 				);
@@ -2942,14 +3275,28 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */;
 			buildSettings = {
-				ARCHS = (
-					i386,
-					ppc,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
-				GCC_PREPROCESSOR_DEFINITIONS = TEST;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					TEST,
+					WI_DIGESTS,
+					WI_CIPHERS,
+					WI_RSA,
+					WI_SSL,
+					WI_PTHREADS,
+					WI_PLIST,
+					WI_P7,
+				);
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET_i386 = 10.4;
+				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
+				MACOSX_DEPLOYMENT_TARGET_ppc64 = 10.5;
+				MACOSX_DEPLOYMENT_TARGET_x86_64 = 10.5;
 				PREBINDING = NO;
+				SDKROOT_i386 = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
+				SDKROOT_ppc = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
+				SDKROOT_ppc64 = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT_x86_64 = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 			};
 			name = Test/Universal;
 		};
@@ -2959,101 +3306,119 @@
 		7712BB2D0E5C1726001C4210 /* Build configuration list for PBXNativeTarget "WiredFoundation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7712BB2E0E5C1726001C4210 /* Debug/Native/32 */,
-				7712BB2F0E5C1726001C4210 /* Debug/Native/64 */,
+				7712BB2E0E5C1726001C4210 /* Debug/Native */,
+				77CBE7510E9E309B00EB2878 /* Debug/iPhone */,
 				7712BB300E5C1726001C4210 /* Test/Universal */,
+				77CBE75A0E9E30A400EB2878 /* Test/iPhone */,
 				7712BB310E5C1726001C4210 /* Release/Universal */,
+				77CBE7630E9E30AA00EB2878 /* Release/iPhone */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug/Native/32;
+			defaultConfigurationName = Debug/Native;
 		};
 		7712BBFE0E5C1964001C4210 /* Build configuration list for PBXNativeTarget "WiredAppKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7712BBFF0E5C1964001C4210 /* Debug/Native/32 */,
-				7712BC000E5C1964001C4210 /* Debug/Native/64 */,
+				7712BBFF0E5C1964001C4210 /* Debug/Native */,
+				77CBE7520E9E309B00EB2878 /* Debug/iPhone */,
 				7712BC010E5C1964001C4210 /* Test/Universal */,
+				77CBE75B0E9E30A400EB2878 /* Test/iPhone */,
 				7712BC020E5C1964001C4210 /* Release/Universal */,
+				77CBE7640E9E30AA00EB2878 /* Release/iPhone */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug/Native/32;
+			defaultConfigurationName = Debug/Native;
 		};
 		773966BD0857539700058AF5 /* Build configuration list for PBXAggregateTarget "Localization" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				773966BE0857539700058AF5 /* Debug/Native/32 */,
-				A596845B0B6A402A00A59623 /* Debug/Native/64 */,
+				773966BE0857539700058AF5 /* Debug/Native */,
+				77CBE7580E9E309B00EB2878 /* Debug/iPhone */,
 				A5DB47C4098BBABE0073564C /* Test/Universal */,
+				77CBE7610E9E30A400EB2878 /* Test/iPhone */,
 				773966C00857539700058AF5 /* Release/Universal */,
+				77CBE76A0E9E30AA00EB2878 /* Release/iPhone */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug/Native/32;
+			defaultConfigurationName = Debug/Native;
 		};
 		773966CD0857539700058AF5 /* Build configuration list for PBXProject "WiredAdditions" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				773966CE0857539700058AF5 /* Debug/Native/32 */,
-				A59684580B6A402A00A59623 /* Debug/Native/64 */,
+				773966CE0857539700058AF5 /* Debug/Native */,
+				77CBE7500E9E309B00EB2878 /* Debug/iPhone */,
 				A5DB47C8098BBABE0073564C /* Test/Universal */,
+				77CBE7590E9E30A400EB2878 /* Test/iPhone */,
 				773966D00857539700058AF5 /* Release/Universal */,
+				77CBE7620E9E30AA00EB2878 /* Release/iPhone */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug/Native/32;
+			defaultConfigurationName = Debug/Native;
 		};
 		773F650D0E5DBDCE001A753B /* Build configuration list for PBXNativeTarget "StaticWiredFoundation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				773F65080E5DBDC2001A753B /* Debug/Native/32 */,
-				773F65090E5DBDC2001A753B /* Debug/Native/64 */,
+				773F65080E5DBDC2001A753B /* Debug/Native */,
+				77CBE7540E9E309B00EB2878 /* Debug/iPhone */,
 				773F650A0E5DBDC2001A753B /* Test/Universal */,
+				77CBE75D0E9E30A400EB2878 /* Test/iPhone */,
 				773F650B0E5DBDC2001A753B /* Release/Universal */,
+				77CBE7660E9E30AA00EB2878 /* Release/iPhone */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug/Native/32;
+			defaultConfigurationName = Debug/Native;
 		};
 		7748978B0CC8A63200E95A83 /* Build configuration list for PBXNativeTarget "WiredNetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7748978C0CC8A63200E95A83 /* Debug/Native/32 */,
-				7748978D0CC8A63200E95A83 /* Debug/Native/64 */,
+				7748978C0CC8A63200E95A83 /* Debug/Native */,
+				77CBE7530E9E309B00EB2878 /* Debug/iPhone */,
 				7748978E0CC8A63200E95A83 /* Test/Universal */,
+				77CBE75C0E9E30A400EB2878 /* Test/iPhone */,
 				7748978F0CC8A63200E95A83 /* Release/Universal */,
+				77CBE7650E9E30AA00EB2878 /* Release/iPhone */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug/Native/32;
+			defaultConfigurationName = Debug/Native;
 		};
 		77DBEA7B0E62B8F500B738D3 /* Build configuration list for PBXNativeTarget "StaticWiredAppKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				77DBEA7C0E62B8F500B738D3 /* Debug/Native/32 */,
-				77DBEA7D0E62B8F500B738D3 /* Debug/Native/64 */,
+				77DBEA7C0E62B8F500B738D3 /* Debug/Native */,
+				77CBE7550E9E309B00EB2878 /* Debug/iPhone */,
 				77DBEA7E0E62B8F500B738D3 /* Test/Universal */,
+				77CBE75E0E9E30A400EB2878 /* Test/iPhone */,
 				77DBEA7F0E62B8F500B738D3 /* Release/Universal */,
+				77CBE7670E9E30AA00EB2878 /* Release/iPhone */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug/Native/32;
+			defaultConfigurationName = Debug/Native;
 		};
 		77DBEB8E0E62B97300B738D3 /* Build configuration list for PBXNativeTarget "StaticWiredNetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				77DBEB8F0E62B97300B738D3 /* Debug/Native/32 */,
-				77DBEB900E62B97300B738D3 /* Debug/Native/64 */,
+				77DBEB8F0E62B97300B738D3 /* Debug/Native */,
+				77CBE7560E9E309B00EB2878 /* Debug/iPhone */,
 				77DBEB910E62B97300B738D3 /* Test/Universal */,
+				77CBE75F0E9E30A400EB2878 /* Test/iPhone */,
 				77DBEB920E62B97300B738D3 /* Release/Universal */,
+				77CBE7680E9E30AA00EB2878 /* Release/iPhone */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug/Native/32;
+			defaultConfigurationName = Debug/Native;
 		};
 		A5C23D0D0E9AC2E600A81F49 /* Build configuration list for PBXNativeTarget "libwired" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A5C23D030E9AC2AC00A81F49 /* Debug/Native/32 */,
-				A5C23D040E9AC2AC00A81F49 /* Debug/Native/64 */,
+				A5C23D030E9AC2AC00A81F49 /* Debug/Native */,
+				77CBE7570E9E309B00EB2878 /* Debug/iPhone */,
 				A5C23D050E9AC2AC00A81F49 /* Test/Universal */,
+				77CBE7600E9E30A400EB2878 /* Test/iPhone */,
 				A5C23D060E9AC2AC00A81F49 /* Release/Universal */,
+				77CBE7690E9E30AA00EB2878 /* Release/iPhone */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug/Native/32;
+			defaultConfigurationName = Debug/Native;
 		};
 /* End XCConfigurationList section */
 	};
