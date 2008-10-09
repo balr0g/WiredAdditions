@@ -60,8 +60,6 @@
 	int					i, argc;
 	
 	wi_initialize();
-	
-	NSLog(@"wi_initialize()");
 
 	pool		= [[NSAutoreleasePool alloc] init];
 	arguments	= [[NSProcessInfo processInfo] arguments];
