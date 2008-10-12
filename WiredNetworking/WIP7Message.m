@@ -278,6 +278,33 @@
 
 
 
+- (BOOL)setEnumName:(NSString *)enumName forName:(NSString *)name {
+	return wi_p7_message_set_enum_name_for_name(_message, [enumName wiredString], [_spec fieldNameForName:name]);
+}
+
+
+
+- (NSString *)enumNameForName:(NSString *)name {
+	NSString		*enumName;
+	wi_pool_t		*pool;
+	wi_string_t		*string;
+	
+	pool = wi_pool_init(wi_pool_alloc());
+	
+	string = wi_p7_message_enum_name_for_name(_message, [_spec fieldNameForName:name]);
+	
+	if(string)
+		enumName = [NSString stringWithWiredString:string];
+	else
+		enumName = NULL;
+	
+	wi_release(pool);
+	
+	return enumName;
+}
+
+
+
 - (BOOL)setDate:(NSDate *)date forName:(NSString *)name {
 	return [self setString:[[WIDateFormatter dateFormatterForRFC3339] stringFromDate:date] forName:name];
 }
