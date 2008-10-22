@@ -197,6 +197,10 @@
 		774C326B0CC8B43F00716F37 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 774C32370CC8B3D400716F37 /* InfoPlist.strings */; };
 		776B11200DEC435100B92187 /* NSString-WINetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 776B111E0DEC435100B92187 /* NSString-WINetworking.m */; };
 		776B11210DEC435100B92187 /* NSString-WINetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 776B111F0DEC435100B92187 /* NSString-WINetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		778EC2D10EAF4DE000DCDC82 /* WIP7NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 778EC2CB0EAF4DB600DCDC82 /* WIP7NotificationCenter.m */; };
+		778EC2D20EAF4DE100DCDC82 /* WIP7NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 778EC2CB0EAF4DB600DCDC82 /* WIP7NotificationCenter.m */; };
+		778EC2D30EAF4DE800DCDC82 /* WIP7NotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 778EC2CA0EAF4DB600DCDC82 /* WIP7NotificationCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		778EC2D40EAF4DE900DCDC82 /* WIP7NotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 778EC2CA0EAF4DB600DCDC82 /* WIP7NotificationCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77DBEA140E62B8E100B738D3 /* NSArray-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C08C0758DEEE008446CF /* NSArray-WIFoundation.m */; };
 		77DBEA150E62B8E100B738D3 /* NSData-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C0900758DEEE008446CF /* NSData-WIFoundation.m */; };
 		77DBEA160E62B8E100B738D3 /* NSDate-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C0640758DEEE008446CF /* NSDate-WIFoundation.m */; };
@@ -607,6 +611,8 @@
 		777C493C07981CDD00D1D429 /* NSWorkspace-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSWorkspace-WIAppKit.m"; path = "WiredAppKit/NSWorkspace-WIAppKit.m"; sourceTree = "<group>"; };
 		778E7D3D096AC58500258FE6 /* NSTabView-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSTabView-WIAppKit.h"; path = "WiredAppKit/NSTabView-WIAppKit.h"; sourceTree = "<group>"; };
 		778E7D3E096AC58500258FE6 /* NSTabView-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSTabView-WIAppKit.m"; path = "WiredAppKit/NSTabView-WIAppKit.m"; sourceTree = "<group>"; };
+		778EC2CA0EAF4DB600DCDC82 /* WIP7NotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WIP7NotificationCenter.h; path = WiredNetworking/WIP7NotificationCenter.h; sourceTree = "<group>"; };
+		778EC2CB0EAF4DB600DCDC82 /* WIP7NotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WIP7NotificationCenter.m; path = WiredNetworking/WIP7NotificationCenter.m; sourceTree = "<group>"; };
 		77A153BD08B0A5B400FC27ED /* localize.sh */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.script.sh; path = localize.sh; sourceTree = "<group>"; };
 		77B7C1E70973E9CA009367B0 /* libwired.sh */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.script.sh; path = libwired.sh; sourceTree = "<group>"; };
 		77B7C4AA0973FF5E009367B0 /* NSApplication-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSApplication-WIAppKit.m"; path = "WiredAppKit/NSApplication-WIAppKit.m"; sourceTree = "<group>"; };
@@ -1097,6 +1103,8 @@
 				77489B640CC8ACCE00E95A83 /* WIError.h */,
 				A565B3CC0D5D9E9100AF91BA /* WIP7Message.m */,
 				A565B3CE0D5D9E9100AF91BA /* WIP7Message.h */,
+				778EC2CB0EAF4DB600DCDC82 /* WIP7NotificationCenter.m */,
+				778EC2CA0EAF4DB600DCDC82 /* WIP7NotificationCenter.h */,
 				A565B2960D5D968A00AF91BA /* WIP7Socket.m */,
 				A565B2970D5D968A00AF91BA /* WIP7Socket.h */,
 				A565B3CB0D5D9E9100AF91BA /* WIP7Spec.m */,
@@ -1537,6 +1545,7 @@
 				77489B730CC8ACCE00E95A83 /* WIAddress.h in Headers */,
 				77489B6E0CC8ACCE00E95A83 /* WIError.h in Headers */,
 				A565B3D20D5D9E9100AF91BA /* WIP7Message.h in Headers */,
+				778EC2D40EAF4DE900DCDC82 /* WIP7NotificationCenter.h in Headers */,
 				A565B2990D5D968A00AF91BA /* WIP7Socket.h in Headers */,
 				A565B3D10D5D9E9100AF91BA /* WIP7Spec.h in Headers */,
 				77489B6C0CC8ACCE00E95A83 /* WISocket.h in Headers */,
@@ -1604,6 +1613,7 @@
 				77DBEBB70E62B9E800B738D3 /* WIAddress.h in Headers */,
 				77DBEBB80E62B9E800B738D3 /* WIError.h in Headers */,
 				77DBEBB90E62B9E800B738D3 /* WIP7Message.h in Headers */,
+				778EC2D30EAF4DE800DCDC82 /* WIP7NotificationCenter.h in Headers */,
 				77DBEBBA0E62B9E800B738D3 /* WIP7Socket.h in Headers */,
 				77DBEBBB0E62B9E800B738D3 /* WIP7Spec.h in Headers */,
 				77DBEBBD0E62B9E800B738D3 /* WISocket.h in Headers */,
@@ -2027,6 +2037,7 @@
 				77489B720CC8ACCE00E95A83 /* WIAddress.m in Sources */,
 				77489B740CC8ACCE00E95A83 /* WIError.m in Sources */,
 				A565B3D00D5D9E9100AF91BA /* WIP7Message.m in Sources */,
+				778EC2D20EAF4DE100DCDC82 /* WIP7NotificationCenter.m in Sources */,
 				A565B2980D5D968A00AF91BA /* WIP7Socket.m in Sources */,
 				A565B3CF0D5D9E9100AF91BA /* WIP7Spec.m in Sources */,
 				77489B6F0CC8ACCE00E95A83 /* WISocket.m in Sources */,
@@ -2092,6 +2103,7 @@
 				77DBEBC20E62B9EF00B738D3 /* WIAddress.m in Sources */,
 				77DBEBC30E62B9EF00B738D3 /* WIError.m in Sources */,
 				77DBEBC40E62B9EF00B738D3 /* WIP7Message.m in Sources */,
+				778EC2D10EAF4DE000DCDC82 /* WIP7NotificationCenter.m in Sources */,
 				77DBEBC50E62B9EF00B738D3 /* WIP7Socket.m in Sources */,
 				77DBEBC60E62B9EF00B738D3 /* WIP7Spec.m in Sources */,
 				77DBEBC70E62B9EF00B738D3 /* WISocket.m in Sources */,

@@ -1,7 +1,7 @@
 /* $Id$ */
 
 /*
- *  Copyright (c) 2007-2008 Axel Andersson
+ *  Copyright (c) 2008 Axel Andersson
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -26,15 +26,19 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <wired/wired.h>
-
-#import <WiredNetworking/NSString-WINetworking.h>
-
-#import <WiredNetworking/WIAddress.h>
-#import <WiredNetworking/WIError.h>
 #import <WiredNetworking/WIP7Message.h>
-#import <WiredNetworking/WIP7NotificationCenter.h>
-#import <WiredNetworking/WIP7Socket.h>
-#import <WiredNetworking/WIP7Spec.h>
-#import <WiredNetworking/WISocket.h>
-#import <WiredNetworking/WIThread.h>
+
+@interface WIP7NotificationCenter : WIObject {
+	NSMutableArray					*_messageNameObservers;
+	NSMutableArray					*_transactionObservers;
+}
+
+- (void)addObserver:(id)observer selector:(SEL)selector messageName:(NSString *)messageName;
+- (void)addObserver:(id)observer selector:(SEL)selector transaction:(WIP7UInt32)transaction;
+- (void)removeObserver:(id)observer messageName:(NSString *)messageName;
+- (void)removeObserver:(id)observer transaction:(WIP7UInt32)transaction;
+- (void)removeObserver:(id)observer;
+- (void)postMessageName:(NSString *)messageName message:(WIP7Message *)message;
+- (void)postTransaction:(WIP7UInt32)transaction message:(WIP7Message *)message;
+
+@end
