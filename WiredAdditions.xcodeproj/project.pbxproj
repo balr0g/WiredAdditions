@@ -2783,11 +2783,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)",
+					"\"$(BUILT_PRODUCTS_DIR)\"",
+					"\"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)\"",
 					/usr/include/libxml2,
-					"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)",
 				);
-				LIBRARY_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
+				LIBRARY_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)\"";
 				PRODUCT_NAME = wired;
 				PUBLIC_HEADERS_FOLDER_PATH = wired;
 			};
@@ -2952,11 +2952,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)",
+					"\"$(BUILT_PRODUCTS_DIR)\"",
+					"\"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)\"",
 					/usr/include/libxml2,
-					"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)",
 				);
-				LIBRARY_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
+				LIBRARY_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)\"";
 				PRODUCT_NAME = wired;
 				PUBLIC_HEADERS_FOLDER_PATH = wired;
 			};
@@ -3116,11 +3116,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)",
+					"\"$(BUILT_PRODUCTS_DIR)\"",
+					"\"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)\"",
 					/usr/include/libxml2,
-					"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)",
 				);
-				LIBRARY_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
+				LIBRARY_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)\"";
 				PRODUCT_NAME = wired;
 				PUBLIC_HEADERS_FOLDER_PATH = wired;
 			};
@@ -3236,10 +3236,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)",
+					"\"$(BUILT_PRODUCTS_DIR)\"",
+					"\"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)\"",
 					/usr/include/libxml2,
-					"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)",
 				);
+				LIBRARY_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)\"";
 				PRODUCT_NAME = wired;
 				PUBLIC_HEADERS_FOLDER_PATH = wired;
 			};
@@ -3249,10 +3250,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)",
+					"\"$(BUILT_PRODUCTS_DIR)\"",
+					"\"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)\"",
 					/usr/include/libxml2,
-					"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)",
 				);
+				LIBRARY_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)\"";
 				PRODUCT_NAME = wired;
 				PUBLIC_HEADERS_FOLDER_PATH = wired;
 			};
@@ -3262,10 +3264,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)",
+					"\"$(BUILT_PRODUCTS_DIR)\"",
+					"\"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)\"",
 					/usr/include/libxml2,
-					"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)",
 				);
+				LIBRARY_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)\"";
 				PRODUCT_NAME = wired;
 				PUBLIC_HEADERS_FOLDER_PATH = wired;
 			};
