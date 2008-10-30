@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 45;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -165,9 +165,9 @@
 		7712BDAD0E5C1FC5001C4210 /* WIURL.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C11C0758DFA9008446CF /* WIURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BDAF0E5C1FD9001C4210 /* WISettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 776627E80795354B00F691E2 /* WISettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BDB10E5C1FED001C4210 /* WITextFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C11D0758DFA9008446CF /* WITextFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7712BDC30E5C205C001C4210 /* WiredFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation.framework */; };
+		7712BDC30E5C205C001C4210 /* WiredFoundation in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation */; };
 		7712BDE60E5C20AE001C4210 /* NSEvent-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C08F0758DEEE008446CF /* NSEvent-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7712BECB0E5C2216001C4210 /* WiredFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation.framework */; };
+		7712BECB0E5C2216001C4210 /* WiredFoundation in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation */; };
 		7712BF130E5C224F001C4210 /* WiredAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7712BC930E5C1A87001C4210 /* WiredAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BF150E5C2292001C4210 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		7712C0A20E5C23D1001C4210 /* NSApplication-WIAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C4AA0973FF5E009367B0 /* NSApplication-WIAppKit.m */; };
@@ -527,10 +527,10 @@
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		77056C8809D7E9C4002AC912 /* NSSplitView-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSSplitView-WIAppKit.m"; path = "WiredAppKit/NSSplitView-WIAppKit.m"; sourceTree = "<group>"; };
 		77056C8909D7E9C4002AC912 /* NSSplitView-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSSplitView-WIAppKit.h"; path = "WiredAppKit/NSSplitView-WIAppKit.h"; sourceTree = "<group>"; };
-		7712BB320E5C1726001C4210 /* WiredFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiredFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7712BB320E5C1726001C4210 /* WiredFoundation */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = WiredFoundation; sourceTree = BUILT_PRODUCTS_DIR; };
 		7712BB510E5C17A7001C4210 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = prefix.pch; path = WiredFoundation/prefix.pch; sourceTree = "<group>"; };
 		7712BB520E5C17B0001C4210 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WiredFoundation/Info.plist; sourceTree = "<group>"; };
-		7712BC030E5C1964001C4210 /* WiredAppKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiredAppKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7712BC030E5C1964001C4210 /* WiredAppKit */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = WiredAppKit; sourceTree = BUILT_PRODUCTS_DIR; };
 		7712BC780E5C19D6001C4210 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WiredAppKit/Info.plist; sourceTree = "<group>"; };
 		7712BC790E5C19DB001C4210 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = prefix.pch; path = WiredAppKit/prefix.pch; sourceTree = "<group>"; };
 		7712BC8D0E5C1A5A001C4210 /* WiredFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WiredFoundation.h; path = WiredFoundation/WiredFoundation.h; sourceTree = "<group>"; };
@@ -577,7 +577,7 @@
 		773F64380E5DBC21001A753B /* NSFileManager-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager-WIAppKit.h"; path = "WiredAppKit/NSFileManager-WIAppKit.h"; sourceTree = "<group>"; };
 		773F64390E5DBC21001A753B /* NSFileManager-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager-WIAppKit.m"; path = "WiredAppKit/NSFileManager-WIAppKit.m"; sourceTree = "<group>"; };
 		773F65070E5DBDC1001A753B /* libWiredFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWiredFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		774897900CC8A63200E95A83 /* WiredNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiredNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		774897900CC8A63200E95A83 /* WiredNetworking */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = WiredNetworking; sourceTree = BUILT_PRODUCTS_DIR; };
 		774897A50CC8A66000E95A83 /* WiredNetworking.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = WiredNetworking.h; path = WiredNetworking/WiredNetworking.h; sourceTree = "<group>"; };
 		774898740CC8A82600E95A83 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Info.plist; path = WiredNetworking/Info.plist; sourceTree = "<group>"; };
 		77489B610CC8ACCE00E95A83 /* WIThread.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = WIThread.m; path = WiredNetworking/WIThread.m; sourceTree = "<group>"; };
@@ -614,7 +614,6 @@
 		778EC2CA0EAF4DB600DCDC82 /* WIP7NotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WIP7NotificationCenter.h; path = WiredNetworking/WIP7NotificationCenter.h; sourceTree = "<group>"; };
 		778EC2CB0EAF4DB600DCDC82 /* WIP7NotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WIP7NotificationCenter.m; path = WiredNetworking/WIP7NotificationCenter.m; sourceTree = "<group>"; };
 		77A153BD08B0A5B400FC27ED /* localize.sh */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.script.sh; path = localize.sh; sourceTree = "<group>"; };
-		77B7C1E70973E9CA009367B0 /* libwired.sh */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.script.sh; path = libwired.sh; sourceTree = "<group>"; };
 		77B7C4AA0973FF5E009367B0 /* NSApplication-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSApplication-WIAppKit.m"; path = "WiredAppKit/NSApplication-WIAppKit.m"; sourceTree = "<group>"; };
 		77B7C4AB0973FF5E009367B0 /* NSApplication-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSApplication-WIAppKit.h"; path = "WiredAppKit/NSApplication-WIAppKit.h"; sourceTree = "<group>"; };
 		77C84DED0B773382000F8478 /* WIDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = WIDateFormatter.m; path = WiredFoundation/WIDateFormatter.m; sourceTree = "<group>"; };
@@ -881,7 +880,7 @@
 				7712BBFA0E5C1964001C4210 /* Cocoa.framework in Frameworks */,
 				7712BBFB0E5C1964001C4210 /* ExceptionHandling.framework in Frameworks */,
 				7712BBFC0E5C1964001C4210 /* Quartz.framework in Frameworks */,
-				7712BDC30E5C205C001C4210 /* WiredFoundation.framework in Frameworks */,
+				7712BDC30E5C205C001C4210 /* WiredFoundation in Frameworks */,
 				7712BBFD0E5C1964001C4210 /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -894,7 +893,7 @@
 				774897870CC8A63200E95A83 /* Carbon.framework in Frameworks */,
 				774897890CC8A63200E95A83 /* ExceptionHandling.framework in Frameworks */,
 				7712BF150E5C2292001C4210 /* Foundation.framework in Frameworks */,
-				7712BECB0E5C2216001C4210 /* WiredFoundation.framework in Frameworks */,
+				7712BECB0E5C2216001C4210 /* WiredFoundation in Frameworks */,
 				A565B3B20D5D99BC00AF91BA /* libcrypto.dylib in Frameworks */,
 				A565B3B30D5D99BC00AF91BA /* libssl.dylib in Frameworks */,
 				A5C2403C0E9AC9E100A81F49 /* libwired.a in Frameworks */,
@@ -916,9 +915,9 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7712BB320E5C1726001C4210 /* WiredFoundation.framework */,
-				7712BC030E5C1964001C4210 /* WiredAppKit.framework */,
-				774897900CC8A63200E95A83 /* WiredNetworking.framework */,
+				7712BB320E5C1726001C4210 /* WiredFoundation */,
+				7712BC030E5C1964001C4210 /* WiredAppKit */,
+				774897900CC8A63200E95A83 /* WiredNetworking */,
 				773F65070E5DBDC1001A753B /* libWiredFoundation.a */,
 				77DBEA800E62B8F500B738D3 /* libWiredAppKit.a */,
 				77DBEB930E62B97300B738D3 /* libWiredNetworking.a */,
@@ -1120,7 +1119,6 @@
 		77A153BB08B0A59500FC27ED /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				77B7C1E70973E9CA009367B0 /* libwired.sh */,
 				77A153BD08B0A5B400FC27ED /* localize.sh */,
 			);
 			name = Scripts;
@@ -1701,7 +1699,7 @@
 			name = WiredFoundation;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = WiredAdditions;
-			productReference = 7712BB320E5C1726001C4210 /* WiredFoundation.framework */;
+			productReference = 7712BB320E5C1726001C4210 /* WiredFoundation */;
 			productType = "com.apple.product-type.framework";
 		};
 		7712BB670E5C1964001C4210 /* WiredAppKit */ = {
@@ -1721,7 +1719,7 @@
 			name = WiredAppKit;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = WiredAdditions;
-			productReference = 7712BC030E5C1964001C4210 /* WiredAppKit.framework */;
+			productReference = 7712BC030E5C1964001C4210 /* WiredAppKit */;
 			productType = "com.apple.product-type.framework";
 		};
 		773F65060E5DBDC1001A753B /* StaticWiredFoundation */ = {
@@ -1758,7 +1756,7 @@
 			name = WiredNetworking;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = WiredAdditions;
-			productReference = 774897900CC8A63200E95A83 /* WiredNetworking.framework */;
+			productReference = 774897900CC8A63200E95A83 /* WiredNetworking */;
 			productType = "com.apple.product-type.framework";
 		};
 		77DBEA470E62B8F500B738D3 /* StaticWiredAppKit */ = {
@@ -1820,7 +1818,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 773966CD0857539700058AF5 /* Build configuration list for PBXProject "WiredAdditions" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -1905,15 +1903,15 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/libwired/Makefile",
+				"$(SRCROOT)/libwired/config.h.in",
 			);
 			name = "Run Script (configure)";
 			outputPaths = (
-				"$(DERIVED_SOURCES_DIR)/config.h",
+				"$(SRCROOT)/libwired/config.h",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "ARCH=$(echo $ARCHS | awk '{print $1}')\n\nif [ -z \"$SDKROOT\" ]; then\n\tSDKROOT=$(eval echo SDKROOT_$ARCH); SDKROOT=$(eval echo \\$$SDKROOT)\nfi\n\nif [ -z \"$MACOSX_DEPLOYMENT_TARGET\" ]; then\n\tMACOSX_DEPLOYMENT_TARGET=$(eval echo MACOSX_DEPLOYMENT_TARGET_$ARCH); MACOSX_DEPLOYMENT_TARGET=$(eval echo \\$$MACOSX_DEPLOYMENT_TARGET)\nfi\n\nif [ $(echo \"$CONFIGURATION\" | grep -c \"Debug\") = 1 ]; then\n\tCFLAGS=\"-gdwarf-2 -O0\"\nelse\n\tCFLAGS=\"-gdwarf-2 -O2\"\nfi\n\nif [ \"$IPHONEOS_DEPLOYMENT_TARGET\" ]; then\n\tCFLAGS=\"$CFLAGS -miphoneos-version-min=$IPHONEOS_DEPLOYMENT_TARGET\"\nelif [ \"$MACOSX_DEPLOYMENT_TARGET\" ]; then\n\tCFLAGS=\"$CFLAGS -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET\"\nfi\n\nBUILD=$(\"$SRCROOT/libwired/config.guess\")\nHOST=\"$NATIVE_ARCH-apple-darwin$(uname -r)\"\n\ncd libwired\n\nif [ ! -f \"$DERIVED_SOURCES_DIR/config.h\" ]; then\n\tCC=\"gcc -arch $ARCH\" CFLAGS=\"$CFLAGS\" CPPFLAGS=\"$CPPFLAGS -isysroot $SDKROOT\" LDFLAGS=\"$LDFLAGS\" ./configure --host=\"$HOST\" --build=\"$BUILD\" --enable-warnings --enable-pthreads --enable-ssl --enable-p7 || exit 1\n\n\tmv config.h \"$DERIVED_SOURCES_DIR/config.h\"\nfi\n";
+			shellScript = "CFLAGS=\"-gdwarf-2\"\n\nif echo $CONFIGURATION | grep -q Debug; then\n\tCFLAGS=\"$CFLAGS -O0\"\nelse\n\tCFLAGS=\"$CFLAGS -O2\"\nfi\n\nBUILD=$(\"$SRCROOT/libwired/config.guess\")\n\ncd libwired\n\nfor i in $ARCHS; do\n\tif [ ! -f \"$DERIVED_SOURCES_DIR/$i/config.h\" ]; then\n\t\tHOST=\"$i-apple-darwin$(uname -r)\"\n\t\tARCH_CFLAGS=\"$CFLAGS\"\n\t\tARCH_CPPFLAGS=\"$CPPFLAGS\"\n\n\t\tif [ \"$i\" = \"i386\" -o \"$i\" = \"ppc\" ]; then\n\t\t\tSDKROOT=\"$DEVELOPER_SDK_DIR/MacOSX10.4u.sdk\"\n\t\t\tMACOSX_DEPLOYMENT_TARGET=10.4\n\t\telif [ \"$i\" = \"x86_64\" -o \"$i\" = \"ppc64\" ]; then\n\t\t\tSDKROOT=\"$DEVELOPER_SDK_DIR/MacOSX10.5.sdk\"\n\t\t\tMACOSX_DEPLOYMENT_TARGET=10.5\n\t\tfi\n\n\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -isysroot $SDKROOT\"\n\t\n\t\tif [ \"$IPHONEOS_DEPLOYMENT_TARGET\" ]; then\n\t\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -miphoneos-version-min=$IPHONEOS_DEPLOYMENT_TARGET\"\n\t\telif [ \"$MACOSX_DEPLOYMENT_TARGET\" ]; then\n\t\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET\"\n\t\tfi\n\t\n\t\tCC=\"gcc -arch $i\" CFLAGS=\"$ARCH_CFLAGS\" CPPFLAGS=\"$ARCH_CPPFLAGS\" ./configure --host=\"$HOST\" --build=\"$BUILD\" --enable-warnings --enable-pthreads --enable-ssl --enable-p7 || exit 1\n\n\t\tmkdir -p \"$DERIVED_SOURCES_DIR/$i\"\n\t\tcp config.h \"$DERIVED_SOURCES_DIR/$i/config.h\"\n\tfi\ndone\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2494,14 +2492,14 @@
 					WI_PLIST,
 					WI_P7,
 				);
-				MACOSX_DEPLOYMENT_TARGET_i386 = 10.4;
-				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
-				MACOSX_DEPLOYMENT_TARGET_ppc64 = 10.5;
-				MACOSX_DEPLOYMENT_TARGET_x86_64 = 10.5;
-				SDKROOT_i386 = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
-				SDKROOT_ppc = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
-				SDKROOT_ppc64 = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
-				SDKROOT_x86_64 = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[arch=ppc64]" = 10.5;
+				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[arch=x86_64]" = 10.5;
+				"SDKROOT[arch=i386]" = macosx10.4;
+				"SDKROOT[arch=ppc64]" = macosx10.5;
+				"SDKROOT[arch=ppc]" = macosx10.4;
+				"SDKROOT[arch=x86_64]" = macosx10.5;
 			};
 			name = Debug/Native;
 		};
@@ -2509,8 +2507,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					RELEASE,
@@ -2523,15 +2520,15 @@
 					WI_P7,
 				);
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				MACOSX_DEPLOYMENT_TARGET_i386 = 10.4;
-				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
-				MACOSX_DEPLOYMENT_TARGET_ppc64 = 10.5;
-				MACOSX_DEPLOYMENT_TARGET_x86_64 = 10.5;
+				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[arch=ppc64]" = 10.5;
+				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[arch=x86_64]" = 10.5;
 				PREBINDING = NO;
-				SDKROOT_i386 = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
-				SDKROOT_ppc = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
-				SDKROOT_ppc64 = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
-				SDKROOT_x86_64 = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				"SDKROOT[arch=i386]" = macosx10.4;
+				"SDKROOT[arch=ppc64]" = macosx10.5;
+				"SDKROOT[arch=ppc]" = macosx10.4;
+				"SDKROOT[arch=x86_64]" = macosx10.5;
 			};
 			name = Release/Universal;
 		};
@@ -2653,8 +2650,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2789,8 +2785,9 @@
 				HEADER_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					/usr/include/libxml2,
+					"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)",
 				);
-				LIBRARY_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)\"";
+				LIBRARY_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				PRODUCT_NAME = wired;
 				PUBLIC_HEADERS_FOLDER_PATH = wired;
 			};
@@ -2821,8 +2818,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					TEST,
@@ -2958,8 +2954,9 @@
 				HEADER_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					/usr/include/libxml2,
+					"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)",
 				);
-				LIBRARY_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)\"";
+				LIBRARY_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				PRODUCT_NAME = wired;
 				PUBLIC_HEADERS_FOLDER_PATH = wired;
 			};
@@ -2985,8 +2982,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					RELEASE,
@@ -3122,8 +3118,9 @@
 				HEADER_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					/usr/include/libxml2,
+					"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)",
 				);
-				LIBRARY_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)\"";
+				LIBRARY_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				PRODUCT_NAME = wired;
 				PUBLIC_HEADERS_FOLDER_PATH = wired;
 			};
@@ -3241,6 +3238,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					/usr/include/libxml2,
+					"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)",
 				);
 				PRODUCT_NAME = wired;
 				PUBLIC_HEADERS_FOLDER_PATH = wired;
@@ -3253,6 +3251,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					/usr/include/libxml2,
+					"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)",
 				);
 				PRODUCT_NAME = wired;
 				PUBLIC_HEADERS_FOLDER_PATH = wired;
@@ -3265,6 +3264,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					/usr/include/libxml2,
+					"$(DERIVED_FILES_DIR)/$(CURRENT_ARCH)",
 				);
 				PRODUCT_NAME = wired;
 				PUBLIC_HEADERS_FOLDER_PATH = wired;
@@ -3291,8 +3291,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					TEST,
@@ -3305,15 +3304,15 @@
 					WI_P7,
 				);
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				MACOSX_DEPLOYMENT_TARGET_i386 = 10.4;
-				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
-				MACOSX_DEPLOYMENT_TARGET_ppc64 = 10.5;
-				MACOSX_DEPLOYMENT_TARGET_x86_64 = 10.5;
+				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[arch=ppc64]" = 10.5;
+				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[arch=x86_64]" = 10.5;
 				PREBINDING = NO;
-				SDKROOT_i386 = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
-				SDKROOT_ppc = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
-				SDKROOT_ppc64 = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
-				SDKROOT_x86_64 = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				"SDKROOT[arch=i386]" = macosx10.4;
+				"SDKROOT[arch=ppc64]" = macosx10.5;
+				"SDKROOT[arch=ppc]" = macosx10.4;
+				"SDKROOT[arch=x86_64]" = macosx10.5;
 			};
 			name = Test/Universal;
 		};
