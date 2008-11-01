@@ -530,7 +530,7 @@
 		7712BB320E5C1726001C4210 /* WiredFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiredFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7712BB510E5C17A7001C4210 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = prefix.pch; path = WiredFoundation/prefix.pch; sourceTree = "<group>"; };
 		7712BB520E5C17B0001C4210 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WiredFoundation/Info.plist; sourceTree = "<group>"; };
-		7712BC030E5C1964001C4210 /* WiredAppKit */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = WiredAppKit; sourceTree = BUILT_PRODUCTS_DIR; };
+		7712BC030E5C1964001C4210 /* WiredAppKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiredAppKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7712BC780E5C19D6001C4210 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WiredAppKit/Info.plist; sourceTree = "<group>"; };
 		7712BC790E5C19DB001C4210 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = prefix.pch; path = WiredAppKit/prefix.pch; sourceTree = "<group>"; };
 		7712BC8D0E5C1A5A001C4210 /* WiredFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WiredFoundation.h; path = WiredFoundation/WiredFoundation.h; sourceTree = "<group>"; };
@@ -577,7 +577,7 @@
 		773F64380E5DBC21001A753B /* NSFileManager-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager-WIAppKit.h"; path = "WiredAppKit/NSFileManager-WIAppKit.h"; sourceTree = "<group>"; };
 		773F64390E5DBC21001A753B /* NSFileManager-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager-WIAppKit.m"; path = "WiredAppKit/NSFileManager-WIAppKit.m"; sourceTree = "<group>"; };
 		773F65070E5DBDC1001A753B /* libWiredFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWiredFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		774897900CC8A63200E95A83 /* WiredNetworking */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = folder; path = WiredNetworking; sourceTree = BUILT_PRODUCTS_DIR; };
+		774897900CC8A63200E95A83 /* WiredNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiredNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		774897A50CC8A66000E95A83 /* WiredNetworking.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = WiredNetworking.h; path = WiredNetworking/WiredNetworking.h; sourceTree = "<group>"; };
 		774898740CC8A82600E95A83 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Info.plist; path = WiredNetworking/Info.plist; sourceTree = "<group>"; };
 		77489B610CC8ACCE00E95A83 /* WIThread.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = WIThread.m; path = WiredNetworking/WIThread.m; sourceTree = "<group>"; };
@@ -916,8 +916,8 @@
 			isa = PBXGroup;
 			children = (
 				7712BB320E5C1726001C4210 /* WiredFoundation.framework */,
-				7712BC030E5C1964001C4210 /* WiredAppKit */,
-				774897900CC8A63200E95A83 /* WiredNetworking */,
+				7712BC030E5C1964001C4210 /* WiredAppKit.framework */,
+				774897900CC8A63200E95A83 /* WiredNetworking.framework */,
 				773F65070E5DBDC1001A753B /* libWiredFoundation.a */,
 				77DBEA800E62B8F500B738D3 /* libWiredAppKit.a */,
 				77DBEB930E62B97300B738D3 /* libWiredNetworking.a */,
@@ -1719,7 +1719,7 @@
 			name = WiredAppKit;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = WiredAdditions;
-			productReference = 7712BC030E5C1964001C4210 /* WiredAppKit */;
+			productReference = 7712BC030E5C1964001C4210 /* WiredAppKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		773F65060E5DBDC1001A753B /* StaticWiredFoundation */ = {
@@ -1756,7 +1756,7 @@
 			name = WiredNetworking;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = WiredAdditions;
-			productReference = 774897900CC8A63200E95A83 /* WiredNetworking */;
+			productReference = 774897900CC8A63200E95A83 /* WiredNetworking.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		77DBEA470E62B8F500B738D3 /* StaticWiredAppKit */ = {
