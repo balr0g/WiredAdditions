@@ -28,9 +28,12 @@
 
 @interface WIIconCell : NSTextFieldCell {
 	NSImage				*_image;
+	CGFloat				_spacing;
 }
 
 - (void)setImage:(NSImage *)image;
 - (NSImage *)image;
+- (void)setSpacing:(CGFloat)spacing;
+- (CGFloat)interSpacing;
 
 @end

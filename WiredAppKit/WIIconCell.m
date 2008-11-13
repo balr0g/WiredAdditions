@@ -45,6 +45,7 @@
 	
 	cell = [super copyWithZone:zone];
     cell->_image = [_image retain];
+    cell->_spacing = _spacing;
 	
 	return cell;
 }
@@ -76,12 +77,24 @@
 
 
 
+- (void)setSpacing:(CGFloat)spacing {
+	_spacing = spacing;
+}
+
+
+
+- (CGFloat)interSpacing {
+	return _spacing;
+}
+
+
+
 #pragma mark -
 
 - (void)editWithFrame:(NSRect)frame inView:(NSView *)view editor:(NSText *)editor delegate:(id)object event:(NSEvent *)event {
 	NSRect		textFrame, imageFrame;
 	
-	NSDivideRect(frame, &imageFrame, &textFrame, 3.0 + [_image size].width, NSMinXEdge);
+	NSDivideRect(frame, &imageFrame, &textFrame, 3.0 + [_image size].width + _spacing, NSMinXEdge);
 
 	[super editWithFrame:textFrame inView:view editor:editor delegate:object event:event];
 }
@@ -91,7 +104,7 @@
 - (void)selectWithFrame:(NSRect)frame inView:(NSView *)view editor:(NSText *)editor delegate:(id)delegate start:(NSInteger)start length:(NSInteger)length {
 	NSRect		textFrame, imageFrame;
 	
-	NSDivideRect(frame, &imageFrame, &textFrame, 3.0 + [_image size].width, NSMinXEdge);
+	NSDivideRect(frame, &imageFrame, &textFrame, 3.0 + [_image size].width + _spacing, NSMinXEdge);
 
 	[super selectWithFrame:textFrame inView:view editor:editor delegate:delegate start:start length:length];
 }
@@ -105,7 +118,7 @@
 	if(_image) {
 		imageSize = [_image size];
 
-		NSDivideRect(frame, &imageFrame, &frame, 3.0 + imageSize.width, NSMinXEdge);
+		NSDivideRect(frame, &imageFrame, &frame, 3.0 + imageSize.width + _spacing, NSMinXEdge);
 
 		if([self drawsBackground]) {
 			[[self backgroundColor] set];
