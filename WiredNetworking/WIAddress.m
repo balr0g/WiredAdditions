@@ -214,6 +214,12 @@
 	return string;
 }
 
+
+
+- (struct sockaddr *)sockAddr {
+	return wi_address_sa(_address);
+}
+
 @end
 
 

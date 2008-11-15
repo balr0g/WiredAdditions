@@ -56,6 +56,7 @@ typedef enum _WIAddressFamily		WIAddressFamily;
 - (WIAddressFamily)family;
 - (NSString *)string;
 - (NSString *)hostname;
+- (struct sockaddr *)sockAddr;
 
 @end
 
