@@ -31,11 +31,18 @@
 @implementation NSError(WIAppKit)
 
 - (NSAlert *)alert {
+	NSString		*reason;
+	
+	reason = [self localizedFailureReason];
+	
+	if(!reason)
+		reason = @"";
+	
 	return [NSAlert alertWithMessageText:[self localizedDescription]
 						   defaultButton:WILS(@"OK", @"NSError-WIAdditions: OK button")
 						 alternateButton:NULL
 							 otherButton:NULL
-			   informativeTextWithFormat:@"%@", [self localizedFailureReason]];
+			   informativeTextWithFormat:@"%@", reason];
 }
 
 @end
