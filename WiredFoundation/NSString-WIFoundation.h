@@ -32,6 +32,7 @@
 
 + (id)stringWithFormat:(NSString *)format arguments:(va_list)arguments;
 + (id)stringWithData:(NSData *)data encoding:(NSStringEncoding)encoding;
++ (id)stringWithBytes:(const void *)bytes length:(NSUInteger)length encoding:(NSStringEncoding)encoding;
 + (id)stringWithRandomCharactersFromString:(NSString *)string length:(NSUInteger)length;
 + (id)UUIDString;
 
@@ -58,6 +59,8 @@
 - (NSString *)stringByAddingURLPercentEscapes;
 - (NSString *)stringByAddingURLPercentEscapesToAllCharacters;
 - (NSString *)stringByReplacingURLPercentEscapes;
+
+- (NSString *)stringByReplacingPathExtensionWithExtension:(NSString *)extension;
 
 - (NSString *)stringByApplyingFilter:(WITextFilter *)filter;
 

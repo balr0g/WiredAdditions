@@ -43,6 +43,12 @@
 
 
 
++ (id)stringWithBytes:(const void *)bytes length:(NSUInteger)length encoding:(NSStringEncoding)encoding {
+	return [[[self alloc] initWithBytes:bytes length:length encoding:encoding] autorelease];
+}
+
+
+
 + (id)stringWithRandomCharactersFromString:(NSString *)characters length:(NSUInteger)length {
 	NSMutableString		*string;
 	NSUInteger			count;
@@ -279,6 +285,14 @@
 		(CFStringRef) self, CFSTR(""));
 	
 	return [string autorelease];
+}
+
+
+
+#pragma mark -
+
+- (NSString *)stringByReplacingPathExtensionWithExtension:(NSString *)extension {
+	return [[self stringByDeletingPathExtension] stringByAppendingPathExtension:extension];
 }
 
 
