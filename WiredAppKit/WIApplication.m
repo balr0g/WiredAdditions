@@ -55,10 +55,17 @@
 
 
 - (NSString *)_terminationDelayStringValue {
-	return [NSSWF:WILS(@"If you do nothing, %@ will quit automatically in %.0f seconds.",
-					   @"WIApplication: termination delay panel (application, timeout)"),
+	NSString		*string;
+	
+	string = [NSSWF:WILS(@"If you do nothing, %@ will quit automatically in %.0f seconds.",
+						 @"WIApplication: termination delay panel (application, timeout)"),
 		[self name],
 		_terminationDelay];
+	
+	if(!_terminationMessage)
+		return string;
+	
+	return [NSSWF:@"%@ %@", _terminationMessage, string];
 }
 
 @end
@@ -157,11 +164,18 @@
 #pragma mark -
 
 - (NSApplicationTerminateReply)runTerminationDelayPanelWithTimeInterval:(NSTimeInterval)delay {
+	return [self runTerminationDelayPanelWithTimeInterval:delay message:NULL];
+}
+
+
+
+- (NSApplicationTerminateReply)runTerminationDelayPanelWithTimeInterval:(NSTimeInterval)delay message:(NSString *)message {
 	NSPanel		*panel;
 	NSTimer		*timer;
 	NSInteger	result;
 	
 	_terminationDelay = delay;
+	_terminationMessage = [message retain];
 
 	timer = [NSTimer timerWithTimeInterval:1.0
 									target:self
@@ -177,6 +191,8 @@
 							NULL);
 	result = [self runModalForWindow:panel];
 	NSReleaseAlertPanel(panel);
+	
+	[_terminationMessage release];
 	
 	[timer invalidate];
 	

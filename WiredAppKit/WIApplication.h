@@ -31,9 +31,11 @@
 	IBOutlet NSTextView				*_releaseNotesTextView;
 
 	NSTimeInterval					_terminationDelay;
+	NSString						*_terminationMessage;
 }
 
 - (NSApplicationTerminateReply)runTerminationDelayPanelWithTimeInterval:(NSTimeInterval)delay;
+- (NSApplicationTerminateReply)runTerminationDelayPanelWithTimeInterval:(NSTimeInterval)delay message:(NSString *)message;
 
 - (IBAction)orderFrontReleaseNotesWindow:(id)sender;
 
