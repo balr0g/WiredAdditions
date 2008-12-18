@@ -231,36 +231,6 @@
 
 #pragma mark -
 
-- (id)initWithCoder:(NSCoder *)coder {
-	self = [super init];
-
-	WIDecode(coder, _scheme);
-	WIDecode(coder, _host);
-	WIDecode(coder, _port);
-	WIDecode(coder, _user);
-	WIDecode(coder, _password);
-	WIDecode(coder, _path);
-	WIDecode(coder, _query);
-
-	return self;
-}
-
-
-
-- (void)encodeWithCoder:(NSCoder *)coder {
-	WIEncode(coder, _scheme);
-	WIEncode(coder, _host);
-	WIEncode(coder, _port);
-	WIEncode(coder, _user);
-	WIEncode(coder, _password);
-	WIEncode(coder, _path);
-	WIEncode(coder, _query);
-}
-
-
-
-#pragma mark -
-
 - (NSUInteger)hash {
 	return [[self string] hash];
 }

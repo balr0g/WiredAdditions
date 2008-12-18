@@ -42,14 +42,3 @@
 	[coder encodeValueOfObjCType:@encode(typeof(var)) at:&(var)]
 #define WIDecode(coder, var) \
 	[coder decodeValueOfObjCType:@encode(typeof(var)) at:&(var)]
-
-#define WILogObject(object) \
-	NSLog(@"%s = %@", #object, (object))
-#define WILogRect(rect) \
-	NSLog(@"%s = %@", #rect, NSStringFromRect((rect)))
-#define WILogSize(size) \
-	NSLog(@"%s = %@", #size, NSStringFromSize((size)))
-#define WILogPoint(point) \
-	NSLog(@"%s = %@", #point, NSStringFromPoint((point)))
-#define WILogRange(range) \
-	NSLog(@"%s = %@", #range, NSStringFromRange((range)))
