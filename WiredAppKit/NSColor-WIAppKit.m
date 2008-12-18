@@ -52,9 +52,9 @@
 	
 	if(!stripeColor) {
 		stripeColor = [[self colorWithCalibratedRed:(237.0 / 255.0)
-												 green:(243.0 / 255.0)
-												  blue:(254.0 / 255.0)
-												 alpha:1.0] retain];
+											  green:(243.0 / 255.0)
+											   blue:(254.0 / 255.0)
+											  alpha:1.0] retain];
 	}
 	
 	return stripeColor;
@@ -65,6 +65,11 @@
 #pragma mark -
 
 NSString * NSStringFromColor(NSColor *color) {
+	color = [color colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+	
+	if(!color)
+		return NULL;
+	
 	return [NSSWF:@"NSColor %f %f %f %f",
 		[color hueComponent],
 		[color saturationComponent],
