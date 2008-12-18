@@ -26,6 +26,15 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+#define WIMin(x, y) \
+	((x) < (y) ? (x) : (y))
+
+#define WIMax(x, y) \
+	((x) > (y) ? (x) : (y))
+
+#define WIAbs(x) \
+	((x) < 0 ? (-(x)) : (x))
+
 #define WIClamp(x, min, max) \
 	(((x) > (max)) ? (max) : (((x) < (min)) ? (min) : (x)))
 
