@@ -15,7 +15,7 @@ die "$0: No Subversion revision found" unless $version;
 my @files = @ARGV;
 
 if(@files == 0) {
-	push(@files, "$ENV{BUILT_PRODUCTS_DIR}/$ENV{WRAPPER_NAME}/Contents/Info.plist");
+	push(@files, "$ENV{BUILT_PRODUCTS_DIR}/$ENV{INFOPLIST_PATH}");
 }
 
 foreach my $file (@files) {
