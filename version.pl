@@ -12,14 +12,22 @@ my $version = $REV;
 $version =~ s/^Revision: (\d+)\n/$1/;
 die "$0: No Subversion revision found" unless $version;
 
-my $INFO = "$ENV{BUILT_PRODUCTS_DIR}/$ENV{WRAPPER_NAME}/Contents/Info.plist";
+my @files = @ARGV;
 
-open(FH, "$INFO") or die "$0: $INFO: $!";
-my $info = join("", <FH>);
-close(FH);
+if(@files == 0) {
+	push(@files, "$ENV{BUILT_PRODUCTS_DIR}/$ENV{WRAPPER_NAME}/Contents/Info.plist");
+}
 
-$info =~ s/([\t ]+<key>CFBundleVersion<\/key>\n[\t ]+<string>).*?(<\/string>)/$1$version$2/;
+foreach my $file (@files) {
+	open(FH, "$file") or die "$0: $file: $!";
+	my $content = join("", <FH>);
+	close(FH);
 
-open(FH, ">$INFO") or die "$0: $INFO: $!";
-print FH $info;
-close(FH);
+	$content =~ s/([\t ]+<key>CFBundleVersion<\/key>\n[\t ]+<string>).*?(<\/string>)/$1$version$2/;
+	$content =~ s/\$\(?SVN_REVISION\)?/$version/g;
+	
+	open(FH, ">$file") or die "$0: $file: $!";
+	print FH $content;
+	close(FH);
+}
+
