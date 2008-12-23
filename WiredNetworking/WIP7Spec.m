@@ -300,7 +300,14 @@
 #pragma mark -
 
 - (BOOL)verifyMessage:(WIP7Message *)message error:(WIError **)error {
-	if(!wi_p7_spec_verify_message(_spec, [message message])) {
+	wi_pool_t		*pool;
+	wi_boolean_t	result;
+	
+	pool = wi_pool_init(wi_pool_alloc());
+	result = wi_p7_spec_verify_message(_spec, [message message]);
+	wi_release(pool);
+	
+	if(!result) {
 		if(error)
 			*error = [WIError errorWithDomain:WILibWiredErrorDomain];
 		
