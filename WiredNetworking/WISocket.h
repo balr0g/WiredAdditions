@@ -78,7 +78,6 @@ typedef enum _WISocketEvent			WISocketEvent;
 	
 	WIError							*_readTimeoutError;
 
-	NSUInteger						_sources;
 	CFSocketRef						_socketRef;
 	CFRunLoopSourceRef				_sourceRef;
 }

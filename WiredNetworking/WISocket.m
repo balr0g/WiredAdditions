@@ -676,34 +676,24 @@ end:
 		_sourceRef = CFSocketCreateRunLoopSource(NULL, _socketRef, 0);
 	}
 
-	if(!CFRunLoopContainsSource([runLoop getCFRunLoop], _sourceRef, (CFStringRef) mode)) {
-		CFRunLoopAddSource([runLoop getCFRunLoop], _sourceRef, (CFStringRef) mode);
-	
-		_sources++;
-	}
+	CFRunLoopAddSource([runLoop getCFRunLoop], _sourceRef, (CFStringRef) mode);
 }
 
 
 
 - (void)removeFromRunLoop:(NSRunLoop *)runLoop forMode:(NSString *)mode {
 	if(_sourceRef) {
-		if(CFRunLoopContainsSource([runLoop getCFRunLoop], _sourceRef, (CFStringRef) mode)) {
-			CFRunLoopRemoveSource([runLoop getCFRunLoop], _sourceRef, (CFStringRef) mode);
+		CFRunLoopRemoveSource([runLoop getCFRunLoop], _sourceRef, (CFStringRef) mode);
 		
-			_sources--;
+		if(_sourceRef) {
+			CFRelease(_sourceRef);
+			_sourceRef = NULL;
 		}
 		
-		if(_sources == 0) {
-			if(_sourceRef) {
-				CFRelease(_sourceRef);
-				_sourceRef = NULL;
-			}
-			
-			if(_socketRef) {
-				CFSocketInvalidate(_socketRef);
-				CFRelease(_socketRef);
-				_socketRef = NULL;
-			}
+		if(_socketRef) {
+			CFSocketInvalidate(_socketRef);
+			CFRelease(_socketRef);
+			_socketRef = NULL;
 		}
 	}
 }
