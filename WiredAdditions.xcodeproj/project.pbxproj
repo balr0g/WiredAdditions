@@ -474,6 +474,10 @@
 		A5C23F950E9AC53E00A81F49 /* wired.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C23D270E9AC49800A81F49 /* wired.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5C23FAE0E9AC67C00A81F49 /* wi-private.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C23FAD0E9AC67C00A81F49 /* wi-private.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5C2403C0E9AC9E100A81F49 /* libwired.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C23CFF0E9AC2AB00A81F49 /* libwired.a */; };
+		A5C919FD0F03A9280024E482 /* WIPreferencesController.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C919FB0F03A9280024E482 /* WIPreferencesController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5C919FE0F03A9280024E482 /* WIPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C919FC0F03A9280024E482 /* WIPreferencesController.m */; };
+		A5C919FF0F03A9280024E482 /* WIPreferencesController.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C919FB0F03A9280024E482 /* WIPreferencesController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5C91A000F03A9280024E482 /* WIPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C919FC0F03A9280024E482 /* WIPreferencesController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -849,6 +853,8 @@
 		A5C23E4E0E9AC4D500A81F49 /* wi-timer.c */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.c; name = "wi-timer.c"; path = "libwired/libwired/thread/wi-timer.c"; sourceTree = "<group>"; };
 		A5C23E4F0E9AC4D500A81F49 /* wi-timer.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "wi-timer.h"; path = "libwired/libwired/thread/wi-timer.h"; sourceTree = "<group>"; };
 		A5C23FAD0E9AC67C00A81F49 /* wi-private.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "wi-private.h"; path = "libwired/libwired/base/wi-private.h"; sourceTree = "<group>"; };
+		A5C919FB0F03A9280024E482 /* WIPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = WIPreferencesController.h; path = WiredAppKit/WIPreferencesController.h; sourceTree = "<group>"; };
+		A5C919FC0F03A9280024E482 /* WIPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = WIPreferencesController.m; path = WiredAppKit/WIPreferencesController.m; sourceTree = "<group>"; };
 		A5D96CD2078DDB8A00CD982E /* WIGraphView.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = WIGraphView.h; path = WiredAppKit/WIGraphView.h; sourceTree = "<group>"; };
 		A5D96CD3078DDB8A00CD982E /* WIGraphView.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = WIGraphView.m; path = WiredAppKit/WIGraphView.m; sourceTree = "<group>"; };
 		A5EA54AA075FC0AD0025514A /* NSTableView-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTableView-WIAppKit.h"; path = "WiredAppKit/NSTableView-WIAppKit.h"; sourceTree = "<group>"; };
@@ -1146,6 +1152,8 @@
 				A544C1270758DFA9008446CF /* WIMultiImageCell.h */,
 				A544C1220758DFA9008446CF /* WIPDFView.m */,
 				A544C1230758DFA9008446CF /* WIPDFView.h */,
+				A5C919FC0F03A9280024E482 /* WIPreferencesController.m */,
+				A5C919FB0F03A9280024E482 /* WIPreferencesController.h */,
 				A5983830096C894500EC0FC4 /* WIProgressIndicator.m */,
 				A598382F096C894500EC0FC4 /* WIProgressIndicator.h */,
 				A544C1200758DFA9008446CF /* WISplitView.m */,
@@ -1485,9 +1493,10 @@
 				7712BB960E5C1964001C4210 /* WIIconCell.h in Headers */,
 				7712BB970E5C1964001C4210 /* WIImageViewWithImagePicker.h in Headers */,
 				7712BB990E5C1964001C4210 /* WIMatrix.h in Headers */,
+				7712BB9A0E5C1964001C4210 /* WIMultiImageCell.h in Headers */,
 				7712BB9C0E5C1964001C4210 /* WIOutlineView.h in Headers */,
 				7712BB9D0E5C1964001C4210 /* WIPDFView.h in Headers */,
-				7712BB9A0E5C1964001C4210 /* WIMultiImageCell.h in Headers */,
+				A5C919FD0F03A9280024E482 /* WIPreferencesController.h in Headers */,
 				7712BB9E0E5C1964001C4210 /* WIProgressIndicator.h in Headers */,
 				7712BBA10E5C1964001C4210 /* WISplitView.h in Headers */,
 				7712BBA20E5C1964001C4210 /* WITableHeaderView.h in Headers */,
@@ -1590,6 +1599,7 @@
 				77DBEAF90E62B94600B738D3 /* WIMultiImageCell.h in Headers */,
 				77DBEAFA0E62B94600B738D3 /* WIOutlineView.h in Headers */,
 				77DBEAFB0E62B94600B738D3 /* WIPDFView.h in Headers */,
+				A5C919FF0F03A9280024E482 /* WIPreferencesController.h in Headers */,
 				77DBEAFC0E62B94600B738D3 /* WIProgressIndicator.h in Headers */,
 				77DBEAFD0E62B94600B738D3 /* WISplitView.h in Headers */,
 				77DBEAFE0E62B94600B738D3 /* WITableHeaderView.h in Headers */,
@@ -1986,6 +1996,7 @@
 				7712BBDC0E5C1964001C4210 /* WIMultiImageCell.m in Sources */,
 				7712BBDE0E5C1964001C4210 /* WIOutlineView.m in Sources */,
 				7712BBDF0E5C1964001C4210 /* WIPDFView.m in Sources */,
+				A5C919FE0F03A9280024E482 /* WIPreferencesController.m in Sources */,
 				7712BBE00E5C1964001C4210 /* WIProgressIndicator.m in Sources */,
 				7712BBE30E5C1964001C4210 /* WISplitView.m in Sources */,
 				7712BBE40E5C1964001C4210 /* WITableHeaderView.m in Sources */,
@@ -2082,6 +2093,7 @@
 				77DBEB280E62B96A00B738D3 /* WIMultiImageCell.m in Sources */,
 				77DBEB290E62B96A00B738D3 /* WIOutlineView.m in Sources */,
 				77DBEB2A0E62B96A00B738D3 /* WIPDFView.m in Sources */,
+				A5C91A000F03A9280024E482 /* WIPreferencesController.m in Sources */,
 				77DBEB2B0E62B96A00B738D3 /* WIProgressIndicator.m in Sources */,
 				77DBEB2C0E62B96A00B738D3 /* WISplitView.m in Sources */,
 				77DBEB2D0E62B96A00B738D3 /* WITableHeaderView.m in Sources */,
