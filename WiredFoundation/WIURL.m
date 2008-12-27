@@ -70,7 +70,7 @@
 	WIURL		*url;
 	NSRange		range;
 	
-	string = [string stringByRemovingSurroundingWhitespace];
+	string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 	string = [string stringByReplacingURLPercentEscapes];
 
 	range = [string rangeOfString:@"://"];

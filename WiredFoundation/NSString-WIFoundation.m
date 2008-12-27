@@ -233,27 +233,6 @@
 
 
 
-- (NSString *)stringByRemovingSurroundingWhitespace {
-	static NSCharacterSet		*nonWhitespace;
-	NSRange						first, last;
-	
-	if (!nonWhitespace)
-		nonWhitespace = [[[NSCharacterSet whitespaceAndNewlineCharacterSet] invertedSet] retain];
-	
-	first = [self rangeOfCharacterFromSet:nonWhitespace];
-	
-	if(first.location == NSNotFound)
-		return @"";
-	
-	last = [self rangeOfCharacterFromSet:nonWhitespace options:NSBackwardsSearch];
-	
-	if(first.location == 0 && last.location == [self length] - 1)
-		return self;
-
-	return [self substringWithRange:NSUnionRange(first, last)];
-}
-
-
 #pragma mark -
 
 - (NSString *)stringByAddingURLPercentEscapes {
@@ -639,8 +618,8 @@
 
 
 
-- (void)removeSurroundingWhitespace {
-	[self setString:[self stringByRemovingSurroundingWhitespace]];
+- (void)trimCharactersInSet:(NSCharacterSet *)characterSet {
+	[self setString:[self stringByTrimmingCharactersInSet:characterSet]];
 }
 
 

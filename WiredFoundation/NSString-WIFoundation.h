@@ -54,7 +54,6 @@
 
 - (NSString *)stringByReplacingOccurencesOfString:(NSString *)target withString:(NSString *)replacement;
 - (NSString *)stringByReplacingOccurencesOfStrings:(NSArray *)targets withString:(NSString *)replacement;
-- (NSString *)stringByRemovingSurroundingWhitespace;
 
 - (NSString *)stringByAddingURLPercentEscapes;
 - (NSString *)stringByAddingURLPercentEscapesToAllCharacters;
@@ -96,7 +95,8 @@
 
 - (NSUInteger)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement;
 - (NSUInteger)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement options:(NSUInteger)options;
-- (void)removeSurroundingWhitespace;
+
+- (void)trimCharactersInSet:(NSCharacterSet *)characterSet;
 
 - (void)applyFilter:(WITextFilter *)filter;
 
