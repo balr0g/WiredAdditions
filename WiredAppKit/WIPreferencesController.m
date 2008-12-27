@@ -127,6 +127,7 @@
 										   backing:NSBackingStoreBuffered
 											 defer:YES];
 	[window setShowsToolbarButton:NO];
+	[window setDelegate:self];
 	[self setWindow:window];
 	[window release];
 	
