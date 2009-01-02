@@ -128,7 +128,7 @@
 
 		switch([self code]) {
 			case WIAddressLookupFailed:
-				return [NSSWF:WILS(@"Could not resolve the address \"%@\": %@.", @"WIError: WIAddressLookupFailed description (hostname, underlying error)"),
+				return [NSSWF:WILS(@"Could not resolve the address \u201c%@\u201d: %@.", @"WIError: WIAddressLookupFailed description (hostname, underlying error)"),
 					argument, error];
 				break;
 			

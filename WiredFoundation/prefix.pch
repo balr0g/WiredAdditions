@@ -71,6 +71,8 @@ typedef float					CGFloat;
 #import <sys/sysctl.h>
 #import <sys/fcntl.h>
 #import <CommonCrypto/CommonDigest.h>
+#import <pthread.h>
+#import <unistd.h>
 
 // --- Common
 #import <WiredFoundation/WIMacros.h>

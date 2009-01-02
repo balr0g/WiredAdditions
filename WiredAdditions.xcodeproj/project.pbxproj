@@ -1905,7 +1905,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "rm -f WiredAdditions/English.lproj/Localizable.strings\nfind . -name \"*.[mc]\" | xargs genstrings -s WILS -q -o WiredAdditions/English.lproj -a\n\nrm -f WiredNetworking/English.lproj/Localizable.strings\nfind . -name \"*.[mc]\" | xargs genstrings -s WNLS -q -o WiredNetworking/English.lproj -a\n";
+			shellScript = "rm -f WiredFoundation/English.lproj/Localizable.strings\nfind WiredFoundation -name \"*.[mc]\" | xargs genstrings -s WILS -q -o WiredFoundation/English.lproj -a\n\nrm -f WiredAppKit/English.lproj/Localizable.strings\nfind WiredAppKit -name \"*.[mc]\" | xargs genstrings -s WILS -q -o WiredAppKit/English.lproj -a\n\nrm -f WiredNetworking/English.lproj/Localizable.strings\nfind WiredNetworking -name \"*.[mc]\" | xargs genstrings -s WILS -q -o WiredNetworking/English.lproj -a\n";
+			showEnvVarsInLog = 0;
 		};
 		A5C23D0A0E9AC2B800A81F49 /* Run Script (configure) */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2471,6 +2472,7 @@
 			baseConfigurationReference = 773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
@@ -2498,6 +2500,7 @@
 			baseConfigurationReference = 773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					RELEASE,
@@ -2642,6 +2645,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
@@ -2796,6 +2800,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					TEST,
 					WI_DIGESTS,
@@ -2950,6 +2955,7 @@
 			baseConfigurationReference = 773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					RELEASE,
@@ -3245,6 +3251,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					TEST,
 					WI_DIGESTS,
