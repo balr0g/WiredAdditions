@@ -59,6 +59,14 @@
 
 @implementation WIURL
 
++ (NSInteger)version {
+	return 1;
+}
+
+
+
+#pragma mark -
+
 + (id)URLWithString:(NSString *)string {
 	return [self URLWithString:string scheme:NULL];
 }
@@ -190,6 +198,42 @@
 	_port = port;
 
 	return self;
+}
+
+
+
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [self init];
+	
+	if([coder decodeIntForKey:@"WIURLVersion"] != [[self class] version]) {
+		[self release];
+		
+		return NULL;
+	}
+	
+	_scheme		= [[coder decodeObjectForKey:@"WIURLScheme"] retain];
+	_host		= [[coder decodeObjectForKey:@"WIURLHost"] retain];
+	_port		= [coder decodeIntForKey:@"WIURLPort"];
+	_user		= [[coder decodeObjectForKey:@"WIURLUser"] retain];
+	_password	= [[coder decodeObjectForKey:@"WIURLPassword"] retain];
+	_path		= [[coder decodeObjectForKey:@"WIURLPath"] retain];
+	_query		= [[coder decodeObjectForKey:@"WIURLQuery"] retain];
+	
+	return self;
+}
+
+
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+	[coder encodeInt:[[self class] version] forKey:@"WIURLVersion"];
+	
+	[coder encodeObject:_scheme forKey:@"WIURLScheme"];
+	[coder encodeObject:_host forKey:@"WIURLHost"];
+	[coder encodeInt:_port forKey:@"WIURLPort"];
+	[coder encodeObject:_user forKey:@"WIURLUser"];
+	[coder encodeObject:_password forKey:@"WIURLPassword"];
+	[coder encodeObject:_path forKey:@"WIURLPath"];
+	[coder encodeObject:_query forKey:@"WIURLQuery"];
 }
 
 

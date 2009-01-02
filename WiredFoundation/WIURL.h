@@ -26,7 +26,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-@interface WIURL : WIObject <NSCopying> {
+@interface WIURL : WIObject <NSCoding, NSCopying> {
 	NSString			*_scheme;
 	NSString			*_host;
 	NSUInteger			_port;
