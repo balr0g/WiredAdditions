@@ -26,14 +26,14 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+NSString * WIStringFromColor(NSColor *color);
+NSColor * WIColorFromString(NSString *string);
+
+
 @interface NSColor(WIAppKit)
 
 + (id)colorWithCalibratedHTMLValue:(NSUInteger)value alpha:(float)alpha;
 
 + (id)stripeColor;
-
-
-NSString * NSStringFromColor(NSColor *color);
-NSColor * NSColorFromString(NSString *string);
 
 @end

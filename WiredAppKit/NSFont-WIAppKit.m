@@ -29,13 +29,13 @@
 #import <WiredAppKit/NSAttributedString-WIAppKit.h>
 #import <WiredAppKit/NSFont-WIAppKit.h>
 
-NSString * NSStringFromFont(NSFont *font) {
+NSString * WIStringFromFont(NSFont *font) {
 	return [NSSWF:@"NSFont %@ %f", [font fontName], [font pointSize]];
 }
 
 
 
-NSFont * NSFontFromString(NSString *string) {
+NSFont * WIFontFromString(NSString *string) {
 	NSArray		*array;
 	
 	array = [string componentsSeparatedByString:@" "];

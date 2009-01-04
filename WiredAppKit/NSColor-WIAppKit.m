@@ -28,6 +28,37 @@
 
 #import <WiredAppKit/NSColor-WIAppKit.h>
 
+NSString * WIStringFromColor(NSColor *color) {
+	color = [color colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+	
+	if(!color)
+		return NULL;
+	
+	return [NSSWF:@"NSColor %f %f %f %f",
+		[color hueComponent],
+		[color saturationComponent],
+		[color brightnessComponent],
+		[color alphaComponent]];
+}
+
+
+
+NSColor * WIColorFromString(NSString *string) {
+	NSArray		*array;
+	
+	array = [string componentsSeparatedByString:@" "];
+	
+	if([array count] != 5 || ![[array objectAtIndex:0] isEqualToString:@"NSColor"])
+		return NULL;
+	
+	return [NSColor colorWithCalibratedHue:[[array objectAtIndex:1] floatValue]
+								saturation:[[array objectAtIndex:2] floatValue]
+								brightness:[[array objectAtIndex:3] floatValue]
+									 alpha:[[array objectAtIndex:4] floatValue]];
+}
+
+
+
 @implementation NSColor(WIAppKit)
 
 + (id)colorWithCalibratedHTMLValue:(NSUInteger)value alpha:(float)alpha {
@@ -58,39 +89,6 @@
 	}
 	
 	return stripeColor;
-}
-
-
-
-#pragma mark -
-
-NSString * NSStringFromColor(NSColor *color) {
-	color = [color colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
-	
-	if(!color)
-		return NULL;
-	
-	return [NSSWF:@"NSColor %f %f %f %f",
-		[color hueComponent],
-		[color saturationComponent],
-		[color brightnessComponent],
-		[color alphaComponent]];
-}
-
-
-
-NSColor * NSColorFromString(NSString *string) {
-	NSArray		*array;
-	
-	array = [string componentsSeparatedByString:@" "];
-	
-	if([array count] != 5 || ![[array objectAtIndex:0] isEqualToString:@"NSColor"])
-		return NULL;
-	
-	return [NSColor colorWithCalibratedHue:[[array objectAtIndex:1] floatValue]
-								saturation:[[array objectAtIndex:2] floatValue]
-								brightness:[[array objectAtIndex:3] floatValue]
-									 alpha:[[array objectAtIndex:4] floatValue]];
 }
 
 @end
