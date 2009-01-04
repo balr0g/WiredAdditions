@@ -28,12 +28,18 @@
 
 @interface WIIconCell : NSTextFieldCell {
 	NSImage				*_image;
-	CGFloat				_spacing;
+	CGFloat				_horizontalTextOffset;
+	CGFloat				_verticalTextOffset;
+	CGFloat				_textHeight;
 }
 
 - (void)setImage:(NSImage *)image;
 - (NSImage *)image;
-- (void)setSpacing:(CGFloat)spacing;
-- (CGFloat)interSpacing;
+- (void)setHorizontalTextOffset:(CGFloat)offset;
+- (CGFloat)horizontalTextOffset;
+- (void)setVerticalTextOffset:(CGFloat)offset;
+- (CGFloat)verticalTextOffset;
+- (void)setTextHeight:(CGFloat)height;
+- (CGFloat)textHeight;
 
 @end

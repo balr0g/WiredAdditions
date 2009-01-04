@@ -44,8 +44,11 @@
     WIIconCell		*cell;
 	
 	cell = [super copyWithZone:zone];
-    cell->_image = [_image retain];
-    cell->_spacing = _spacing;
+	
+    cell->_image					= [_image retain];
+    cell->_horizontalTextOffset		= _horizontalTextOffset;
+    cell->_verticalTextOffset		= _verticalTextOffset;
+    cell->_textHeight				= _textHeight;
 	
 	return cell;
 }
@@ -77,14 +80,38 @@
 
 
 
-- (void)setSpacing:(CGFloat)spacing {
-	_spacing = spacing;
+- (void)setHorizontalTextOffset:(CGFloat)offset {
+	_horizontalTextOffset = offset;
 }
 
 
 
-- (CGFloat)interSpacing {
-	return _spacing;
+- (CGFloat)horizontalTextOffset {
+	return _horizontalTextOffset;
+}
+
+
+
+- (void)setVerticalTextOffset:(CGFloat)offset {
+	_verticalTextOffset = offset;
+}
+
+
+
+- (CGFloat)verticalTextOffset {
+	return _verticalTextOffset;
+}
+
+
+
+- (void)setTextHeight:(CGFloat)height {
+	_textHeight = height;
+}
+
+
+
+- (CGFloat)textHeight {
+	return _textHeight;
 }
 
 
@@ -94,7 +121,13 @@
 - (void)editWithFrame:(NSRect)frame inView:(NSView *)view editor:(NSText *)editor delegate:(id)object event:(NSEvent *)event {
 	NSRect		textFrame, imageFrame;
 	
-	NSDivideRect(frame, &imageFrame, &textFrame, 3.0 + [_image size].width + _spacing, NSMinXEdge);
+	NSDivideRect(frame, &imageFrame, &textFrame, 3.0 + [_image size].width + _horizontalTextOffset, NSMinXEdge);
+
+	textFrame.origin.y		+= _verticalTextOffset;
+	textFrame.size.height	-= _verticalTextOffset;
+
+	if(_textHeight > 0.0)
+		textFrame.size.height = _textHeight;
 
 	[super editWithFrame:textFrame inView:view editor:editor delegate:object event:event];
 }
@@ -104,7 +137,13 @@
 - (void)selectWithFrame:(NSRect)frame inView:(NSView *)view editor:(NSText *)editor delegate:(id)delegate start:(NSInteger)start length:(NSInteger)length {
 	NSRect		textFrame, imageFrame;
 	
-	NSDivideRect(frame, &imageFrame, &textFrame, 3.0 + [_image size].width + _spacing, NSMinXEdge);
+	NSDivideRect(frame, &imageFrame, &textFrame, 3.0 + [_image size].width + _horizontalTextOffset, NSMinXEdge);
+
+	textFrame.origin.y		+= _verticalTextOffset;
+	textFrame.size.height	-= _verticalTextOffset;
+
+	if(_textHeight > 0.0)
+		textFrame.size.height = _textHeight;
 
 	[super selectWithFrame:textFrame inView:view editor:editor delegate:delegate start:start length:length];
 }
@@ -118,7 +157,7 @@
 	if(_image) {
 		imageSize = [_image size];
 
-		NSDivideRect(frame, &imageFrame, &frame, 3.0 + imageSize.width + _spacing, NSMinXEdge);
+		NSDivideRect(frame, &imageFrame, &frame, 3.0 + imageSize.width + _horizontalTextOffset, NSMinXEdge);
 
 		if([self drawsBackground]) {
 			[[self backgroundColor] set];
@@ -128,13 +167,19 @@
 		imageFrame.origin.x += 3.0;
 		imageFrame.size = imageSize;
 		
-		if ([view isFlipped])
+		if([view isFlipped])
 			imageFrame.origin.y += ceil((frame.size.height + imageFrame.size.height) / 2.0);
 		else
 			imageFrame.origin.y += ceil((frame.size.height - imageFrame.size.height) / 2.0);
 		
 		[_image compositeToPoint:imageFrame.origin operation:NSCompositeSourceOver];
 	}
+	
+	frame.origin.y		+= _verticalTextOffset;
+	frame.size.height	-= _verticalTextOffset;
+	
+	if(_textHeight > 0.0)
+		frame.size.height = _textHeight;
 
 	[super drawWithFrame:frame inView:view];
 }
