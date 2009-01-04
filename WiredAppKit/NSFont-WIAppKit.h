@@ -26,6 +26,10 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+NSString * NSStringFromFont(NSFont *font);
+NSFont * NSFontFromString(NSString *string);
+
+
 @interface NSFont(WIAppKit)
 
 + (NSFont *)systemFont;

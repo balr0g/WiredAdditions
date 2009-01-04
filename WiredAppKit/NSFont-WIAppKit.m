@@ -29,6 +29,25 @@
 #import <WiredAppKit/NSAttributedString-WIAppKit.h>
 #import <WiredAppKit/NSFont-WIAppKit.h>
 
+NSString * NSStringFromFont(NSFont *font) {
+	return [NSSWF:@"NSFont %@ %f", [font fontName], [font pointSize]];
+}
+
+
+
+NSFont * NSFontFromString(NSString *string) {
+	NSArray		*array;
+	
+	array = [string componentsSeparatedByString:@" "];
+	
+	if([array count] != 3 || ![[array objectAtIndex:0] isEqualToString:@"NSFont"])
+		return NULL;
+	
+	return [NSFont fontWithName:[array objectAtIndex:1] size:[[array objectAtIndex:2] doubleValue]];
+}
+
+
+
 @implementation NSFont(WIAppKit)
 
 + (NSFont *)systemFont {
