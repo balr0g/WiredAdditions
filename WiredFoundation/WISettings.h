@@ -38,6 +38,7 @@
 
 + (void)setObject:(id)object forKey:(id)key;
 + (id)objectForKey:(id)key;
++ (void)removeObjectForKey:(id)key;
 + (void)setString:(NSString *)string forKey:(id)key;
 + (NSString *)stringForKey:(id)key;
 + (void)setBool:(BOOL)value forKey:(id)key;
@@ -50,5 +51,9 @@
 + (float)floatForKey:(id)key;
 + (void)setDouble:(double)value forKey:(id)key;
 + (double)doubleForKey:(id)key;
+
++ (void)addObject:(id)object toArrayForKey:(id)key;
++ (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object inArrayForKey:(id)key;
++ (void)removeObjectAtIndex:(NSUInteger)index fromArrayForKey:(id)key;
 
 @end

@@ -39,6 +39,7 @@ static WISettings			*WISettingsSharedSettings;
 
 - (void)_setObject:(id)object forKey:(id)key;
 - (id)_objectForKey:(id)key;
+- (void)_removeObjectForKey:(id)key;
 
 - (void)_synchronize;
 
@@ -99,6 +100,12 @@ static WISettings			*WISettingsSharedSettings;
 
 
 
+- (void)_removeObjectForKey:(id)key {
+	[_defaults removeObjectForKey:key];
+}
+
+
+
 #pragma mark -
 
 - (void)_synchronize {
@@ -154,6 +161,12 @@ static WISettings			*WISettingsSharedSettings;
 
 + (id)objectForKey:(id)key {
 	return [[self _settings] _objectForKey:key];
+}
+
+
+
++ (void)removeObjectForKey:(id)key {
+	[[self _settings] _removeObjectForKey:key];
 }
 
 
@@ -226,6 +239,38 @@ static WISettings			*WISettingsSharedSettings;
 
 + (double)doubleForKey:(id)key {
 	return [[[self _settings] _objectForKey:key] doubleValue];
+}
+
+
+
+#pragma mark -
+
++ (void)addObject:(id)object toArrayForKey:(id)key {
+	NSMutableArray		*array;
+	
+	array = [[[self objectForKey:key] mutableCopy] autorelease];
+	[array addObject:object];
+	[self setObject:array forKey:key];
+}
+
+
+
++ (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object inArrayForKey:(id)key {
+	NSMutableArray		*array;
+	
+	array = [[[self objectForKey:key] mutableCopy] autorelease];
+	[array replaceObjectAtIndex:index withObject:object];
+	[self setObject:array forKey:key];
+}
+
+
+
++ (void)removeObjectAtIndex:(NSUInteger)index fromArrayForKey:(id)key {
+	NSMutableArray		*array;
+	
+	array = [[[self objectForKey:key] mutableCopy] autorelease];
+	[array removeObjectAtIndex:index];
+	[self setObject:array forKey:key];
 }
 
 @end
