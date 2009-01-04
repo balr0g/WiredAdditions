@@ -193,6 +193,8 @@
 	NSMutableDictionary			*dictionary;
 	NSString					*identifier;
 	
+	[view setAutoresizingMask:NSViewMaxXMargin | NSViewMaxYMargin];
+	
 	dictionary = [NSMutableDictionary dictionary];
 	[dictionary setObject:view forKey:_WIPreferencesControllerView];
 	[dictionary setObject:name forKey:_WIPreferencesControllerName];
