@@ -31,25 +31,12 @@
 @implementation NSSound(WIAppKit)
 
 + (void)playSoundNamed:(NSString *)name {
-	static NSMutableDictionary	*sounds;
-	NSSound						*sound;
+	NSSound			*sound;
 
-	if(!sounds)
-		sounds = [[NSMutableDictionary alloc] init];
+	sound = [NSSound soundNamed:name];
 
-	if(name && [name length] > 0) {
-		sound = [sounds objectForKey:name];
-
-		if(!sound) {
-			sound = [NSSound soundNamed:name];
-
-			if(sound)
-				[sounds setObject:sound forKey:name];
-		}
-
-		if(![sound isPlaying])
-			[sound play];
-	}
+	if(![sound isPlaying])
+		[sound play];
 }
 
 @end
