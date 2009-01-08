@@ -29,6 +29,7 @@
 @interface NSImage(WIAppKit)
 
 + (NSImage *)imageWithData:(NSData *)data;
++ (NSImage *)imageWithContentsOfFile:(NSString *)file;
 
 - (NSImage *)smoothedImage;
 - (NSImage *)tintedImageWithColor:(NSColor *)color;

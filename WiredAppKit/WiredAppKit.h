@@ -59,6 +59,7 @@
 #import <WiredAppKit/NSImage-WIAppKit.h>
 #import <WiredAppKit/NSMenu-WIAppKit.h>
 #import <WiredAppKit/NSMenuItem-WIAppKit.h>
+#import <WiredAppKit/NSObject-WIAppKit.h>
 #import <WiredAppKit/NSPopUpButton-WIAppKit.h>
 #import <WiredAppKit/NSSound-WIAppKit.h>
 #import <WiredAppKit/NSSplitView-WIAppKit.h>

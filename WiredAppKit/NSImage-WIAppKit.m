@@ -37,6 +37,12 @@
 
 
 
++ (NSImage *)imageWithContentsOfFile:(NSString *)file {
+	return [[[self alloc] initWithContentsOfFile:file] autorelease];
+}
+
+
+
 #pragma mark -
 
 - (NSImage *)smoothedImage {

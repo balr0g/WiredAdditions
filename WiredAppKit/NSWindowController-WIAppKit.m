@@ -38,18 +38,4 @@
 	return NULL;
 }
 
-
-
-#pragma mark -
-
-- (IBAction)submitSheet:(id)sender {
-	[NSApp endSheet:[sender window] returnCode:NSOKButton];
-}
-
-
-
-- (IBAction)cancelSheet:(id)sender {
-	[NSApp endSheet:[sender window] returnCode:NSCancelButton];
-}
-
 @end

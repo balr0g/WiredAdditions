@@ -368,6 +368,10 @@
 		A565B3D20D5D9E9100AF91BA /* WIP7Message.h in Headers */ = {isa = PBXBuildFile; fileRef = A565B3CE0D5D9E9100AF91BA /* WIP7Message.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A56F2B6F0E61C91F00A42D96 /* WIAppKitFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A54D3E85076337FE00227EBE /* WIAppKitFunctions.m */; };
 		A56F2B700E61C92200A42D96 /* WIAppKitFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = A54D381607628E4300227EBE /* WIAppKitFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A57764990F169CF800C659DB /* NSObject-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A57764970F169CF800C659DB /* NSObject-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A577649A0F169CF800C659DB /* NSObject-WIAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A57764980F169CF800C659DB /* NSObject-WIAppKit.m */; };
+		A577649B0F169CF800C659DB /* NSObject-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A57764970F169CF800C659DB /* NSObject-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A577649C0F169CF800C659DB /* NSObject-WIAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A57764980F169CF800C659DB /* NSObject-WIAppKit.m */; };
 		A5B34B430E9ACB85005B7884 /* wired in Headers */ = {isa = PBXBuildFile; fileRef = A5B34B0B0E9ACB82005B7884 /* wired */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5C23F2E0E9AC53E00A81F49 /* wi-address.c in Sources */ = {isa = PBXBuildFile; fileRef = A5C23E0F0E9AC4D500A81F49 /* wi-address.c */; };
 		A5C23F2F0E9AC53E00A81F49 /* wi-address.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C23E100E9AC4D500A81F49 /* wi-address.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -734,6 +738,8 @@
 		A569E7FB0CCBFB740046F90E /* NSBezierPath-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSBezierPath-WIAppKit.m"; path = "WiredAppKit/NSBezierPath-WIAppKit.m"; sourceTree = "<group>"; };
 		A56B9EF9075B865F00B3B6AA /* WIApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WIApplication.h; path = WiredAppKit/WIApplication.h; sourceTree = "<group>"; };
 		A56B9EFA075B865F00B3B6AA /* WIApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WIApplication.m; path = WiredAppKit/WIApplication.m; sourceTree = "<group>"; };
+		A57764970F169CF800C659DB /* NSObject-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSObject-WIAppKit.h"; path = "WiredAppKit/NSObject-WIAppKit.h"; sourceTree = "<group>"; };
+		A57764980F169CF800C659DB /* NSObject-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSObject-WIAppKit.m"; path = "WiredAppKit/NSObject-WIAppKit.m"; sourceTree = "<group>"; };
 		A5796C4A0EBA4CF000FF6E51 /* version.pl */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.script.perl; path = version.pl; sourceTree = "<group>"; };
 		A57FDFC407C8257A00AC49F2 /* WIReadWriteLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WIReadWriteLock.h; path = WiredFoundation/WIReadWriteLock.h; sourceTree = "<group>"; };
 		A57FDFC507C8257A00AC49F2 /* WIReadWriteLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WIReadWriteLock.m; path = WiredFoundation/WIReadWriteLock.m; sourceTree = "<group>"; };
@@ -1255,6 +1261,8 @@
 				77D5170A0984F4AD0057D51F /* NSMenu-WIAppKit.h */,
 				A5239EE30A114C5C009DD940 /* NSMenuItem-WIAppKit.m */,
 				A5239EE40A114C5C009DD940 /* NSMenuItem-WIAppKit.h */,
+				A57764980F169CF800C659DB /* NSObject-WIAppKit.m */,
+				A57764970F169CF800C659DB /* NSObject-WIAppKit.h */,
 				A544C0920758DEEE008446CF /* NSPopUpButton-WIAppKit.m */,
 				A544C0950758DEEE008446CF /* NSPopUpButton-WIAppKit.h */,
 				A544C06B0758DEEE008446CF /* NSSound-WIAppKit.m */,
@@ -1472,6 +1480,7 @@
 				7712BB750E5C1964001C4210 /* NSImage-WIAppKit.h in Headers */,
 				7712BB770E5C1964001C4210 /* NSMenu-WIAppKit.h in Headers */,
 				7712BB780E5C1964001C4210 /* NSMenuItem-WIAppKit.h in Headers */,
+				A57764990F169CF800C659DB /* NSObject-WIAppKit.h in Headers */,
 				7712BB7D0E5C1964001C4210 /* NSPopUpButton-WIAppKit.h in Headers */,
 				7712BB810E5C1964001C4210 /* NSSound-WIAppKit.h in Headers */,
 				7712BB820E5C1964001C4210 /* NSSplitView-WIAppKit.h in Headers */,
@@ -1576,6 +1585,7 @@
 				77DBEAE20E62B94600B738D3 /* NSImage-WIAppKit.h in Headers */,
 				77DBEAE30E62B94600B738D3 /* NSMenu-WIAppKit.h in Headers */,
 				77DBEAE40E62B94600B738D3 /* NSMenuItem-WIAppKit.h in Headers */,
+				A577649B0F169CF800C659DB /* NSObject-WIAppKit.h in Headers */,
 				77DBEAE50E62B94600B738D3 /* NSPopUpButton-WIAppKit.h in Headers */,
 				77DBEAE60E62B94600B738D3 /* NSSound-WIAppKit.h in Headers */,
 				77DBEAE70E62B94600B738D3 /* NSSplitView-WIAppKit.h in Headers */,
@@ -1973,6 +1983,7 @@
 				7712BBB80E5C1964001C4210 /* NSImage-WIAppKit.m in Sources */,
 				7712BBBA0E5C1964001C4210 /* NSMenu-WIAppKit.m in Sources */,
 				7712BBBB0E5C1964001C4210 /* NSMenuItem-WIAppKit.m in Sources */,
+				A577649A0F169CF800C659DB /* NSObject-WIAppKit.m in Sources */,
 				7712BBC00E5C1964001C4210 /* NSPopUpButton-WIAppKit.m in Sources */,
 				7712BBC40E5C1964001C4210 /* NSSound-WIAppKit.m in Sources */,
 				7712BBC50E5C1964001C4210 /* NSSplitView-WIAppKit.m in Sources */,
@@ -2071,6 +2082,7 @@
 				77DBEB110E62B96A00B738D3 /* NSImage-WIAppKit.m in Sources */,
 				77DBEB120E62B96A00B738D3 /* NSMenu-WIAppKit.m in Sources */,
 				77DBEB130E62B96A00B738D3 /* NSMenuItem-WIAppKit.m in Sources */,
+				A577649C0F169CF800C659DB /* NSObject-WIAppKit.m in Sources */,
 				77DBEB140E62B96A00B738D3 /* NSPopUpButton-WIAppKit.m in Sources */,
 				77DBEB150E62B96A00B738D3 /* NSSound-WIAppKit.m in Sources */,
 				77DBEB160E62B96A00B738D3 /* NSSplitView-WIAppKit.m in Sources */,

@@ -30,7 +30,4 @@
 
 - (NSWindow *)shownWindow;
 
-- (IBAction)submitSheet:(id)sender;
-- (IBAction)cancelSheet:(id)sender;
-
 @end
