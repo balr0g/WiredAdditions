@@ -372,6 +372,10 @@
 		A577649A0F169CF800C659DB /* NSObject-WIAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A57764980F169CF800C659DB /* NSObject-WIAppKit.m */; };
 		A577649B0F169CF800C659DB /* NSObject-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A57764970F169CF800C659DB /* NSObject-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A577649C0F169CF800C659DB /* NSObject-WIAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A57764980F169CF800C659DB /* NSObject-WIAppKit.m */; };
+		A57768DA0F16A10900C659DB /* NSAlert-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A57768D80F16A10900C659DB /* NSAlert-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A57768DB0F16A10900C659DB /* NSAlert-WIAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A57768D90F16A10900C659DB /* NSAlert-WIAppKit.m */; };
+		A57768DC0F16A10900C659DB /* NSAlert-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A57768D80F16A10900C659DB /* NSAlert-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A57768DD0F16A10900C659DB /* NSAlert-WIAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A57768D90F16A10900C659DB /* NSAlert-WIAppKit.m */; };
 		A5B34B430E9ACB85005B7884 /* wired in Headers */ = {isa = PBXBuildFile; fileRef = A5B34B0B0E9ACB82005B7884 /* wired */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5C23F2E0E9AC53E00A81F49 /* wi-address.c in Sources */ = {isa = PBXBuildFile; fileRef = A5C23E0F0E9AC4D500A81F49 /* wi-address.c */; };
 		A5C23F2F0E9AC53E00A81F49 /* wi-address.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C23E100E9AC4D500A81F49 /* wi-address.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -740,6 +744,8 @@
 		A56B9EFA075B865F00B3B6AA /* WIApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WIApplication.m; path = WiredAppKit/WIApplication.m; sourceTree = "<group>"; };
 		A57764970F169CF800C659DB /* NSObject-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSObject-WIAppKit.h"; path = "WiredAppKit/NSObject-WIAppKit.h"; sourceTree = "<group>"; };
 		A57764980F169CF800C659DB /* NSObject-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSObject-WIAppKit.m"; path = "WiredAppKit/NSObject-WIAppKit.m"; sourceTree = "<group>"; };
+		A57768D80F16A10900C659DB /* NSAlert-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSAlert-WIAppKit.h"; path = "WiredAppKit/NSAlert-WIAppKit.h"; sourceTree = "<group>"; };
+		A57768D90F16A10900C659DB /* NSAlert-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSAlert-WIAppKit.m"; path = "WiredAppKit/NSAlert-WIAppKit.m"; sourceTree = "<group>"; };
 		A5796C4A0EBA4CF000FF6E51 /* version.pl */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = text.script.perl; path = version.pl; sourceTree = "<group>"; };
 		A57FDFC407C8257A00AC49F2 /* WIReadWriteLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WIReadWriteLock.h; path = WiredFoundation/WIReadWriteLock.h; sourceTree = "<group>"; };
 		A57FDFC507C8257A00AC49F2 /* WIReadWriteLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WIReadWriteLock.m; path = WiredFoundation/WIReadWriteLock.m; sourceTree = "<group>"; };
@@ -1239,6 +1245,8 @@
 		A544C0580758DEA3008446CF /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				A57768D90F16A10900C659DB /* NSAlert-WIAppKit.m */,
+				A57768D80F16A10900C659DB /* NSAlert-WIAppKit.h */,
 				77B7C4AA0973FF5E009367B0 /* NSApplication-WIAppKit.m */,
 				77B7C4AB0973FF5E009367B0 /* NSApplication-WIAppKit.h */,
 				774BB3C90E5C3F03009223FC /* NSAttributedString-WIAppKit.m */,
@@ -1469,6 +1477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7712BF130E5C224F001C4210 /* WiredAppKit.h in Headers */,
+				A57768DA0F16A10900C659DB /* NSAlert-WIAppKit.h in Headers */,
 				7712C0A30E5C23D1001C4210 /* NSApplication-WIAppKit.h in Headers */,
 				774BB3CA0E5C3F03009223FC /* NSAttributedString-WIAppKit.h in Headers */,
 				7712BB6C0E5C1964001C4210 /* NSBezierPath-WIAppKit.h in Headers */,
@@ -1574,6 +1583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77DBEB060E62B96000B738D3 /* WiredAppKit.h in Headers */,
+				A57768DC0F16A10900C659DB /* NSAlert-WIAppKit.h in Headers */,
 				77DBEADA0E62B94600B738D3 /* NSApplication-WIAppKit.h in Headers */,
 				77DBEADB0E62B94600B738D3 /* NSAttributedString-WIAppKit.h in Headers */,
 				77DBEADC0E62B94600B738D3 /* NSBezierPath-WIAppKit.h in Headers */,
@@ -1972,6 +1982,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A57768DB0F16A10900C659DB /* NSAlert-WIAppKit.m in Sources */,
 				7712C0A20E5C23D1001C4210 /* NSApplication-WIAppKit.m in Sources */,
 				774BB3CB0E5C3F03009223FC /* NSAttributedString-WIAppKit.m in Sources */,
 				7712BBAF0E5C1964001C4210 /* NSBezierPath-WIAppKit.m in Sources */,
@@ -2071,6 +2082,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A57768DD0F16A10900C659DB /* NSAlert-WIAppKit.m in Sources */,
 				77DBEB090E62B96A00B738D3 /* NSApplication-WIAppKit.m in Sources */,
 				77DBEB0A0E62B96A00B738D3 /* NSAttributedString-WIAppKit.m in Sources */,
 				77DBEB0B0E62B96A00B738D3 /* NSBezierPath-WIAppKit.m in Sources */,

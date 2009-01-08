@@ -48,6 +48,7 @@
 #import <WiredAppKit/WIWindow.h>
 #import <WiredAppKit/WIWindowController.h>
 
+#import <WiredAppKit/NSAlert-WIAppKit.h>
 #import <WiredAppKit/NSApplication-WIAppKit.h>
 #import <WiredAppKit/NSAttributedString-WIAppKit.h>
 #import <WiredAppKit/NSBezierPath-WIAppKit.h>
