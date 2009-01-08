@@ -245,32 +245,54 @@ static WISettings			*WISettingsSharedSettings;
 
 #pragma mark -
 
-+ (void)addObject:(id)object toArrayForKey:(id)key {
++ (void)addObject:(id)object toArrayForKey:(id)arrayKey {
 	NSMutableArray		*array;
 	
-	array = [[[self objectForKey:key] mutableCopy] autorelease];
+	array = [[[self objectForKey:arrayKey] mutableCopy] autorelease];
 	[array addObject:object];
-	[self setObject:array forKey:key];
+	[self setObject:array forKey:arrayKey];
 }
 
 
 
-+ (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object inArrayForKey:(id)key {
++ (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object inArrayForKey:(id)arrayKey {
 	NSMutableArray		*array;
 	
-	array = [[[self objectForKey:key] mutableCopy] autorelease];
+	array = [[[self objectForKey:arrayKey] mutableCopy] autorelease];
 	[array replaceObjectAtIndex:index withObject:object];
-	[self setObject:array forKey:key];
+	[self setObject:array forKey:arrayKey];
 }
 
 
 
-+ (void)removeObjectAtIndex:(NSUInteger)index fromArrayForKey:(id)key {
++ (void)removeObjectAtIndex:(NSUInteger)index fromArrayForKey:(id)arrayKey {
 	NSMutableArray		*array;
 	
-	array = [[[self objectForKey:key] mutableCopy] autorelease];
+	array = [[[self objectForKey:arrayKey] mutableCopy] autorelease];
 	[array removeObjectAtIndex:index];
-	[self setObject:array forKey:key];
+	[self setObject:array forKey:arrayKey];
+}
+
+
+
+#pragma mark -
+
++ (void)setObject:(id)object forKey:(id)key inDictionaryForKey:(id)dictionaryKey {
+	NSMutableDictionary		*dictionary;
+	
+	dictionary = [[[self objectForKey:dictionaryKey] mutableCopy] autorelease];
+	[dictionary setObject:object forKey:key];
+	[self setObject:dictionary forKey:dictionaryKey];
+}
+
+
+
++ (void)removeObjectForKey:(id)key inDictionaryForKey:(id)dictionaryKey {
+	NSMutableDictionary		*dictionary;
+	
+	dictionary = [[[self objectForKey:dictionaryKey] mutableCopy] autorelease];
+	[dictionary removeObjectForKey:key];
+	[self setObject:dictionary forKey:dictionaryKey];
 }
 
 @end
