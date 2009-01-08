@@ -58,12 +58,12 @@
 		
 		[view setHidden:YES];
 		
-		[[[self window] contentView] addSubview:view];
-		
 		frame = [[self window] frame];
 		frame.size = [[self window] frameRectForContentRect:[view frame]].size;
 		frame.origin.y -= frame.size.height - [[self window] frame].size.height;
 		[[self window] setFrame:frame display:YES animate:animate];
+		
+		[[[self window] contentView] addSubview:view];
 		
 		if(animate) {
 			animations = [NSArray arrayWithObject:[NSDictionary dictionaryWithObjectsAndKeys:
@@ -155,8 +155,6 @@
 											content:[dictionary objectForKey:_WIPreferencesControllerImage]
 											 target:self
 											 action:@selector(toolbarItem:)];
-	
-	return NULL;
 }
 
 
@@ -193,7 +191,7 @@
 	NSMutableDictionary			*dictionary;
 	NSString					*identifier;
 	
-	[view setAutoresizingMask:NSViewMaxXMargin | NSViewMaxYMargin];
+	[view setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable | NSViewMaxXMargin | NSViewMaxYMargin];
 	
 	dictionary = [NSMutableDictionary dictionary];
 	[dictionary setObject:view forKey:_WIPreferencesControllerView];
