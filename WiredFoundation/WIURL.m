@@ -119,7 +119,7 @@
 		}
 	}
 
-	if(!scheme)
+	if(defaultScheme)
 		scheme = defaultScheme;
 
 	if(!scheme) {
