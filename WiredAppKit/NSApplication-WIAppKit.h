@@ -29,5 +29,6 @@
 @interface NSApplication(WIAppKit)
 
 - (NSString *)name;
+- (NSUInteger)systemVersion;
 
 @end

@@ -34,4 +34,18 @@
 	return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleExecutable"];
 }
 
+
+
+- (NSUInteger)systemVersion {
+    SInt32		systemVersion;
+    OSErr		err;
+	
+	err = Gestalt(gestaltSystemVersion, &systemVersion);
+	
+	if(err == noErr)
+		return systemVersion;
+
+	return 0x1000;
+}
+
 @end
