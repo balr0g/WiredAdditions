@@ -12,8 +12,6 @@ foreach ("", "libwired", "wired", "wired/libwired", "WiredAdditions", "WiredAddi
 	my $revision = `svn info $_ 2>/dev/null | grep "^Last Changed Rev:"`;
 	$revision =~ s/(.+): (\d+)\n/$2/;
 	
-	print "$_: $revision\n";
-	
 	if($revision && $revision > $latest_revision) {
 		$latest_revision = $revision;
 	}
