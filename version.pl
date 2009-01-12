@@ -6,11 +6,20 @@ die "$0: Must be run from Xcode" unless $ENV{"BUILT_PRODUCTS_DIR"};
 
 $ENV{"PATH"} = "/opt/local/bin:/usr/local/bin:/usr/bin";
 
-my $REV = `svn info | grep "^Revision:"`;
+my $latest_revision = 0;
 
-my $version = $REV;
-$version =~ s/^Revision: (\d+)\n/$1/;
-die "$0: No Subversion revision found" unless $version;
+foreach ("", "libwired", "wired", "wired/libwired", "WiredAdditions", "WiredAdditions/libwired" ) {
+	my $revision = `svn info $_ 2>/dev/null | grep "^Last Changed Rev:"`;
+	$revision =~ s/(.+): (\d+)\n/$2/;
+	
+	print "$_: $revision\n";
+	
+	if($revision && $revision > $latest_revision) {
+		$latest_revision = $revision;
+	}
+}
+
+die "$0: No Subversion revision found" unless $latest_revision;
 
 my @files = @ARGV;
 
@@ -23,8 +32,8 @@ foreach my $file (@files) {
 	my $content = join("", <FH>);
 	close(FH);
 
-	$content =~ s/([\t ]+<key>CFBundleVersion<\/key>\n[\t ]+<string>).*?(<\/string>)/$1$version$2/;
-	$content =~ s/\$\(?SVN_REVISION\)?/$version/g;
+	$content =~ s/([\t ]+<key>CFBundleVersion<\/key>\n[\t ]+<string>).*?(<\/string>)/$1$latest_revision$2/;
+	$content =~ s/\$\(?SVN_REVISION\)?/$latest_revision/g;
 	
 	open(FH, ">$file") or die "$0: $file: $!";
 	print FH $content;
