@@ -64,6 +64,19 @@
 
 #pragma mark -
 
+- (void)selectItemWithRepresentedObject:(id)representedObject {
+	NSInteger		index;
+	
+	index = [self indexOfItemWithRepresentedObject:representedObject];
+	
+	if(index < 0)
+		return;
+	
+	[self selectItemAtIndex:index];
+}
+
+
+
 - (id)representedObjectOfSelectedItem {
 	return [[self selectedItem] representedObject];
 }

@@ -35,6 +35,7 @@
 - (NSInteger)tagOfSelectedItem;
 - (NSMenuItem *)itemWithTag:(NSInteger)tag;
 
+- (void)selectItemWithRepresentedObject:(id)representedObject;
 - (id)representedObjectOfSelectedItem;
 
 @end
