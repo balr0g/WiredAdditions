@@ -51,7 +51,9 @@
 
 @interface NSMutableArray(WIFoundation)
 
+- (void)addObject:(id)object sortedUsingSelector:(SEL)selector;
 - (NSUInteger)moveObjectAtIndex:(NSUInteger)from toIndex:(NSUInteger)to;
+
 - (void)reverse;
 - (void)shuffle;
 

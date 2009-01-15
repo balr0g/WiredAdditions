@@ -249,6 +249,34 @@
 
 @implementation NSMutableArray(WIFoundation)
 
+- (void)addObject:(id)object sortedUsingSelector:(SEL)selector {
+	IMP					method;
+	NSComparisonResult	result;
+	NSUInteger			i, count;
+
+	count = [self count];
+	
+	if(count == 0) {
+		[self addObject:object];
+	} else {
+		method = [object methodForSelector:selector];
+
+		for(i = 0; i < count; i++) {
+			result = (NSComparisonResult) method(object, selector, [self objectAtIndex:i]);
+			
+			if(result < 0) {
+				[self insertObject:object atIndex:i];
+				
+				return;
+			}
+			
+			[self addObject:object];
+		}
+	}
+}
+
+
+
 - (NSUInteger)moveObjectAtIndex:(NSUInteger)from toIndex:(NSUInteger)to {
 	id			object;
 	NSUInteger	index;
@@ -268,6 +296,8 @@
 }
 
 
+
+#pragma mark -
 
 - (void)reverse {
 	[self setArray:[self reversedArray]];
