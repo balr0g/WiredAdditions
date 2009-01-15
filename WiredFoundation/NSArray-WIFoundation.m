@@ -269,9 +269,9 @@
 				
 				return;
 			}
-			
-			[self addObject:object];
 		}
+			
+		[self addObject:object];
 	}
 }
 
