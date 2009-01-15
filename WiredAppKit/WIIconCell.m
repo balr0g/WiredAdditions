@@ -121,7 +121,7 @@
 - (void)editWithFrame:(NSRect)frame inView:(NSView *)view editor:(NSText *)editor delegate:(id)object event:(NSEvent *)event {
 	NSRect		textFrame, imageFrame;
 	
-	NSDivideRect(frame, &imageFrame, &textFrame, 3.0 + [_image size].width + _horizontalTextOffset, NSMinXEdge);
+	NSDivideRect(frame, &imageFrame, &textFrame, 5.0 + [_image size].width + _horizontalTextOffset, NSMinXEdge);
 
 	textFrame.origin.y		+= _verticalTextOffset;
 	textFrame.size.height	-= _verticalTextOffset;
@@ -137,7 +137,7 @@
 - (void)selectWithFrame:(NSRect)frame inView:(NSView *)view editor:(NSText *)editor delegate:(id)delegate start:(NSInteger)start length:(NSInteger)length {
 	NSRect		textFrame, imageFrame;
 	
-	NSDivideRect(frame, &imageFrame, &textFrame, 3.0 + [_image size].width + _horizontalTextOffset, NSMinXEdge);
+	NSDivideRect(frame, &imageFrame, &textFrame, 5.0 + [_image size].width + _horizontalTextOffset, NSMinXEdge);
 
 	textFrame.origin.y		+= _verticalTextOffset;
 	textFrame.size.height	-= _verticalTextOffset;
@@ -154,17 +154,17 @@
 	NSSize		imageSize;
 	NSRect		imageFrame;
 	
+	imageSize = [_image size];
+	
+	NSDivideRect(frame, &imageFrame, &frame, 5.0 + imageSize.width + _horizontalTextOffset, NSMinXEdge);
+	
 	if(_image) {
-		imageSize = [_image size];
-
-		NSDivideRect(frame, &imageFrame, &frame, 3.0 + imageSize.width + _horizontalTextOffset, NSMinXEdge);
-
 		if([self drawsBackground]) {
 			[[self backgroundColor] set];
 			NSRectFill(imageFrame);
 		}
 		
-		imageFrame.origin.x += 3.0;
+		imageFrame.origin.x += 4.0;
 		imageFrame.size = imageSize;
 		
 		if([view isFlipped])
