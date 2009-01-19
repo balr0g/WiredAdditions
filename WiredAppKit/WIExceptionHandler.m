@@ -77,7 +77,7 @@
 	}
 	
 	if(i == 0)
-		NSLog(@"*** %@: Unable to log backtrace", [self class]);
+		NSLog(@"*** %@: Unable to log backtrace \"%@\"", [self class], trace);
 	
 	return NO;
 }
