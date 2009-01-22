@@ -26,6 +26,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+#import <WiredAppKit/WITextAttachment.h>
 #import <WiredAppKit/NSAttributedString-WIAppKit.h>
 
 @implementation NSAttributedString(WIAppKit)
@@ -109,12 +110,11 @@
 							 atIndex:range.location
 					  effectiveRange:nil];
 		
-		string = NULL;
+		[attachment retain];
 		
-		if([attachment respondsToSelector:@selector(string)])
-			string = [attachment performSelector:@selector(string)];
-		
-		if(!string)
+		if([attachment isKindOfClass:[WITextAttachment class]])
+			string = [attachment string];
+		else
 			string = @"<<attachment>>";
 		
 		[self removeAttribute:NSAttachmentAttributeName range:range];
@@ -122,6 +122,8 @@
 		
 		searchRange.location	= range.location + [string length];
 		searchRange.length		= [self length] - searchRange.location;
+		
+		[attachment release];
 	}
 }
 
