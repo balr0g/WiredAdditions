@@ -30,6 +30,7 @@
 
 + (NSImage *)imageWithData:(NSData *)data;
 + (NSImage *)imageWithContentsOfFile:(NSString *)file;
++ (NSImage *)imageWithPillForCount:(NSUInteger)count inActiveWindow:(BOOL)inActiveWindow onSelectedRow:(BOOL)onSelectedRow;
 
 - (NSImage *)smoothedImage;
 - (NSImage *)tintedImageWithColor:(NSColor *)color;

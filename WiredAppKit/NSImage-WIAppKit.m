@@ -27,6 +27,7 @@
  */
 
 #import <WiredFoundation/NSObject-WIFoundation.h>
+#import <WiredAppKit/NSBezierPath-WIAppKit.h>
 #import <WiredAppKit/NSImage-WIAppKit.h>
 
 @implementation NSImage(WIAppKit)
@@ -43,6 +44,64 @@
 
 
 
++ (NSImage *)imageWithPillForCount:(NSUInteger)count inActiveWindow:(BOOL)inActiveWindow onSelectedRow:(BOOL)onSelectedRow {
+	NSDictionary		*attributes;
+	NSColor				*backgroundColor, *textColor;
+	NSImage				*image;
+	NSSize				size;
+	
+	if(count == 0)
+		return NULL;
+	
+	if(count < 10)
+		size.width = 20.0;
+	else if(count < 100)
+		size.width = 27.0;
+	else if(count < 1000)
+		size.width = 34.0;
+	else
+		size.width = 39.0;
+	
+	size.height = 14.0;
+	
+	image = [[NSImage alloc] initWithSize:size];
+	
+	[image lockFocus];
+	
+	if(onSelectedRow) {
+		if(inActiveWindow) {
+			backgroundColor		= [NSColor whiteColor];
+			textColor			= [NSColor colorWithCalibratedRed:136.0 / 255.0 green:160.0 / 255.0 blue:214.0 / 255.0 alpha:1.0];
+		} else {
+			backgroundColor		= [NSColor whiteColor];
+			textColor			= [NSColor colorWithCalibratedWhite:166.0 / 255.0 alpha:1.0];
+		}
+	} else {
+		if(inActiveWindow) {
+			backgroundColor		= [NSColor colorWithCalibratedRed:136.0 / 255.0 green:160.0 / 255.0 blue:214.0 / 255.0 alpha:1.0];
+			textColor			= [NSColor whiteColor];
+		} else {
+			backgroundColor		= [NSColor colorWithCalibratedWhite:166.0 / 255.0 alpha:1.0];
+			textColor			= [NSColor whiteColor];
+		}
+	}
+	
+	[backgroundColor set];
+	[[NSBezierPath bezierPathWithRoundedRect:NSMakeRect(0.0, 0.0, size.width, size.height) cornerRadius:7.0] fill];
+	
+	attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+				  [NSFont boldSystemFontOfSize:11.0],
+				  NSFontAttributeName,
+				  textColor,
+				  NSForegroundColorAttributeName,
+				  NULL];
+	
+	[[NSSWF:@"%u", count] drawInRect:NSMakeRect(6.0, 0.0, size.width, size.height) withAttributes:attributes];
+	
+	[image unlockFocus];
+	
+	return [image autorelease];
+}
 #pragma mark -
 
 - (NSImage *)smoothedImage {
