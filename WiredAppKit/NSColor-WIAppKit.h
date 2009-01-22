@@ -36,4 +36,6 @@ NSColor * WIColorFromString(NSString *string);
 
 + (id)stripeColor;
 
+- (NSUInteger)HTMLValue;
+
 @end

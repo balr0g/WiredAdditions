@@ -68,9 +68,9 @@ NSColor * WIColorFromString(NSString *string) {
 	green	= (value & 0x00FF00) >> 8;
 	blue	= (value & 0x0000FF);
 	
-	return [self colorWithCalibratedRed:(float) red / 256.0f
-								  green:(float) green / 256.0f
-								   blue:(float) blue / 256.0f
+	return [self colorWithCalibratedRed:(CGFloat) red   / 255.0
+								  green:(CGFloat) green / 255.0
+								   blue:(CGFloat) blue  / 255.0
 								  alpha:alpha];
 }
 
@@ -82,13 +82,35 @@ NSColor * WIColorFromString(NSString *string) {
 	static id		stripeColor;
 	
 	if(!stripeColor) {
-		stripeColor = [[self colorWithCalibratedRed:(237.0 / 255.0)
-											  green:(243.0 / 255.0)
-											   blue:(254.0 / 255.0)
+		stripeColor = [[self colorWithCalibratedRed:237.0 / 255.0
+											  green:243.0 / 255.0
+											   blue:254.0 / 255.0
 											  alpha:1.0] retain];
 	}
 	
 	return stripeColor;
+}
+
+
+
+#pragma mark -
+
+- (NSUInteger)HTMLValue {
+	NSColor		*color;
+	CGFloat		red, green, blue;
+	
+	color = [self colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+	
+	if(!color)
+		return 0;
+	
+	red		= [color redComponent];
+	green	= [color greenComponent];
+	blue	= [color blueComponent];
+	
+	return (((NSUInteger) (red   * 255.0)) << 16) |
+		   (((NSUInteger) (green * 255.0)) << 8) |
+		   (((NSUInteger) (blue  * 255.0)));
 }
 
 @end
