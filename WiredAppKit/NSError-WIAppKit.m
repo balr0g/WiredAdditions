@@ -31,6 +31,7 @@
 @implementation NSError(WIAppKit)
 
 - (NSAlert *)alert {
+	NSAlert			*alert;
 	NSString		*reason;
 	
 	reason = [self localizedFailureReason];
@@ -38,11 +39,12 @@
 	if(!reason)
 		reason = @"";
 	
-	return [NSAlert alertWithMessageText:[self localizedDescription]
-						   defaultButton:WILS(@"OK", @"NSError-WIAdditions: OK button")
-						 alternateButton:NULL
-							 otherButton:NULL
-			   informativeTextWithFormat:@"%@", reason];
+	alert = [[NSAlert alloc] init];
+	[alert setMessageText:[self localizedDescription]];
+	[alert setInformativeText:reason];
+	[alert addButtonWithTitle:WILS(@"OK", @"NSError-WIAdditions: OK button")];
+	
+	return [alert autorelease];
 }
 
 @end
