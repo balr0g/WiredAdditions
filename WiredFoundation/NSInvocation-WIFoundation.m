@@ -31,10 +31,15 @@
 @implementation NSInvocation(WIFoundation)
 
 + (NSInvocation *)invocationWithTarget:(id)target action:(SEL)action {
-	NSInvocation	*invocation;
+	NSInvocation		*invocation;
+	NSMethodSignature	*methodSignature;
+	
+	methodSignature = [target methodSignatureForSelector:action];
+	
+	if(!methodSignature)
+		return NULL;
 
-	invocation = [NSInvocation invocationWithMethodSignature:
-		[target methodSignatureForSelector:action]];
+	invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
 	[invocation setTarget:target];
 	[invocation setSelector:action];
 

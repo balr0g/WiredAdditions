@@ -29,5 +29,6 @@
 @interface NSSound(WIAppKit)
 
 + (void)playSoundNamed:(NSString *)name;
++ (void)playSoundNamed:(NSString *)name atVolume:(float)volume;
 
 @end

@@ -31,12 +31,27 @@
 @implementation NSSound(WIAppKit)
 
 + (void)playSoundNamed:(NSString *)name {
+	[self playSoundNamed:name atVolume:1.0];
+}
+
+
+
++ (void)playSoundNamed:(NSString *)name atVolume:(float)volume {
 	NSSound			*sound;
+	NSInvocation	*invocation;
 
 	sound = [NSSound soundNamed:name];
 
-	if(![sound isPlaying])
-		[sound play];
+	if(volume > 0.0) {
+		if([sound respondsToSelector:@selector(setVolume:)]) {
+			invocation = [NSInvocation invocationWithTarget:sound action:@selector(setVolume:)];
+			[invocation setArgument:&volume atIndex:2];
+			[invocation invoke];
+		}
+		
+		if(![sound isPlaying])
+			[sound play];
+	}
 }
 
 @end
