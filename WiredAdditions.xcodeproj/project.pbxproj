@@ -2516,6 +2516,7 @@
 				"SDKROOT[arch=ppc64]" = macosx10.5;
 				"SDKROOT[arch=ppc]" = macosx10.4;
 				"SDKROOT[arch=x86_64]" = macosx10.5;
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug/Native;
 		};
@@ -2680,6 +2681,7 @@
 					WI_P7,
 				);
 				SDKROOT = iphoneos2.0;
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug/iPhone;
 		};
@@ -2836,6 +2838,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				PREBINDING = NO;
 				SDKROOT = iphoneos2.0;
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Test/iPhone;
 		};
@@ -3275,6 +3278,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = stabs;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					WIConfigurationTest,
@@ -3296,6 +3300,7 @@
 				"SDKROOT[arch=ppc64]" = macosx10.5;
 				"SDKROOT[arch=ppc]" = macosx10.4;
 				"SDKROOT[arch=x86_64]" = macosx10.5;
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Test/Universal;
 		};
