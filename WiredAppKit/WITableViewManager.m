@@ -576,7 +576,7 @@ static NSInteger _WITableViewSelectRowCompare(id object1, id object2, void *cont
 			return YES;
 		}
 	}
-	else if(key == NSDeleteFunctionKey) {
+	else if(key == NSDeleteFunctionKey || key == NSDeleteCharacter) {
 		if([self deleteAction]) {
 			[_tableView doCommandBySelector:[self deleteAction]];
 			
