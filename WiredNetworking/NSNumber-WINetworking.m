@@ -51,6 +51,8 @@
 			return [[[self alloc] initWithInt:wi_number_int(number)] autorelease];
 			break;
 
+		case WI_NUMBER_INT8:
+		case WI_NUMBER_INT16:
 		case WI_NUMBER_INT32:
 			return [[[self alloc] initWithInt:wi_number_int32(number)] autorelease];
 			break;
