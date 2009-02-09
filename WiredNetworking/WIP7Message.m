@@ -26,6 +26,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+#import <WiredNetworking/NSNumber-WINetworking.h>
 #import <WiredNetworking/NSString-WINetworking.h>
 #import <WiredNetworking/WIP7Message.h>
 #import <WiredNetworking/WIP7Spec.h>
@@ -274,6 +275,36 @@
 		return NULL;
 	
 	return [NSData dataWithBytes:binary length:length];
+}
+
+
+
+- (BOOL)setNumber:(NSNumber *)number forName:(NSString *)name {
+	wi_pool_t			*pool;
+	BOOL				result = NO;
+	
+	pool = wi_pool_init(wi_pool_alloc());
+	
+	result = wi_p7_message_set_number_for_name(_message, [number wiredNumber], [name wiredString]);
+	
+	wi_release(pool);
+	
+	return result;
+}
+
+
+
+- (NSNumber *)numberForName:(NSString *)name {
+	NSNumber			*number;
+	wi_pool_t			*pool;
+	
+	pool = wi_pool_init(wi_pool_alloc());
+	
+	number = [NSNumber numberWithWiredNumber:wi_p7_message_number_for_name(_message, [_spec fieldNameForName:name])];
+	
+	wi_release(pool);
+	
+	return number;
 }
 
 

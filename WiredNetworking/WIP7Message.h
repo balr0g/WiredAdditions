@@ -103,6 +103,8 @@ typedef enum _WIP7Serialization		WIP7Serialization;
 - (NSString *)stringForName:(NSString *)name;
 - (BOOL)setData:(NSData *)data forName:(NSString *)name;
 - (NSData *)dataForName:(NSString *)name;
+- (BOOL)setNumber:(NSNumber *)number forName:(NSString *)name;
+- (NSNumber *)numberForName:(NSString *)name;
 - (BOOL)setEnumName:(NSString *)enumName forName:(NSString *)name;
 - (NSString *)enumNameForName:(NSString *)name;
 - (BOOL)setDate:(NSDate *)date forName:(NSString *)name;

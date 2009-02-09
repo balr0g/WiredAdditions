@@ -486,6 +486,10 @@
 		A5C919FE0F03A9280024E482 /* WIPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C919FC0F03A9280024E482 /* WIPreferencesController.m */; };
 		A5C919FF0F03A9280024E482 /* WIPreferencesController.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C919FB0F03A9280024E482 /* WIPreferencesController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5C91A000F03A9280024E482 /* WIPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C919FC0F03A9280024E482 /* WIPreferencesController.m */; };
+		A5F548270F3F9DA700DF8A2F /* NSNumber-WINetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F548250F3F9DA700DF8A2F /* NSNumber-WINetworking.m */; };
+		A5F548280F3F9DA700DF8A2F /* NSNumber-WINetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = A5F548260F3F9DA700DF8A2F /* NSNumber-WINetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5F548290F3F9DA700DF8A2F /* NSNumber-WINetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F548250F3F9DA700DF8A2F /* NSNumber-WINetworking.m */; };
+		A5F5482A0F3F9DA700DF8A2F /* NSNumber-WINetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = A5F548260F3F9DA700DF8A2F /* NSNumber-WINetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -873,6 +877,8 @@
 		A5EA54AB075FC0AD0025514A /* NSTableView-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTableView-WIAppKit.m"; path = "WiredAppKit/NSTableView-WIAppKit.m"; sourceTree = "<group>"; };
 		A5F37EAF09D74EA7004FA465 /* NSToolbar-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSToolbar-WIAppKit.h"; path = "WiredAppKit/NSToolbar-WIAppKit.h"; sourceTree = "<group>"; };
 		A5F37EB009D74EA7004FA465 /* NSToolbar-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSToolbar-WIAppKit.m"; path = "WiredAppKit/NSToolbar-WIAppKit.m"; sourceTree = "<group>"; };
+		A5F548250F3F9DA700DF8A2F /* NSNumber-WINetworking.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSNumber-WINetworking.m"; path = "WiredNetworking/NSNumber-WINetworking.m"; sourceTree = "<group>"; };
+		A5F548260F3F9DA700DF8A2F /* NSNumber-WINetworking.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSNumber-WINetworking.h"; path = "WiredNetworking/NSNumber-WINetworking.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1105,6 +1111,8 @@
 		776B11160DEC433600B92187 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				A5F548250F3F9DA700DF8A2F /* NSNumber-WINetworking.m */,
+				A5F548260F3F9DA700DF8A2F /* NSNumber-WINetworking.h */,
 				776B111E0DEC435100B92187 /* NSString-WINetworking.m */,
 				776B111F0DEC435100B92187 /* NSString-WINetworking.h */,
 			);
@@ -1566,6 +1574,7 @@
 			files = (
 				A5B34B430E9ACB85005B7884 /* wired in Headers */,
 				774897A60CC8A66400E95A83 /* WiredNetworking.h in Headers */,
+				A5F548280F3F9DA700DF8A2F /* NSNumber-WINetworking.h in Headers */,
 				776B11210DEC435100B92187 /* NSString-WINetworking.h in Headers */,
 				77489B730CC8ACCE00E95A83 /* WIAddress.h in Headers */,
 				77489B6E0CC8ACCE00E95A83 /* WIError.h in Headers */,
@@ -1637,6 +1646,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77DBEBBC0E62B9E800B738D3 /* WiredNetworking.h in Headers */,
+				A5F5482A0F3F9DA700DF8A2F /* NSNumber-WINetworking.h in Headers */,
 				77DBEBB60E62B9E800B738D3 /* NSString-WINetworking.h in Headers */,
 				77DBEBB70E62B9E800B738D3 /* WIAddress.h in Headers */,
 				77DBEBB80E62B9E800B738D3 /* WIError.h in Headers */,
@@ -2066,6 +2076,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F548270F3F9DA700DF8A2F /* NSNumber-WINetworking.m in Sources */,
 				776B11200DEC435100B92187 /* NSString-WINetworking.m in Sources */,
 				77489B720CC8ACCE00E95A83 /* WIAddress.m in Sources */,
 				77489B740CC8ACCE00E95A83 /* WIError.m in Sources */,
@@ -2135,6 +2146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F548290F3F9DA700DF8A2F /* NSNumber-WINetworking.m in Sources */,
 				77DBEBC10E62B9EF00B738D3 /* NSString-WINetworking.m in Sources */,
 				77DBEBC20E62B9EF00B738D3 /* WIAddress.m in Sources */,
 				77DBEBC30E62B9EF00B738D3 /* WIError.m in Sources */,

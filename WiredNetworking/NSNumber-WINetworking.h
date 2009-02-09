@@ -1,9 +1,9 @@
 /* $Id$ */
 
 /*
- *  Copyright (c) 2007-2009 Axel Andersson
+ *  Copyright (c) 2009 Axel Andersson
  *  All rights reserved.
- *
+ * 
  *  Redistribution and use in source and binary forms, with or without
  *  modification, are permitted provided that the following conditions
  *  are met:
@@ -12,7 +12,7 @@
  *  2. Redistributions in binary form must reproduce the above copyright
  *     notice, this list of conditions and the following disclaimer in the
  *     documentation and/or other materials provided with the distribution.
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -26,16 +26,10 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <wired/wired.h>
+@interface NSNumber(WINetworking)
 
-#import <WiredNetworking/NSNumber-WINetworking.h>
-#import <WiredNetworking/NSString-WINetworking.h>
++ (NSNumber *)numberWithWiredNumber:(wi_number_t *)number;
 
-#import <WiredNetworking/WIAddress.h>
-#import <WiredNetworking/WIError.h>
-#import <WiredNetworking/WIP7Message.h>
-#import <WiredNetworking/WIP7NotificationCenter.h>
-#import <WiredNetworking/WIP7Socket.h>
-#import <WiredNetworking/WIP7Spec.h>
-#import <WiredNetworking/WISocket.h>
-#import <WiredNetworking/WIThread.h>
+- (wi_number_t *)wiredNumber;
+
+@end
