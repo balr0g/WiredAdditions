@@ -83,17 +83,13 @@ static void _WIP7SocketWroteMessage(wi_p7_socket_t *p7Socket, wi_p7_message_t *p
 
 #pragma mark -
 
-- (id)initWithSocket:(WISocket *)socket TLS:(WISocketTLS *)tls spec:(WIP7Spec *)spec {
+- (id)initWithSocket:(WISocket *)socket spec:(WIP7Spec *)spec {
 	self = [super init];
 	
 	_socket		= [socket retain];
 	_spec		= [spec retain];
 	
 	_p7Socket = wi_p7_socket_init_with_socket(wi_p7_socket_alloc(), [_socket socket], [_spec spec]);
-	
-#ifdef WI_SSL
-	wi_p7_socket_set_tls(_p7Socket, [tls TLS]);
-#endif
 	
 	return self;
 }

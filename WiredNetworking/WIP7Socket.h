@@ -29,7 +29,6 @@
 #import <WiredNetworking/WIP7Message.h>
 
 enum _WIP7Options {
-	WIP7TLS										= WI_P7_TLS,
 	WIP7CompressionDeflate						= WI_P7_COMPRESSION_DEFLATE,
 	WIP7EncryptionRSA_AES128_SHA1				= WI_P7_ENCRYPTION_RSA_AES128_SHA1,
 	WIP7EncryptionRSA_AES192_SHA1				= WI_P7_ENCRYPTION_RSA_AES192_SHA1,
@@ -42,7 +41,7 @@ enum _WIP7Options {
 typedef enum _WIP7Options						WIP7Options;
 
 
-@class WIError, WIP7Message, WIP7Spec, WISocket, WISocketTLS;
+@class WIError, WIP7Message, WIP7Spec, WISocket;
 
 @interface WIP7Socket : WIObject {
 	id											delegate;
@@ -55,7 +54,7 @@ typedef enum _WIP7Options						WIP7Options;
 	wi_p7_socket_t								*_p7Socket;
 }
 
-- (id)initWithSocket:(WISocket *)socket TLS:(WISocketTLS *)tls spec:(WIP7Spec *)spec;
+- (id)initWithSocket:(WISocket *)socket spec:(WIP7Spec *)spec;
 
 - (void)setDelegate:(id)delegate;
 - (id)delegate;
