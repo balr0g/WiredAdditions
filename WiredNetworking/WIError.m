@@ -32,7 +32,11 @@
 @implementation WIError
 
 + (id)errorWithDomain:(NSString *)domain code:(NSInteger)code argument:(id)argument {
-	return [self errorWithDomain:domain code:code userInfo:[NSDictionary dictionaryWithObject:argument forKey:WIArgumentErrorKey]];
+	NSDictionary	*userInfo;
+	
+	userInfo = argument ? [NSDictionary dictionaryWithObject:argument forKey:WIArgumentErrorKey] : NULL;
+	
+	return [self errorWithDomain:domain code:code userInfo:userInfo];
 }
 
 
