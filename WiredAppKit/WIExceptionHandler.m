@@ -44,28 +44,38 @@
 #pragma mark -
 
 - (BOOL)exceptionHandler:(NSExceptionHandler *)exceptionHandler shouldLogException:(NSException *)exception mask:(NSUInteger)mask {
-	NSArray			*stacks;
-	NSString		*trace;
-	FILE			*fp;
-	char			buffer[BUFSIZ];
-	NSUInteger		i = 0;
+	NSArray				*stacks;
+	NSMutableString		*backtrace;
+	NSString			*trace;
+	FILE				*fp;
+	char				buffer[BUFSIZ];
+	NSUInteger			i = 0;
 
 	trace = [[exception userInfo] objectForKey:NSStackTraceKey];
 	
 	if(trace) {
-		stacks = [trace componentsSeparatedByString:@"  "];
-		fp = popen([[NSSWF:@"/usr/bin/atos -p %d %@", getpid(), trace] UTF8String], "r");
+		stacks	= [trace componentsSeparatedByString:@"  "];
+		fp		= popen([[NSSWF:@"/usr/bin/atos -p %d %@", getpid(), trace] UTF8String], "r");
 		
 		if(fp) {
+			backtrace = [NSMutableString string];
+			
 			while(fgets(buffer, (int) sizeof(buffer), fp) != NULL) {
-				NSLog(@"%d%*s%@ in %s",
-					  i,
-					  i < 10 ? 3 : i < 100 ? 2 : i < 1000 ? 3 : 1,
-					  " ",
-					  [stacks objectAtIndex:i],
-					  buffer);
+				[backtrace appendFormat:@"%d%*s%@ in %s",
+					i,
+					i < 10 ? 3 : i < 100 ? 2 : i < 1000 ? 3 : 1,
+					" ",
+					[stacks objectAtIndex:i],
+					buffer];
 				
 				i++;
+			}
+			
+			if([backtrace length] > 0) {
+				if([delegate respondsToSelector:@selector(exceptionHandler:receivedExceptionWithBacktrace:)])
+					[delegate exceptionHandler:self receivedExceptionWithBacktrace:backtrace];
+
+				NSLog(@"%@", backtrace);
 			}
 			
 			pclose(fp);
@@ -85,6 +95,20 @@
 
 
 #pragma mark
+
+- (void)setDelegate:(id)newDelegate {
+	delegate = newDelegate;
+}
+
+
+
+- (id)delegate {
+	return delegate;
+}
+
+
+
+#pragma mark -
 
 - (void)enable {
 	[self enableWithMask:(NSLogUncaughtExceptionMask |

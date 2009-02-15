@@ -26,11 +26,23 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-@interface WIExceptionHandler : WIObject
+@interface WIExceptionHandler : WIObject {
+	id								delegate;
+}
 
 + (id)sharedExceptionHandler;
 
+- (void)setDelegate:(id)delegate;
+- (id)delegate;
+
 - (void)enable;
 - (void)enableWithMask:(NSUInteger)mask;
+
+@end
+
+
+@interface NSObject(WIExceptionHandlerDelegate)
+
+- (void)exceptionHandler:(WIExceptionHandler *)exceptionHandler receivedExceptionWithBacktrace:(NSString *)backtrace;
 
 @end
