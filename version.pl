@@ -37,4 +37,3 @@ foreach my $file (@files) {
 	print FH $content;
 	close(FH);
 }
-
