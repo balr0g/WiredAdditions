@@ -543,49 +543,49 @@ static NSInteger _WITableViewSelectRowCompare(id object1, id object2, void *cont
 	
 	if(key == NSEnterCharacter || key == NSCarriageReturnCharacter) {
 		if([_tableView doubleAction]) {
-			[_tableView doCommandBySelector:[_tableView doubleAction]];
+			[[_tableView target] performSelector:[_tableView doubleAction]];
 			
 			return YES;
 		}
 	}
 	else if(key == NSUpArrowFunctionKey && [event commandKeyModifier]) {
 		if([self upAction]) {
-			[_tableView doCommandBySelector:[self upAction]];
+			[[_tableView target] performSelector:[self upAction]];
 			
 			return YES;
 		}
 	}
 	else if(key == NSDownArrowFunctionKey && [event commandKeyModifier]) {
 		if([self downAction]) {
-			[_tableView doCommandBySelector:[self downAction]];
+			[[_tableView target] performSelector:[self downAction]];
 			
 			return YES;
 		}
 	}
 	else if(key == NSLeftArrowFunctionKey) {
 		if([self backAction]) {
-			[_tableView doCommandBySelector:[self backAction]];
+			[[_tableView target] performSelector:[self backAction]];
 			
 			return YES;
 		}
 	}
 	else if(key == NSRightArrowFunctionKey) {
 		if([self forwardAction]) {
-			[_tableView doCommandBySelector:[self forwardAction]];
+			[[_tableView target] performSelector:[self forwardAction]];
 			
 			return YES;
 		}
 	}
 	else if(key == NSDeleteFunctionKey || key == NSDeleteCharacter) {
 		if([self deleteAction]) {
-			[_tableView doCommandBySelector:[self deleteAction]];
+			[[_tableView target] performSelector:[self deleteAction]];
 			
 			return YES;
 		}
 	}
 	else if(key == NSEscapeFunctionKey) {
 		if([self escapeAction]) {
-			[_tableView doCommandBySelector:[self escapeAction]];
+			[[_tableView target] performSelector:[self escapeAction]];
 			
 			return YES;
 		}
