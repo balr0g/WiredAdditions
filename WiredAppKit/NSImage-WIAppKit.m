@@ -168,7 +168,7 @@
 	NSImage					*image, *badge;
 	NSRect					badgeRect;
 	NSPoint					stringPoint;
-	NSSize					size, badgeSize;
+	NSSize					size;
 	BOOL					small;
 
 	if(unread == 0)
@@ -192,6 +192,7 @@
 	
 	size	= [self size];
 	small	= (size.width == 32.0);
+	badge	= badgeImage;
 	
 	if(unread >= 100) {
 		badge				= baadgeImage;
@@ -200,19 +201,15 @@
 		stringPoint			= small ? NSMakePoint(17.0, 23.0) : NSMakePoint(74.0, 96.0);
 	}
 	else if(unread >= 10) {
-		badge				= badgeImage;
 		badgeRect.origin	= small ? NSMakePoint(18.0, 18.0) : NSMakePoint(72.0, 77.0);
 		badgeRect.size		= small ? NSMakeSize(14.0, 14.0) : [badge size];
 		stringPoint			= small ? NSMakePoint(21.0, 23.0) : NSMakePoint(84.0, 96.0);
 	}
 	else if(unread < 10) {
-		badge				= badgeImage;
 		badgeRect.origin	= small ? NSMakePoint(18.0, 18.0) : NSMakePoint(72.0, 77.0);
 		badgeRect.size		= small ? NSMakeSize(14.0, 14.0) : [badge size];
 		stringPoint			= small ? NSMakePoint(23.0, 23.0) : NSMakePoint(92.0, 96.0);
 	}
-
-	badgeSize = [badge size];
 
 	image = [[NSImage alloc] initWithSize:small ? NSMakeSize(32.0, 32.0) : NSMakeSize(128.0, 128.0)];
 	[image lockFocus];
@@ -225,7 +222,7 @@
 		   operation:NSCompositeSourceOver
 			fraction:1.0];
 	[badge drawInRect:badgeRect
-			 fromRect:NSMakeRect(0.0, 0.0, badgeSize.width, badgeSize.height)
+			 fromRect:NSMakeRect(0.0, 0.0, [badge size].width, [badge size].height)
 			operation:NSCompositeSourceOver
 			 fraction:1.0];
 
