@@ -166,8 +166,10 @@
 	static NSImage			*baaadgeImage, *baadgeImage, *badgeImage;
 	static NSDictionary		*attributes;
 	NSImage					*image, *badge;
-	NSPoint					badgePosition, stringPosition;
+	NSRect					badgeRect;
+	NSPoint					stringPoint;
 	NSSize					size, badgeSize;
+	BOOL					small;
 
 	if(unread == 0)
 		return self;
@@ -187,48 +189,58 @@
 				NSForegroundColorAttributeName,
 			NULL];
 	}
-
+	
+	size	= [self size];
+	small	= (size.width == 32.0);
+	
 	if(unread >= 100) {
-		badge			= baadgeImage;
-		badgePosition	= NSMakePoint(60.0, 77.0);
-		stringPosition	= NSMakePoint(74.0, 90.0);
+		badge				= baadgeImage;
+		badgeRect.origin	= small ? NSMakePoint(13.0, 18.0) : NSMakePoint(60.0, 77.0);
+		badgeRect.size		= small ? NSMakeSize(19.0, 14.0) : [badge size];
+		stringPoint			= small ? NSMakePoint(17.0, 23.0) : NSMakePoint(74.0, 96.0);
 	}
 	else if(unread >= 10) {
-		badge			= badgeImage;
-		badgePosition	= NSMakePoint(72.0, 77.0);
-		stringPosition	= NSMakePoint(84.0, 90.0);
+		badge				= badgeImage;
+		badgeRect.origin	= small ? NSMakePoint(18.0, 18.0) : NSMakePoint(72.0, 77.0);
+		badgeRect.size		= small ? NSMakeSize(14.0, 14.0) : [badge size];
+		stringPoint			= small ? NSMakePoint(21.0, 23.0) : NSMakePoint(84.0, 96.0);
 	}
 	else if(unread < 10) {
-		badge			= badgeImage;
-		badgePosition	= NSMakePoint(72.0, 77.0);
-		stringPosition	= NSMakePoint(91.0, 90.0);
+		badge				= badgeImage;
+		badgeRect.origin	= small ? NSMakePoint(18.0, 18.0) : NSMakePoint(72.0, 77.0);
+		badgeRect.size		= small ? NSMakeSize(14.0, 14.0) : [badge size];
+		stringPoint			= small ? NSMakePoint(23.0, 23.0) : NSMakePoint(92.0, 96.0);
 	}
 
-	size = [self size];
 	badgeSize = [badge size];
 
-	image = [[NSImage alloc] initWithSize:NSMakeSize(128.0, 128.0)];
-	[image setScalesWhenResized:YES];
+	image = [[NSImage alloc] initWithSize:small ? NSMakeSize(32.0, 32.0) : NSMakeSize(128.0, 128.0)];
 	[image lockFocus];
 
 	[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
 	[[NSGraphicsContext currentContext] setShouldAntialias:YES];
 
-	[self setSize:[image size]];
-	[self drawAtPoint:NSZeroPoint
-			 fromRect:NSMakeRect(0.0, 0.0, 128.0, 128.0)
+	[self drawInRect:small ? NSMakeRect(0.0, 0.0, 32.0, 32.0) : NSMakeRect(0.0, 0.0, 128.0, 128.0)
+			fromRect:NSMakeRect(0.0, 0.0, size.width, size.width)
+		   operation:NSCompositeSourceOver
+			fraction:1.0];
+	[badge drawInRect:badgeRect
+			 fromRect:NSMakeRect(0.0, 0.0, badgeSize.width, badgeSize.height)
 			operation:NSCompositeSourceOver
 			 fraction:1.0];
-	[badge drawAtPoint:badgePosition
-			  fromRect:NSMakeRect(0.0, 0.0, badgeSize.width, badgeSize.height)
-			 operation:NSCompositeSourceOver
-			  fraction:1.0];
 
-	[[NSSWF:@"%lu", unread] drawAtPoint:stringPosition withAttributes:attributes];
+	attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+		[NSFont fontWithName:@"Helvetica-Bold" size:small ? 7.0 : 24.0],
+			NSFontAttributeName,
+		[NSColor whiteColor],
+			NSForegroundColorAttributeName,
+		NULL];
+	
+	[[NSSWF:@"%lu", unread] drawWithRect:NSMakeRect(stringPoint.x, stringPoint.y, 0.0, 0.0)
+								 options:NSStringDrawingDisableScreenFontSubstitution
+							  attributes:attributes];
+
 	[image unlockFocus];
-
-	[image setSize:size];
-	[self setSize:size];
 
 	return [image autorelease];
 }
