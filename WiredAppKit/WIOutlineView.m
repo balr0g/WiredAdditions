@@ -87,7 +87,7 @@
 
 
 
-- (void)insertText:(NSString *)string {
+- (void)insertText:(id)string {
 	[_tableViewManager insertText:string];
 }
 

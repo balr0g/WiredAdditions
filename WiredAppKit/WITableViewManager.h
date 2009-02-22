@@ -69,7 +69,7 @@
 - (void)selectRowWithStringValue:(NSString *)string options:(NSUInteger)options;
 
 - (BOOL)keyDown:(NSEvent *)event;
-- (void)insertText:(NSString *)string;
+- (void)insertText:(id)string;
 - (void)copy:(id)sender;
 - (void)flagsChanged:(id)sender;
 

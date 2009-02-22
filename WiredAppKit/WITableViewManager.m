@@ -616,13 +616,15 @@ static NSInteger _WITableViewSelectRowCompare(id object1, id object2, void *cont
 
 
 
-- (void)insertText:(NSString *)string {
-	if(!_string)
-		_string = [[NSMutableString alloc] init];
-	
-	[_string appendString:string];
-	[self selectRowWithStringValue:_string options:NSCaseInsensitiveSearch];
-	[_string performSelectorOnce:@selector(setString:) withObject:@"" afterDelay:0.5];
+- (void)insertText:(id)string {
+	if([string isKindOfClass:[NSString class]]) {
+		if(!_string)
+			_string = [[NSMutableString alloc] init];
+		
+		[_string appendString:string];
+		[self selectRowWithStringValue:_string options:NSCaseInsensitiveSearch];
+		[_string performSelectorOnce:@selector(setString:) withObject:@"" afterDelay:0.5];
+	}
 }
 
 
