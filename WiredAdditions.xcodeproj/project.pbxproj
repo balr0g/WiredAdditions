@@ -153,8 +153,8 @@
 		7712BC8E0E5C1A5A001C4210 /* WiredFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7712BC8D0E5C1A5A001C4210 /* WiredFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BCF60E5C1CEA001C4210 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7712BCF20E5C1CEA001C4210 /* InfoPlist.strings */; };
 		7712BCF70E5C1CEA001C4210 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7712BCF40E5C1CEA001C4210 /* Localizable.strings */; };
-		7712BD190E5C1DAC001C4210 /* WISortDescending.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 7712BD170E5C1DAC001C4210 /* WISortDescending.tiff */; };
-		7712BD1A0E5C1DAC001C4210 /* WISortAscending.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 7712BD180E5C1DAC001C4210 /* WISortAscending.tiff */; };
+		7712BD190E5C1DAC001C4210 /* WITableViewManager-SortDescending.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 7712BD170E5C1DAC001C4210 /* WITableViewManager-SortDescending.tiff */; };
+		7712BD1A0E5C1DAC001C4210 /* WITableViewManager-SortAscending.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 7712BD180E5C1DAC001C4210 /* WITableViewManager-SortAscending.tiff */; };
 		7712BD1E0E5C1DB7001C4210 /* NSImage-Baaadge.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 7712BD1B0E5C1DB7001C4210 /* NSImage-Baaadge.tiff */; };
 		7712BD1F0E5C1DB7001C4210 /* NSImage-Baadge.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 7712BD1C0E5C1DB7001C4210 /* NSImage-Baadge.tiff */; };
 		7712BD200E5C1DB7001C4210 /* NSImage-Badge.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 7712BD1D0E5C1DB7001C4210 /* NSImage-Badge.tiff */; };
@@ -377,6 +377,32 @@
 		A57768DC0F16A10900C659DB /* NSAlert-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A57768D80F16A10900C659DB /* NSAlert-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A57768DD0F16A10900C659DB /* NSAlert-WIAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A57768D90F16A10900C659DB /* NSAlert-WIAppKit.m */; };
 		A5B34B430E9ACB85005B7884 /* wired in Headers */ = {isa = PBXBuildFile; fileRef = A5B34B0B0E9ACB82005B7884 /* wired */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5BCA5F30F533542004C5986 /* WITreeCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A5BCA5E70F533542004C5986 /* WITreeCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5BCA5F40F533542004C5986 /* WITreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BCA5E80F533542004C5986 /* WITreeCell.m */; };
+		A5BCA5F50F533542004C5986 /* WITreeResizer.h in Headers */ = {isa = PBXBuildFile; fileRef = A5BCA5E90F533542004C5986 /* WITreeResizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5BCA5F60F533542004C5986 /* WITreeResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BCA5EA0F533542004C5986 /* WITreeResizer.m */; };
+		A5BCA5F70F533542004C5986 /* WITreeScroller.h in Headers */ = {isa = PBXBuildFile; fileRef = A5BCA5EB0F533542004C5986 /* WITreeScroller.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5BCA5F80F533542004C5986 /* WITreeScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BCA5EC0F533542004C5986 /* WITreeScroller.m */; };
+		A5BCA5F90F533542004C5986 /* WITreeScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = A5BCA5ED0F533542004C5986 /* WITreeScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5BCA5FA0F533542004C5986 /* WITreeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BCA5EE0F533542004C5986 /* WITreeScrollView.m */; };
+		A5BCA5FB0F533542004C5986 /* WITreeTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = A5BCA5EF0F533542004C5986 /* WITreeTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5BCA5FC0F533542004C5986 /* WITreeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BCA5F00F533542004C5986 /* WITreeTableView.m */; };
+		A5BCA5FD0F533542004C5986 /* WITreeView.h in Headers */ = {isa = PBXBuildFile; fileRef = A5BCA5F10F533542004C5986 /* WITreeView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5BCA5FE0F533542004C5986 /* WITreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BCA5F20F533542004C5986 /* WITreeView.m */; };
+		A5BCA5FF0F533542004C5986 /* WITreeCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A5BCA5E70F533542004C5986 /* WITreeCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5BCA6000F533542004C5986 /* WITreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BCA5E80F533542004C5986 /* WITreeCell.m */; };
+		A5BCA6010F533542004C5986 /* WITreeResizer.h in Headers */ = {isa = PBXBuildFile; fileRef = A5BCA5E90F533542004C5986 /* WITreeResizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5BCA6020F533542004C5986 /* WITreeResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BCA5EA0F533542004C5986 /* WITreeResizer.m */; };
+		A5BCA6030F533542004C5986 /* WITreeScroller.h in Headers */ = {isa = PBXBuildFile; fileRef = A5BCA5EB0F533542004C5986 /* WITreeScroller.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5BCA6040F533542004C5986 /* WITreeScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BCA5EC0F533542004C5986 /* WITreeScroller.m */; };
+		A5BCA6050F533542004C5986 /* WITreeScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = A5BCA5ED0F533542004C5986 /* WITreeScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5BCA6060F533542004C5986 /* WITreeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BCA5EE0F533542004C5986 /* WITreeScrollView.m */; };
+		A5BCA6070F533542004C5986 /* WITreeTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = A5BCA5EF0F533542004C5986 /* WITreeTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5BCA6080F533542004C5986 /* WITreeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BCA5F00F533542004C5986 /* WITreeTableView.m */; };
+		A5BCA6090F533542004C5986 /* WITreeView.h in Headers */ = {isa = PBXBuildFile; fileRef = A5BCA5F10F533542004C5986 /* WITreeView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5BCA60A0F533542004C5986 /* WITreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BCA5F20F533542004C5986 /* WITreeView.m */; };
+		A5BCA6120F53355C004C5986 /* WITreeCell-RightArrow.icns in Resources */ = {isa = PBXBuildFile; fileRef = A5BCA6110F53355C004C5986 /* WITreeCell-RightArrow.icns */; };
+		A5BCA6310F533606004C5986 /* TreeDetail.nib in Resources */ = {isa = PBXBuildFile; fileRef = A5BCA62F0F533606004C5986 /* TreeDetail.nib */; };
 		A5C23F2E0E9AC53E00A81F49 /* wi-address.c in Sources */ = {isa = PBXBuildFile; fileRef = A5C23E0F0E9AC4D500A81F49 /* wi-address.c */; };
 		A5C23F2F0E9AC53E00A81F49 /* wi-address.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C23E100E9AC4D500A81F49 /* wi-address.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5C23F300E9AC53E00A81F49 /* wi-array.c in Sources */ = {isa = PBXBuildFile; fileRef = A5C23D3C0E9AC4A800A81F49 /* wi-array.c */; };
@@ -561,8 +587,8 @@
 		7712BD100E5C1D50001C4210 /* Italian */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Italian; path = WiredFoundation/Italian.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7712BD130E5C1D55001C4210 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Japanese; path = WiredFoundation/Japanese.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7712BD140E5C1D55001C4210 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Japanese; path = WiredFoundation/Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7712BD170E5C1DAC001C4210 /* WISortDescending.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = WISortDescending.tiff; path = WiredAppKit/WISortDescending.tiff; sourceTree = "<group>"; };
-		7712BD180E5C1DAC001C4210 /* WISortAscending.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = WISortAscending.tiff; path = WiredAppKit/WISortAscending.tiff; sourceTree = "<group>"; };
+		7712BD170E5C1DAC001C4210 /* WITableViewManager-SortDescending.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "WITableViewManager-SortDescending.tiff"; path = "WiredAppKit/WITableViewManager-SortDescending.tiff"; sourceTree = "<group>"; };
+		7712BD180E5C1DAC001C4210 /* WITableViewManager-SortAscending.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "WITableViewManager-SortAscending.tiff"; path = "WiredAppKit/WITableViewManager-SortAscending.tiff"; sourceTree = "<group>"; };
 		7712BD1B0E5C1DB7001C4210 /* NSImage-Baaadge.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "NSImage-Baaadge.tiff"; path = "WiredAppKit/NSImage-Baaadge.tiff"; sourceTree = "<group>"; };
 		7712BD1C0E5C1DB7001C4210 /* NSImage-Baadge.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "NSImage-Baadge.tiff"; path = "WiredAppKit/NSImage-Baadge.tiff"; sourceTree = "<group>"; };
 		7712BD1D0E5C1DB7001C4210 /* NSImage-Badge.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "NSImage-Badge.tiff"; path = "WiredAppKit/NSImage-Badge.tiff"; sourceTree = "<group>"; };
@@ -764,6 +790,20 @@
 		A5B452950880BD95003B1DA1 /* WIEventQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WIEventQueue.m; path = WiredFoundation/WIEventQueue.m; sourceTree = "<group>"; };
 		A5B9225A0E3A82B1001D4F6D /* Italian */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Italian; path = WiredNetworking/Italian.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A5B9225B0E3A82B8001D4F6D /* Italian */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Italian; path = WiredNetworking/Italian.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A5BCA5E70F533542004C5986 /* WITreeCell.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = WITreeCell.h; path = WiredAppKit/WITreeCell.h; sourceTree = "<group>"; };
+		A5BCA5E80F533542004C5986 /* WITreeCell.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = WITreeCell.m; path = WiredAppKit/WITreeCell.m; sourceTree = "<group>"; };
+		A5BCA5E90F533542004C5986 /* WITreeResizer.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = WITreeResizer.h; path = WiredAppKit/WITreeResizer.h; sourceTree = "<group>"; };
+		A5BCA5EA0F533542004C5986 /* WITreeResizer.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = WITreeResizer.m; path = WiredAppKit/WITreeResizer.m; sourceTree = "<group>"; };
+		A5BCA5EB0F533542004C5986 /* WITreeScroller.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = WITreeScroller.h; path = WiredAppKit/WITreeScroller.h; sourceTree = "<group>"; };
+		A5BCA5EC0F533542004C5986 /* WITreeScroller.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = WITreeScroller.m; path = WiredAppKit/WITreeScroller.m; sourceTree = "<group>"; };
+		A5BCA5ED0F533542004C5986 /* WITreeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = WITreeScrollView.h; path = WiredAppKit/WITreeScrollView.h; sourceTree = "<group>"; };
+		A5BCA5EE0F533542004C5986 /* WITreeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = WITreeScrollView.m; path = WiredAppKit/WITreeScrollView.m; sourceTree = "<group>"; };
+		A5BCA5EF0F533542004C5986 /* WITreeTableView.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = WITreeTableView.h; path = WiredAppKit/WITreeTableView.h; sourceTree = "<group>"; };
+		A5BCA5F00F533542004C5986 /* WITreeTableView.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = WITreeTableView.m; path = WiredAppKit/WITreeTableView.m; sourceTree = "<group>"; };
+		A5BCA5F10F533542004C5986 /* WITreeView.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = WITreeView.h; path = WiredAppKit/WITreeView.h; sourceTree = "<group>"; };
+		A5BCA5F20F533542004C5986 /* WITreeView.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = WITreeView.m; path = WiredAppKit/WITreeView.m; sourceTree = "<group>"; };
+		A5BCA6110F53355C004C5986 /* WITreeCell-RightArrow.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "WITreeCell-RightArrow.icns"; path = "WiredAppKit/WITreeCell-RightArrow.icns"; sourceTree = "<group>"; };
+		A5BCA6300F533606004C5986 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = WiredAppKit/English.lproj/TreeDetail.nib; sourceTree = "<group>"; };
 		A5C23CFF0E9AC2AB00A81F49 /* libwired.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libwired.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C23D270E9AC49800A81F49 /* wired.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = wired.h; path = libwired/libwired/wired.h; sourceTree = "<group>"; };
 		A5C23D280E9AC4A800A81F49 /* wi-assert.c */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.c; name = "wi-assert.c"; path = "libwired/libwired/base/wi-assert.c"; sourceTree = "<group>"; };
@@ -1060,12 +1100,14 @@
 				7712BD210E5C1DCA001C4210 /* InfoPlist.strings */,
 				7712BD230E5C1DCA001C4210 /* Localizable.strings */,
 				7712BD250E5C1DCA001C4210 /* ReleaseNotes.nib */,
+				A5BCA62F0F533606004C5986 /* TreeDetail.nib */,
 				7712BD270E5C1DCA001C4210 /* ViewOptions.nib */,
 				7712BD1B0E5C1DB7001C4210 /* NSImage-Baaadge.tiff */,
 				7712BD1C0E5C1DB7001C4210 /* NSImage-Baadge.tiff */,
 				7712BD1D0E5C1DB7001C4210 /* NSImage-Badge.tiff */,
-				7712BD170E5C1DAC001C4210 /* WISortDescending.tiff */,
-				7712BD180E5C1DAC001C4210 /* WISortAscending.tiff */,
+				7712BD180E5C1DAC001C4210 /* WITableViewManager-SortAscending.tiff */,
+				7712BD170E5C1DAC001C4210 /* WITableViewManager-SortDescending.tiff */,
+				A5BCA6110F53355C004C5986 /* WITreeCell-RightArrow.icns */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1154,6 +1196,7 @@
 			isa = PBXGroup;
 			children = (
 				A57FE25707C8D85F00AC49F2 /* NSTableView */,
+				A5BCA5DB0F533528004C5986 /* WITreeView */,
 				A56B9EFA075B865F00B3B6AA /* WIApplication.m */,
 				A56B9EF9075B865F00B3B6AA /* WIApplication.h */,
 				A544C12E0758DFA9008446CF /* WIColorCell.m */,
@@ -1331,6 +1374,25 @@
 				A544C1340758DFA9008446CF /* WITableViewManager.h */,
 			);
 			name = NSTableView;
+			sourceTree = "<group>";
+		};
+		A5BCA5DB0F533528004C5986 /* WITreeView */ = {
+			isa = PBXGroup;
+			children = (
+				A5BCA5E80F533542004C5986 /* WITreeCell.m */,
+				A5BCA5E70F533542004C5986 /* WITreeCell.h */,
+				A5BCA5EA0F533542004C5986 /* WITreeResizer.m */,
+				A5BCA5E90F533542004C5986 /* WITreeResizer.h */,
+				A5BCA5EC0F533542004C5986 /* WITreeScroller.m */,
+				A5BCA5EB0F533542004C5986 /* WITreeScroller.h */,
+				A5BCA5EE0F533542004C5986 /* WITreeScrollView.m */,
+				A5BCA5ED0F533542004C5986 /* WITreeScrollView.h */,
+				A5BCA5F00F533542004C5986 /* WITreeTableView.m */,
+				A5BCA5EF0F533542004C5986 /* WITreeTableView.h */,
+				A5BCA5F20F533542004C5986 /* WITreeView.m */,
+				A5BCA5F10F533542004C5986 /* WITreeView.h */,
+			);
+			name = WITreeView;
 			sourceTree = "<group>";
 		};
 		A5C23D1C0E9AC48900A81F49 /* libwired */ = {
@@ -1530,6 +1592,12 @@
 				7712BBA40E5C1964001C4210 /* WITableView.h in Headers */,
 				7712BBA50E5C1964001C4210 /* WITextAttachment.h in Headers */,
 				7712BBA70E5C1964001C4210 /* WITextView.h in Headers */,
+				A5BCA5F30F533542004C5986 /* WITreeCell.h in Headers */,
+				A5BCA5F50F533542004C5986 /* WITreeResizer.h in Headers */,
+				A5BCA5F70F533542004C5986 /* WITreeScroller.h in Headers */,
+				A5BCA5F90F533542004C5986 /* WITreeScrollView.h in Headers */,
+				A5BCA5FB0F533542004C5986 /* WITreeTableView.h in Headers */,
+				A5BCA5FD0F533542004C5986 /* WITreeView.h in Headers */,
 				7712BBAA0E5C1964001C4210 /* WIWindow.h in Headers */,
 				7712BBAB0E5C1964001C4210 /* WIWindowController.h in Headers */,
 			);
@@ -1636,6 +1704,12 @@
 				77DBEB000E62B94600B738D3 /* WITableViewManager.h in Headers */,
 				77DBEB010E62B94600B738D3 /* WITextAttachment.h in Headers */,
 				77DBEB020E62B94600B738D3 /* WITextView.h in Headers */,
+				A5BCA5FF0F533542004C5986 /* WITreeCell.h in Headers */,
+				A5BCA6010F533542004C5986 /* WITreeResizer.h in Headers */,
+				A5BCA6030F533542004C5986 /* WITreeScroller.h in Headers */,
+				A5BCA6050F533542004C5986 /* WITreeScrollView.h in Headers */,
+				A5BCA6070F533542004C5986 /* WITreeTableView.h in Headers */,
+				A5BCA6090F533542004C5986 /* WITreeView.h in Headers */,
 				77DBEB030E62B94600B738D3 /* WIWindow.h in Headers */,
 				77DBEB040E62B94600B738D3 /* WIWindowController.h in Headers */,
 			);
@@ -1899,15 +1973,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7712BD190E5C1DAC001C4210 /* WISortDescending.tiff in Resources */,
-				7712BD1A0E5C1DAC001C4210 /* WISortAscending.tiff in Resources */,
-				7712BD1E0E5C1DB7001C4210 /* NSImage-Baaadge.tiff in Resources */,
-				7712BD1F0E5C1DB7001C4210 /* NSImage-Baadge.tiff in Resources */,
-				7712BD200E5C1DB7001C4210 /* NSImage-Badge.tiff in Resources */,
 				7712BD290E5C1DCA001C4210 /* InfoPlist.strings in Resources */,
 				7712BD2A0E5C1DCA001C4210 /* Localizable.strings in Resources */,
 				7712BD2B0E5C1DCA001C4210 /* ReleaseNotes.nib in Resources */,
+				A5BCA6310F533606004C5986 /* TreeDetail.nib in Resources */,
 				7712BD2C0E5C1DCA001C4210 /* ViewOptions.nib in Resources */,
+				7712BD190E5C1DAC001C4210 /* WITableViewManager-SortDescending.tiff in Resources */,
+				7712BD1A0E5C1DAC001C4210 /* WITableViewManager-SortAscending.tiff in Resources */,
+				A5BCA6120F53355C004C5986 /* WITreeCell-RightArrow.icns in Resources */,
+				7712BD1E0E5C1DB7001C4210 /* NSImage-Baaadge.tiff in Resources */,
+				7712BD1F0E5C1DB7001C4210 /* NSImage-Baadge.tiff in Resources */,
+				7712BD200E5C1DB7001C4210 /* NSImage-Badge.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2037,6 +2113,12 @@
 				7712BBE60E5C1964001C4210 /* WITableViewManager.m in Sources */,
 				7712BBE70E5C1964001C4210 /* WITextAttachment.m in Sources */,
 				7712BBE80E5C1964001C4210 /* WITextView.m in Sources */,
+				A5BCA5F40F533542004C5986 /* WITreeCell.m in Sources */,
+				A5BCA5F60F533542004C5986 /* WITreeResizer.m in Sources */,
+				A5BCA5F80F533542004C5986 /* WITreeScroller.m in Sources */,
+				A5BCA5FA0F533542004C5986 /* WITreeScrollView.m in Sources */,
+				A5BCA5FC0F533542004C5986 /* WITreeTableView.m in Sources */,
+				A5BCA5FE0F533542004C5986 /* WITreeView.m in Sources */,
 				7712BBEB0E5C1964001C4210 /* WIWindow.m in Sources */,
 				7712BBEC0E5C1964001C4210 /* WIWindowController.m in Sources */,
 			);
@@ -2139,6 +2221,12 @@
 				77DBEB310E62B96A00B738D3 /* WITextView.m in Sources */,
 				77DBEB320E62B96A00B738D3 /* WIWindow.m in Sources */,
 				77DBEB330E62B96A00B738D3 /* WIWindowController.m in Sources */,
+				A5BCA6000F533542004C5986 /* WITreeCell.m in Sources */,
+				A5BCA6020F533542004C5986 /* WITreeResizer.m in Sources */,
+				A5BCA6040F533542004C5986 /* WITreeScroller.m in Sources */,
+				A5BCA6060F533542004C5986 /* WITreeScrollView.m in Sources */,
+				A5BCA6080F533542004C5986 /* WITreeTableView.m in Sources */,
+				A5BCA60A0F533542004C5986 /* WITreeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2346,6 +2434,14 @@
 				A5B9225B0E3A82B8001D4F6D /* Italian */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A5BCA62F0F533606004C5986 /* TreeDetail.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5BCA6300F533606004C5986 /* English */,
+			);
+			name = TreeDetail.nib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

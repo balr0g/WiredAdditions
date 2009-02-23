@@ -362,9 +362,9 @@ static NSInteger _WITableViewSelectRowCompare(id object1, id object2, void *cont
 	[_allTableColumns addObjectsFromArray:[_tableView tableColumns]];
 	
 	_sortAscendingImage = [[NSImage alloc] initWithContentsOfFile:
-		[[NSBundle bundleForClass:[self class]] pathForResource:@"WISortAscending" ofType:@"tiff"]];
+		[[NSBundle bundleForClass:[self class]] pathForResource:@"WITableViewManager-SortAscending" ofType:@"tiff"]];
 	_sortDescendingImage = [[NSImage alloc] initWithContentsOfFile:
-		[[NSBundle bundleForClass:[self class]] pathForResource:@"WISortDescending" ofType:@"tiff"]];
+		[[NSBundle bundleForClass:[self class]] pathForResource:@"WITableViewManager-SortDescending" ofType:@"tiff"]];
 
 	if([_tableView isKindOfClass:[NSOutlineView class]]) {
 		_stringValueForRow		= @selector(outlineView:stringValueForRow:);
