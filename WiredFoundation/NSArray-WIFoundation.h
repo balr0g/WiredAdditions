@@ -39,6 +39,7 @@
 - (NSArray *)stringsMatchingString:(NSString *)string options:(NSUInteger)options;
 - (void)makeObjectsPerformSelector:(SEL)selector withObject:(id)object1 withObject:(id)object2;
 - (void)makeObjectsPerformSelector:(SEL)selector withBool:(BOOL)value;
+- (NSArray *)subarrayToIndex:(NSUInteger)index;
 - (NSArray *)subarrayFromIndex:(NSUInteger)index;
 - (NSArray *)reversedArray;
 - (NSArray *)shuffledArray;
