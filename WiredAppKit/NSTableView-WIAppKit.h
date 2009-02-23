@@ -30,4 +30,6 @@
 
 - (void)sizeToFitFromContent;
 
+- (BOOL)clickedHeader;
+
 @end

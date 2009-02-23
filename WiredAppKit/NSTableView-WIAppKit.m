@@ -45,4 +45,10 @@
 	[self setFrame:frame];
 }
 
+
+
+- (BOOL)clickedHeader {
+	return ([[NSApp currentEvent] type] == NSLeftMouseUp && [self clickedRow] == -1);
+}
+
 @end
