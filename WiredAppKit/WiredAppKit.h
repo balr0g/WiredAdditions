@@ -45,6 +45,12 @@
 #import <WiredAppKit/WITableView.h>
 #import <WiredAppKit/WITextAttachment.h>
 #import <WiredAppKit/WITextView.h>
+#import <WiredAppKit/WITreeCell.h>
+#import <WiredAppKit/WITreeResizer.h>
+#import <WiredAppKit/WITreeScrollView.h>
+#import <WiredAppKit/WITreeScroller.h>
+#import <WiredAppKit/WITreeTableView.h>
+#import <WiredAppKit/WITreeView.h>
 #import <WiredAppKit/WIWindow.h>
 #import <WiredAppKit/WIWindowController.h>
 
