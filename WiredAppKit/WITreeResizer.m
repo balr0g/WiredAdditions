@@ -28,10 +28,10 @@
 
 #import <WiredAppKit/WITreeResizer.h>
 
-static void _WITreeResizerShader(void *, const float *, float *);
+static void _WITreeResizerShader(void *, const CGFloat *, CGFloat *);
 
-static void _WITreeResizerShader(void *info, const float *in, float *out) {
-	float *colors;
+static void _WITreeResizerShader(void *info, const CGFloat *in, CGFloat *out) {
+	CGFloat		*colors;
 	
 	colors = info;
 	
@@ -54,14 +54,14 @@ static void _WITreeResizerShader(void *info, const float *in, float *out) {
 	
 
 - (void)_drawGradientWithStartingColor:(NSColor *)startingColor endingColor:(NSColor *)endingColor inRect:(NSRect)rect {
-	static const float			domain[] = { 0.0, 2.0 };
-	static const float			range[] = { 0.0, 2.0, 0.0, 2.0, 0.0, 2.0, 0.0, 2.0, 0.0, 2.0 };
+	static const CGFloat		domain[] = { 0.0, 2.0 };
+	static const CGFloat		range[] = { 0.0, 2.0, 0.0, 2.0, 0.0, 2.0, 0.0, 2.0, 0.0, 2.0 };
 	NSColor						*deviceStartingColor, *deviceEndingColor;
 	CGFunctionRef				function;
 	CGColorSpaceRef				colorSpace;
 	CGShadingRef				shading;
 	struct CGFunctionCallbacks	callbacks;
-	float						colors[8];
+	CGFloat						colors[8];
 	
 	deviceStartingColor		= [startingColor colorUsingColorSpaceName:NSDeviceRGBColorSpace];
 	deviceEndingColor		= [endingColor colorUsingColorSpaceName:NSDeviceRGBColorSpace];
@@ -79,7 +79,6 @@ static void _WITreeResizerShader(void *info, const float *in, float *out) {
 	callbacks.version		= 0;
 	callbacks.evaluate		= _WITreeResizerShader;
 	callbacks.releaseInfo	= NULL;
-	
 	
 	function = CGFunctionCreate(colors, 1, domain, 4, range, &callbacks);
 	colorSpace = CGColorSpaceCreateDeviceRGB();
