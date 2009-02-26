@@ -121,7 +121,10 @@
 - (void)editWithFrame:(NSRect)frame inView:(NSView *)view editor:(NSText *)editor delegate:(id)object event:(NSEvent *)event {
 	NSRect		textFrame, imageFrame;
 	
-	NSDivideRect(frame, &imageFrame, &textFrame, 5.0 + [_image size].width + _horizontalTextOffset, NSMinXEdge);
+	if(_image)
+		NSDivideRect(frame, &imageFrame, &frame, 5.0 + [_image size].width + _horizontalTextOffset, NSMinXEdge);
+	else
+		NSDivideRect(frame, &imageFrame, &frame, _horizontalTextOffset, NSMinXEdge);
 
 	textFrame.origin.y		+= _verticalTextOffset;
 	textFrame.size.height	-= _verticalTextOffset;
@@ -137,7 +140,10 @@
 - (void)selectWithFrame:(NSRect)frame inView:(NSView *)view editor:(NSText *)editor delegate:(id)delegate start:(NSInteger)start length:(NSInteger)length {
 	NSRect		textFrame, imageFrame;
 	
-	NSDivideRect(frame, &imageFrame, &textFrame, 5.0 + [_image size].width + _horizontalTextOffset, NSMinXEdge);
+	if(_image)
+		NSDivideRect(frame, &imageFrame, &frame, 5.0 + [_image size].width + _horizontalTextOffset, NSMinXEdge);
+	else
+		NSDivideRect(frame, &imageFrame, &frame, _horizontalTextOffset, NSMinXEdge);
 
 	textFrame.origin.y		+= _verticalTextOffset;
 	textFrame.size.height	-= _verticalTextOffset;
@@ -156,7 +162,10 @@
 	
 	imageSize = [_image size];
 	
-	NSDivideRect(frame, &imageFrame, &frame, 5.0 + imageSize.width + _horizontalTextOffset, NSMinXEdge);
+	if(_image)
+		NSDivideRect(frame, &imageFrame, &frame, 5.0 + imageSize.width + _horizontalTextOffset, NSMinXEdge);
+	else
+		NSDivideRect(frame, &imageFrame, &frame, _horizontalTextOffset, NSMinXEdge);
 	
 	if(_image) {
 		if([self drawsBackground]) {
