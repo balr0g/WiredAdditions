@@ -29,37 +29,38 @@
 #import <WiredFoundation/WITypes.h>
 
 @interface WITableViewManager : WIObject {
-	IBOutlet NSPanel		*_viewOptionsPanel;
-	IBOutlet NSButton		*_showColumnPrototypeButton;
+	IBOutlet NSPanel			*_viewOptionsPanel;
+	IBOutlet NSButton			*_showColumnPrototypeButton;
 	
-	NSTableView				*_tableView;
+	NSTableView					*_tableView;
 	
-	SEL						_stringValueForRow;
-	SEL						_shouldCopyInfo;
-	SEL						_flagsDidChange;
-	SEL						_didClickTableColumn;
-	SEL						_toolTipForRow;
+	SEL							_stringValueForRow;
+	SEL							_shouldCopyInfo;
+	SEL							_flagsDidChange;
+	SEL							_didClickTableColumn;
+	SEL							_toolTipForRow;
 	
-	NSMutableArray			*_allTableColumns;
-	NSMutableDictionary		*_tableColumnButtons;
-	NSMutableDictionary		*_tooltipRegions;
-	NSMutableString			*_string;
+	NSMutableArray				*_allTableColumns;
+	NSMutableDictionary			*_tableColumnButtons;
+	NSMutableDictionary			*_tooltipRegions;
+	NSMutableString				*_string;
 	
-	WISortOrder				_sortOrder;
-	NSImage					*_sortAscendingImage;
-	NSImage					*_sortDescendingImage;
+	WISortOrder					_sortOrder;
+	NSImage						*_sortAscendingImage;
+	NSImage						*_sortDescendingImage;
 	
-	BOOL					_allowsUserCustomization;
-	NSArray					*_defaultTableColumnIdentifiers;
-	NSString				*_defaultHighlightedTableColumnIdentifier;
-	WISortOrder				_defaultSortOrder;
-	SEL						_upAction;
-	SEL						_downAction;
-	SEL						_backAction;
-	SEL						_forwardAction;
-	SEL						_escapeAction;
-	SEL						_deleteAction;
-	BOOL					_drawsStripes;
+	BOOL						_allowsUserCustomization;
+	NSArray						*_defaultTableColumnIdentifiers;
+	NSString					*_defaultHighlightedTableColumnIdentifier;
+	WISortOrder					_defaultSortOrder;
+	BOOL						_changedColumns;
+	
+	SEL							_upAction;
+	SEL							_downAction;
+	SEL							_backAction;
+	SEL							_forwardAction;
+	SEL							_escapeAction;
+	SEL							_deleteAction;
 }
 
 

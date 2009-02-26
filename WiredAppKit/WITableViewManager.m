@@ -336,13 +336,19 @@ static NSInteger _WITableViewSelectRowCompare(id object1, id object2, void *cont
 
 
 - (void)_saveTableColumns {
-	[[NSUserDefaults standardUserDefaults] setObject:[self _tableColumnIdentifiers]
-											  forKey:[NSSWF:@"WITableViewManager %@ Columns", [_tableView autosaveName]]];
+	NSUserDefaults		*defaults;
+	
+	defaults = [NSUserDefaults standardUserDefaults];
+	
+	if(_changedColumns) {
+		[defaults setObject:[self _tableColumnIdentifiers]
+					 forKey:[NSSWF:@"WITableViewManager %@ Columns", [_tableView autosaveName]]];
+	}
 
-	[[NSUserDefaults standardUserDefaults] setObject:[self _tableColumnWidths]
-											  forKey:[NSSWF:@"WITableViewManager %@ Widths", [_tableView autosaveName]]];
+	[defaults setObject:[self _tableColumnWidths]
+				 forKey:[NSSWF:@"WITableViewManager %@ Widths", [_tableView autosaveName]]];
 
-	[[NSUserDefaults standardUserDefaults] synchronize];
+	[defaults synchronize];
 }
 
 @end
@@ -693,6 +699,8 @@ static NSInteger _WITableViewSelectRowCompare(id object1, id object2, void *cont
 		}
 		
 		[self _sizeToFitLastColumn];
+			
+		_changedColumns = YES;
 		
 		if([_tableView autosaveTableColumns])
 			[self performSelectorOnce:@selector(_saveTableColumns) afterDelay:0.1];
@@ -724,6 +732,8 @@ static NSInteger _WITableViewSelectRowCompare(id object1, id object2, void *cont
 
 
 - (void)includeTableColumn:(NSTableColumn *)tableColumn {
+	_changedColumns = YES;
+
 	[self includeTableColumnWithIdentifier:[tableColumn identifier]];
 }
 
@@ -741,6 +751,8 @@ static NSInteger _WITableViewSelectRowCompare(id object1, id object2, void *cont
 
 
 - (void)excludeTableColumn:(NSTableColumn *)tableColumn {
+	_changedColumns = YES;
+
 	[self excludeTableColumnWithIdentifier:[tableColumn identifier]];
 }
 
