@@ -122,9 +122,9 @@
 	NSRect		textFrame, imageFrame;
 	
 	if(_image)
-		NSDivideRect(frame, &imageFrame, &frame, 5.0 + [_image size].width + _horizontalTextOffset, NSMinXEdge);
+		NSDivideRect(frame, &imageFrame, &textFrame, 5.0 + [_image size].width + _horizontalTextOffset, NSMinXEdge);
 	else
-		NSDivideRect(frame, &imageFrame, &frame, _horizontalTextOffset, NSMinXEdge);
+		NSDivideRect(frame, &imageFrame, &textFrame, _horizontalTextOffset, NSMinXEdge);
 
 	textFrame.origin.y		+= _verticalTextOffset;
 	textFrame.size.height	-= _verticalTextOffset;
@@ -141,9 +141,9 @@
 	NSRect		textFrame, imageFrame;
 	
 	if(_image)
-		NSDivideRect(frame, &imageFrame, &frame, 5.0 + [_image size].width + _horizontalTextOffset, NSMinXEdge);
+		NSDivideRect(frame, &imageFrame, &textFrame, 5.0 + [_image size].width + _horizontalTextOffset, NSMinXEdge);
 	else
-		NSDivideRect(frame, &imageFrame, &frame, _horizontalTextOffset, NSMinXEdge);
+		NSDivideRect(frame, &imageFrame, &textFrame, _horizontalTextOffset, NSMinXEdge);
 
 	textFrame.origin.y		+= _verticalTextOffset;
 	textFrame.size.height	-= _verticalTextOffset;
@@ -158,14 +158,14 @@
 
 - (void)drawWithFrame:(NSRect)frame inView:(NSView *)view {
 	NSSize		imageSize;
-	NSRect		imageFrame;
+	NSRect		textFrame, imageFrame;
 	
 	imageSize = [_image size];
 	
 	if(_image)
-		NSDivideRect(frame, &imageFrame, &frame, 5.0 + imageSize.width + _horizontalTextOffset, NSMinXEdge);
+		NSDivideRect(frame, &imageFrame, &textFrame, 5.0 + imageSize.width + _horizontalTextOffset, NSMinXEdge);
 	else
-		NSDivideRect(frame, &imageFrame, &frame, _horizontalTextOffset, NSMinXEdge);
+		NSDivideRect(frame, &imageFrame, &textFrame, _horizontalTextOffset, NSMinXEdge);
 	
 	if(_image) {
 		if([self drawsBackground]) {
@@ -177,20 +177,20 @@
 		imageFrame.size = imageSize;
 		
 		if([view isFlipped])
-			imageFrame.origin.y += ceil((frame.size.height + imageFrame.size.height) / 2.0);
+			imageFrame.origin.y += ceil((textFrame.size.height + imageFrame.size.height) / 2.0);
 		else
-			imageFrame.origin.y += ceil((frame.size.height - imageFrame.size.height) / 2.0);
+			imageFrame.origin.y += ceil((textFrame.size.height - imageFrame.size.height) / 2.0);
 		
 		[_image compositeToPoint:imageFrame.origin operation:NSCompositeSourceOver];
 	}
 	
-	frame.origin.y		+= _verticalTextOffset;
-	frame.size.height	-= _verticalTextOffset;
+	textFrame.origin.y		+= _verticalTextOffset;
+	textFrame.size.height	-= _verticalTextOffset;
 	
 	if(_textHeight > 0.0)
-		frame.size.height = _textHeight;
+		textFrame.size.height = _textHeight;
 
-	[super drawWithFrame:frame inView:view];
+	[super drawWithFrame:textFrame inView:view];
 }
 
 @end

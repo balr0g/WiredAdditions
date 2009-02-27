@@ -52,7 +52,6 @@ static void _WITreeResizerShader(void *info, const CGFloat *in, CGFloat *out) {
 
 @implementation WITreeResizer(Private)
 	
-
 - (void)_drawGradientWithStartingColor:(NSColor *)startingColor endingColor:(NSColor *)endingColor inRect:(NSRect)rect {
 	static const CGFloat		domain[] = { 0.0, 2.0 };
 	static const CGFloat		range[] = { 0.0, 2.0, 0.0, 2.0, 0.0, 2.0, 0.0, 2.0, 0.0, 2.0 };
