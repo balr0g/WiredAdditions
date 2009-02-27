@@ -225,6 +225,28 @@ static void _WIP7SocketWroteMessage(wi_p7_socket_t *p7Socket, wi_p7_message_t *p
 
 #pragma mark -
 
+- (BOOL)verifyMessage:(WIP7Message *)message error:(WIError **)error {
+	wi_pool_t		*pool;
+	wi_boolean_t	result;
+	
+	pool = wi_pool_init(wi_pool_alloc());
+	result = wi_p7_socket_verify_message(_p7Socket, [message message]);
+	wi_release(pool);
+	
+	if(!result) {
+		if(error)
+			*error = [WIError errorWithDomain:WILibWiredErrorDomain];
+		
+		return NO;
+	}
+	
+	return YES;
+}
+
+
+
+#pragma mark -
+
 - (BOOL)connectWithOptions:(NSUInteger)options serialization:(WIP7Serialization)serialization username:(NSString *)username password:(NSString *)password timeout:(NSTimeInterval)timeout error:(WIError **)error {
 	wi_pool_t		*pool;
 	wi_boolean_t	result;
