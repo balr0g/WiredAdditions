@@ -30,12 +30,15 @@
 #import <WiredFoundation/NSNumber-WIFoundation.h>
 #import <WiredFoundation/WISettings.h>
 
-static WISettings			*WISettingsSharedSettings;
+static NSMutableDictionary		*WISettingsSharedSettings;
 
 @interface WISettings(Private)
 
 + (WISettings *)_settings;
+
 - (id)_initWithIdentifier:(NSString *)identifier;
+
+- (NSString *)_identifier;
 
 - (void)_setObject:(id)object forKey:(id)key;
 - (id)_objectForKey:(id)key;
@@ -49,13 +52,25 @@ static WISettings			*WISettingsSharedSettings;
 @implementation WISettings(Private)
 
 + (WISettings *)_settings {
-	if(!WISettingsSharedSettings)
-		[self loadWithIdentifier:NULL];
+	WISettings		*settings;
 	
-	return WISettingsSharedSettings;
+	if(!WISettingsSharedSettings)
+		WISettingsSharedSettings = [[NSMutableDictionary alloc] init];
+	
+	settings = [WISettingsSharedSettings objectForKey:self];
+	
+	if(!settings) {
+		settings = [[self alloc] _initWithIdentifier:NULL];
+		[WISettingsSharedSettings setObject:settings forKey:self];
+		[settings release];
+	}
+	
+	return settings;
 }
 
 
+
+#pragma mark -
 
 - (id)_initWithIdentifier:(NSString *)identifier {
 	self = [super init];
@@ -73,6 +88,14 @@ static WISettings			*WISettingsSharedSettings;
 	_defaultValues = [[[self class] defaults] retain];
 
 	return self;
+}
+
+
+
+#pragma mark -
+
+- (NSString *)_identifier {
+	return _identifier;
 }
 
 
@@ -127,12 +150,26 @@ static WISettings			*WISettingsSharedSettings;
 
 @implementation WISettings
 
-+ (void)loadWithIdentifier:(NSString *)identifier {
++ (void)setIdentifier:(NSString *)identifier {
+	WISettings		*settings;
+	
 	if(!WISettingsSharedSettings)
-		WISettingsSharedSettings = [[self alloc] _initWithIdentifier:identifier];
+		WISettingsSharedSettings = [[NSMutableDictionary alloc] init];
+	
+	settings = [[self alloc] _initWithIdentifier:identifier];
+	[WISettingsSharedSettings setObject:settings forKey:self];
+	[settings release];
 }
 
 
+
++ (NSString *)identifier {
+	return [[WISettingsSharedSettings objectForKey:self] _identifier];
+}
+
+
+
+#pragma mark -
 
 + (NSDictionary *)defaults {
 	return [NSDictionary dictionary];

@@ -32,8 +32,9 @@
 	NSDictionary					*_defaultValues;
 }
 
++ (void)setIdentifier:(NSString *)identifier;
++ (NSString *)identifier;
 
-+ (void)loadWithIdentifier:(NSString *)identifier;
 + (NSDictionary *)defaults;
 
 + (void)setObject:(id)object forKey:(id)key;
