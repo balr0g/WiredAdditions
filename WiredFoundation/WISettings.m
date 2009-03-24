@@ -54,15 +54,12 @@ static NSMutableDictionary		*WISettingsSharedSettings;
 + (WISettings *)_settings {
 	WISettings		*settings;
 	
-	if(!WISettingsSharedSettings)
-		WISettingsSharedSettings = [[NSMutableDictionary alloc] init];
-	
 	settings = [WISettingsSharedSettings objectForKey:self];
 	
 	if(!settings) {
-		settings = [[self alloc] _initWithIdentifier:NULL];
-		[WISettingsSharedSettings setObject:settings forKey:self];
-		[settings release];
+		[self setIdentifier:NULL];
+	
+		settings = [WISettingsSharedSettings objectForKey:self];
 	}
 	
 	return settings;
