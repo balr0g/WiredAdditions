@@ -396,13 +396,13 @@
 - (BOOL)setList:(NSArray *)list forName:(NSString *)name {
 	NSEnumerator			*enumerator;
 	wi_pool_t				*pool;
-	wi_array_t				*array;
+	wi_mutable_array_t		*array;
 	wi_runtime_instance_t	*instance;
 	id						object;
 	BOOL					result;
 	
 	pool = wi_pool_init(wi_pool_alloc());
-	array = wi_array_init(wi_array_alloc());
+	array = wi_array_init(wi_mutable_array_alloc());
 	
 	enumerator = [list objectEnumerator];
 	
@@ -414,7 +414,7 @@
 			instance = NULL;
 		
 		if(instance)
-			wi_array_add_data(array, instance);
+			wi_mutable_array_add_data(array, instance);
 	}
 	
 	result = wi_p7_message_set_list_for_name(_message, array, [_spec fieldNameForName:name]);
