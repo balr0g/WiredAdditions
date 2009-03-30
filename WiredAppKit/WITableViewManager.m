@@ -489,7 +489,7 @@ static NSInteger _WITableViewSelectRowCompare(id object1, id object2, void *cont
 	
 	for(i = 0; i < rows; i++) {
 		if(outlineView)
-			value = [delegate outlineView:(NSOutlineView *) _tableView stringValueForRow:i];
+			value = [delegate outlineView:(NSOutlineView *) _tableView stringValueByItem:[(NSOutlineView *) _tableView itemAtRow:i]];
 		else
 			value = [delegate tableView:_tableView stringValueForRow:i];
 		

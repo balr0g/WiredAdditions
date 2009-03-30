@@ -80,7 +80,7 @@
 
 @interface NSObject(WIOutlineViewDelegate)
 
-- (NSString *)outlineView:(NSOutlineView *)outlineView stringValueForRow:(NSInteger)row;
+- (NSString *)outlineView:(NSOutlineView *)outlineView stringValueByItem:(id)item;
 - (void)outlineViewShouldCopyInfo:(NSOutlineView *)outlineView;
 
 @end
