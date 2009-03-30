@@ -109,7 +109,7 @@
 		offset += [[[_views objectAtIndex:i] enclosingScrollView] frame].size.width - 1.0;
 	
 	frame = [scrollView frame];
-	frame.origin.x = offset;
+	frame.origin.x = offset - 1.0;
 	[scrollView setFrame:frame];
 	
 	[_views addObject:[scrollView documentView]];
@@ -258,7 +258,11 @@
 	
 	[self reloadData];
 	
-	[[self delegate] treeView:self changedPath:_path];
+	if(!_inChangedPath) {
+		_inChangedPath = YES;
+		[[self delegate] treeView:self changedPath:_path];
+		_inChangedPath = NO;
+	}
 }
 
 
@@ -295,6 +299,7 @@
 	[tableView setTarget:self];
 	[tableView setAction:@selector(tableViewSingleClick:)];
 	[tableView setDoubleAction:@selector(tableViewDoubleClick:)];
+	[tableView setEscapeAction:@selector(tableViewEscape:)];
 	[tableView setColumnAutoresizingStyle:NSTableViewUniformColumnAutoresizingStyle];
 	
 	cell = [[[WITreeCell alloc] init] autorelease];
@@ -306,7 +311,7 @@
 	
 	[tableView addTableColumn:tableColumn];
 	
-	scrollView = [[WITreeScrollView alloc] initWithFrame:NSMakeRect(0.0, -1.0, _WITreeViewInitialTableViewWidth, frame.size.height + 1.0)];
+	scrollView = [[WITreeScrollView alloc] initWithFrame:NSMakeRect(0.0, -1.0, _WITreeViewInitialTableViewWidth, frame.size.height + 2.0)];
 	[scrollView setDelegate:self];
 	[scrollView setDocumentView:tableView];
 	[scrollView setBorderType:NSBezelBorder];
@@ -469,6 +474,37 @@
 
 
 
+- (NSArray *)selectedPaths {
+	NSMutableArray		*paths;
+	NSIndexSet			*indexes;
+	NSString			*path, *name;
+	id					responder;
+	NSUInteger			index;
+	
+	paths		= [NSMutableArray array];
+	responder	= [[self window] firstResponder];
+	
+	if([responder isKindOfClass:[NSTableView class]]) {
+		path		= [self _pathForTableView:responder];
+		indexes		= [responder selectedRowIndexes];
+		index		= [indexes firstIndex];
+		
+		while(index != NSNotFound) {
+			name = [[self dataSource] treeView:self nameForRow:index inPath:path];
+			
+			[paths addObject:[path stringByAppendingPathComponent:name]];
+			
+			index = [indexes indexGreaterThanIndex:index];
+		}
+	}
+	
+	return paths;
+}
+
+
+
+#pragma mark -
+
 - (void)reloadData {
 	[_views makeObjectsPerformSelector:@selector(reloadData)];
 }
@@ -583,6 +619,12 @@
 
 
 
+- (void)tableViewEscape:(id)sender {
+	[sender deselectAll:self];
+}
+
+
+
 #pragma mark -
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
@@ -633,19 +675,21 @@
 - (void)tableViewSelectionDidChange:(NSNotification *)notification {
 	NSTableView		*tableView;
 	NSString		*path, *name;
-	NSInteger		row;
+	NSIndexSet		*indexes;
+	NSUInteger		index;
 	
-	tableView = [notification object];
-	path = [self _pathForTableView:tableView];
+	tableView	= [notification object];
+	path		= [self _pathForTableView:tableView];
 	
 	if(!path)
 		return;
 	
-	row = [tableView selectedRow];
+	indexes = [tableView selectedRowIndexes];
 	
-	if(row >= 0) {
-		name = [[self dataSource] treeView:self nameForRow:row inPath:path];
-		path = [path stringByAppendingPathComponent:name];
+	if([indexes count] == 1) {
+		index	= [indexes firstIndex];
+		name	= [[self dataSource] treeView:self nameForRow:index inPath:path];
+		path	= [path stringByAppendingPathComponent:name];
 		
 		if([_views indexOfObject:tableView] == [_views count] - 2)
 			[self _addTableView];
@@ -654,7 +698,6 @@
 	[[self _tableViewsAheadOfTableView:tableView] makeObjectsPerformSelector:@selector(deselectAll:) withObject:self];
 	
 	[self _setPath:path];
-	
 	[self _sizeToFit];
 	[self _scrollToSelection];
 

@@ -55,6 +55,8 @@
 	
 	NSTimer							*_scrollingTimer;
 	NSPoint							_scrollingPoint;
+	
+	BOOL							_inChangedPath;
 }
 
 - (void)setDelegate:(id)delegate;
@@ -67,6 +69,8 @@
 - (SEL)doubleAction;
 
 - (NSString *)selectedPath;
+- (NSArray *)selectedPaths;
+
 - (void)reloadData;
 
 @end

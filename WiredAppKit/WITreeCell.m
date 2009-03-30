@@ -33,7 +33,8 @@
 - (id)init {
 	self = [super init];
 	
-	_arrowImage = [[NSImage imageNamed:@"WITreeCell-RightArrow"] retain];
+	_arrowImage = [[NSImage alloc] initWithContentsOfFile:
+		[[NSBundle bundleWithIdentifier:WIAppKitBundleIdentifier] pathForResource:@"WITreeCell-RightArrow" ofType:@"icns"]];
 	_leaf = YES;
 	
 	return self;
