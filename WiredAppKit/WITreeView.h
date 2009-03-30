@@ -91,5 +91,6 @@
 
 - (void)treeView:(WITreeView *)tree changedPath:(NSString *)path;
 - (void)treeView:(WITreeView *)tree willDisplayCell:(id)cell forPath:(NSString *)path;
+- (NSColor *)treeView:(WITreeView *)tree labelColorForPath:(NSString *)path;
 
 @end

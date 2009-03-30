@@ -360,10 +360,35 @@
 
 #pragma mark -
 
+- (NSRect)labelRectForRow:(NSInteger)row {
+	NSRect		rect;
+	
+	if([[self selectedRowIndexes] containsIndex:row])
+		return NSZeroRect;
+	
+	rect = [self rectOfRow:row];
+	
+	rect.origin.x += 2.0;
+	rect.size.width -= 4.0;
+	rect.size.height -= 1.0;
+	
+	return rect;
+}
+
+
+
+#pragma mark -
+
 - (NSMenu *)menuForEvent:(NSEvent *)event {
 	return [_tableViewManager menuForEvent:event defaultMenu:[super menuForEvent:event]];
 }
 
 
+
+- (void)drawRow:(NSInteger)row clipRect:(NSRect)clipRect {
+	[_tableViewManager drawRow:row clipRect:clipRect];
+	
+	[super drawRow:row clipRect:clipRect];
+}
 
 @end

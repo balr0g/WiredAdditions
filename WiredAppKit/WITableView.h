@@ -75,12 +75,15 @@
 - (void)setFont:(NSFont *)font;
 - (NSFont *)font;
 
+- (NSRect)labelRectForRow:(NSInteger)row;
+
 @end
 
 
 @interface NSObject(WITableViewDelegate)
 
 - (NSString *)tableView:(NSTableView *)tableView stringValueForRow:(NSInteger)row;
+- (NSColor *)tableView:(NSTableView *)tableView labelColorForRow:(NSInteger)row;
 - (void)tableViewShouldCopyInfo:(NSTableView *)tableView;
 
 @end

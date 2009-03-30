@@ -485,16 +485,19 @@
 	responder	= [[self window] firstResponder];
 	
 	if([responder isKindOfClass:[NSTableView class]]) {
-		path		= [self _pathForTableView:responder];
-		indexes		= [responder selectedRowIndexes];
-		index		= [indexes firstIndex];
+		path = [self _pathForTableView:responder];
 		
-		while(index != NSNotFound) {
-			name = [[self dataSource] treeView:self nameForRow:index inPath:path];
+		if(path) {
+			indexes		= [responder selectedRowIndexes];
+			index		= [indexes firstIndex];
 			
-			[paths addObject:[path stringByAppendingPathComponent:name]];
-			
-			index = [indexes indexGreaterThanIndex:index];
+			while(index != NSNotFound) {
+				name = [[self dataSource] treeView:self nameForRow:index inPath:path];
+				
+				[paths addObject:[path stringByAppendingPathComponent:name]];
+				
+				index = [indexes indexGreaterThanIndex:index];
+			}
 		}
 	}
 	
@@ -707,6 +710,25 @@
 		[self _showDetailViewForPath:path];
 	else
 		[self _hideDetailView];
+}
+
+
+
+- (NSColor *)tableView:(NSTableView *)tableView labelColorForRow:(NSInteger)row {
+	NSString		*path, *name;
+	
+	if([[self delegate] respondsToSelector:@selector(treeView:labelColorForPath:)]) {
+		path = [self _pathForTableView:tableView];
+
+		if(path) {
+			name = [[self dataSource] treeView:self nameForRow:row inPath:path];
+			path = [path stringByAppendingPathComponent:name];
+			
+			return [[self delegate] treeView:self labelColorForPath:path];
+		}
+	}
+	
+	return NULL;
 }
 
 

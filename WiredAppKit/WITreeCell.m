@@ -82,11 +82,11 @@
 	NSSize		imageSize;
 	NSRect		imageFrame;
 	
+	imageSize = [_arrowImage size];
+		
+	NSDivideRect(frame, &imageFrame, &frame, imageSize.width, NSMaxXEdge);
+		
 	if(!_leaf) {
-		imageSize = [_arrowImage size];
-		
-		NSDivideRect(frame, &imageFrame, &frame, imageSize.width, NSMaxXEdge);
-		
 		if([self drawsBackground]) {
 			[[self backgroundColor] set];
 			NSRectFill(imageFrame);
@@ -95,7 +95,7 @@
 		imageFrame.origin.x += 3.0;
 		imageFrame.size = imageSize;
 		
-		if ([view isFlipped])
+		if([view isFlipped])
 			imageFrame.origin.y += ceil((frame.size.height + imageFrame.size.height) / 2.0);
 		else
 			imageFrame.origin.y += ceil((frame.size.height - imageFrame.size.height) / 2.0);

@@ -30,6 +30,29 @@
 
 @implementation WITreeTableView
 
+- (NSRect)labelRectForRow:(NSInteger)row {
+	NSRect		rect;
+	
+	rect = [self rectOfRow:row];
+	
+	if([[self selectedRowIndexes] containsIndex:row]) {
+		rect.origin.x = rect.size.width - 17.0;
+		rect.origin.y += 1.0;
+		rect.size.width = 16.0;
+		rect.size.height -= 3.0;
+	} else {
+		rect.origin.x += 2.0;
+		rect.size.width -= 4.0;
+		rect.size.height -= 1.0;
+	}
+	
+	return rect;
+}
+
+
+
+#pragma mark -
+
 - (void)scrollWheel:(NSEvent *)event {
 	if(WIAbs([event deltaX]) > WIAbs([event deltaY]) && WIAbs([event deltaX]) > WIAbs([event deltaZ]))
 		[[self delegate] scrollWheel:event];

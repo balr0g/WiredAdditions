@@ -75,12 +75,15 @@
 - (void)setFont:(NSFont *)font;
 - (NSFont *)font;
 
+- (NSRect)labelRectForRow:(NSInteger)row;
+
 @end
 
 
 @interface NSObject(WIOutlineViewDelegate)
 
 - (NSString *)outlineView:(NSOutlineView *)outlineView stringValueByItem:(id)item;
+- (NSColor *)outlineView:(NSOutlineView *)outlineView labelColorByItem:(id)item;
 - (void)outlineViewShouldCopyInfo:(NSOutlineView *)outlineView;
 
 @end

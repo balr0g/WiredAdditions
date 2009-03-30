@@ -39,14 +39,29 @@
 
 #import "WITableViewManager.h"
 
-static NSInteger _WITableViewSelectRowCompare(id, id, void *);
+static NSInteger		_WITableViewManagerSelectRowCompare(id, id, void *);
+static void				_WITableViewManagerShader(void *, const CGFloat *, CGFloat *);
 
-static NSInteger _WITableViewSelectRowCompare(id object1, id object2, void *contextInfo) {
+
+static NSInteger _WITableViewManagerSelectRowCompare(id object1, id object2, void *contextInfo) {
 	NSUInteger		options;
 	
 	options = *(NSUInteger *) contextInfo;
 	
 	return [object1 compare:object2 options:options];
+}
+
+
+
+static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *out) {
+	CGFloat		*colors;
+	
+	colors = info;
+	
+	out[0] = colors[0] + (in[0] * (colors[4] - colors[0]));
+	out[1] = colors[1] + (in[0] * (colors[5] - colors[1]));
+	out[2] = colors[2] + (in[0] * (colors[6] - colors[2]));
+    out[3] = colors[3] + (in[0] * (colors[7] - colors[3]));
 }
 
 
@@ -64,6 +79,8 @@ static NSInteger _WITableViewSelectRowCompare(id object1, id object2, void *cont
 - (void)_setHighlightedTableColumnIdentifier:(NSString *)identifier sortOrder:(NSNumber *)sortOrder;
 - (void)_sizeToFitLastColumn;
 - (void)_saveTableColumns;
+
+- (void)_drawRowBackgroundGradientWithStartingColor:(NSColor *)startingColor endingColor:(NSColor *)endingColor inRect:(NSRect)rect;
 
 @end
 
@@ -351,13 +368,79 @@ static NSInteger _WITableViewSelectRowCompare(id object1, id object2, void *cont
 	[defaults synchronize];
 }
 
+
+
+#pragma mark -
+
+- (void)_drawRowBackgroundGradientWithStartingColor:(NSColor *)startingColor endingColor:(NSColor *)endingColor inRect:(NSRect)rect {
+	static const CGFloat		domain[] = { 0.0, 2.0 };
+	static const CGFloat		range[] = { 0.0, 2.0, 0.0, 2.0, 0.0, 2.0, 0.0, 2.0, 0.0, 2.0 };
+	NSColor						*deviceStartingColor, *deviceEndingColor;
+	CGContextRef				context;
+	CGFunctionRef				function;
+	CGColorSpaceRef				colorSpace;
+	CGShadingRef				shading;
+	struct CGFunctionCallbacks	callbacks;
+	CGFloat						colors[8], radius;
+	
+	deviceStartingColor		= [startingColor colorUsingColorSpaceName:NSDeviceRGBColorSpace];
+	deviceEndingColor		= [endingColor colorUsingColorSpaceName:NSDeviceRGBColorSpace];
+	
+	colors[0]				= [deviceStartingColor redComponent];
+	colors[1]				= [deviceStartingColor greenComponent];
+	colors[2]				= [deviceStartingColor blueComponent];
+	colors[3]				= [deviceStartingColor alphaComponent];
+	
+	colors[4]				= [deviceEndingColor redComponent];
+	colors[5]				= [deviceEndingColor greenComponent];
+	colors[6]				= [deviceEndingColor blueComponent];
+	colors[7]				= [deviceEndingColor alphaComponent];
+	
+	callbacks.version		= 0;
+	callbacks.evaluate		= _WITableViewManagerShader;
+	callbacks.releaseInfo	= NULL;
+	
+	function = CGFunctionCreate(colors, 1, domain, 4, range, &callbacks);
+	colorSpace = CGColorSpaceCreateDeviceRGB();
+	
+	radius		= rect.size.height / 2.0;
+	context		= [[NSGraphicsContext currentContext] graphicsPort];
+	shading		= CGShadingCreateAxial(colorSpace,
+									   CGPointMake(0.0, rect.origin.y),
+									   CGPointMake(0.0, rect.origin.y + rect.size.height),
+									   function,
+									   false,
+									   false);
+	
+	CGContextSaveGState(context);
+	
+	CGContextMoveToPoint(context, rect.origin.x, rect.origin.y + radius);
+	CGContextAddLineToPoint(context, rect.origin.x, rect.origin.y + rect.size.height - radius);
+	CGContextAddArc(context, rect.origin.x + radius, rect.origin.y + rect.size.height - radius, radius, M_PI / 4.0, M_PI / 2.0, 1.0);
+	CGContextAddLineToPoint(context, rect.origin.x + rect.size.width - radius, rect.origin.y + rect.size.height);
+	CGContextAddArc(context, rect.origin.x + rect.size.width - radius, rect.origin.y + rect.size.height - radius, radius, M_PI / 2.0, 0.0, 1.0);
+	CGContextAddLineToPoint(context, rect.origin.x + rect.size.width, rect.origin.y + radius);
+	CGContextAddArc(context, rect.origin.x + rect.size.width - radius, rect.origin.y + radius, radius, 0.0, -M_PI / 2.0, 1.0);
+	CGContextAddLineToPoint(context, rect.origin.x + radius, rect.origin.y);
+	CGContextAddArc(context, rect.origin.x + radius, rect.origin.y + radius, radius, -M_PI / 2.0, M_PI, 1.0);
+	CGContextClip(context);
+	
+	CGContextDrawShading(context, shading);
+	
+	CGContextRestoreGState(context);
+	
+	CGShadingRelease(shading);
+	CGColorSpaceRelease(colorSpace);
+	CGFunctionRelease(function);
+}
+
 @end
 
 
 
 @implementation WITableViewManager
 
-- (id)initWithTableView:(NSTableView *)tableView {
+- (id)initWithTableView:(WITableView *)tableView {
 	WITableHeaderView	*headerView;
 	
 	self = [super init];
@@ -505,7 +588,7 @@ static NSInteger _WITableViewSelectRowCompare(id object1, id object2, void *cont
 	}
 	
 	if(row == NSNotFound) {
-		sortedStrings = [strings sortedArrayUsingFunction:_WITableViewSelectRowCompare context:&options];
+		sortedStrings = [strings sortedArrayUsingFunction:_WITableViewManagerSelectRowCompare context:&options];
 		
 		for(i = 0; i < rows; i++) {
 			if([[sortedStrings objectAtIndex:i] compare:string options:options] >= NSOrderedSame) {
@@ -1068,6 +1151,32 @@ static NSInteger _WITableViewSelectRowCompare(id object1, id object2, void *cont
 		[_tableView selectRow:row byExtendingSelection:NO];
 	
 	return menu;
+}
+
+
+
+- (void)drawRow:(NSInteger)row clipRect:(NSRect)clipRect {
+	NSColor		*color = NULL;
+	id			delegate;
+	NSRect		rect;
+	
+	delegate = [_tableView delegate];
+	
+	if([_tableView isKindOfClass:[NSOutlineView class]]) {
+		if([delegate respondsToSelector:@selector(outlineView:labelColorByItem:)])
+			color = [delegate outlineView:(NSOutlineView *) _tableView labelColorByItem:[(NSOutlineView *) _tableView itemAtRow:row]];
+	} else {
+		if([delegate respondsToSelector:@selector(tableView:labelColorForRow:)])
+			color = [delegate tableView:_tableView labelColorForRow:row];
+	}
+
+	if(color) {
+		rect = [_tableView labelRectForRow:row];
+
+		[self _drawRowBackgroundGradientWithStartingColor:[color blendedColorWithFraction:0.6 ofColor:[NSColor whiteColor]]
+											  endingColor:[color blendedColorWithFraction:0.2 ofColor:[NSColor whiteColor]]
+												   inRect:rect];
+	}
 }
 
 @end

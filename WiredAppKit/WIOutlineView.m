@@ -39,7 +39,7 @@
 @implementation WIOutlineView(Private)
 
 - (void)_initTableView {
-	_tableViewManager = [[WITableViewManager alloc] initWithTableView:self];
+	_tableViewManager = [[WITableViewManager alloc] initWithTableView:(WITableView *) self];
 }
 
 @end
@@ -360,8 +360,37 @@
 
 #pragma mark -
 
+- (NSRect)labelRectForRow:(NSInteger)row {
+	NSRect		rect;
+	
+	rect = [self rectOfRow:row];
+	
+	rect.origin.x += 2.0;
+
+	if([[self selectedRowIndexes] containsIndex:row])
+		rect.size.width = 18.0;
+	else
+		rect.size.width -= 4.0;
+	
+	rect.size.height -= 1.0;
+	
+	return rect;
+}
+
+
+
+#pragma mark -
+
 - (NSMenu *)menuForEvent:(NSEvent *)event {
 	return [_tableViewManager menuForEvent:event defaultMenu:[super menuForEvent:event]];
+}
+
+
+
+- (void)drawRow:(NSInteger)row clipRect:(NSRect)clipRect {
+	[_tableViewManager drawRow:row clipRect:clipRect];
+	
+	[super drawRow:row clipRect:clipRect];
 }
 
 @end

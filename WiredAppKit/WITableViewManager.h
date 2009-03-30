@@ -28,11 +28,13 @@
 
 #import <WiredFoundation/WITypes.h>
 
+@class WITableView;
+
 @interface WITableViewManager : WIObject {
 	IBOutlet NSPanel			*_viewOptionsPanel;
 	IBOutlet NSButton			*_showColumnPrototypeButton;
 	
-	NSTableView					*_tableView;
+	WITableView					*_tableView;
 	
 	SEL							_stringValueForRow;
 	SEL							_shouldCopyInfo;
@@ -63,8 +65,7 @@
 	SEL							_deleteAction;
 }
 
-
-- (id)initWithTableView:(NSTableView *)tableView;
+- (id)initWithTableView:(WITableView *)tableView;
 
 - (void)selectRowWithStringValue:(NSString *)string;
 - (void)selectRowWithStringValue:(NSString *)string options:(NSUInteger)options;
@@ -114,5 +115,6 @@
 - (NSFont *)font;
 
 - (NSMenu *)menuForEvent:(NSEvent *)event defaultMenu:(NSMenu *)menu;
+- (void)drawRow:(NSInteger)row clipRect:(NSRect)clipRect;
 
 @end
