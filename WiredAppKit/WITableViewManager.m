@@ -562,13 +562,20 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 	NSUInteger		i, row, rows;
 	BOOL			outlineView;
 	
-	rows = [_tableView numberOfRows];
-	strings = [[NSMutableArray alloc] initWithCapacity:rows];
-	delegate = [_tableView delegate];
-	outlineView = [_tableView isKindOfClass:[NSOutlineView class]];
+	rows			= [_tableView numberOfRows];
+	strings			= [[NSMutableArray alloc] initWithCapacity:rows];
+	delegate		= [_tableView delegate];
+	outlineView		= [_tableView isKindOfClass:[NSOutlineView class]];
+	row				= NSNotFound;
+	match			= @"";
 	
-	row = NSNotFound;
-	match = @"";
+	if(outlineView) {
+		if(![delegate respondsToSelector:@selector(outlineView:stringValueByItem:)])
+			return;
+	} else {
+		if(![delegate respondsToSelector:@selector(tableView:stringValueForRow:)])
+			return;
+	}
 	
 	for(i = 0; i < rows; i++) {
 		if(outlineView)
