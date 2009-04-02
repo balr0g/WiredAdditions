@@ -45,6 +45,7 @@
 - (void)_addTableView;
 - (void)_sizeToFit;
 - (CGFloat)_widthOfTableViews:(NSUInteger)count;
+- (void)_scrollToIndex:(NSUInteger)index;
 - (void)_scrollToSelection;
 - (void)_scrollForwardToSelectionAnimated;
 
@@ -144,6 +145,16 @@
 		width += [[[_views objectAtIndex:i] enclosingScrollView] frame].size.width - 1.0;
 	
 	return width;
+}
+
+
+
+- (void)_scrollToIndex:(NSUInteger)index {
+	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(_scrollToSelectionAnimated) object:NULL];
+	
+	_scrollingPoint = NSMakePoint([self _widthOfTableViews:index], 0.0);
+	
+	[self _scrollForwardToSelectionAnimated];
 }
 
 
@@ -301,6 +312,9 @@
 	[tableView setDoubleAction:@selector(tableViewDoubleClick:)];
 	[tableView setEscapeAction:@selector(tableViewEscape:)];
 	[tableView setColumnAutoresizingStyle:NSTableViewUniformColumnAutoresizingStyle];
+	[tableView setDraggingSourceOperationMask:NSDragOperationEvery forLocal:NO];
+	[tableView setDraggingSourceOperationMask:NSDragOperationEvery forLocal:YES];
+	[tableView registerForDraggedTypes:[self registeredDraggedTypes]];
 	
 	cell = [[[WITreeCell alloc] init] autorelease];
 	
@@ -508,8 +522,69 @@
 
 #pragma mark -
 
+- (void)selectPath:(NSString *)path {
+	NSTableView		*tableView;
+	NSArray			*components, *rootComponents;
+	NSString		*rootPath, *partialPath, *component, *name;
+	NSUInteger		i, j, count, fileCount;
+	
+	if([_views count] == 0)
+		return;
+
+	rootPath		= [self rootPath];
+	rootComponents	= [rootPath pathComponents];
+	partialPath		= rootPath;
+	components		= [[path pathComponents] subarrayFromIndex:[rootComponents count]];
+	tableView		= [_views objectAtIndex:0];
+	count			= [components count];
+	
+	for(i = 0; i < count; i++) {
+		component	= [components objectAtIndex:i];
+		tableView	= [_views objectAtIndex:i];
+		fileCount	= [[self delegate] treeView:self numberOfItemsForPath:partialPath];
+		
+		for(j = 0; j < fileCount; j++) {
+			name = [[self delegate] treeView:self nameForRow:j inPath:partialPath];
+			
+			if([component isEqualToString:name]) {
+				[tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:j] byExtendingSelection:NO];
+				
+				break;
+			}
+		}
+		
+		partialPath = [partialPath stringByAppendingPathComponent:[components objectAtIndex:i]];
+	}
+	
+	[[self window] makeFirstResponder:tableView];
+
+	[self scrollPoint:NSMakePoint([self _widthOfTableViews:[_views indexOfObject:tableView]], 0.0)];
+}
+
+
+
+- (void)selectRowIndexes:(NSIndexSet *)indexes byExtendingSelection:(BOOL)extendingSelection {
+	NSTableView		*tableView;
+	
+	tableView = [_views objectAtIndex:[self _numberOfUsedPathComponents]];
+	
+	_selectingProgrammatically = YES;
+	
+	[tableView selectRowIndexes:indexes byExtendingSelection:extendingSelection];
+
+	_selectingProgrammatically = NO;
+}
+
+
+
+#pragma mark -
+
 - (void)reloadData {
+	_reloadingData = YES;
 	[_views makeObjectsPerformSelector:@selector(reloadData)];
+	_reloadingData = NO;
+	
+	[self selectPath:[self _path]];
 }
 
 
@@ -528,6 +603,7 @@
 - (void)keyDown:(NSEvent *)event {
 	NSString		*path, *name;
 	NSTableView		*tableView;
+	NSIndexSet		*indexes;
 	id				responder;
 	NSUInteger		index;
 	NSInteger		row;
@@ -554,12 +630,13 @@
 						if(index == [_views count] - 2)
 							[self _addTableView];
 						
-						tableView	= [_views objectAtIndex:index + 1];
+						tableView = [_views objectAtIndex:index + 1];
 
 						if([[self dataSource] treeView:self numberOfItemsForPath:path] > 0) {
 							if([tableView selectedRow] == -1)
 								[tableView selectRow:0 byExtendingSelection:NO];
 							
+							if([tableView selectedRow] >= 0) {
 							[[self window] makeFirstResponder:tableView];
 							
 							name = [[self dataSource] treeView:self nameForRow:[tableView selectedRow] inPath:path];
@@ -567,14 +644,22 @@
 							[self _setPath:[path stringByAppendingPathComponent:name]];
 							
 							handled = YES;
+							}
 						}
 					} else {
 						index = [_views indexOfObject:responder];
 						
 						if(index > 0) {
-							[[self window] makeFirstResponder:[_views objectAtIndex:index - 1]];
+							tableView = [_views objectAtIndex:index - 1];
+							
+							[[self window] makeFirstResponder:tableView];
 
-							[self _setPath:[[self _path] stringByDeletingLastPathComponent]];
+							if([[responder selectedRowIndexes] count] > 1)
+								path = [self _path];
+							else
+								path = [[self _path] stringByDeletingLastPathComponent];
+							
+							[self _setPath:path];
 
 							handled = YES;
 						}
@@ -584,7 +669,9 @@
 						[self _sizeToFit];
 						[self _scrollToSelection];
 						
-						if(![[self dataSource] treeView:self isPathExpandable:[self _path]])
+						indexes = [tableView selectedRowIndexes];
+						
+						if(![[self dataSource] treeView:self isPathExpandable:[self _path]] && [indexes count] == 1)
 							[self _showDetailViewForPath:[self _path]];
 						else
 							[self _hideDetailView];
@@ -604,6 +691,14 @@
 
 - (void)scrollWheel:(NSEvent *)event {
 	[[self enclosingScrollView] scrollWheel:event];
+}
+
+
+
+- (void)registerForDraggedTypes:(NSArray *)types {
+	[_views makeObjectsPerformSelector:@selector(registerForDraggedTypes:) withObject:types];
+	
+	[super registerForDraggedTypes:types];
 }
 
 
@@ -681,19 +776,22 @@
 	NSIndexSet		*indexes;
 	NSUInteger		index;
 	
-	tableView	= [notification object];
-	path		= [self _pathForTableView:tableView];
+	if(_selectingProgrammatically || _reloadingData || _inChangedSelection)
+		return;
+	
+	_inChangedSelection		= YES;
+	tableView				= [notification object];
+	indexes					= [tableView selectedRowIndexes];
+	path					= [self _pathForTableView:tableView];
 	
 	if(!path)
 		return;
 	
-	indexes = [tableView selectedRowIndexes];
-	
 	if([indexes count] == 1) {
-		index	= [indexes firstIndex];
-		name	= [[self dataSource] treeView:self nameForRow:index inPath:path];
-		path	= [path stringByAppendingPathComponent:name];
-		
+		index		= [indexes firstIndex];
+		name		= [[self dataSource] treeView:self nameForRow:index inPath:path];
+		path		= [path stringByAppendingPathComponent:name];
+			
 		if([_views indexOfObject:tableView] == [_views count] - 2)
 			[self _addTableView];
 	}
@@ -706,10 +804,12 @@
 
 	[self reloadData];
 	
-	if(![[self dataSource] treeView:self isPathExpandable:path])
+	if(![[self dataSource] treeView:self isPathExpandable:path] && [indexes count] == 1)
 		[self _showDetailViewForPath:path];
 	else
 		[self _hideDetailView];
+	
+	_inChangedSelection = NO;
 }
 
 
@@ -729,6 +829,85 @@
 	}
 	
 	return NULL;
+}
+
+
+
+- (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)indexes toPasteboard:(NSPasteboard *)pasteboard {
+	NSMutableArray		*paths;
+	NSString			*path, *name;
+	NSUInteger			index;
+	
+	if([[self delegate] respondsToSelector:@selector(treeView:writePaths:toPasteboard:)]) {
+		path = [self _pathForTableView:tableView];
+		
+		if(path) {
+			paths = [NSMutableArray array];
+			index = [indexes firstIndex];
+			
+			while(index != NSNotFound) {
+				name = [[self dataSource] treeView:self nameForRow:index inPath:path];
+				
+				[paths addObject:[path stringByAppendingPathComponent:name]];
+				
+				index = [indexes indexGreaterThanIndex:index];
+			}
+			
+			return [[self delegate] treeView:self writePaths:paths toPasteboard:pasteboard];
+		}
+	}
+
+	return NO;
+}
+
+
+
+- (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id <NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)operation {
+	NSString		*path;
+	
+	if([[self delegate] respondsToSelector:@selector(treeView:validateDrop:proposedPath:)]) {
+		if(operation == NSTableViewDropAbove) {
+			[tableView setDropRow:-1 dropOperation:NSTableViewDropOn];
+			
+			row = -1;
+		}
+		
+		path = [self _pathForTableView:tableView];
+		
+		if(path) {
+			if(row >= 0)
+				path = [path stringByAppendingPathComponent:[[self dataSource] treeView:self nameForRow:row inPath:path]];
+			
+			if(![[self dataSource] treeView:self isPathExpandable:path]) {
+				[tableView setDropRow:-1 dropOperation:NSTableViewDropOn];
+				
+				path = [path stringByDeletingLastPathComponent];
+			}
+			
+			return [[self delegate] treeView:self validateDrop:info proposedPath:path];
+		}
+	}
+	
+	return NSDragOperationNone;
+}
+
+
+
+- (BOOL)tableView:(NSTableView *)tableView acceptDrop:(id <NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation {
+	NSString		*path;
+	
+	if([[self delegate] respondsToSelector:@selector(treeView:acceptDrop:path:)]) {
+		path = [self _pathForTableView:tableView];
+		
+		if(path) {
+			if(row >= 0)
+				path = [path stringByAppendingPathComponent:[[self dataSource] treeView:self nameForRow:row inPath:path]];
+			
+			return [[self delegate] treeView:self acceptDrop:info path:path];
+		}
+	}
+	
+	return NO;
 }
 
 

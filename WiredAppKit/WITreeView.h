@@ -56,7 +56,10 @@
 	NSTimer							*_scrollingTimer;
 	NSPoint							_scrollingPoint;
 	
+	BOOL							_selectingProgrammatically;
+	BOOL							_reloadingData;
 	BOOL							_inChangedPath;
+	BOOL							_inChangedSelection;
 }
 
 - (void)setDelegate:(id)delegate;
@@ -70,6 +73,9 @@
 
 - (NSString *)selectedPath;
 - (NSArray *)selectedPaths;
+
+- (void)selectPath:(NSString *)path;
+- (void)selectRowIndexes:(NSIndexSet *)indexes byExtendingSelection:(BOOL)extendingSelection;
 
 - (void)reloadData;
 
@@ -92,5 +98,9 @@
 - (void)treeView:(WITreeView *)tree changedPath:(NSString *)path;
 - (void)treeView:(WITreeView *)tree willDisplayCell:(id)cell forPath:(NSString *)path;
 - (NSColor *)treeView:(WITreeView *)tree labelColorForPath:(NSString *)path;
+
+- (BOOL)treeView:(WITreeView *)treeView writePaths:(NSArray *)paths toPasteboard:(NSPasteboard *)pasteboard;
+- (NSDragOperation)treeView:(WITreeView *)treeView validateDrop:(id <NSDraggingInfo>)info proposedPath:(NSString *)path;
+- (BOOL)treeView:(WITreeView *)treeView acceptDrop:(id <NSDraggingInfo>)info path:(NSString *)path;
 
 @end
