@@ -315,6 +315,7 @@
 	[tableView setDraggingSourceOperationMask:NSDragOperationEvery forLocal:NO];
 	[tableView setDraggingSourceOperationMask:NSDragOperationEvery forLocal:YES];
 	[tableView registerForDraggedTypes:[self registeredDraggedTypes]];
+	[tableView setMenu:[self menu]];
 	
 	cell = [[[WITreeCell alloc] init] autorelease];
 	
@@ -699,6 +700,14 @@
 	[_views makeObjectsPerformSelector:@selector(registerForDraggedTypes:) withObject:types];
 	
 	[super registerForDraggedTypes:types];
+}
+
+
+
+- (void)setMenu:(NSMenu *)menu {
+	[_views makeObjectsPerformSelector:@selector(setMenu:) withObject:menu];
+	
+	[super setMenu:menu];
 }
 
 
