@@ -312,8 +312,8 @@
 	[tableView setDoubleAction:@selector(tableViewDoubleClick:)];
 	[tableView setEscapeAction:@selector(tableViewEscape:)];
 	[tableView setColumnAutoresizingStyle:NSTableViewUniformColumnAutoresizingStyle];
-	[tableView setDraggingSourceOperationMask:NSDragOperationEvery forLocal:NO];
-	[tableView setDraggingSourceOperationMask:NSDragOperationEvery forLocal:YES];
+	[tableView setDraggingSourceOperationMask:_draggingSourceOperationMaskForLocal forLocal:YES];
+	[tableView setDraggingSourceOperationMask:_draggingSourceOperationMaskForNonLocal forLocal:NO];
 	[tableView registerForDraggedTypes:[self registeredDraggedTypes]];
 	[tableView setMenu:[self menu]];
 	
@@ -477,6 +477,25 @@
 
 - (SEL)doubleAction {
 	return _doubleAction;
+}
+
+
+
+#pragma mark -
+
+- (void)setDraggingSourceOperationMask:(NSDragOperation)mask forLocal:(BOOL)isLocal {
+	NSEnumerator		*enumerator;
+	NSTableView			*tableView;
+	
+	if(isLocal)
+		_draggingSourceOperationMaskForLocal = mask;
+	else
+		_draggingSourceOperationMaskForNonLocal = mask;
+	
+	enumerator = [_views objectEnumerator];
+	
+	while((tableView = [enumerator nextObject]))
+		[tableView setDraggingSourceOperationMask:mask forLocal:isLocal];
 }
 
 

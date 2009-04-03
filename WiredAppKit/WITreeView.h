@@ -51,6 +51,9 @@
 	NSString						*_path;
 	SEL								_doubleAction;
 	
+	NSDragOperation					_draggingSourceOperationMaskForLocal;
+	NSDragOperation					_draggingSourceOperationMaskForNonLocal;
+	
 	WIDateFormatter					*_dateFormatter;
 	
 	NSTimer							*_scrollingTimer;
@@ -70,6 +73,8 @@
 - (NSString *)rootPath;
 - (void)setDoubleAction:(SEL)doubleAction;
 - (SEL)doubleAction;
+
+- (void)setDraggingSourceOperationMask:(NSDragOperation)mask forLocal:(BOOL)isLocal;
 
 - (NSString *)selectedPath;
 - (NSArray *)selectedPaths;
