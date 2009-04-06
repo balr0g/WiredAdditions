@@ -107,5 +107,6 @@
 - (BOOL)treeView:(WITreeView *)treeView writePaths:(NSArray *)paths toPasteboard:(NSPasteboard *)pasteboard;
 - (NSDragOperation)treeView:(WITreeView *)treeView validateDrop:(id <NSDraggingInfo>)info proposedPath:(NSString *)path;
 - (BOOL)treeView:(WITreeView *)treeView acceptDrop:(id <NSDraggingInfo>)info path:(NSString *)path;
+- (NSArray *)treeView:(WITreeView *)treeView namesOfPromisedFilesDroppedAtDestination:(NSURL *)destination forDraggedPaths:(NSArray *)paths;
 
 @end

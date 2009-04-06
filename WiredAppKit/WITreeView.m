@@ -940,6 +940,35 @@
 
 
 
+- (NSArray *)tableView:(NSTableView *)tableView namesOfPromisedFilesDroppedAtDestination:(NSURL *)destination forDraggedRowsWithIndexes:(NSIndexSet *)indexes {
+	NSMutableArray		*paths;
+	NSString			*path, *name;
+	NSUInteger			index;
+	
+	if([[self delegate] respondsToSelector:@selector(treeView:namesOfPromisedFilesDroppedAtDestination:forDraggedPaths:)]) {
+		path = [self _pathForTableView:tableView];
+		
+		if(path) {
+			paths = [NSMutableArray array];
+			index = [indexes firstIndex];
+			
+			while(index != NSNotFound) {
+				name = [[self dataSource] treeView:self nameForRow:index inPath:path];
+				
+				[paths addObject:[path stringByAppendingPathComponent:name]];
+				
+				index = [indexes indexGreaterThanIndex:index];
+			}
+
+			return [[self delegate] treeView:self namesOfPromisedFilesDroppedAtDestination:destination forDraggedPaths:paths];
+		}
+	}
+	
+	return NULL;
+}
+
+
+
 #pragma mark -
 
 - (void)treeScrollView:(WITreeScrollView *)scrollView shouldResizeToPoint:(NSPoint)point {
