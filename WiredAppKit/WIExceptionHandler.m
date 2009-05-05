@@ -50,12 +50,13 @@
 	FILE				*fp;
 	char				buffer[BUFSIZ];
 	NSUInteger			i = 0;
+	BOOL				handled = NO;
 
 	trace = [[exception userInfo] objectForKey:NSStackTraceKey];
 	
 	if(trace) {
 		stacks	= [trace componentsSeparatedByString:@"  "];
-		fp		= popen([[NSSWF:@"/usr/bin/atos -p %d %@", getpid(), trace] UTF8String], "r");
+		fp		= popen([[NSSWF:@"/usr/bin/atosx -p %d %@", getpid(), trace] UTF8String], "r");
 		
 		if(fp) {
 			backtrace = [NSMutableString string];
@@ -72,8 +73,11 @@
 			}
 			
 			if([backtrace length] > 0) {
-				if([delegate respondsToSelector:@selector(exceptionHandler:receivedExceptionWithBacktrace:)])
+				if([delegate respondsToSelector:@selector(exceptionHandler:receivedExceptionWithBacktrace:)]) {
 					[delegate exceptionHandler:self receivedExceptionWithBacktrace:backtrace];
+					
+					handled = YES;
+				}
 
 				NSLog(@"%@", backtrace);
 			}
@@ -88,6 +92,11 @@
 	
 	if(i == 0)
 		NSLog(@"*** %@: Unable to log backtrace \"%@\"", [self class], trace);
+	
+	if(!handled) {
+		if([delegate respondsToSelector:@selector(exceptionHandler:receivedException:)])
+			[delegate exceptionHandler:self receivedException:exception];
+	}
 	
 	return NO;
 }
