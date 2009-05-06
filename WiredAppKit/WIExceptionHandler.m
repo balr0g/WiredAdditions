@@ -134,4 +134,12 @@
 	[[NSExceptionHandler defaultExceptionHandler] setExceptionHandlingMask:mask];
 }
 
+
+
+#pragma mark -
+
+- (void)crash {
+	*((char *) NULL) = 0;
+}
+
 @end

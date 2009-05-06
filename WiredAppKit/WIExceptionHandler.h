@@ -38,6 +38,8 @@
 - (void)enable;
 - (void)enableWithMask:(NSUInteger)mask;
 
+- (void)crash;
+
 @end
 
 
