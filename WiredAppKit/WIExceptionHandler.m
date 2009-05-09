@@ -56,7 +56,7 @@
 	
 	if(trace) {
 		stacks	= [trace componentsSeparatedByString:@"  "];
-		fp		= popen([[NSSWF:@"/usr/bin/atosx -p %d %@", getpid(), trace] UTF8String], "r");
+		fp		= popen([[NSSWF:@"/usr/bin/atos -p %d %@", getpid(), trace] UTF8String], "r");
 		
 		if(fp) {
 			backtrace = [NSMutableString string];
