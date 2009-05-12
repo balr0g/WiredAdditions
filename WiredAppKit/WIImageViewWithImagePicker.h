@@ -35,7 +35,6 @@
 	id						_picker;
 }
 
-
 - (void)setDefaultImage:(NSImage *)image;
 - (NSImage *)defaultImage;
 - (void)setMaxImageSize:(NSSize)maxImageSize;

@@ -37,8 +37,3 @@
 
 #define WIClamp(x, min, max) \
 	(((x) > (max)) ? (max) : (((x) < (min)) ? (min) : (x)))
-
-#define WIEncode(coder, var) \
-	[coder encodeValueOfObjCType:@encode(typeof(var)) at:&(var)]
-#define WIDecode(coder, var) \
-	[coder decodeValueOfObjCType:@encode(typeof(var)) at:&(var)]

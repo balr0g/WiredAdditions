@@ -26,6 +26,11 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+extern NSString * const WIWiredNetworkingErrorDomain;
+extern NSString * const WILibWiredErrorDomain;
+extern NSString * const WILibWiredErrorKey;
+
+
 enum _WIWiredAdditionsErrorDomain {
 	WIAddressLookupFailed,
 	WIAddressNetServiceLookupFailed,
@@ -38,11 +43,6 @@ enum _WIWiredAdditionsErrorDomain {
 	
 	WIP7SpecLoadFailed
 };
-
-
-#define WIWiredNetworkingErrorDomain			@"WIWiredNetworkingErrorDomain"
-#define WILibWiredErrorDomain					@"WILibWiredErrorDomain"
-#define WILibWiredErrorKey						@"WILibWiredErrorKey"
 
 
 @interface WIError : NSError

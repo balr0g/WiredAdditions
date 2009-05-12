@@ -37,7 +37,6 @@
 #import <WiredAppKit/WIMatrix.h>
 #import <WiredAppKit/WIMultiImageCell.h>
 #import <WiredAppKit/WIOutlineView.h>
-#import <WiredAppKit/WIPDFView.h>
 #import <WiredAppKit/WIPreferencesController.h>
 #import <WiredAppKit/WIProgressIndicator.h>
 #import <WiredAppKit/WISplitView.h>

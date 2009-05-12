@@ -97,7 +97,6 @@
 		7712BB990E5C1964001C4210 /* WIMatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C1290758DFA9008446CF /* WIMatrix.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BB9A0E5C1964001C4210 /* WIMultiImageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C1270758DFA9008446CF /* WIMultiImageCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BB9C0E5C1964001C4210 /* WIOutlineView.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C1250758DFA9008446CF /* WIOutlineView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7712BB9D0E5C1964001C4210 /* WIPDFView.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C1230758DFA9008446CF /* WIPDFView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BB9E0E5C1964001C4210 /* WIProgressIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = A598382F096C894500EC0FC4 /* WIProgressIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BBA10E5C1964001C4210 /* WISplitView.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C1210758DFA9008446CF /* WISplitView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BBA20E5C1964001C4210 /* WITableHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = A57FE28307C8D9AD00AC49F2 /* WITableHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -134,7 +133,6 @@
 		7712BBDB0E5C1964001C4210 /* WIMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C1280758DFA9008446CF /* WIMatrix.m */; };
 		7712BBDC0E5C1964001C4210 /* WIMultiImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C1260758DFA9008446CF /* WIMultiImageCell.m */; };
 		7712BBDE0E5C1964001C4210 /* WIOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C1240758DFA9008446CF /* WIOutlineView.m */; };
-		7712BBDF0E5C1964001C4210 /* WIPDFView.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C1220758DFA9008446CF /* WIPDFView.m */; };
 		7712BBE00E5C1964001C4210 /* WIProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A5983830096C894500EC0FC4 /* WIProgressIndicator.m */; };
 		7712BBE30E5C1964001C4210 /* WISplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C1200758DFA9008446CF /* WISplitView.m */; };
 		7712BBE40E5C1964001C4210 /* WITableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A57FE28407C8D9AD00AC49F2 /* WITableHeaderView.m */; };
@@ -283,7 +281,6 @@
 		77DBEAF80E62B94600B738D3 /* WIMatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C1290758DFA9008446CF /* WIMatrix.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77DBEAF90E62B94600B738D3 /* WIMultiImageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C1270758DFA9008446CF /* WIMultiImageCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77DBEAFA0E62B94600B738D3 /* WIOutlineView.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C1250758DFA9008446CF /* WIOutlineView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77DBEAFB0E62B94600B738D3 /* WIPDFView.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C1230758DFA9008446CF /* WIPDFView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77DBEAFC0E62B94600B738D3 /* WIProgressIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = A598382F096C894500EC0FC4 /* WIProgressIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77DBEAFD0E62B94600B738D3 /* WISplitView.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C1210758DFA9008446CF /* WISplitView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77DBEAFE0E62B94600B738D3 /* WITableHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = A57FE28307C8D9AD00AC49F2 /* WITableHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -327,7 +324,6 @@
 		77DBEB270E62B96A00B738D3 /* WIMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C1280758DFA9008446CF /* WIMatrix.m */; };
 		77DBEB280E62B96A00B738D3 /* WIMultiImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C1260758DFA9008446CF /* WIMultiImageCell.m */; };
 		77DBEB290E62B96A00B738D3 /* WIOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C1240758DFA9008446CF /* WIOutlineView.m */; };
-		77DBEB2A0E62B96A00B738D3 /* WIPDFView.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C1220758DFA9008446CF /* WIPDFView.m */; };
 		77DBEB2B0E62B96A00B738D3 /* WIProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A5983830096C894500EC0FC4 /* WIProgressIndicator.m */; };
 		77DBEB2C0E62B96A00B738D3 /* WISplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C1200758DFA9008446CF /* WISplitView.m */; };
 		77DBEB2D0E62B96A00B738D3 /* WITableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A57FE28407C8D9AD00AC49F2 /* WITableHeaderView.m */; };
@@ -728,8 +724,6 @@
 		A544C11F0758DFA9008446CF /* WITableView.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = WITableView.h; path = WiredAppKit/WITableView.h; sourceTree = "<group>"; };
 		A544C1200758DFA9008446CF /* WISplitView.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = WISplitView.m; path = WiredAppKit/WISplitView.m; sourceTree = "<group>"; };
 		A544C1210758DFA9008446CF /* WISplitView.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = WISplitView.h; path = WiredAppKit/WISplitView.h; sourceTree = "<group>"; };
-		A544C1220758DFA9008446CF /* WIPDFView.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = WIPDFView.m; path = WiredAppKit/WIPDFView.m; sourceTree = "<group>"; };
-		A544C1230758DFA9008446CF /* WIPDFView.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = WIPDFView.h; path = WiredAppKit/WIPDFView.h; sourceTree = "<group>"; };
 		A544C1240758DFA9008446CF /* WIOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = WIOutlineView.m; path = WiredAppKit/WIOutlineView.m; sourceTree = "<group>"; };
 		A544C1250758DFA9008446CF /* WIOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = WIOutlineView.h; path = WiredAppKit/WIOutlineView.h; sourceTree = "<group>"; };
 		A544C1260758DFA9008446CF /* WIMultiImageCell.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = WIMultiImageCell.m; path = WiredAppKit/WIMultiImageCell.m; sourceTree = "<group>"; };
@@ -1213,8 +1207,6 @@
 				A544C1290758DFA9008446CF /* WIMatrix.h */,
 				A544C1260758DFA9008446CF /* WIMultiImageCell.m */,
 				A544C1270758DFA9008446CF /* WIMultiImageCell.h */,
-				A544C1220758DFA9008446CF /* WIPDFView.m */,
-				A544C1230758DFA9008446CF /* WIPDFView.h */,
 				A5C919FC0F03A9280024E482 /* WIPreferencesController.m */,
 				A5C919FB0F03A9280024E482 /* WIPreferencesController.h */,
 				A5983830096C894500EC0FC4 /* WIProgressIndicator.m */,
@@ -1583,7 +1575,6 @@
 				7712BB990E5C1964001C4210 /* WIMatrix.h in Headers */,
 				7712BB9A0E5C1964001C4210 /* WIMultiImageCell.h in Headers */,
 				7712BB9C0E5C1964001C4210 /* WIOutlineView.h in Headers */,
-				7712BB9D0E5C1964001C4210 /* WIPDFView.h in Headers */,
 				A5C919FD0F03A9280024E482 /* WIPreferencesController.h in Headers */,
 				7712BB9E0E5C1964001C4210 /* WIProgressIndicator.h in Headers */,
 				7712BBA10E5C1964001C4210 /* WISplitView.h in Headers */,
@@ -1695,7 +1686,6 @@
 				77DBEAF80E62B94600B738D3 /* WIMatrix.h in Headers */,
 				77DBEAF90E62B94600B738D3 /* WIMultiImageCell.h in Headers */,
 				77DBEAFA0E62B94600B738D3 /* WIOutlineView.h in Headers */,
-				77DBEAFB0E62B94600B738D3 /* WIPDFView.h in Headers */,
 				A5C919FF0F03A9280024E482 /* WIPreferencesController.h in Headers */,
 				77DBEAFC0E62B94600B738D3 /* WIProgressIndicator.h in Headers */,
 				77DBEAFD0E62B94600B738D3 /* WISplitView.h in Headers */,
@@ -2104,7 +2094,6 @@
 				7712BBDB0E5C1964001C4210 /* WIMatrix.m in Sources */,
 				7712BBDC0E5C1964001C4210 /* WIMultiImageCell.m in Sources */,
 				7712BBDE0E5C1964001C4210 /* WIOutlineView.m in Sources */,
-				7712BBDF0E5C1964001C4210 /* WIPDFView.m in Sources */,
 				A5C919FE0F03A9280024E482 /* WIPreferencesController.m in Sources */,
 				7712BBE00E5C1964001C4210 /* WIProgressIndicator.m in Sources */,
 				7712BBE30E5C1964001C4210 /* WISplitView.m in Sources */,
@@ -2210,7 +2199,6 @@
 				77DBEB270E62B96A00B738D3 /* WIMatrix.m in Sources */,
 				77DBEB280E62B96A00B738D3 /* WIMultiImageCell.m in Sources */,
 				77DBEB290E62B96A00B738D3 /* WIOutlineView.m in Sources */,
-				77DBEB2A0E62B96A00B738D3 /* WIPDFView.m in Sources */,
 				A5C91A000F03A9280024E482 /* WIPreferencesController.m in Sources */,
 				77DBEB2B0E62B96A00B738D3 /* WIProgressIndicator.m in Sources */,
 				77DBEB2C0E62B96A00B738D3 /* WISplitView.m in Sources */,

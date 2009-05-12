@@ -31,9 +31,6 @@
 - (NSUInteger)processIdentifierForCommand:(NSString *)processName;
 - (NSString *)commandForProcessIdentifier:(NSUInteger)pid;
 
-- (void)addAutoLaunchedApplication:(NSString *)path hide:(BOOL)hide;
-- (void)removeAutoLaunchedApplication:(NSString *)path;
-
 - (BOOL)changeDesktopPicture:(NSString *)path;
 
 - (void)ejectCDDrive;

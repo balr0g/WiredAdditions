@@ -26,4 +26,4 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-NSSize WISwapSize(NSSize);
+extern NSSize WISwapSize(NSSize);

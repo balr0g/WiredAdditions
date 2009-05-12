@@ -28,6 +28,16 @@
 
 #import <WiredFoundation/WIEventQueue.h>
 
+NSString * const WIEventFileDeleteNotification				= @"WIEventFileDeleteNotification";
+NSString * const WIEventFileWriteNotification				= @"WIEventFileWriteNotification";
+NSString * const WIEventFileExtendNotification				= @"WIEventFileExtendNotification";
+NSString * const WIEventFileAttributeChangeNotification		= @"WIEventFileAttributeChangeNotification";
+NSString * const WIEventFileLinkCountChangeNotification		= @"WIEventFileLinkCountChangeNotification";
+NSString * const WIEventFileRenameNotification				= @"WIEventFileRenameNotification";
+NSString * const WIEventFileRevokeNotification				= @"WIEventFileRevokeNotification";
+
+
+
 @interface WIEventFile : WIObject {
 	NSString				*_path;
 	int						_fd;

@@ -37,7 +37,6 @@
 	BOOL						_WI_autosaveTableColumns;
 }
 
-
 - (void)selectRowWithStringValue:(NSString *)string;
 - (void)selectRowWithStringValue:(NSString *)string options:(NSUInteger)options;
 

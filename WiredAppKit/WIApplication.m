@@ -31,6 +31,11 @@
 #import <WiredAppKit/NSTextView-WIAppKit.h>
 #import <WiredAppKit/WIApplication.h>
 
+NSString * const WIApplicationDidChangeActiveNotification	= @"WIApplicationDidChangeActiveNotification";
+NSString * const WIApplicationDidChangeFlagsNotification	= @"WIApplicationDidChangeFlagsNotification";
+
+
+
 @interface WIApplication(Private)
 
 - (NSString *)_terminationDelayStringValue;

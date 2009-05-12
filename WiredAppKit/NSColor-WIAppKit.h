@@ -26,8 +26,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-NSString * WIStringFromColor(NSColor *color);
-NSColor * WIColorFromString(NSString *string);
+extern NSString * WIStringFromColor(NSColor *color);
+extern NSColor * WIColorFromString(NSString *string);
 
 
 @interface NSColor(WIAppKit)

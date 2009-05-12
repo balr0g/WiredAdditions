@@ -29,6 +29,11 @@
 #import <WiredNetworking/NSString-WINetworking.h>
 #import <WiredNetworking/WIError.h>
 
+NSString * const WIWiredNetworkingErrorDomain		= @"WIWiredNetworkingErrorDomain";
+NSString * const WILibWiredErrorDomain				= @"WILibWiredErrorDomain";
+NSString * const WILibWiredErrorKey					= @"WILibWiredErrorKey";
+
+
 @implementation WIError
 
 + (id)errorWithDomain:(NSString *)domain code:(NSInteger)code argument:(id)argument {

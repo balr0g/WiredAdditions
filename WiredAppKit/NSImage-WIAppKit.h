@@ -32,7 +32,6 @@
 + (NSImage *)imageWithContentsOfFile:(NSString *)file;
 + (NSImage *)imageWithPillForCount:(NSUInteger)count inActiveWindow:(BOOL)inActiveWindow onSelectedRow:(BOOL)onSelectedRow;
 
-- (NSImage *)smoothedImage;
 - (NSImage *)tintedImageWithColor:(NSColor *)color;
 - (NSImage *)badgedImageWithInt:(NSUInteger)unread;
 - (NSImage *)mirroredImage;

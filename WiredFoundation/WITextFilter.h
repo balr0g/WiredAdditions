@@ -31,7 +31,6 @@
 	NSUInteger				_count;
 }
 
-
 - (id)initWithSelectors:(SEL)selector, ...;
 
 @end

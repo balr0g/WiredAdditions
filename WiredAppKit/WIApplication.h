@@ -26,6 +26,10 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+extern NSString * const WIApplicationDidChangeActiveNotification;
+extern NSString * const WIApplicationDidChangeFlagsNotification;
+
+
 @interface WIApplication : NSApplication {
 	IBOutlet NSWindow				*_releaseNotesWindow;
 	IBOutlet NSTextView				*_releaseNotesTextView;
@@ -40,7 +44,3 @@
 - (IBAction)orderFrontReleaseNotesWindow:(id)sender;
 
 @end
-
-
-#define WIApplicationDidChangeActiveNotification		@"WIApplicationDidChangeActiveNotification"
-#define WIApplicationDidChangeFlagsNotification			@"WIApplicationDidChangeFlagsNotification"

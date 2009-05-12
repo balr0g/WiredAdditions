@@ -36,9 +36,9 @@
 	NSArray			*subviews;
 	NSView			*view;
 	
-	subviews = [self subviews];
-	array = [NSMutableArray arrayWithCapacity:[subviews count]];
-	enumerator = [subviews objectEnumerator];
+	subviews	= [self subviews];
+	array		= [NSMutableArray arrayWithCapacity:[subviews count]];
+	enumerator	= [subviews objectEnumerator];
 	
 	while((view = [enumerator nextObject])) {
 		if([view tag] == tag)

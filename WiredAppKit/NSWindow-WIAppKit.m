@@ -143,9 +143,9 @@
     NSRect			frame, screenFrame, visibleFrame;
     CGFloat			gravity = 20.0;
     
-    frame = [self frame];
-	screenFrame = [[self screen] frame];
-	visibleFrame = [[self screen] visibleFrame];
+    frame			= [self frame];
+	screenFrame		= [[self screen] frame];
+	visibleFrame	= [[self screen] visibleFrame];
 	
 	if(screenFrame.size.width - visibleFrame.size.width <= 10.0)
 		visibleFrame.size.width = screenFrame.size.width;

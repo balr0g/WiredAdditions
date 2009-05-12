@@ -38,6 +38,13 @@
 #define _WITreeViewAnimatedScrollingFPS					(1.0 / 60.0)
 
 
+NSString * const WIFileIcon								= @"WIFileIcon";
+NSString * const WIFileSize								= @"WIFileSize";
+NSString * const WIFileKind								= @"WIFileKind";
+NSString * const WIFileCreationDate						= @"WIFileCreationDate";
+NSString * const WIFileModificationDate					= @"WIFileModificationDate";
+
+
 @interface WITreeView(Private)
 
 - (void)_initTreeView;

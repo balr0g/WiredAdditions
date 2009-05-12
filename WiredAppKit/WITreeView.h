@@ -26,11 +26,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#define WIFileIcon					@"WIFileIcon"
-#define WIFileSize					@"WIFileSize"
-#define WIFileKind					@"WIFileKind"
-#define WIFileCreationDate			@"WIFileCreationDate"
-#define WIFileModificationDate		@"WIFileModificationDate"
+extern NSString * const WIFileIcon;
+extern NSString * const WIFileSize;
+extern NSString * const WIFileKind;
+extern NSString * const WIFileCreationDate;
+extern NSString * const WIFileModificationDate;
+
 
 @interface WITreeView : NSControl {
 	IBOutlet NSView					*_detailView;

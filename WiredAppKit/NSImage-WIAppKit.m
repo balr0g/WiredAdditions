@@ -102,43 +102,10 @@
 	
 	return [image autorelease];
 }
+
+
+
 #pragma mark -
-
-- (NSImage *)smoothedImage {
-	NSImageRep  *imageRep;
-	NSImage		*image;
-	NSSize		size;
-	NSInteger	width, height;
-
-	imageRep = [self bestRepresentationForDevice:NULL];
-	
-	if(!imageRep)
-		return NULL;
-	
-	size	= [self size];
-	width	= [imageRep pixelsWide];
-	height	= [imageRep pixelsHigh];
-	
-	if(size.width != width || size.height != height) {
-		[self setSize:NSMakeSize(width, height)];
-		
-		image = [[NSImage alloc] initWithSize:[self size]];
-		[image lockFocus];
-		
-		[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
-		[[NSGraphicsContext currentContext] setShouldAntialias:YES];
-		
-		[imageRep drawInRect:NSMakeRect(0.0, 0.0, width, height)];
-		[image unlockFocus];
-		[self setSize:size];
-
-		return [image autorelease];
-	}
-	
-	return self;
-}
-
-
 
 - (NSImage *)tintedImageWithColor:(NSColor *)color {
 	NSImage		*image;

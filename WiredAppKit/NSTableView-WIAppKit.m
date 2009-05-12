@@ -36,9 +36,9 @@
 	NSInteger	rows;
 	CGFloat		height;
 	
-	rows = [self numberOfRows];
-	height = [self rowHeight];
-	size = [self intercellSpacing];
+	rows		= [self numberOfRows];
+	height		= [self rowHeight];
+	size		= [self intercellSpacing];
 
 	frame = [self frame];
 	frame.size.height = (rows * height) + ((rows - 1) * size.height);

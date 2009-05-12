@@ -28,6 +28,15 @@
 
 #include <sys/event.h>
 
+extern NSString * const							WIEventFileDeleteNotification;
+extern NSString * const							WIEventFileWriteNotification;
+extern NSString * const							WIEventFileExtendNotification;
+extern NSString * const							WIEventFileAttributeChangeNotification;
+extern NSString * const							WIEventFileLinkCountChangeNotification;
+extern NSString * const							WIEventFileRenameNotification;
+extern NSString * const							WIEventFileRevokeNotification;
+
+
 enum _WIEventMode {
 	WIEventFileDelete							= NOTE_DELETE,
 	WIEventFileWrite							= NOTE_WRITE,
@@ -49,7 +58,6 @@ typedef enum _WIEventMode						WIEventMode;
 	NSMutableDictionary							*_files;
 }
 
-
 + (WIEventQueue *)sharedQueue;
 
 - (NSNotificationCenter *)notificationCenter;
@@ -60,12 +68,3 @@ typedef enum _WIEventMode						WIEventMode;
 - (void)removeAllPaths;
 
 @end
-
-
-#define WIEventFileDeleteNotification			@"WIEventFileDeleteNotification"
-#define WIEventFileWriteNotification			@"WIEventFileWriteNotification"
-#define WIEventFileExtendNotification			@"WIEventFileExtendNotification"
-#define WIEventFileAttributeChangeNotification	@"WIEventFileAttributeChangeNotification"
-#define WIEventFileLinkCountChangeNotification	@"WIEventFileLinkCountChangeNotification"
-#define WIEventFileRenameNotification			@"WIEventFileRenameNotification"
-#define WIEventFileRevokeNotification			@"WIEventFileRevokeNotification"
