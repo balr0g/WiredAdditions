@@ -31,7 +31,6 @@
 - (void)addItem:(NSMenuItem *)item;
 - (void)insertItem:(NSMenuItem *)item atIndex:(NSUInteger)index;
 - (void)removeItem:(NSMenuItem *)item;
-- (NSArray *)itemArray;
 
 - (NSInteger)tagOfSelectedItem;
 - (NSMenuItem *)itemWithTag:(NSInteger)tag;

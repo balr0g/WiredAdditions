@@ -63,12 +63,6 @@
 
 
 
-- (BOOL)fileExistsAtPath:(NSString *)path {
-	return [self fileExistsAtPath:path isDirectory:NULL];
-}
-
-
-
 - (BOOL)directoryExistsAtPath:(NSString *)path {
 	BOOL	isDirectory;
 

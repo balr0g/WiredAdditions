@@ -30,14 +30,6 @@
 
 @implementation NSScanner(WIFoundation)
 
-+ (id)scannerWithString:(NSString *)string {
-	return [[[self alloc] initWithString:string] autorelease];
-}
-
-
-
-#pragma mark -
-
 - (BOOL)skipUpToCharactersFromSet:(NSCharacterSet *)set {
 	NSUInteger		length, location;
 

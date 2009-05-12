@@ -28,8 +28,6 @@
 
 @interface NSScanner(WIFoundation)
 
-+ (id)scannerWithString:(NSString *)string;
-
 - (BOOL)skipUpToCharactersFromSet:(NSCharacterSet *)set;
 
 @end

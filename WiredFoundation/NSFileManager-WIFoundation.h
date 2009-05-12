@@ -35,7 +35,6 @@
 
 - (BOOL)createDirectoryAtPath:(NSString *)path;
 - (BOOL)createFileAtPath:(NSString *)path;
-- (BOOL)fileExistsAtPath:(NSString *)path;
 - (BOOL)directoryExistsAtPath:(NSString *)path;
 - (WIFileOffset)fileSizeAtPath:(NSString *)path;
 - (NSString *)ownerAtPath:(NSString *)path;

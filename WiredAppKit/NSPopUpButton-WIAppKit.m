@@ -48,12 +48,6 @@
 
 
 
-- (NSArray *)itemArray {
-	return [[self menu] itemArray];
-}
-
-
-
 #pragma mark -
 
 - (NSInteger)tagOfSelectedItem {
