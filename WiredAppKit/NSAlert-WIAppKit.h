@@ -28,6 +28,7 @@
 
 @interface NSAlert(WIAppKit)
 
+- (void)runNonModal;
 - (void)beginSheetModalForWindow:(NSWindow *)window;
 
 @end

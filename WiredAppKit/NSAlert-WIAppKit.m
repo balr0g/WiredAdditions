@@ -30,6 +30,12 @@
 
 @implementation NSAlert(WIAppKit)
 
+- (void)runNonModal {
+	[self beginSheetModalForWindow:NULL];
+}
+
+
+
 - (void)beginSheetModalForWindow:(NSWindow *)window {
 	[self beginSheetModalForWindow:window modalDelegate:NULL didEndSelector:NULL contextInfo:NULL];
 }
