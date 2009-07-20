@@ -281,7 +281,7 @@
 
 
 
-- (BOOL)isEqual:(WIURL *)url {
+- (BOOL)isEqual:(id)url {
 	return [[self string] isEqualToString:[url string]];
 }
 
