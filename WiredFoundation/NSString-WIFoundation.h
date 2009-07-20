@@ -93,6 +93,9 @@
 
 @interface NSMutableString(WIFoundation)
 
+- (void)deleteCharactersToIndex:(NSUInteger)index;
+- (void)deleteCharactersFromIndex:(NSUInteger)index;
+
 - (NSUInteger)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement;
 - (NSUInteger)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement options:(NSUInteger)options;
 

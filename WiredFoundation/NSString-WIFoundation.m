@@ -606,6 +606,18 @@
 
 @implementation NSMutableString(WIFoundation)
 
+- (void)deleteCharactersToIndex:(NSUInteger)index {
+	[self deleteCharactersInRange:NSMakeRange(0, index)];
+}
+
+
+
+- (void)deleteCharactersFromIndex:(NSUInteger)index {
+	[self deleteCharactersInRange:NSMakeRange(index, [self length] - index)];
+}
+
+
+
 - (NSUInteger)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement {
 	return [self replaceOccurrencesOfString:target withString:replacement options:0 range:NSMakeRange(0, [self length])];
 }
