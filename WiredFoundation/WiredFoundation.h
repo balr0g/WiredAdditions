@@ -77,10 +77,12 @@ typedef float					CGFloat;
 #import <WiredFoundation/NSArray-WIFoundation.h>
 #import <WiredFoundation/NSData-WIFoundation.h>
 #import <WiredFoundation/NSDate-WIFoundation.h>
+#import <WiredFoundation/NSDateComponents-WIFoundation.h>
 #import <WiredFoundation/NSDictionary-WIFoundation.h>
 #import <WiredFoundation/NSError-WIFoundation.h>
 #import <WiredFoundation/NSFileManager-WIFoundation.h>
 #import <WiredFoundation/NSInvocation-WIFoundation.h>
+#import <WiredFoundation/NSLocale-WIFoundation.h>
 #import <WiredFoundation/NSNetService-WIFoundation.h>
 #import <WiredFoundation/NSNotificationCenter-WIFoundation.h>
 #import <WiredFoundation/NSNumber-WIFoundation.h>

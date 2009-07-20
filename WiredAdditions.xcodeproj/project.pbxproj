@@ -199,6 +199,14 @@
 		778EC2D20EAF4DE100DCDC82 /* WIP7NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 778EC2CB0EAF4DB600DCDC82 /* WIP7NotificationCenter.m */; };
 		778EC2D30EAF4DE800DCDC82 /* WIP7NotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 778EC2CA0EAF4DB600DCDC82 /* WIP7NotificationCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		778EC2D40EAF4DE900DCDC82 /* WIP7NotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 778EC2CA0EAF4DB600DCDC82 /* WIP7NotificationCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77A4CA2210148B9D0072F8E5 /* NSDateComponents-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4CA2010148B9D0072F8E5 /* NSDateComponents-WIFoundation.m */; };
+		77A4CA2310148B9D0072F8E5 /* NSDateComponents-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A4CA2110148B9D0072F8E5 /* NSDateComponents-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77A4CA2410148B9D0072F8E5 /* NSDateComponents-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4CA2010148B9D0072F8E5 /* NSDateComponents-WIFoundation.m */; };
+		77A4CA2510148B9D0072F8E5 /* NSDateComponents-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A4CA2110148B9D0072F8E5 /* NSDateComponents-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77A4CC2710148EA20072F8E5 /* NSLocale-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A4CC2510148EA20072F8E5 /* NSLocale-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77A4CC2810148EA20072F8E5 /* NSLocale-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4CC2610148EA20072F8E5 /* NSLocale-WIFoundation.m */; };
+		77A4CC2910148EA20072F8E5 /* NSLocale-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A4CC2510148EA20072F8E5 /* NSLocale-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77A4CC2A10148EA20072F8E5 /* NSLocale-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4CC2610148EA20072F8E5 /* NSLocale-WIFoundation.m */; };
 		77DBEA140E62B8E100B738D3 /* NSArray-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C08C0758DEEE008446CF /* NSArray-WIFoundation.m */; };
 		77DBEA150E62B8E100B738D3 /* NSData-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C0900758DEEE008446CF /* NSData-WIFoundation.m */; };
 		77DBEA160E62B8E100B738D3 /* NSDate-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C0640758DEEE008446CF /* NSDate-WIFoundation.m */; };
@@ -651,6 +659,10 @@
 		778E7D3E096AC58500258FE6 /* NSTabView-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSTabView-WIAppKit.m"; path = "WiredAppKit/NSTabView-WIAppKit.m"; sourceTree = "<group>"; };
 		778EC2CA0EAF4DB600DCDC82 /* WIP7NotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WIP7NotificationCenter.h; path = WiredNetworking/WIP7NotificationCenter.h; sourceTree = "<group>"; };
 		778EC2CB0EAF4DB600DCDC82 /* WIP7NotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WIP7NotificationCenter.m; path = WiredNetworking/WIP7NotificationCenter.m; sourceTree = "<group>"; };
+		77A4CA2010148B9D0072F8E5 /* NSDateComponents-WIFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDateComponents-WIFoundation.m"; path = "WiredFoundation/NSDateComponents-WIFoundation.m"; sourceTree = "<group>"; };
+		77A4CA2110148B9D0072F8E5 /* NSDateComponents-WIFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDateComponents-WIFoundation.h"; path = "WiredFoundation/NSDateComponents-WIFoundation.h"; sourceTree = "<group>"; };
+		77A4CC2510148EA20072F8E5 /* NSLocale-WIFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSLocale-WIFoundation.h"; path = "WiredFoundation/NSLocale-WIFoundation.h"; sourceTree = "<group>"; };
+		77A4CC2610148EA20072F8E5 /* NSLocale-WIFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSLocale-WIFoundation.m"; path = "WiredFoundation/NSLocale-WIFoundation.m"; sourceTree = "<group>"; };
 		77B7C4AA0973FF5E009367B0 /* NSApplication-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSApplication-WIAppKit.m"; path = "WiredAppKit/NSApplication-WIAppKit.m"; sourceTree = "<group>"; };
 		77B7C4AB0973FF5E009367B0 /* NSApplication-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSApplication-WIAppKit.h"; path = "WiredAppKit/NSApplication-WIAppKit.h"; sourceTree = "<group>"; };
 		77C84DED0B773382000F8478 /* WIDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = WIDateFormatter.m; path = WiredFoundation/WIDateFormatter.m; sourceTree = "<group>"; };
@@ -1255,6 +1267,8 @@
 				A544C07C0758DEEE008446CF /* NSData-WIFoundation.h */,
 				A544C0640758DEEE008446CF /* NSDate-WIFoundation.m */,
 				A544C0740758DEEE008446CF /* NSDate-WIFoundation.h */,
+				77A4CA2010148B9D0072F8E5 /* NSDateComponents-WIFoundation.m */,
+				77A4CA2110148B9D0072F8E5 /* NSDateComponents-WIFoundation.h */,
 				A544C0670758DEEE008446CF /* NSDictionary-WIFoundation.m */,
 				A544C0880758DEEE008446CF /* NSDictionary-WIFoundation.h */,
 				77725681097E720A0003B608 /* NSError-WIFoundation.m */,
@@ -1263,6 +1277,8 @@
 				A544C0790758DEEE008446CF /* NSFileManager-WIFoundation.h */,
 				A544C0860758DEEE008446CF /* NSInvocation-WIFoundation.m */,
 				A544C0680758DEEE008446CF /* NSInvocation-WIFoundation.h */,
+				77A4CC2610148EA20072F8E5 /* NSLocale-WIFoundation.m */,
+				77A4CC2510148EA20072F8E5 /* NSLocale-WIFoundation.h */,
 				A544C0910758DEEE008446CF /* NSNetService-WIFoundation.m */,
 				A544C0780758DEEE008446CF /* NSNetService-WIFoundation.h */,
 				A544C0720758DEEE008446CF /* NSNotificationCenter-WIFoundation.m */,
@@ -1509,10 +1525,12 @@
 				7712BA9A0E5C1726001C4210 /* NSArray-WIFoundation.h in Headers */,
 				7712BA9D0E5C1726001C4210 /* NSData-WIFoundation.h in Headers */,
 				7712BA9E0E5C1726001C4210 /* NSDate-WIFoundation.h in Headers */,
+				77A4CA2310148B9D0072F8E5 /* NSDateComponents-WIFoundation.h in Headers */,
 				7712BA9F0E5C1726001C4210 /* NSDictionary-WIFoundation.h in Headers */,
 				7712BAA00E5C1726001C4210 /* NSError-WIFoundation.h in Headers */,
 				7712BAA20E5C1726001C4210 /* NSFileManager-WIFoundation.h in Headers */,
 				7712BAA50E5C1726001C4210 /* NSInvocation-WIFoundation.h in Headers */,
+				77A4CC2710148EA20072F8E5 /* NSLocale-WIFoundation.h in Headers */,
 				7712BAA80E5C1726001C4210 /* NSNetService-WIFoundation.h in Headers */,
 				7712BAA90E5C1726001C4210 /* NSNotificationCenter-WIFoundation.h in Headers */,
 				7712BAAA0E5C1726001C4210 /* NSNumber-WIFoundation.h in Headers */,
@@ -1602,10 +1620,12 @@
 				77DBEA2D0E62B8E700B738D3 /* NSArray-WIFoundation.h in Headers */,
 				77DBEA2E0E62B8E700B738D3 /* NSData-WIFoundation.h in Headers */,
 				77DBEA2F0E62B8E700B738D3 /* NSDate-WIFoundation.h in Headers */,
+				77A4CA2510148B9D0072F8E5 /* NSDateComponents-WIFoundation.h in Headers */,
 				77DBEA300E62B8E700B738D3 /* NSDictionary-WIFoundation.h in Headers */,
 				77DBEA310E62B8E700B738D3 /* NSError-WIFoundation.h in Headers */,
 				77DBEA320E62B8E700B738D3 /* NSFileManager-WIFoundation.h in Headers */,
 				77DBEA330E62B8E700B738D3 /* NSInvocation-WIFoundation.h in Headers */,
+				77A4CC2910148EA20072F8E5 /* NSLocale-WIFoundation.h in Headers */,
 				77DBEA340E62B8E700B738D3 /* NSNetService-WIFoundation.h in Headers */,
 				77DBEA350E62B8E700B738D3 /* NSNotificationCenter-WIFoundation.h in Headers */,
 				77DBEA360E62B8E700B738D3 /* NSNumber-WIFoundation.h in Headers */,
@@ -2031,10 +2051,12 @@
 				7712BADD0E5C1726001C4210 /* NSArray-WIFoundation.m in Sources */,
 				7712BAE00E5C1726001C4210 /* NSData-WIFoundation.m in Sources */,
 				7712BAE10E5C1726001C4210 /* NSDate-WIFoundation.m in Sources */,
+				77A4CA2210148B9D0072F8E5 /* NSDateComponents-WIFoundation.m in Sources */,
 				7712BAE20E5C1726001C4210 /* NSDictionary-WIFoundation.m in Sources */,
 				7712BAE30E5C1726001C4210 /* NSError-WIFoundation.m in Sources */,
 				7712BAE50E5C1726001C4210 /* NSFileManager-WIFoundation.m in Sources */,
 				7712BAE80E5C1726001C4210 /* NSInvocation-WIFoundation.m in Sources */,
+				77A4CC2810148EA20072F8E5 /* NSLocale-WIFoundation.m in Sources */,
 				7712BAEB0E5C1726001C4210 /* NSNetService-WIFoundation.m in Sources */,
 				7712BAEC0E5C1726001C4210 /* NSNotificationCenter-WIFoundation.m in Sources */,
 				7712BAED0E5C1726001C4210 /* NSNumber-WIFoundation.m in Sources */,
@@ -2120,10 +2142,12 @@
 				77DBEA140E62B8E100B738D3 /* NSArray-WIFoundation.m in Sources */,
 				77DBEA150E62B8E100B738D3 /* NSData-WIFoundation.m in Sources */,
 				77DBEA160E62B8E100B738D3 /* NSDate-WIFoundation.m in Sources */,
+				77A4CA2410148B9D0072F8E5 /* NSDateComponents-WIFoundation.m in Sources */,
 				77DBEA170E62B8E100B738D3 /* NSDictionary-WIFoundation.m in Sources */,
 				77DBEA180E62B8E100B738D3 /* NSError-WIFoundation.m in Sources */,
 				77DBEA190E62B8E100B738D3 /* NSFileManager-WIFoundation.m in Sources */,
 				77DBEA1A0E62B8E100B738D3 /* NSInvocation-WIFoundation.m in Sources */,
+				77A4CC2A10148EA20072F8E5 /* NSLocale-WIFoundation.m in Sources */,
 				77DBEA1B0E62B8E100B738D3 /* NSNetService-WIFoundation.m in Sources */,
 				77DBEA1C0E62B8E100B738D3 /* NSNotificationCenter-WIFoundation.m in Sources */,
 				77DBEA1D0E62B8E100B738D3 /* NSNumber-WIFoundation.m in Sources */,
