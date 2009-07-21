@@ -455,13 +455,13 @@ static void _WISocketCallback(CFSocketRef socketRef, CFSocketCallBackType callba
 
 
 
-- (BOOL)listenWithBacklog:(NSUInteger)backlog error:(WIError **)error {
+- (BOOL)listenWithError:(WIError **)error {
 	wi_pool_t		*pool;
 	BOOL			result = YES;
 	
 	pool = wi_pool_init(wi_pool_alloc());
 	
-	if(!wi_socket_listen(_socket, backlog)) {
+	if(!wi_socket_listen(_socket)) {
 		if(error)
 			*error = [self _errorWithCode:WISocketListenFailed];
 		

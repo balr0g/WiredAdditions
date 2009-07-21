@@ -114,7 +114,7 @@ typedef enum _WISocketEvent			WISocketEvent;
 
 - (BOOL)connectWithTimeout:(NSTimeInterval)timeout error:(WIError **)error;
 - (BOOL)connectWithTLS:(WISocketTLS *)tls timeout:(NSTimeInterval)timeout error:(WIError **)error;
-- (BOOL)listenWithBacklog:(NSUInteger)backlog error:(WIError **)error;
+- (BOOL)listenWithError:(WIError **)error;
 - (WISocket *)acceptWithTimeout:(NSTimeInterval)timeout error:(WIError **)error;
 - (void)close;
 
