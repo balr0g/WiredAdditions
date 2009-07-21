@@ -69,7 +69,8 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 @interface WITableViewManager(Private)
 
 - (void)_loadViewOptionsPanel;
-- (void)_setTableColumnIdentifiers:(NSArray *)identifiers;
+- (void)_setTableColumnIdentifiers:(NSArray *)identifiers withKnownTableColumnIdentifiers:(NSArray *)knownIdentifiers;
+- (NSArray *)_allTableColumnIdentifiers;
 - (NSArray *)_tableColumnIdentifiers;
 - (void)_setTableColumnWidths:(NSDictionary *)widths;
 - (NSDictionary *)_tableColumnWidths;
@@ -169,17 +170,17 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 
 
 
-- (void)_setTableColumnIdentifiers:(NSArray *)identifiers {
-	NSEnumerator	*enumerator;
-	NSTableColumn	*tableColumn;
-	NSArray			*columns;
-	NSString		*identifier;
-	NSUInteger		i, count;
+- (void)_setTableColumnIdentifiers:(NSArray *)identifiers withKnownTableColumnIdentifiers:(NSArray *)knownIdentifiers {
+	NSEnumerator		*enumerator;
+	NSTableColumn		*tableColumn;
+	NSMutableArray		*columns;
+	NSString			*identifier;
+	NSUInteger			i, count;
 	
 	if(identifiers)
-		columns = identifiers;
+		columns = [[identifiers mutableCopy] autorelease];
 	else
-		columns = [self defaultTableColumnIdentifiers];
+		columns = [[[self defaultTableColumnIdentifiers] mutableCopy] autorelease];
 	
 	if(columns) {
 		if([_tableView isKindOfClass:[NSOutlineView class]]) {
@@ -189,15 +190,22 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 				tableColumn = [[_tableView tableColumns] objectAtIndex:i];
 
 				if(tableColumn != [(NSOutlineView *) _tableView outlineTableColumn]) {
-				   [_tableView removeTableColumn:tableColumn];
+					[_tableView removeTableColumn:tableColumn];
+					
+					if(knownIdentifiers && ![knownIdentifiers containsObject:[tableColumn identifier]])
+						[columns addObject:[tableColumn identifier]];
 					
 					count--;
 					i--;
 				}
 			}
 		} else {
-			while([_tableView numberOfColumns] > 1)
+			while([_tableView numberOfColumns] > 1) {
 				[_tableView removeTableColumn:[[_tableView tableColumns] objectAtIndex:1]];
+				
+				if(knownIdentifiers && ![knownIdentifiers containsObject:[tableColumn identifier]])
+					[columns addObject:[tableColumn identifier]];
+			}
 		}
 		
 		enumerator = [columns objectEnumerator];
@@ -207,6 +215,22 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 		
 		[_tableView sizeToFit];
 	}
+}
+
+
+
+- (NSArray *)_allTableColumnIdentifiers {
+	NSEnumerator	*enumerator;
+	NSMutableArray	*columns;
+	NSTableColumn	*column;
+	
+	columns = [NSMutableArray array];
+	enumerator = [_allTableColumns objectEnumerator];
+	
+	while((column = [enumerator nextObject]))
+		[columns addObject:[column identifier]];
+	
+	return columns;
 }
 
 
@@ -360,6 +384,9 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 	if(_changedColumns) {
 		[defaults setObject:[self _tableColumnIdentifiers]
 					 forKey:[NSSWF:@"WITableViewManager %@ Columns", [_tableView autosaveName]]];
+		
+		[defaults setObject:[self _allTableColumnIdentifiers]
+					 forKey:[NSSWF:@"WITableViewManager %@ Known Columns", [_tableView autosaveName]]];
 	}
 
 	[defaults setObject:[self _tableColumnWidths]
@@ -867,7 +894,7 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 
 - (void)setAutosaveTableColumns:(BOOL)value {
 	NSString		*identifier;
-	NSArray			*columns;
+	NSArray			*columns, *knownColumns;
 	NSDictionary	*widths;
 	NSNumber		*sortOrder;
 	
@@ -876,7 +903,11 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 			columns = [[NSUserDefaults standardUserDefaults] arrayForKey:
 				[NSSWF:@"WITableViewManager %@ Columns", [_tableView autosaveName]]];
 			
-			[self _setTableColumnIdentifiers:columns];
+			knownColumns = [[NSUserDefaults standardUserDefaults] arrayForKey:
+				[NSSWF:@"WITableViewManager %@ Known Columns", [_tableView autosaveName]]];
+
+			[self _setTableColumnIdentifiers:columns
+			 withKnownTableColumnIdentifiers:knownColumns];
 		}
 
 		widths = [[NSUserDefaults standardUserDefaults] dictionaryForKey:
@@ -927,14 +958,20 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 #pragma mark -
 
 - (void)setPropertiesFromDictionary:(NSDictionary *)dictionary {
-	id		columns, widths, identifier, sortOrder;
+	NSArray			*columns, *knownColumns;
+	NSDictionary	*widths;
+	NSString		*identifier;
+	NSNumber		*sortOrder;
 	
-	if([self allowsUserCustomization])
+	if([self allowsUserCustomization]) {
 		columns = [dictionary objectForKey:@"_WITableView_columns"];
-	else
+		knownColumns = [dictionary objectForKey:@"_WITableView_knownColumns"];
+	} else {
 		columns = NULL;
-		
-	[self _setTableColumnIdentifiers:columns];
+		knownColumns = NULL;
+	}
+	
+	[self _setTableColumnIdentifiers:columns withKnownTableColumnIdentifiers:knownColumns];
 	
 	widths = [dictionary objectForKey:@"_WITableView_widths"];
 	
