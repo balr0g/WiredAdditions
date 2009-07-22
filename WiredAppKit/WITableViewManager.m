@@ -190,10 +190,10 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 				tableColumn = [[_tableView tableColumns] objectAtIndex:i];
 
 				if(tableColumn != [(NSOutlineView *) _tableView outlineTableColumn]) {
-					[_tableView removeTableColumn:tableColumn];
-					
 					if(knownIdentifiers && ![knownIdentifiers containsObject:[tableColumn identifier]])
 						[columns addObject:[tableColumn identifier]];
+					
+					[_tableView removeTableColumn:tableColumn];
 					
 					count--;
 					i--;
@@ -201,10 +201,12 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 			}
 		} else {
 			while([_tableView numberOfColumns] > 1) {
-				[_tableView removeTableColumn:[[_tableView tableColumns] objectAtIndex:1]];
+				tableColumn = [[_tableView tableColumns] objectAtIndex:1];
 				
 				if(knownIdentifiers && ![knownIdentifiers containsObject:[tableColumn identifier]])
 					[columns addObject:[tableColumn identifier]];
+				
+				[_tableView removeTableColumn:tableColumn];
 			}
 		}
 		
