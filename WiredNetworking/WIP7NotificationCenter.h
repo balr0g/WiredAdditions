@@ -26,19 +26,23 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <WiredNetworking/WIP7Message.h>
+@class WIP7Message;
 
 @interface WIP7NotificationCenter : WIObject {
+	NSString						*_transactionFieldName;
+	
 	NSMutableArray					*_messageNameObservers;
 	NSMutableArray					*_transactionObservers;
 }
 
+- (void)setTransactionFieldName:(NSString *)transactionFieldName;
+- (NSString *)transactionFieldName;
+
 - (void)addObserver:(id)observer selector:(SEL)selector messageName:(NSString *)messageName;
-- (void)addObserver:(id)observer selector:(SEL)selector transaction:(WIP7UInt32)transaction;
+- (void)addObserver:(id)observer selector:(SEL)selector message:(WIP7Message *)message;
 - (void)removeObserver:(id)observer messageName:(NSString *)messageName;
-- (void)removeObserver:(id)observer transaction:(WIP7UInt32)transaction;
+- (void)removeObserver:(id)observer message:(WIP7Message *)message;
 - (void)removeObserver:(id)observer;
-- (void)postMessageName:(NSString *)messageName message:(WIP7Message *)message;
-- (void)postTransaction:(WIP7UInt32)transaction message:(WIP7Message *)message;
+- (void)postMessage:(WIP7Message *)message;
 
 @end

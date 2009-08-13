@@ -26,6 +26,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+#import <WiredNetworking/WIP7Message.h>
 #import <WiredNetworking/WIP7NotificationCenter.h>
 
 @interface WIP7Notification : WIObject {
@@ -58,7 +59,7 @@
 	
 	_messageNameObservers = [[NSMutableArray alloc] init];
 	_transactionObservers = [[NSMutableArray alloc] init];
-	
+
 	return self;
 }
 
@@ -69,6 +70,23 @@
 	[_transactionObservers release];
 	
 	[super dealloc];
+}
+
+
+
+#pragma mark -
+
+- (void)setTransactionFieldName:(NSString *)transactionFieldName {
+	[transactionFieldName retain];
+	[_transactionFieldName release];
+	
+	_transactionFieldName = transactionFieldName;
+}
+
+
+
+- (NSString *)transactionFieldName {
+	return _transactionFieldName;
 }
 
 
@@ -88,15 +106,18 @@
 
 
 
-- (void)addObserver:(id)observer selector:(SEL)selector transaction:(WIP7UInt32)transaction {
+- (void)addObserver:(id)observer selector:(SEL)selector message:(WIP7Message *)message {
 	WIP7Notification		*notification;
+	WIP7UInt32				transaction;
 	
-	notification = [[WIP7Notification alloc] init];
-	notification->_observer = observer;
-	notification->_transaction = transaction;
-	notification->_selector = selector;
-	[_transactionObservers addObject:notification];
-	[notification release];
+	if(_transactionFieldName && [message getUInt32:&transaction forName:_transactionFieldName]) {
+		notification = [[WIP7Notification alloc] init];
+		notification->_observer = observer;
+		notification->_transaction = transaction;
+		notification->_selector = selector;
+		[_transactionObservers addObject:notification];
+		[notification release];
+	}
 }
 
 
@@ -122,21 +143,24 @@
 
 
 
-- (void)removeObserver:(id)observer transaction:(WIP7UInt32)transaction {
+- (void)removeObserver:(id)observer message:(WIP7Message *)message {
 	WIP7Notification		*notification;
+	WIP7UInt32				transaction;
 	NSUInteger				i, count;
 	
-	count = [_transactionObservers count];
-	
-	for(i = 0; i < count; i++) {
-		notification = [_transactionObservers objectAtIndex:i];
+	if(_transactionFieldName && [message getUInt32:&transaction forName:_transactionFieldName]) {
+		count = [_transactionObservers count];
 		
-		if(notification->_observer == observer &&
-		   notification->_transaction == transaction) {
-			[_transactionObservers removeObjectAtIndex:i];
+		for(i = 0; i < count; i++) {
+			notification = [_transactionObservers objectAtIndex:i];
 			
-			i--;
-			count--;
+			if(notification->_observer == observer &&
+			   notification->_transaction == transaction) {
+				[_transactionObservers removeObjectAtIndex:i];
+				
+				i--;
+				count--;
+			}
 		}
 	}
 }
@@ -159,7 +183,7 @@
 			count--;
 		}
 	}
-	
+
 	count = [_transactionObservers count];
 	
 	for(i = 0; i < count; i++) {
@@ -176,33 +200,40 @@
 
 
 
-- (void)postMessageName:(NSString *)messageName message:(WIP7Message *)message {
+- (void)postMessage:(WIP7Message *)message {
+	NSString				*messageName;
 	WIP7Notification		*notification;
 	NSUInteger				i, count;
-	
-	count = [_messageNameObservers count];
-	
-	for(i = 0; i < count; i++) {
-		notification = [_messageNameObservers objectAtIndex:i];
+	WIP7UInt32				transaction;
+	BOOL					posted = NO;
+
+	if(_transactionFieldName && [message getUInt32:&transaction forName:_transactionFieldName]) {
+		count = [_transactionObservers count];
 		
-		if([notification->_messageName isEqualToString:messageName])
-			[notification->_observer performSelector:notification->_selector withObject:message];
+		for(i = 0; i < count; i++) {
+			notification = [_transactionObservers objectAtIndex:i];
+			
+			if(notification->_transaction == transaction) {
+				[notification->_observer performSelector:notification->_selector withObject:message];
+				
+				posted = YES;
+			}
+		}
 	}
-}
-
-
-
-- (void)postTransaction:(WIP7UInt32)transaction message:(WIP7Message *)message {
-	WIP7Notification		*notification;
-	NSUInteger				i, count;
 	
-	count = [_transactionObservers count];
-	
-	for(i = 0; i < count; i++) {
-		notification = [_transactionObservers objectAtIndex:i];
+	if(!posted) {
+		messageName = [message name];
 		
-		if(notification->_transaction == transaction)
-			[notification->_observer performSelector:notification->_selector withObject:message];
+		if(messageName) {
+			count = [_messageNameObservers count];
+			
+			for(i = 0; i < count; i++) {
+				notification = [_messageNameObservers objectAtIndex:i];
+				
+				if([notification->_messageName isEqualToString:messageName])
+					[notification->_observer performSelector:notification->_selector withObject:message];
+			}
+		}
 	}
 }
 
