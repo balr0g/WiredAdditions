@@ -97,14 +97,24 @@
 
 
 - (NSString *)description {
-	NSString		*string;
-	wi_pool_t		*pool;
+	NSMutableString		*description;
+	NSEnumerator		*enumerator;
+	NSDictionary		*fields;
+	NSString			*name, *value;
 	
-	pool = wi_pool_init(wi_pool_alloc());
-	string = [NSString stringWithWiredString:wi_description(_message)];
-	wi_release(pool);
+	fields			= [self fields];
+	description		= [NSMutableString stringWithFormat:@"%@ = {%@", [self name], ([fields count] > 0) ? @"\n" : @" "];
+	enumerator		= [[[fields allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] objectEnumerator];
 	
-	return string;
+	while((name = [enumerator nextObject])) {
+		value = [fields objectForKey:name];
+		
+		[description appendFormat:@"\t%@ = %@\n", name, value];
+	}
+	
+	[description appendString:@"}"];
+	
+	return description;
 }
 
 
@@ -119,6 +129,33 @@
 
 - (wi_p7_message_t *)message {
 	return _message;
+}
+
+
+
+#pragma mark -
+
+- (NSDictionary *)fields {
+	NSMutableDictionary		*dictionary;
+	wi_pool_t				*pool;
+	wi_enumerator_t			*enumerator;
+	wi_dictionary_t			*fields;
+	wi_string_t				*name, *value;
+	
+	pool			= wi_pool_init(wi_pool_alloc());
+	dictionary		= [NSMutableDictionary dictionary];
+	fields			= wi_p7_message_fields(_message);
+	enumerator		= wi_dictionary_key_enumerator(fields);
+	
+	while((name = wi_enumerator_next_data(enumerator))) {
+		value = wi_dictionary_data_for_key(fields, name);
+		
+		[dictionary setObject:[NSString stringWithWiredString:value] forKey:[NSString stringWithWiredString:name]];
+	}
+	
+	wi_release(pool);
+	
+	return dictionary;
 }
 
 

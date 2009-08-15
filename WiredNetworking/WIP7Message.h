@@ -82,6 +82,8 @@ typedef enum _WIP7Serialization		WIP7Serialization;
 - (void)setContextInfo:(void *)contextInfo;
 - (void *)contextInfo;
 
+- (NSDictionary *)fields;
+
 - (BOOL)getBool:(WIP7Bool *)value forName:(NSString *)name;
 - (BOOL)setBool:(WIP7Bool)value forName:(NSString *)name;
 - (BOOL)getEnum:(WIP7Enum *)value forName:(NSString *)name;
