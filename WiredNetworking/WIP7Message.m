@@ -380,14 +380,12 @@
 
 
 - (NSDate *)dateForName:(NSString *)name {
-	NSString		*string;
+	NSTimeInterval		interval;
 	
-	string = [self stringForName:name];
-	
-	if(!string)
+	if(![self getDouble:&interval forName:name])
 		return NULL;
 	
-	return [[WIDateFormatter dateFormatterForRFC3339] dateFromString:string];
+	return [NSDate dateWithTimeIntervalSince1970:interval];
 }
 
 
