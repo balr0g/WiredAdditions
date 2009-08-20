@@ -26,8 +26,6 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-@interface WIObject : NSObject {
-	NSUInteger			_WI_retainCount;
-}
+@interface WIObject : NSObject
 
 @end

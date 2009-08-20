@@ -30,23 +30,4 @@
 
 @implementation WIObject
 
-- (NSUInteger)retainCount {
-	return _WI_retainCount + 1;
-}
-
-
-
-- (id)retain {
-	_WI_retainCount++;
-	
-	return self;
-}
-
-
-
-- (oneway void)release {
-	if((NSInteger) --_WI_retainCount == -1)
-		[self dealloc];
-}
-
 @end
