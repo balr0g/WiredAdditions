@@ -203,14 +203,12 @@
 - (void)postMessage:(WIP7Message *)message {
 	NSString				*messageName;
 	WIP7Notification		*notification;
-	NSUInteger				i, count;
+	NSUInteger				i;
 	WIP7UInt32				transaction;
 	BOOL					posted = NO;
 
 	if(_transactionFieldName && [message getUInt32:&transaction forName:_transactionFieldName]) {
-		count = [_transactionObservers count];
-		
-		for(i = 0; i < count; i++) {
+		for(i = 0; i < [_transactionObservers count]; i++) {
 			notification = [_transactionObservers objectAtIndex:i];
 			
 			if(notification->_transaction == transaction) {
@@ -225,9 +223,7 @@
 		messageName = [message name];
 		
 		if(messageName) {
-			count = [_messageNameObservers count];
-			
-			for(i = 0; i < count; i++) {
+			for(i = 0; i < [_messageNameObservers count]; i++) {
 				notification = [_messageNameObservers objectAtIndex:i];
 				
 				if([notification->_messageName isEqualToString:messageName])
