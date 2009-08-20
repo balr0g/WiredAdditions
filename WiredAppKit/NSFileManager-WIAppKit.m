@@ -28,6 +28,14 @@
 
 #import <WiredAppKit/NSFileManager-WIAppKit.h>
 
+struct _WIFileManagerFinderInfo {
+    UInt32									length;
+	UInt32									data[8];
+};
+typedef struct _WIFileManagerFinderInfo		_WIFileManagerFinderInfo;
+
+
+
 @implementation NSFileManager(WIAppKit)
 
 - (BOOL)fileExistsAtPath:(NSString *)path hasResourceFork:(BOOL *)hasResourceFork {
@@ -37,23 +45,74 @@
 
 
 - (BOOL)fileExistsAtPath:(NSString *)path isDirectory:(BOOL *)isDirectory hasResourceFork:(BOOL *)hasResourceFork {
-	FSRef			fsRef;
-	FSCatalogInfo   fsInfo;
-	
 	if([self fileExistsAtPath:path isDirectory:isDirectory]) {
-		if(hasResourceFork) {
-			*hasResourceFork = NO;
-
-			if(FSPathMakeRef((unsigned char *) [path fileSystemRepresentation], &fsRef, NULL) == noErr) {
-				if(FSGetCatalogInfo(&fsRef, kFSCatInfoRsrcSizes, &fsInfo, NULL, NULL, NULL) == noErr)
-					*hasResourceFork = (fsInfo.rsrcLogicalSize > 0);
-			}
-		}
+		if(hasResourceFork)
+			*hasResourceFork = ([self resourceForkSizeAtPath:path] > 0);
 		
 		return YES;
 	}
 	
 	return NO;
+}
+
+
+
+#pragma mark -
+
+- (WIFileOffset)resourceForkSizeAtPath:(NSString *)path {
+	FSRef			fsRef;
+	FSCatalogInfo   fsInfo;
+	
+	if(FSPathMakeRef((unsigned char *) [path fileSystemRepresentation], &fsRef, NULL) == noErr) {
+		if(FSGetCatalogInfo(&fsRef, kFSCatInfoRsrcSizes, &fsInfo, NULL, NULL, NULL) == noErr)
+			return fsInfo.rsrcLogicalSize;
+	}
+	
+	return 0;
+}
+
+
+
+#pragma mark -
+
+- (BOOL)setFinderInfo:(NSData *)info atPath:(NSString *)path {
+	struct attrlist				attrs;
+	_WIFileManagerFinderInfo	finderinfo;
+	
+	[info getBytes:finderinfo.data length:sizeof(finderinfo.data)];
+	
+	attrs.bitmapcount		= ATTR_BIT_MAP_COUNT;
+	attrs.reserved			= 0;
+	attrs.commonattr		= ATTR_CMN_FNDRINFO;
+	attrs.volattr			= 0;
+	attrs.dirattr			= 0;
+	attrs.fileattr			= 0;
+	attrs.forkattr			= 0;
+	
+	if(setattrlist([path fileSystemRepresentation], &attrs, finderinfo.data, sizeof(finderinfo.data), FSOPT_NOFOLLOW) < 0)
+		return NO;
+	
+	return YES;
+}
+
+
+
+- (NSData *)finderInfoAtPath:(NSString *)path {
+	struct attrlist				attrs;
+	_WIFileManagerFinderInfo	finderinfo;
+	
+	attrs.bitmapcount		= ATTR_BIT_MAP_COUNT;
+	attrs.reserved			= 0;
+	attrs.commonattr		= ATTR_CMN_FNDRINFO;
+	attrs.volattr			= 0;
+	attrs.dirattr			= 0;
+	attrs.fileattr			= 0;
+	attrs.forkattr			= 0;
+	
+	if(getattrlist([path fileSystemRepresentation], &attrs, &finderinfo, sizeof(finderinfo), FSOPT_NOFOLLOW) < 0)
+		return NULL;
+	
+	return [NSData dataWithBytes:finderinfo.data length:sizeof(finderinfo.data)];
 }
 
 @end

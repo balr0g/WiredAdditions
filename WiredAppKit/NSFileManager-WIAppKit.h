@@ -33,4 +33,9 @@
 - (BOOL)fileExistsAtPath:(NSString *)path hasResourceFork:(BOOL *)hasResourceFork;
 - (BOOL)fileExistsAtPath:(NSString *)path isDirectory:(BOOL *)isDirectory hasResourceFork:(BOOL *)hasResourceFork;
 
+- (WIFileOffset)resourceForkSizeAtPath:(NSString *)path;
+
+- (BOOL)setFinderInfo:(NSData *)info atPath:(NSString *)path;
+- (NSData *)finderInfoAtPath:(NSString *)path;
+
 @end

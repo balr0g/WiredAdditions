@@ -33,6 +33,7 @@
 #import <ExceptionHandling/NSExceptionHandler.h>
 
 // --- Libraries
+#import <sys/attr.h>
 #import <sys/sysctl.h>
 #import <unistd.h>
 
