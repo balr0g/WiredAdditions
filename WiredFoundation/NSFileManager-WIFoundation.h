@@ -33,6 +33,8 @@
 + (NSString *)temporaryPathWithPrefix:(NSString *)prefix;
 + (NSString *)temporaryPathWithPrefix:(NSString *)string suffix:(NSString *)suffix;
 
++ (NSString *)resourceForkPathForPath:(NSString *)path;
+
 - (BOOL)createDirectoryAtPath:(NSString *)path;
 - (BOOL)createFileAtPath:(NSString *)path;
 - (BOOL)directoryExistsAtPath:(NSString *)path;

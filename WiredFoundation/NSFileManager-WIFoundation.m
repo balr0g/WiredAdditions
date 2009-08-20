@@ -51,6 +51,14 @@
 
 #pragma mark -
 
++ (NSString *)resourceForkPathForPath:(NSString *)path {
+	return [[path stringByAppendingPathComponent:@"..namedfork"] stringByAppendingPathComponent:@"rsrc"];
+}
+
+
+
+#pragma mark -
+
 - (BOOL)createDirectoryAtPath:(NSString *)path {
 	return [self createDirectoryAtPath:path attributes:NULL];
 }
