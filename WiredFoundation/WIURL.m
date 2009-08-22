@@ -138,16 +138,18 @@
 	[url setUser:user];
 	[url setPassword:password];
 	
-	range = [path rangeOfString:@"?"];
-	
-	if(range.location == NSNotFound) {
-		[url setPath:path];
-	} else {
-		query = [path substringFromIndex:range.location + 1];
-		path = [path substringToIndex:range.location];
+	if(path) {
+		range = [path rangeOfString:@"?"];
 		
-		[url setPath:path];
-		[url setQuery:query];
+		if(range.location == NSNotFound) {
+			[url setPath:path];
+		} else {
+			query = [path substringFromIndex:range.location + 1];
+			path = [path substringToIndex:range.location];
+			
+			[url setPath:path];
+			[url setQuery:query];
+		}
 	}
 
 	return [url autorelease];

@@ -165,6 +165,8 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 		[button setFrame:frame];
 		
 		[_tableColumnButtons setObject:button forKey:[identifiers objectAtIndex:i]];
+		
+		[button release];
 	}
 }
 
@@ -592,7 +594,7 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 	BOOL			outlineView;
 	
 	rows			= [_tableView numberOfRows];
-	strings			= [[NSMutableArray alloc] initWithCapacity:rows];
+	strings			= [NSMutableArray arrayWithCapacity:rows];
 	delegate		= [_tableView delegate];
 	outlineView		= [_tableView isKindOfClass:[NSOutlineView class]];
 	row				= NSNotFound;
@@ -642,8 +644,6 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 		[_tableView selectRow:row byExtendingSelection:NO];
 		[_tableView scrollRowToVisible:row];
 	}
-
-	[strings release];
 }
 
 
