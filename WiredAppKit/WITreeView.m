@@ -947,6 +947,13 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 
 
+- (void)tableViewShouldCopyInfo:(NSTableView *)tableView {
+	if([[self delegate] respondsToSelector:@selector(treeViewShouldCopyInfo:)])
+		[[self delegate] treeViewShouldCopyInfo:self];
+}
+
+
+
 - (NSArray *)tableView:(NSTableView *)tableView namesOfPromisedFilesDroppedAtDestination:(NSURL *)destination forDraggedRowsWithIndexes:(NSIndexSet *)indexes {
 	NSMutableArray		*paths;
 	NSString			*path, *name;

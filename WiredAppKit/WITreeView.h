@@ -110,4 +110,6 @@ extern NSString * const WIFileModificationDate;
 - (BOOL)treeView:(WITreeView *)treeView acceptDrop:(id <NSDraggingInfo>)info path:(NSString *)path;
 - (NSArray *)treeView:(WITreeView *)treeView namesOfPromisedFilesDroppedAtDestination:(NSURL *)destination forDraggedPaths:(NSArray *)paths;
 
+- (void)treeViewShouldCopyInfo:(WITreeView *)treeView;
+
 @end
