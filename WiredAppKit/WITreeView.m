@@ -661,16 +661,16 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 						if([[self dataSource] treeView:self numberOfItemsForPath:path] > 0) {
 							if([tableView selectedRow] == -1)
-								[tableView selectRow:0 byExtendingSelection:NO];
+								[tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
 							
 							if([tableView selectedRow] >= 0) {
-							[[self window] makeFirstResponder:tableView];
-							
-							name = [[self dataSource] treeView:self nameForRow:[tableView selectedRow] inPath:path];
-							
-							[self _setPath:[path stringByAppendingPathComponent:name]];
-							
-							handled = YES;
+								[[self window] makeFirstResponder:tableView];
+								
+								name = [[self dataSource] treeView:self nameForRow:[tableView selectedRow] inPath:path];
+								
+								[self _setPath:[path stringByAppendingPathComponent:name]];
+								
+								handled = YES;
 							}
 						}
 					} else {

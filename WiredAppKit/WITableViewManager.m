@@ -641,7 +641,7 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 	}
 	
 	if(row != NSNotFound) {
-		[_tableView selectRow:row byExtendingSelection:NO];
+		[_tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
 		[_tableView scrollRowToVisible:row];
 	}
 }
@@ -1194,7 +1194,7 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 		return NULL;
 	
 	if(![_tableView isRowSelected:row])
-		[_tableView selectRow:row byExtendingSelection:NO];
+		[_tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
 	
 	return menu;
 }
