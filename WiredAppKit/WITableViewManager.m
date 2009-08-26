@@ -176,13 +176,16 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 	NSEnumerator		*enumerator;
 	NSTableColumn		*tableColumn;
 	NSMutableArray		*columns;
+	NSArray				*defaultColumnIdentifiers;
 	NSString			*identifier;
 	NSUInteger			i, count;
+	
+	defaultColumnIdentifiers = [self defaultTableColumnIdentifiers];
 	
 	if(identifiers)
 		columns = [[identifiers mutableCopy] autorelease];
 	else
-		columns = [[[self defaultTableColumnIdentifiers] mutableCopy] autorelease];
+		columns = [[defaultColumnIdentifiers mutableCopy] autorelease];
 	
 	if(columns) {
 		if([_tableView isKindOfClass:[NSOutlineView class]]) {
@@ -192,8 +195,10 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 				tableColumn = [[_tableView tableColumns] objectAtIndex:i];
 
 				if(tableColumn != [(NSOutlineView *) _tableView outlineTableColumn]) {
-					if(knownIdentifiers && ![knownIdentifiers containsObject:[tableColumn identifier]])
-						[columns addObject:[tableColumn identifier]];
+					if(knownIdentifiers && ![knownIdentifiers containsObject:[tableColumn identifier]]) {
+					   if([defaultColumnIdentifiers count] == 0 || [defaultColumnIdentifiers containsObject:[tableColumn identifier]])
+						   [columns addObject:[tableColumn identifier]];
+					}
 					
 					[_tableView removeTableColumn:tableColumn];
 					
