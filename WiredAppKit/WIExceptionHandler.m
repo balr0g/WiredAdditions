@@ -72,9 +72,11 @@
 				i++;
 			}
 			
+			[backtrace trimCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+			
 			if([backtrace length] > 0) {
-				if([delegate respondsToSelector:@selector(exceptionHandler:receivedExceptionWithBacktrace:)]) {
-					[delegate exceptionHandler:self receivedExceptionWithBacktrace:backtrace];
+				if([delegate respondsToSelector:@selector(exceptionHandler:receivedException:withBacktrace:)]) {
+					[delegate exceptionHandler:self receivedException:exception withBacktrace:backtrace];
 					
 					handled = YES;
 				}
@@ -94,8 +96,8 @@
 		NSLog(@"*** %@: Unable to log backtrace \"%@\"", [self class], trace);
 	
 	if(!handled) {
-		if([delegate respondsToSelector:@selector(exceptionHandler:receivedException:)])
-			[delegate exceptionHandler:self receivedException:exception];
+		if([delegate respondsToSelector:@selector(exceptionHandler:receivedException:withBacktrace:)])
+			[delegate exceptionHandler:self receivedException:exception withBacktrace:NULL];
 	}
 	
 	return NO;

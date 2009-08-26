@@ -45,7 +45,6 @@
 
 @interface NSObject(WIExceptionHandlerDelegate)
 
-- (void)exceptionHandler:(WIExceptionHandler *)exceptionHandler receivedExceptionWithBacktrace:(NSString *)backtrace;
-- (void)exceptionHandler:(WIExceptionHandler *)exceptionHandler receivedException:(NSException *)exception;
+- (void)exceptionHandler:(WIExceptionHandler *)exceptionHandler receivedException:(NSException *)exception withBacktrace:(NSString *)backtrace;
 
 @end
