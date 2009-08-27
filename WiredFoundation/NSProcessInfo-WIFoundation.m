@@ -28,6 +28,20 @@
 
 #import <WiredFoundation/NSProcessInfo-WIFoundation.h>
 
+void WIEnableSuddenTermination(void) {
+	if([[NSProcessInfo processInfo] respondsToSelector:@selector(enableSuddenTermination)])
+		[[NSProcessInfo processInfo] performSelector:@selector(enableSuddenTermination)];
+}
+
+
+
+void WIDisableSuddenTermination(void) {
+	if([[NSProcessInfo processInfo] respondsToSelector:@selector(disableSuddenTermination)])
+		[[NSProcessInfo processInfo] performSelector:@selector(disableSuddenTermination)];
+}
+
+
+
 @implementation NSProcessInfo(WIFoundation)
 
 - (unsigned long long)amountOfMemory {

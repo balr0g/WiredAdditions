@@ -26,6 +26,10 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+extern void			WIEnableSuddenTermination(void);
+extern void			WIDisableSuddenTermination(void);
+
+
 @interface NSProcessInfo(WIFoundation)
 
 - (unsigned long long)amountOfMemory;
