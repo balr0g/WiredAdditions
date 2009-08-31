@@ -207,6 +207,7 @@
 		77A4CC2810148EA20072F8E5 /* NSLocale-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4CC2610148EA20072F8E5 /* NSLocale-WIFoundation.m */; };
 		77A4CC2910148EA20072F8E5 /* NSLocale-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A4CC2510148EA20072F8E5 /* NSLocale-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77A4CC2A10148EA20072F8E5 /* NSLocale-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4CC2610148EA20072F8E5 /* NSLocale-WIFoundation.m */; };
+		77D31F7F104C16C2006BF8D5 /* wi-byteorder.c in Sources */ = {isa = PBXBuildFile; fileRef = 77D31F7A104C169C006BF8D5 /* wi-byteorder.c */; };
 		77DBEA140E62B8E100B738D3 /* NSArray-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C08C0758DEEE008446CF /* NSArray-WIFoundation.m */; };
 		77DBEA150E62B8E100B738D3 /* NSData-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C0900758DEEE008446CF /* NSData-WIFoundation.m */; };
 		77DBEA160E62B8E100B738D3 /* NSDate-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C0640758DEEE008446CF /* NSDate-WIFoundation.m */; };
@@ -669,6 +670,7 @@
 		77C84DEE0B773382000F8478 /* WIDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = WIDateFormatter.h; path = WiredFoundation/WIDateFormatter.h; sourceTree = "<group>"; };
 		77CBFEAB0BE0CA62009F6E48 /* NSProcessInfo-WIFoundation.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSProcessInfo-WIFoundation.m"; path = "WiredFoundation/NSProcessInfo-WIFoundation.m"; sourceTree = "<group>"; };
 		77CBFEAC0BE0CA62009F6E48 /* NSProcessInfo-WIFoundation.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSProcessInfo-WIFoundation.h"; path = "WiredFoundation/NSProcessInfo-WIFoundation.h"; sourceTree = "<group>"; };
+		77D31F7A104C169C006BF8D5 /* wi-byteorder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "wi-byteorder.c"; path = "libwired/libwired/base/wi-byteorder.c"; sourceTree = "<group>"; };
 		77D5170A0984F4AD0057D51F /* NSMenu-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMenu-WIAppKit.h"; path = "WiredAppKit/NSMenu-WIAppKit.h"; sourceTree = "<group>"; };
 		77D5170B0984F4AD0057D51F /* NSMenu-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMenu-WIAppKit.m"; path = "WiredAppKit/NSMenu-WIAppKit.m"; sourceTree = "<group>"; };
 		77DBEA800E62B8F500B738D3 /* libWiredAppKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWiredAppKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1414,6 +1416,7 @@
 				A5C23D290E9AC4A800A81F49 /* wi-assert.h */,
 				A5C23D2A0E9AC4A800A81F49 /* wi-base.c */,
 				A5C23D2B0E9AC4A800A81F49 /* wi-base.h */,
+				77D31F7A104C169C006BF8D5 /* wi-byteorder.c */,
 				A5C23D2C0E9AC4A800A81F49 /* wi-byteorder.h */,
 				A5C23DA90E9AC4D500A81F49 /* wi-cipher.c */,
 				A5C23DAA0E9AC4D500A81F49 /* wi-cipher.h */,
@@ -2267,6 +2270,7 @@
 				A5C23F300E9AC53E00A81F49 /* wi-array.c in Sources */,
 				A5C23F320E9AC53E00A81F49 /* wi-assert.c in Sources */,
 				A5C23F340E9AC53E00A81F49 /* wi-base.c in Sources */,
+				77D31F7F104C16C2006BF8D5 /* wi-byteorder.c in Sources */,
 				A5C23F370E9AC53E00A81F49 /* wi-cipher.c in Sources */,
 				A5C23F390E9AC53E00A81F49 /* wi-compat.c in Sources */,
 				A5C23F3B0E9AC53E00A81F49 /* wi-config.c in Sources */,
