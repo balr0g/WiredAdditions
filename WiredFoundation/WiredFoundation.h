@@ -92,3 +92,6 @@ typedef float					CGFloat;
 #import <WiredFoundation/NSSet-WIFoundation.h>
 #import <WiredFoundation/NSString-WIFoundation.h>
 #import <WiredFoundation/NSThread-WIFoundation.h>
+
+#import <WiredFoundation/RegexKitLite.h>
+#import <WiredFoundation/RegexKitLite-WIFoundation.h>

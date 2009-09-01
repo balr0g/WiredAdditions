@@ -208,6 +208,15 @@
 		77A4CC2910148EA20072F8E5 /* NSLocale-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A4CC2510148EA20072F8E5 /* NSLocale-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77A4CC2A10148EA20072F8E5 /* NSLocale-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4CC2610148EA20072F8E5 /* NSLocale-WIFoundation.m */; };
 		77D31F7F104C16C2006BF8D5 /* wi-byteorder.c in Sources */ = {isa = PBXBuildFile; fileRef = 77D31F7A104C169C006BF8D5 /* wi-byteorder.c */; };
+		77D339C4104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D339C0104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77D339C5104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D339C1104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m */; };
+		77D339C6104DCF8E006BF8D5 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D339C2104DCF8E006BF8D5 /* RegexKitLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77D339C7104DCF8E006BF8D5 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D339C3104DCF8E006BF8D5 /* RegexKitLite.m */; };
+		77D339C8104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D339C0104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77D339C9104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D339C1104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m */; };
+		77D339CA104DCF8E006BF8D5 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D339C2104DCF8E006BF8D5 /* RegexKitLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77D339CB104DCF8E006BF8D5 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D339C3104DCF8E006BF8D5 /* RegexKitLite.m */; };
+		77D339D1104DCFED006BF8D5 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D339D0104DCFED006BF8D5 /* libicucore.dylib */; };
 		77DBEA140E62B8E100B738D3 /* NSArray-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C08C0758DEEE008446CF /* NSArray-WIFoundation.m */; };
 		77DBEA150E62B8E100B738D3 /* NSData-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C0900758DEEE008446CF /* NSData-WIFoundation.m */; };
 		77DBEA160E62B8E100B738D3 /* NSDate-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C0640758DEEE008446CF /* NSDate-WIFoundation.m */; };
@@ -671,6 +680,11 @@
 		77CBFEAB0BE0CA62009F6E48 /* NSProcessInfo-WIFoundation.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSProcessInfo-WIFoundation.m"; path = "WiredFoundation/NSProcessInfo-WIFoundation.m"; sourceTree = "<group>"; };
 		77CBFEAC0BE0CA62009F6E48 /* NSProcessInfo-WIFoundation.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSProcessInfo-WIFoundation.h"; path = "WiredFoundation/NSProcessInfo-WIFoundation.h"; sourceTree = "<group>"; };
 		77D31F7A104C169C006BF8D5 /* wi-byteorder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "wi-byteorder.c"; path = "libwired/libwired/base/wi-byteorder.c"; sourceTree = "<group>"; };
+		77D339C0104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RegexKitLite-WIFoundation.h"; path = "WiredFoundation/RegexKitLite-WIFoundation.h"; sourceTree = "<group>"; };
+		77D339C1104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RegexKitLite-WIFoundation.m"; path = "WiredFoundation/RegexKitLite-WIFoundation.m"; sourceTree = "<group>"; };
+		77D339C2104DCF8E006BF8D5 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegexKitLite.h; path = WiredFoundation/RegexKitLite.h; sourceTree = "<group>"; };
+		77D339C3104DCF8E006BF8D5 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegexKitLite.m; path = WiredFoundation/RegexKitLite.m; sourceTree = "<group>"; };
+		77D339D0104DCFED006BF8D5 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = /usr/lib/libicucore.dylib; sourceTree = "<absolute>"; };
 		77D5170A0984F4AD0057D51F /* NSMenu-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMenu-WIAppKit.h"; path = "WiredAppKit/NSMenu-WIAppKit.h"; sourceTree = "<group>"; };
 		77D5170B0984F4AD0057D51F /* NSMenu-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMenu-WIAppKit.m"; path = "WiredAppKit/NSMenu-WIAppKit.m"; sourceTree = "<group>"; };
 		77DBEA800E62B8F500B738D3 /* libWiredAppKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWiredAppKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -940,6 +954,7 @@
 				7712BB2A0E5C1726001C4210 /* ExceptionHandling.framework in Frameworks */,
 				7712BB2B0E5C1726001C4210 /* Quartz.framework in Frameworks */,
 				7712BB2C0E5C1726001C4210 /* libcrypto.dylib in Frameworks */,
+				77D339D1104DCFED006BF8D5 /* libicucore.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1032,6 +1047,7 @@
 				7724739909DD82E30010335B /* ExceptionHandling.framework */,
 				A5604A050D4069060080EA07 /* Quartz.framework */,
 				A565B3B00D5D99BC00AF91BA /* libcrypto.dylib */,
+				77D339D0104DCFED006BF8D5 /* libicucore.dylib */,
 				A565B3B10D5D99BC00AF91BA /* libssl.dylib */,
 				A565B3AE0D5D999A00AF91BA /* libz.dylib */,
 				A565B3940D5D994F00AF91BA /* libxml2.dylib */,
@@ -1055,6 +1071,7 @@
 				A544C0560758DE99008446CF /* Classes */,
 				A544C0570758DE9F008446CF /* Additions */,
 				A544C2750758E2B1008446CF /* Utilities */,
+				77D339BB104DCF56006BF8D5 /* RegexKitLite */,
 				7712BB4E0E5C1794001C4210 /* Resources */,
 				7712BB4D0E5C178F001C4210 /* Sources */,
 			);
@@ -1198,6 +1215,17 @@
 				A5796C4A0EBA4CF000FF6E51 /* version.pl */,
 			);
 			name = Scripts;
+			sourceTree = "<group>";
+		};
+		77D339BB104DCF56006BF8D5 /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				77D339C3104DCF8E006BF8D5 /* RegexKitLite.m */,
+				77D339C2104DCF8E006BF8D5 /* RegexKitLite.h */,
+				77D339C1104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m */,
+				77D339C0104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h */,
+			);
+			name = RegexKitLite;
 			sourceTree = "<group>";
 		};
 		A544C0550758DE94008446CF /* Classes */ = {
@@ -1552,6 +1580,8 @@
 				7712BDB10E5C1FED001C4210 /* WITextFilter.h in Headers */,
 				7712BAD70E5C1726001C4210 /* WITypes.h in Headers */,
 				7712BDAD0E5C1FC5001C4210 /* WIURL.h in Headers */,
+				77D339C4104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h in Headers */,
+				77D339C6104DCF8E006BF8D5 /* RegexKitLite.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1647,6 +1677,8 @@
 				77DBEA440E62B8E700B738D3 /* WITextFilter.h in Headers */,
 				77DBEA450E62B8E700B738D3 /* WITypes.h in Headers */,
 				77DBEA460E62B8E700B738D3 /* WIURL.h in Headers */,
+				77D339C8104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h in Headers */,
+				77D339CA104DCF8E006BF8D5 /* RegexKitLite.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2075,6 +2107,8 @@
 				7712C1070E5C25A9001C4210 /* WISettings.m in Sources */,
 				7712BB180E5C1726001C4210 /* WITextFilter.m in Sources */,
 				7712BB190E5C1726001C4210 /* WIURL.m in Sources */,
+				77D339C7104DCF8E006BF8D5 /* RegexKitLite.m in Sources */,
+				77D339C5104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2166,6 +2200,8 @@
 				77DBEA280E62B8E100B738D3 /* WISettings.m in Sources */,
 				77DBEA290E62B8E100B738D3 /* WITextFilter.m in Sources */,
 				77DBEA2A0E62B8E100B738D3 /* WIURL.m in Sources */,
+				77D339CB104DCF8E006BF8D5 /* RegexKitLite.m in Sources */,
+				77D339C9104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
