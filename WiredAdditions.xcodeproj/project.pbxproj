@@ -2667,7 +2667,7 @@
 					WI_PLIST,
 					WI_P7,
 				);
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = 4.0;
 				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
 				"MACOSX_DEPLOYMENT_TARGET[arch=ppc64]" = 10.5;
 				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.4;
@@ -2697,7 +2697,7 @@
 					WI_PLIST,
 					WI_P7,
 				);
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = 4.0;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
 				"MACOSX_DEPLOYMENT_TARGET[arch=ppc64]" = 10.5;
@@ -2841,7 +2841,7 @@
 					WI_PLIST,
 					WI_P7,
 				);
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = 4.0;
 				SDKROOT = iphoneos2.0;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
@@ -2997,7 +2997,7 @@
 					WI_PLIST,
 					WI_P7,
 				);
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = 4.0;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				PREBINDING = NO;
 				SDKROOT = iphoneos2.0;
@@ -3155,7 +3155,7 @@
 					WI_PLIST,
 					WI_P7,
 				);
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = 4.0;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				PREBINDING = NO;
 				SDKROOT = iphoneos2.0;
@@ -3454,7 +3454,7 @@
 					WI_PLIST,
 					WI_P7,
 				);
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = 4.0;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
 				"MACOSX_DEPLOYMENT_TARGET[arch=ppc64]" = 10.5;
