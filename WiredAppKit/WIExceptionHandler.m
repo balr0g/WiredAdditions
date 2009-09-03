@@ -51,53 +51,59 @@
 	char				buffer[BUFSIZ];
 	NSUInteger			i = 0;
 	BOOL				handled = NO;
-
-	trace = [[exception userInfo] objectForKey:NSStackTraceKey];
 	
-	if(trace) {
-		stacks	= [trace componentsSeparatedByString:@"  "];
-		fp		= popen([[NSSWF:@"/usr/bin/atos -p %d %@", getpid(), trace] UTF8String], "r");
+	if(!_loggingException) {
+		_loggingException = YES;
 		
-		if(fp) {
-			backtrace = [NSMutableString string];
+		trace = [[exception userInfo] objectForKey:NSStackTraceKey];
+		
+		if(trace) {
+			stacks	= [trace componentsSeparatedByString:@"  "];
+			fp		= popen([[NSSWF:@"/usr/bin/atos -p %d %@", getpid(), trace] UTF8String], "r");
 			
-			while(fgets(buffer, (int) sizeof(buffer), fp) != NULL) {
-				[backtrace appendFormat:@"%d%*s%@ in %s",
-					i,
-					i < 10 ? 3 : i < 100 ? 2 : i < 1000 ? 3 : 1,
-					" ",
-					[stacks objectAtIndex:i],
-					buffer];
+			if(fp) {
+				backtrace = [NSMutableString string];
 				
-				i++;
-			}
-			
-			[backtrace trimCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-			
-			if([backtrace length] > 0) {
-				if([delegate respondsToSelector:@selector(exceptionHandler:receivedException:withBacktrace:)]) {
-					[delegate exceptionHandler:self receivedException:exception withBacktrace:backtrace];
+				while(fgets(buffer, (int) sizeof(buffer), fp) != NULL) {
+					[backtrace appendFormat:@"%d%*s%@ in %s",
+					 i,
+					 i < 10 ? 3 : i < 100 ? 2 : i < 1000 ? 3 : 1,
+					 " ",
+					 [stacks objectAtIndex:i],
+					 buffer];
 					
-					handled = YES;
+					i++;
 				}
-
-				NSLog(@"%@", backtrace);
+				
+				[backtrace trimCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+				
+				if([backtrace length] > 0) {
+					if([delegate respondsToSelector:@selector(exceptionHandler:receivedException:withBacktrace:)]) {
+						[delegate exceptionHandler:self receivedException:exception withBacktrace:backtrace];
+						
+						handled = YES;
+					}
+					
+					NSLog(@"%@", backtrace);
+				}
+				
+				pclose(fp);
+			} else {
+				NSLog(@"*** %@: popen() failed", [self class]);
 			}
-			
-			pclose(fp);
 		} else {
-			NSLog(@"*** %@: popen() failed", [self class]);
+			NSLog(@"*** %@: Exception has no backtrace", [self class]);
 		}
-	} else {
-		NSLog(@"*** %@: Exception has no backtrace", [self class]);
-	}
-	
-	if(i == 0)
-		NSLog(@"*** %@: Unable to log backtrace \"%@\"", [self class], trace);
-	
-	if(!handled) {
-		if([delegate respondsToSelector:@selector(exceptionHandler:receivedException:withBacktrace:)])
-			[delegate exceptionHandler:self receivedException:exception withBacktrace:NULL];
+		
+		if(i == 0)
+			NSLog(@"*** %@: Unable to log backtrace \"%@\"", [self class], trace);
+		
+		if(!handled) {
+			if([delegate respondsToSelector:@selector(exceptionHandler:receivedException:withBacktrace:)])
+				[delegate exceptionHandler:self receivedException:exception withBacktrace:NULL];
+		}
+		
+		_loggingException = NO;
 	}
 	
 	return NO;

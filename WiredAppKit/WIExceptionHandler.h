@@ -28,6 +28,8 @@
 
 @interface WIExceptionHandler : WIObject {
 	id								delegate;
+	
+	BOOL							_loggingException;
 }
 
 + (id)sharedExceptionHandler;
