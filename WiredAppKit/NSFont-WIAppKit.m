@@ -37,13 +37,19 @@ NSString * WIStringFromFont(NSFont *font) {
 
 NSFont * WIFontFromString(NSString *string) {
 	NSArray		*array;
+	NSFont		*font;
 	
 	array = [string componentsSeparatedByString:@" "];
 	
 	if([array count] != 3 || ![[array objectAtIndex:0] isEqualToString:@"NSFont"])
 		return NULL;
 	
-	return [NSFont fontWithName:[array objectAtIndex:1] size:[[array objectAtIndex:2] doubleValue]];
+	font = [NSFont fontWithName:[array objectAtIndex:1] size:[[array objectAtIndex:2] doubleValue]];
+	
+	if(!font)
+		font = [NSFont systemFontOfSize:[[array objectAtIndex:2] doubleValue]];
+	
+	return font;
 }
 
 
