@@ -207,6 +207,8 @@
 		77A4CC2810148EA20072F8E5 /* NSLocale-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4CC2610148EA20072F8E5 /* NSLocale-WIFoundation.m */; };
 		77A4CC2910148EA20072F8E5 /* NSLocale-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A4CC2510148EA20072F8E5 /* NSLocale-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77A4CC2A10148EA20072F8E5 /* NSLocale-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4CC2610148EA20072F8E5 /* NSLocale-WIFoundation.m */; };
+		77CE0A6410545C7100E16594 /* wi-speed-calculator.c in Sources */ = {isa = PBXBuildFile; fileRef = 77CE0A6210545C7100E16594 /* wi-speed-calculator.c */; };
+		77CE0A6510545C7100E16594 /* wi-speed-calculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 77CE0A6310545C7100E16594 /* wi-speed-calculator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77D31F7F104C16C2006BF8D5 /* wi-byteorder.c in Sources */ = {isa = PBXBuildFile; fileRef = 77D31F7A104C169C006BF8D5 /* wi-byteorder.c */; };
 		77D339C4104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D339C0104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77D339C5104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D339C1104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m */; };
@@ -679,6 +681,8 @@
 		77C84DEE0B773382000F8478 /* WIDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = WIDateFormatter.h; path = WiredFoundation/WIDateFormatter.h; sourceTree = "<group>"; };
 		77CBFEAB0BE0CA62009F6E48 /* NSProcessInfo-WIFoundation.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSProcessInfo-WIFoundation.m"; path = "WiredFoundation/NSProcessInfo-WIFoundation.m"; sourceTree = "<group>"; };
 		77CBFEAC0BE0CA62009F6E48 /* NSProcessInfo-WIFoundation.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSProcessInfo-WIFoundation.h"; path = "WiredFoundation/NSProcessInfo-WIFoundation.h"; sourceTree = "<group>"; };
+		77CE0A6210545C7100E16594 /* wi-speed-calculator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "wi-speed-calculator.c"; path = "libwired/libwired/net/wi-speed-calculator.c"; sourceTree = "<group>"; };
+		77CE0A6310545C7100E16594 /* wi-speed-calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "wi-speed-calculator.h"; path = "libwired/libwired/net/wi-speed-calculator.h"; sourceTree = "<group>"; };
 		77D31F7A104C169C006BF8D5 /* wi-byteorder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "wi-byteorder.c"; path = "libwired/libwired/base/wi-byteorder.c"; sourceTree = "<group>"; };
 		77D339C0104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RegexKitLite-WIFoundation.h"; path = "WiredFoundation/RegexKitLite-WIFoundation.h"; sourceTree = "<group>"; };
 		77D339C1104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RegexKitLite-WIFoundation.m"; path = "WiredFoundation/RegexKitLite-WIFoundation.m"; sourceTree = "<group>"; };
@@ -1514,6 +1518,8 @@
 				A5C23DFF0E9AC4D500A81F49 /* wi-settings.h */,
 				A5C23E150E9AC4D500A81F49 /* wi-socket.c */,
 				A5C23E160E9AC4D500A81F49 /* wi-socket.h */,
+				77CE0A6210545C7100E16594 /* wi-speed-calculator.c */,
+				77CE0A6310545C7100E16594 /* wi-speed-calculator.h */,
 				A5C23DC80E9AC4D500A81F49 /* wi-string.c */,
 				A5C23DC90E9AC4D500A81F49 /* wi-string.h */,
 				A5C23E3D0E9AC4D500A81F49 /* wi-system.c */,
@@ -1822,6 +1828,7 @@
 				A5C23F760E9AC53E00A81F49 /* wi-set.h in Headers */,
 				A5C23F780E9AC53E00A81F49 /* wi-settings.h in Headers */,
 				A5C23F7A0E9AC53E00A81F49 /* wi-socket.h in Headers */,
+				77CE0A6510545C7100E16594 /* wi-speed-calculator.h in Headers */,
 				A5C23F7C0E9AC53E00A81F49 /* wi-string.h in Headers */,
 				A5C23F7E0E9AC53E00A81F49 /* wi-system.h in Headers */,
 				A5C23F800E9AC53E00A81F49 /* wi-task.h in Headers */,
@@ -2339,6 +2346,7 @@
 				A5C23F750E9AC53E00A81F49 /* wi-set.c in Sources */,
 				A5C23F770E9AC53E00A81F49 /* wi-settings.c in Sources */,
 				A5C23F790E9AC53E00A81F49 /* wi-socket.c in Sources */,
+				77CE0A6410545C7100E16594 /* wi-speed-calculator.c in Sources */,
 				A5C23F7B0E9AC53E00A81F49 /* wi-string.c in Sources */,
 				A5C23F7D0E9AC53E00A81F49 /* wi-system.c in Sources */,
 				A5C23F7F0E9AC53E00A81F49 /* wi-task.c in Sources */,
