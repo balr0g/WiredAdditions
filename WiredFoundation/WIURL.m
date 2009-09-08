@@ -89,6 +89,11 @@
 		scheme = [string substringToIndex:range.location];
 		string = [string substringFromIndex:range.location + 3];
 	}
+	
+	range = [string rangeOfString:@"://"];
+	
+	if(range.location != NSNotFound)
+		string = [string substringFromIndex:range.location + 3];
 
 	range = [string rangeOfString:@"/"];
 
