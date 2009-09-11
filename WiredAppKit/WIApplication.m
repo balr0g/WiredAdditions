@@ -207,29 +207,4 @@ NSString * const WIApplicationDidChangeFlagsNotification	= @"WIApplicationDidCha
 	return NSTerminateCancel;
 }
 
-
-
-#pragma mark -
-
-- (IBAction)orderFrontReleaseNotesWindow:(id)sender {
-	NSAttributedString	*string;
-	NSString			*path;
-	
-	if(!_releaseNotesWindow) {
-		[NSBundle loadNibFile:[[NSBundle bundleWithIdentifier:WIAppKitBundleIdentifier] pathForResource:@"ReleaseNotes" ofType:@"nib"]
-			externalNameTable:[NSDictionary dictionaryWithObject:self forKey:@"NSOwner"]
-					 withZone:NULL];
-
-		path = [[NSBundle mainBundle] pathForResource:@"ReleaseNotes" ofType:@"rtf"];
-		string = [[NSAttributedString alloc] initWithRTF:[NSData dataWithContentsOfFile:path]
-									  documentAttributes:NULL];
-		
-		
-		[_releaseNotesTextView setAttributedString:string];
-		[string release];
-	}
-	
-	[_releaseNotesWindow makeKeyAndOrderFront:self];
-}
-
 @end

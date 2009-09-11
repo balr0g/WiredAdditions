@@ -39,6 +39,7 @@
 #import <WiredAppKit/WIOutlineView.h>
 #import <WiredAppKit/WIPreferencesController.h>
 #import <WiredAppKit/WIProgressIndicator.h>
+#import <WiredAppKit/WIReleaseNotesController.h>
 #import <WiredAppKit/WISplitView.h>
 #import <WiredAppKit/WITableHeaderView.h>
 #import <WiredAppKit/WITableView.h>

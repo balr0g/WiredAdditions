@@ -26,19 +26,14 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-extern NSString * const WIApplicationDidChangeActiveNotification;
-extern NSString * const WIApplicationDidChangeFlagsNotification;
+#import <WiredAppKit/WIWindowController.h>
 
-
-@interface WIApplication : NSApplication {
-	IBOutlet NSWindow				*_releaseNotesWindow;
+@interface WIReleaseNotesController : WIWindowController {
 	IBOutlet NSTextView				*_releaseNotesTextView;
-
-	NSTimeInterval					_terminationDelay;
-	NSString						*_terminationMessage;
 }
 
-- (NSApplicationTerminateReply)runTerminationDelayPanelWithTimeInterval:(NSTimeInterval)delay;
-- (NSApplicationTerminateReply)runTerminationDelayPanelWithTimeInterval:(NSTimeInterval)delay message:(NSString *)message;
++ (id)releaseNotesController;
+
+- (void)showWindow:(id)sender withReleaseNotesFile:(NSString *)file;
 
 @end

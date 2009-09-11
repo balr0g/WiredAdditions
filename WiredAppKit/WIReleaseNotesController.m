@@ -26,19 +26,51 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-extern NSString * const WIApplicationDidChangeActiveNotification;
-extern NSString * const WIApplicationDidChangeFlagsNotification;
+#import <WiredAppKit/NSTextView-WIAppKit.h>
+#import <WiredAppKit/WIReleaseNotesController.h>
 
+@implementation WIReleaseNotesController
 
-@interface WIApplication : NSApplication {
-	IBOutlet NSWindow				*_releaseNotesWindow;
-	IBOutlet NSTextView				*_releaseNotesTextView;
-
-	NSTimeInterval					_terminationDelay;
-	NSString						*_terminationMessage;
++ (id)releaseNotesController {
+	static WIReleaseNotesController		*controller;
+	
+	if(!controller)
+		controller = [[self alloc] init];
+	
+	return controller;
 }
 
-- (NSApplicationTerminateReply)runTerminationDelayPanelWithTimeInterval:(NSTimeInterval)delay;
-- (NSApplicationTerminateReply)runTerminationDelayPanelWithTimeInterval:(NSTimeInterval)delay message:(NSString *)message;
+
+
+#pragma mark -
+
+- (id)init {
+	NSString		*path;
+	
+	path = [[NSBundle bundleWithIdentifier:WIAppKitBundleIdentifier] pathForResource:@"ReleaseNotes" ofType:@"nib"];
+	
+	return [self initWithWindowNibPath:path owner:self];
+}
+
+
+
+#pragma mark -
+
+- (void)showWindow:(id)sender withReleaseNotesFile:(NSString *)file {
+	NSAttributedString		*string;
+	
+	[self window];
+	
+	string = [[NSAttributedString alloc] initWithRTF:[NSData dataWithContentsOfFile:file]
+								  documentAttributes:NULL];
+	
+	
+	if(string)
+		[_releaseNotesTextView setAttributedString:string];
+	
+	[string release];
+	
+	[self showWindow:sender];
+}
 
 @end
