@@ -31,7 +31,7 @@
 
 @implementation WIReleaseNotesController
 
-+ (id)releaseNotesController {
++ (WIReleaseNotesController *)releaseNotesController {
 	static WIReleaseNotesController		*controller;
 	
 	if(!controller)
@@ -49,28 +49,26 @@
 	
 	path = [[NSBundle bundleWithIdentifier:WIAppKitBundleIdentifier] pathForResource:@"ReleaseNotes" ofType:@"nib"];
 	
-	return [self initWithWindowNibPath:path owner:self];
+	self = [self initWithWindowNibPath:path owner:self];
+	
+	[self window];
+	
+	return self;
 }
 
 
 
 #pragma mark -
 
-- (void)showWindow:(id)sender withReleaseNotesFile:(NSString *)file {
+- (void)setReleaseNotesWithRTF:(NSData *)data {
 	NSAttributedString		*string;
 	
-	[self window];
-	
-	string = [[NSAttributedString alloc] initWithRTF:[NSData dataWithContentsOfFile:file]
-								  documentAttributes:NULL];
-	
+	string = [[NSAttributedString alloc] initWithRTF:data documentAttributes:NULL];
 	
 	if(string)
 		[_releaseNotesTextView setAttributedString:string];
 	
 	[string release];
-	
-	[self showWindow:sender];
 }
 
 @end

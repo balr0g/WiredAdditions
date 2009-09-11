@@ -32,8 +32,8 @@
 	IBOutlet NSTextView				*_releaseNotesTextView;
 }
 
-+ (id)releaseNotesController;
++ (WIReleaseNotesController *)releaseNotesController;
 
-- (void)showWindow:(id)sender withReleaseNotesFile:(NSString *)file;
+- (void)setReleaseNotesWithRTF:(NSData *)data;
 
 @end
