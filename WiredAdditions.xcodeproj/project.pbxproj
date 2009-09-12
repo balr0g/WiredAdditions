@@ -171,6 +171,9 @@
 		7712C0EB0E5C2561001C4210 /* NSWorkspace-WIAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 777C493C07981CDD00D1D429 /* NSWorkspace-WIAppKit.m */; };
 		7712C0EC0E5C2561001C4210 /* NSWorkspace-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 777C493B07981CDD00D1D429 /* NSWorkspace-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712C1070E5C25A9001C4210 /* WISettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 776627E70795354B00F691E2 /* WISettings.m */; };
+		773913DC105AFE4100C1DEE1 /* WICrashReportsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 773913DA105AFE4100C1DEE1 /* WICrashReportsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		773913DD105AFE4100C1DEE1 /* WICrashReportsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 773913DB105AFE4100C1DEE1 /* WICrashReportsController.m */; };
+		773913FC105B007E00C1DEE1 /* CrashReports.xib in Resources */ = {isa = PBXBuildFile; fileRef = 773913FA105B007E00C1DEE1 /* CrashReports.xib */; };
 		773F643A0E5DBC21001A753B /* NSFileManager-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 773F64380E5DBC21001A753B /* NSFileManager-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		773F643B0E5DBC21001A753B /* NSFileManager-WIAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 773F64390E5DBC21001A753B /* NSFileManager-WIAppKit.m */; };
 		774897860CC8A63200E95A83 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54E11150C079A3900EF5FBF /* AddressBook.framework */; };
@@ -513,6 +516,9 @@
 		77246ED409DD7D230010335B /* WIExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WIExceptionHandler.h; path = WiredAppKit/WIExceptionHandler.h; sourceTree = "<group>"; };
 		77246ED509DD7D230010335B /* WIExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WIExceptionHandler.m; path = WiredAppKit/WIExceptionHandler.m; sourceTree = "<group>"; };
 		7724739909DD82E30010335B /* ExceptionHandling.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExceptionHandling.framework; path = /System/Library/Frameworks/ExceptionHandling.framework; sourceTree = "<absolute>"; };
+		773913DA105AFE4100C1DEE1 /* WICrashReportsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WICrashReportsController.h; path = WiredAppKit/WICrashReportsController.h; sourceTree = "<group>"; };
+		773913DB105AFE4100C1DEE1 /* WICrashReportsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WICrashReportsController.m; path = WiredAppKit/WICrashReportsController.m; sourceTree = "<group>"; };
+		773913FB105B007E00C1DEE1 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = WiredAppKit/English.lproj/CrashReports.xib; sourceTree = "<group>"; };
 		773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = WiredAdditions.xcconfig; sourceTree = "<group>"; };
 		773F64380E5DBC21001A753B /* NSFileManager-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager-WIAppKit.h"; path = "WiredAppKit/NSFileManager-WIAppKit.h"; sourceTree = "<group>"; };
 		773F64390E5DBC21001A753B /* NSFileManager-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager-WIAppKit.m"; path = "WiredAppKit/NSFileManager-WIAppKit.m"; sourceTree = "<group>"; };
@@ -1020,6 +1026,7 @@
 				7712BC780E5C19D6001C4210 /* Info.plist */,
 				7712BD210E5C1DCA001C4210 /* InfoPlist.strings */,
 				7712BD230E5C1DCA001C4210 /* Localizable.strings */,
+				773913FA105B007E00C1DEE1 /* CrashReports.xib */,
 				7770104F105AA6D30088F15F /* ReleaseNotes.xib */,
 				77701071105AA76A0088F15F /* TreeDetail.xib */,
 				77701080105AA7CA0088F15F /* ViewOptions.xib */,
@@ -1133,6 +1140,8 @@
 				A56B9EF9075B865F00B3B6AA /* WIApplication.h */,
 				A544C12E0758DFA9008446CF /* WIColorCell.m */,
 				A544C11E0758DFA9008446CF /* WIColorCell.h */,
+				773913DB105AFE4100C1DEE1 /* WICrashReportsController.m */,
+				773913DA105AFE4100C1DEE1 /* WICrashReportsController.h */,
 				77246ED509DD7D230010335B /* WIExceptionHandler.m */,
 				77246ED409DD7D230010335B /* WIExceptionHandler.h */,
 				A5D96CD3078DDB8A00CD982E /* WIGraphView.m */,
@@ -1519,6 +1528,7 @@
 				A56F2B700E61C92200A42D96 /* WIAppKitFunctions.h in Headers */,
 				7712BB8F0E5C1964001C4210 /* WIApplication.h in Headers */,
 				7712BB900E5C1964001C4210 /* WIColorCell.h in Headers */,
+				773913DC105AFE4100C1DEE1 /* WICrashReportsController.h in Headers */,
 				A53F8FC50E60845000D7E426 /* WIExceptionHandler.h in Headers */,
 				7712BB950E5C1964001C4210 /* WIGraphView.h in Headers */,
 				7712BB960E5C1964001C4210 /* WIIconCell.h in Headers */,
@@ -1845,6 +1855,7 @@
 			files = (
 				7712BD290E5C1DCA001C4210 /* InfoPlist.strings in Resources */,
 				7712BD2A0E5C1DCA001C4210 /* Localizable.strings in Resources */,
+				773913FC105B007E00C1DEE1 /* CrashReports.xib in Resources */,
 				77701051105AA6D30088F15F /* ReleaseNotes.xib in Resources */,
 				77701073105AA76A0088F15F /* TreeDetail.xib in Resources */,
 				77701082105AA7CA0088F15F /* ViewOptions.xib in Resources */,
@@ -1970,6 +1981,7 @@
 				A56F2B6F0E61C91F00A42D96 /* WIAppKitFunctions.m in Sources */,
 				7712BBD20E5C1964001C4210 /* WIApplication.m in Sources */,
 				7712BBD30E5C1964001C4210 /* WIColorCell.m in Sources */,
+				773913DD105AFE4100C1DEE1 /* WICrashReportsController.m in Sources */,
 				A53F8FC40E60844C00D7E426 /* WIExceptionHandler.m in Sources */,
 				7712BBD80E5C1964001C4210 /* WIGraphView.m in Sources */,
 				7712BBD90E5C1964001C4210 /* WIIconCell.m in Sources */,
@@ -2201,6 +2213,14 @@
 				7712BD420E5C1DE3001C4210 /* Japanese */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		773913FA105B007E00C1DEE1 /* CrashReports.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				773913FB105B007E00C1DEE1 /* English */,
+			);
+			name = CrashReports.xib;
 			sourceTree = "<group>";
 		};
 		774C32370CC8B3D400716F37 /* InfoPlist.strings */ = {

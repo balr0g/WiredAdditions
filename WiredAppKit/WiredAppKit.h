@@ -30,6 +30,7 @@
 
 #import <WiredAppKit/WIApplication.h>
 #import <WiredAppKit/WIColorCell.h>
+#import <WiredAppKit/WICrashReportsController.h>
 #import <WiredAppKit/WIExceptionHandler.h>
 #import <WiredAppKit/WIGraphView.h>
 #import <WiredAppKit/WIIconCell.h>
