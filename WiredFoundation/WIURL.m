@@ -79,8 +79,6 @@
 	NSRange		range;
 	
 	string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-	string = [string stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-
 	range = [string rangeOfString:@"://"];
 
 	if(range.location == NSNotFound) {
