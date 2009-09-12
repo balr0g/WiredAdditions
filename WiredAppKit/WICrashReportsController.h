@@ -41,6 +41,8 @@
 	
 	NSString						*_applicationName;
 	NSMutableArray					*_crashReports;
+	NSMutableSet					*_readCrashReports;
+	NSMutableSet					*_sentCrashReports;
 	WIDateFormatter					*_dateFormatter;
 }
 

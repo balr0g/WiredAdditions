@@ -27,6 +27,7 @@
  */
 
 #import <WiredAppKit/NSAttributedString-WIAppKit.h>
+#import <WiredAppKit/NSFont-WIAppKit.h>
 #import <WiredAppKit/NSTextView-WIAppKit.h>
 #import <WiredAppKit/WICrashReportsController.h>
 #import <WiredAppKit/WITableView.h>
@@ -156,6 +157,14 @@
 	
 	_crashReports		= [[NSMutableArray alloc] init];
 
+	_readCrashReports	= [[NSMutableSet alloc] init];
+	[_readCrashReports addObjectsFromArray:
+		[[NSUserDefaults standardUserDefaults] objectForKey:@"_WICrashReportsController_readCrashReports"]];
+	
+	_sentCrashReports	= [[NSMutableSet alloc] init];
+	[_sentCrashReports addObjectsFromArray:
+		[[NSUserDefaults standardUserDefaults] objectForKey:@"_WICrashReportsController_sentCrashReports"]];
+	
 	_dateFormatter		= [[WIDateFormatter alloc] init];
 	[_dateFormatter setDateStyle:NSDateFormatterShortStyle];
 	[_dateFormatter setTimeStyle:NSDateFormatterShortStyle];
@@ -175,6 +184,8 @@
 	[_applicationName release];
 	[_crashReports release];
 	[_dateFormatter release];
+	[_readCrashReports release];
+	[_sentCrashReports release];
 	
 	[super dealloc];
 }
@@ -261,6 +272,19 @@
 
 
 
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+	WICrashReport		*crashReport;
+
+	crashReport = [_crashReports objectAtIndex:row];
+	
+	if([_readCrashReports containsObject:crashReport->_name])
+		[cell setFont:[[cell font] fontByAddingTrait:NSUnboldFontMask]];
+	else
+		[cell setFont:[[cell font] fontByAddingTrait:NSBoldFontMask]];
+}
+
+
+
 - (void)tableViewSelectionDidChange:(NSNotification *)notification {
 	NSDictionary		*attributes;
 	NSString			*string;
@@ -279,6 +303,11 @@
 			[_textView setAttributedString:
 				[NSAttributedString attributedStringWithString:string attributes:attributes]];
 		}
+		
+		[_readCrashReports addObject:crashReport->_name];
+		
+		[[NSUserDefaults standardUserDefaults] setObject:[_readCrashReports allObjects]
+												  forKey:@"_WICrashReportsController_readCrashReports"];
 	} else {
 		[_textView setString:@""];
 	}
