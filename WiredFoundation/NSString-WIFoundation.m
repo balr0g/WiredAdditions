@@ -235,35 +235,11 @@
 
 #pragma mark -
 
-- (NSString *)stringByAddingURLPercentEscapes {
-	NSString	*string;
-	
-	string = (NSString *) CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-		(CFStringRef) self, CFSTR("#"), NULL, kCFStringEncodingUTF8);
-	
-	return [string autorelease];
-}
-
-
-
-- (NSString *)stringByAddingURLPercentEscapesToAllCharacters {
-	NSString	*string;
-	
-	string = (NSString *) CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-		(CFStringRef) self, NULL, NULL, kCFStringEncodingUTF8);
-	
-	return [string autorelease];
-}
-
-
-
-- (NSString *)stringByReplacingURLPercentEscapes {
-	NSString	*string;
-	
-	string = (NSString *) CFURLCreateStringByReplacingPercentEscapes(kCFAllocatorDefault,
-		(CFStringRef) self, CFSTR(""));
-	
-	return [string autorelease];
+- (NSString *)stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)encoding legalURLCharactersToBeEscaped:(NSString *)legalURLCharactersToBeEscaped {
+	return [(NSString *) CFURLCreateStringByAddingPercentEscapes(NULL,
+																 (CFStringRef) self,
+																 NULL, (CFStringRef) legalURLCharactersToBeEscaped,
+																 CFStringConvertNSStringEncodingToEncoding(encoding)) autorelease];
 }
 
 

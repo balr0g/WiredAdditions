@@ -79,7 +79,7 @@
 	NSRange		range;
 	
 	string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-	string = [string stringByReplacingURLPercentEscapes];
+	string = [string stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
 	range = [string rangeOfString:@"://"];
 
@@ -300,32 +300,32 @@
 	NSMutableString		*string;
 	
 	string = [[NSMutableString alloc] init];
-	[string appendString:[[self scheme] stringByAddingURLPercentEscapesToAllCharacters]];
+	[string appendString:[[self scheme] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	[string appendString:@"://"];
 	
 	if([[self host] length] > 0) {
 		if([[self user] length] > 0) {
-			[string appendString:[[self user] stringByAddingURLPercentEscapesToAllCharacters]];
+			[string appendString:[[self user] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 			
 			if([[self password] length] > 0) {
 				[string appendString:@":"];
-				[string appendString:[[self password] stringByAddingURLPercentEscapesToAllCharacters]];
+				[string appendString:[[self password] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 			}
 
 			[string appendString:@"@"];
 		}
 		
-		[string appendString:[[self host] stringByAddingURLPercentEscapesToAllCharacters]];
+		[string appendString:[[self host] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 		
 		if([self port] != 0)
 			[string appendFormat:@":%lu", [self port]];
 	}
 	
 	if([[self path] length] > 0)
-		[string appendString:[[self path] stringByAddingURLPercentEscapes]];
+		[string appendString:[[self path] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	
 	if([[self query] length] > 0)
-		[string appendFormat:@"?%@", [[self query] stringByAddingURLPercentEscapes]];
+		[string appendFormat:@"?%@", [[self query] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	
 	return [string autorelease];
 }

@@ -55,9 +55,7 @@
 - (NSString *)stringByReplacingOccurencesOfString:(NSString *)target withString:(NSString *)replacement;
 - (NSString *)stringByReplacingOccurencesOfStrings:(NSArray *)targets withString:(NSString *)replacement;
 
-- (NSString *)stringByAddingURLPercentEscapes;
-- (NSString *)stringByAddingURLPercentEscapesToAllCharacters;
-- (NSString *)stringByReplacingURLPercentEscapes;
+- (NSString *)stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)encoding legalURLCharactersToBeEscaped:(NSString *)legalURLCharactersToBeEscaped;
 
 - (NSString *)stringByReplacingPathExtensionWithExtension:(NSString *)extension;
 
