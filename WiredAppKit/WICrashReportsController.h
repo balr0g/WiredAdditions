@@ -51,4 +51,6 @@
 - (void)setApplicationName:(NSString *)name;
 - (NSString *)applicationName;
 
+- (IBAction)send:(id)sender;
+
 @end

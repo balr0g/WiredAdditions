@@ -28,6 +28,7 @@
 
 #import <WiredAppKit/NSAttributedString-WIAppKit.h>
 #import <WiredAppKit/NSFont-WIAppKit.h>
+#import <WiredFoundation/NSString-WIFoundation.h>
 #import <WiredAppKit/NSTextView-WIAppKit.h>
 #import <WiredAppKit/WICrashReportsController.h>
 #import <WiredAppKit/WITableView.h>
@@ -56,8 +57,8 @@
 
 
 
-- (NSComparisonResult)compareDate:(WICrashReport *)other {
-	return [self->_date compare:other->_date];
+- (NSComparisonResult)compareDate:(WICrashReport *)object {
+	return [self->_date compare:object->_date];
 }
 
 @end
@@ -231,6 +232,27 @@
 
 #pragma mark -
 
+- (BOOL)validateToolbarItem:(NSToolbarItem *)item {
+	WICrashReport		*crashReport;
+	NSInteger			row;
+	SEL					selector;
+	
+	selector	= [item action];
+	
+	if(selector == @selector(send:)) {
+		row				= [_tableView selectedRow];
+		crashReport		= (row >= 0) ? [_crashReports objectAtIndex:row] : NULL;
+		
+		return (crashReport != NULL && ![_sentCrashReports containsObject:crashReport->_name]);
+	}
+	
+	return YES;
+}
+
+
+
+#pragma mark -
+
 - (void)setApplicationName:(NSString *)applicationName {
 	[applicationName retain];
 	[_applicationName release];
@@ -245,6 +267,47 @@
 
 - (NSString *)applicationName {
 	return _applicationName;
+}
+
+
+
+#pragma mark -
+
+- (IBAction)send:(id)sender {
+	NSMutableURLRequest		*request;
+	NSURLResponse			*response;
+	NSString				*post, *content;
+	NSData					*data;
+	WICrashReport			*crashReport;
+	NSInteger				row;
+	
+	row = [_tableView selectedRow];
+	
+	if(row < 0)
+		return;
+	
+	crashReport		= [_crashReports objectAtIndex:row];
+	content			= [NSString stringWithContentsOfFile:crashReport->_path encoding:NSUTF8StringEncoding error:NULL];
+	post			= [NSSWF:@"name=%@;content=%@",
+		[crashReport->_name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding legalURLCharactersToBeEscaped:@"?=&+"],
+		[content stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding legalURLCharactersToBeEscaped:@"?=&+"]];
+	
+	request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.zankasoftware.com/crashreport.pl"]];
+	[request setHTTPMethod:@"POST"];
+	[request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES]];
+	[request setValue:[NSSWF:@"%u", (unsigned int) [[request HTTPBody] length]] forHTTPHeaderField:@"Content-Length"];
+	[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+	
+	data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:NULL];
+	
+	if(data) {
+		if([response isKindOfClass:[NSHTTPURLResponse class]] && [(NSHTTPURLResponse *) response statusCode] == 200) {
+			[_sentCrashReports addObject:crashReport->_name];
+			
+			[[NSUserDefaults standardUserDefaults] setObject:[_sentCrashReports allObjects]
+													  forKey:@"_WICrashReportsController_sentCrashReports"];
+		}
+	}
 }
 
 
