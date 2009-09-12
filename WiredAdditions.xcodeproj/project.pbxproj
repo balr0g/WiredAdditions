@@ -174,6 +174,7 @@
 		773913DC105AFE4100C1DEE1 /* WICrashReportsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 773913DA105AFE4100C1DEE1 /* WICrashReportsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		773913DD105AFE4100C1DEE1 /* WICrashReportsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 773913DB105AFE4100C1DEE1 /* WICrashReportsController.m */; };
 		773913FC105B007E00C1DEE1 /* CrashReports.xib in Resources */ = {isa = PBXBuildFile; fileRef = 773913FA105B007E00C1DEE1 /* CrashReports.xib */; };
+		77392CF2105C36F600C1DEE1 /* WICrashReportsController-SendReport.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 77392CF1105C36F600C1DEE1 /* WICrashReportsController-SendReport.tiff */; };
 		773F643A0E5DBC21001A753B /* NSFileManager-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 773F64380E5DBC21001A753B /* NSFileManager-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		773F643B0E5DBC21001A753B /* NSFileManager-WIAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 773F64390E5DBC21001A753B /* NSFileManager-WIAppKit.m */; };
 		774897860CC8A63200E95A83 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54E11150C079A3900EF5FBF /* AddressBook.framework */; };
@@ -519,6 +520,7 @@
 		773913DA105AFE4100C1DEE1 /* WICrashReportsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WICrashReportsController.h; path = WiredAppKit/WICrashReportsController.h; sourceTree = "<group>"; };
 		773913DB105AFE4100C1DEE1 /* WICrashReportsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WICrashReportsController.m; path = WiredAppKit/WICrashReportsController.m; sourceTree = "<group>"; };
 		773913FB105B007E00C1DEE1 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = WiredAppKit/English.lproj/CrashReports.xib; sourceTree = "<group>"; };
+		77392CF1105C36F600C1DEE1 /* WICrashReportsController-SendReport.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "WICrashReportsController-SendReport.tiff"; path = "WiredAppKit/WICrashReportsController-SendReport.tiff"; sourceTree = "<group>"; };
 		773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = WiredAdditions.xcconfig; sourceTree = "<group>"; };
 		773F64380E5DBC21001A753B /* NSFileManager-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager-WIAppKit.h"; path = "WiredAppKit/NSFileManager-WIAppKit.h"; sourceTree = "<group>"; };
 		773F64390E5DBC21001A753B /* NSFileManager-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager-WIAppKit.m"; path = "WiredAppKit/NSFileManager-WIAppKit.m"; sourceTree = "<group>"; };
@@ -1033,6 +1035,7 @@
 				7712BD1B0E5C1DB7001C4210 /* NSImage-Baaadge.tiff */,
 				7712BD1C0E5C1DB7001C4210 /* NSImage-Baadge.tiff */,
 				7712BD1D0E5C1DB7001C4210 /* NSImage-Badge.tiff */,
+				77392CF1105C36F600C1DEE1 /* WICrashReportsController-SendReport.tiff */,
 				7712BD180E5C1DAC001C4210 /* WITableViewManager-SortAscending.tiff */,
 				7712BD170E5C1DAC001C4210 /* WITableViewManager-SortDescending.tiff */,
 				A5BCA6110F53355C004C5986 /* WITreeCell-RightArrow.icns */,
@@ -1859,12 +1862,13 @@
 				77701051105AA6D30088F15F /* ReleaseNotes.xib in Resources */,
 				77701073105AA76A0088F15F /* TreeDetail.xib in Resources */,
 				77701082105AA7CA0088F15F /* ViewOptions.xib in Resources */,
-				7712BD190E5C1DAC001C4210 /* WITableViewManager-SortDescending.tiff in Resources */,
-				7712BD1A0E5C1DAC001C4210 /* WITableViewManager-SortAscending.tiff in Resources */,
-				A5BCA6120F53355C004C5986 /* WITreeCell-RightArrow.icns in Resources */,
 				7712BD1E0E5C1DB7001C4210 /* NSImage-Baaadge.tiff in Resources */,
 				7712BD1F0E5C1DB7001C4210 /* NSImage-Baadge.tiff in Resources */,
 				7712BD200E5C1DB7001C4210 /* NSImage-Badge.tiff in Resources */,
+				77392CF2105C36F600C1DEE1 /* WICrashReportsController-SendReport.tiff in Resources */,
+				7712BD190E5C1DAC001C4210 /* WITableViewManager-SortDescending.tiff in Resources */,
+				7712BD1A0E5C1DAC001C4210 /* WITableViewManager-SortAscending.tiff in Resources */,
+				A5BCA6120F53355C004C5986 /* WITreeCell-RightArrow.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
