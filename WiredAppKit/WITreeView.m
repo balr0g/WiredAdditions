@@ -566,6 +566,9 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	count			= [components count];
 	
 	for(i = 0; i < count; i++) {
+		if(i >= [_views count])
+			break;
+		
 		component	= [components objectAtIndex:i];
 		tableView	= [_views objectAtIndex:i];
 		fileCount	= [[self delegate] treeView:self numberOfItemsForPath:partialPath];
