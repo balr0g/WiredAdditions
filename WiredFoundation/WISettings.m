@@ -176,6 +176,14 @@ static NSMutableDictionary		*WISettingsSharedSettings;
 
 #pragma mark -
 
++ (void)synchronize {
+	[[self _settings] _synchronize];
+}
+
+
+
+#pragma mark -
+
 - (void)dealloc {
 	[_identifier release];
 	[_defaultValues release];

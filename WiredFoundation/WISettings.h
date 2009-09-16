@@ -37,6 +37,8 @@
 
 + (NSDictionary *)defaults;
 
++ (void)synchronize;
+
 + (void)setObject:(id)object forKey:(id)key;
 + (id)objectForKey:(id)key;
 + (void)removeObjectForKey:(id)key;
