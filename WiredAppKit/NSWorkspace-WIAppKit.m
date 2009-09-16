@@ -37,32 +37,27 @@
 	pid_t				pid = 0;
 	int					mib[] = {CTL_KERN, KERN_PROC, KERN_PROC_ALL};
 	
-	if(sysctl(mib, 3, NULL, &size, NULL, 0) < 0) {
-		NSLog(@"sysctl: %s", strerror(errno));
+	if(sysctl(mib, 3, NULL, &size, NULL, 0) == 0) {
+		entries = size / sizeof(struct kinfo_proc);
+		procs = (struct kinfo_proc *) malloc(size);
 		
-		goto end;
-	}
-	
-	entries = size / sizeof(struct kinfo_proc);
-	procs = (struct kinfo_proc *) malloc(size);
-	
-	if(sysctl(mib, 3, procs, &size, NULL, 0) < 0) {
-		NSLog(@"sysctl: %s", strerror(errno));
-		
-		goto end;
-	}
-	
-	name = [processName UTF8String];
-	
-	for(i = 0; i < entries; i++) {
-		if(strcmp(procs[i].kp_proc.p_comm, name) == 0) {
-			pid = procs[i].kp_proc.p_pid;
+		if(sysctl(mib, 3, procs, &size, NULL, 0) == 0) {
+			name = [processName UTF8String];
 			
-			goto end;
+			for(i = 0; i < entries; i++) {
+				if(strcmp(procs[i].kp_proc.p_comm, name) == 0) {
+					pid = procs[i].kp_proc.p_pid;
+					
+					break;
+				}
+			}
+		} else {
+			NSLog(@"sysctl: %s", strerror(errno));
 		}
+	} else {
+		NSLog(@"sysctl: %s", strerror(errno));
 	}
-
-end:
+	
 	if(procs)
 		free(procs);
 	
