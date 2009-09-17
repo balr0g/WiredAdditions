@@ -86,6 +86,8 @@ extern NSString * const WIFileModificationDate;
 - (void)selectPath:(NSString *)path;
 - (void)selectRowIndexes:(NSIndexSet *)indexes byExtendingSelection:(BOOL)extendingSelection;
 
+- (NSRect)frameOfRow:(NSInteger)row inPath:(NSString *)path;
+
 - (void)reloadData;
 
 @end

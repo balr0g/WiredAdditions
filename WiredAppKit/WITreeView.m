@@ -622,6 +622,24 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 #pragma mark -
 
+- (NSRect)frameOfRow:(NSInteger)row inPath:(NSString *)path {
+	NSTableView		*tableView;
+	NSUInteger		count;
+	
+	count = [[path pathComponents] count];
+	
+	if(count < 2 || count > [_views count])
+		return NSZeroRect;
+	
+	tableView = [_views objectAtIndex:count - 2];
+	
+	return [tableView frameOfCellAtColumn:0 row:row];
+}
+
+
+
+#pragma mark -
+
 - (void)reloadData {
 	_reloadingData = YES;
 	[_views makeObjectsPerformSelector:@selector(reloadData)];
@@ -1061,6 +1079,22 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 
 #pragma mark -
+
+- (NSRect)convertRect:(NSRect)rect toView:(NSView *)view {
+	NSEnumerator		*enumerator;
+	NSTableView			*tableView;
+	
+	enumerator = [_views objectEnumerator];
+	
+	while((tableView = [enumerator nextObject])) {
+		if(NSPointInRect(rect.origin, [tableView frame]))
+			return [tableView convertRect:rect toView:view];
+	}
+	
+	return [super convertRect:rect toView:view];
+}
+
+
 
 - (void)drawRect:(NSRect)rect {
 	[[NSColor whiteColor] set];
