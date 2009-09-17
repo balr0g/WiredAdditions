@@ -51,6 +51,7 @@ extern NSString * const WIFileModificationDate;
 	NSString						*_rootPath;
 	NSString						*_path;
 	SEL								_doubleAction;
+	SEL								_spaceAction;
 	
 	NSDragOperation					_draggingSourceOperationMaskForLocal;
 	NSDragOperation					_draggingSourceOperationMaskForNonLocal;
@@ -74,6 +75,8 @@ extern NSString * const WIFileModificationDate;
 - (NSString *)rootPath;
 - (void)setDoubleAction:(SEL)doubleAction;
 - (SEL)doubleAction;
+- (void)setSpaceAction:(SEL)spaceAction;
+- (SEL)spaceAction;
 
 - (void)setDraggingSourceOperationMask:(NSDragOperation)mask forLocal:(BOOL)isLocal;
 

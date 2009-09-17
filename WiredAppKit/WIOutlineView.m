@@ -346,6 +346,18 @@
 
 
 
+- (void)setSpaceAction:(SEL)action {
+	[_tableViewManager setSpaceAction:action];
+}
+
+
+
+- (SEL)spaceAction {
+	return [_tableViewManager spaceAction];
+}
+
+
+
 - (void)setFont:(NSFont *)font {
 	[_tableViewManager setFont:font];
 }

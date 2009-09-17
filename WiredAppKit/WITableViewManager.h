@@ -63,6 +63,7 @@
 	SEL							_forwardAction;
 	SEL							_escapeAction;
 	SEL							_deleteAction;
+	SEL							_spaceAction;
 }
 
 - (id)initWithTableView:(WITableView *)tableView;
@@ -111,6 +112,8 @@
 - (SEL)escapeAction;
 - (void)setDeleteAction:(SEL)action;
 - (SEL)deleteAction;
+- (void)setSpaceAction:(SEL)action;
+- (SEL)spaceAction;
 - (void)setFont:(NSFont *)font;
 - (NSFont *)font;
 

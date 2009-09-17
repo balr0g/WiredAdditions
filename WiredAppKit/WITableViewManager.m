@@ -720,6 +720,13 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 			return YES;
 		}
 	}
+	else if(key == ' ') {
+		if([self spaceAction]) {
+			[[_tableView target] performSelector:[self spaceAction] withObject:_tableView];
+			
+			return YES;
+		}
+	}
 	
 	if([[_tableView delegate] respondsToSelector:_stringValueForRow]) {
 		static NSCharacterSet   *set;
@@ -1146,6 +1153,18 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 
 - (SEL)deleteAction {
 	return _deleteAction;
+}
+
+
+
+- (void)setSpaceAction:(SEL)action {
+	_spaceAction = action;
+}
+
+
+
+- (SEL)spaceAction {
+	return _spaceAction;
 }
 
 

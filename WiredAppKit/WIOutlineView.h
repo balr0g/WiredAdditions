@@ -71,6 +71,8 @@
 - (SEL)escapeAction;
 - (void)setDeleteAction:(SEL)action;
 - (SEL)deleteAction;
+- (void)setSpaceAction:(SEL)action;
+- (SEL)spaceAction;
 - (void)setFont:(NSFont *)font;
 - (NSFont *)font;
 

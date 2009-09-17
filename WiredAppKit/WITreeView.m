@@ -318,6 +318,7 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	[tableView setAction:@selector(tableViewSingleClick:)];
 	[tableView setDoubleAction:@selector(tableViewDoubleClick:)];
 	[tableView setEscapeAction:@selector(tableViewEscape:)];
+	[tableView setSpaceAction:@selector(tableViewSpace:)];
 	[tableView setColumnAutoresizingStyle:NSTableViewUniformColumnAutoresizingStyle];
 	[tableView setDraggingSourceOperationMask:_draggingSourceOperationMaskForLocal forLocal:YES];
 	[tableView setDraggingSourceOperationMask:_draggingSourceOperationMaskForNonLocal forLocal:NO];
@@ -484,6 +485,18 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 - (SEL)doubleAction {
 	return _doubleAction;
+}
+
+
+
+- (void)setSpaceAction:(SEL)spaceAction {
+	_spaceAction = spaceAction;
+}
+
+
+
+- (SEL)spaceAction {
+	return _spaceAction;
 }
 
 
@@ -757,6 +770,13 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 - (void)tableViewEscape:(id)sender {
 	[sender deselectAll:self];
+}
+
+
+
+- (void)tableViewSpace:(id)sender {
+	if([self spaceAction])
+		[[self target] performSelector:[self spaceAction] withObject:self];
 }
 
 
