@@ -49,6 +49,12 @@
 
 
 
++ (NSString *)temporaryPathWithFilename:(NSString *)filename {
+	return [NSTemporaryDirectory() stringByAppendingPathComponent:filename];
+}
+
+
+
 #pragma mark -
 
 + (NSString *)resourceForkPathForPath:(NSString *)path {

@@ -32,6 +32,7 @@
 
 + (NSString *)temporaryPathWithPrefix:(NSString *)prefix;
 + (NSString *)temporaryPathWithPrefix:(NSString *)string suffix:(NSString *)suffix;
++ (NSString *)temporaryPathWithFilename:(NSString *)name;
 
 + (NSString *)resourceForkPathForPath:(NSString *)path;
 
