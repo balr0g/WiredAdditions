@@ -185,11 +185,11 @@ static void _WIP7SocketWroteMessage(wi_p7_socket_t *p7Socket, wi_p7_message_t *p
 
 - (NSString *)cipherName {
 #ifdef WI_RSA
-	NSString		*string;
+	wi_cipher_t		*cipher;
 	
-	string = [NSString stringWithWiredString:wi_cipher_name(wi_p7_socket_cipher(_p7Socket))];
+	cipher = wi_p7_socket_cipher(_p7Socket);
 	
-	return string;
+	return cipher ? [NSString stringWithWiredString:wi_cipher_name(cipher)] : NULL;
 #else
 	return NULL;
 #endif
