@@ -204,4 +204,24 @@
 	[_views setObject:dictionary forKey:identifier];
 }
 
+
+
+- (void)selectPreferenceView:(NSView *)view {
+	NSEnumerator		*enumerator;
+	NSString			*identifier;
+	NSDictionary		*dictionary;
+	
+	enumerator = [_views keyEnumerator];
+	
+	while((identifier = [enumerator nextObject])) {
+		dictionary = [_views objectForKey:identifier];
+		
+		if([dictionary objectForKey:_WIPreferencesControllerView] == view) {
+			[self _selectPreferenceViewWithIdentifier:identifier animate:YES];
+			
+			break;
+		}
+	}
+}
+
 @end

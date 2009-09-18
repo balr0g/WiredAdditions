@@ -36,5 +36,6 @@
 }
 
 - (void)addPreferenceView:(NSView *)view name:(NSString *)name image:(NSImage *)image;
+- (void)selectPreferenceView:(NSView *)view;
 
 @end
