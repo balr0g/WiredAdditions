@@ -70,6 +70,7 @@ typedef float					CGFloat;
 #import <mach-o/arch.h>
 #import <sys/sysctl.h>
 #import <sys/fcntl.h>
+#import <sys/xattr.h>
 #import <CommonCrypto/CommonDigest.h>
 #import <pthread.h>
 #import <unistd.h>

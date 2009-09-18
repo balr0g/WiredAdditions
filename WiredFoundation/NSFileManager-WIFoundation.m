@@ -26,6 +26,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+#import <WiredFoundation/NSError-WIFoundation.h>
 #import <WiredFoundation/NSFileManager-WIFoundation.h>
 
 @implementation NSFileManager(WIFoundation)
@@ -144,6 +145,61 @@
 	}
 
 	return resources;
+}
+
+
+
+#pragma mark -
+
+- (BOOL)setExtendedAttribute:(NSData *)data forName:(NSString *)name atPath:(NSString *)path error:(NSError **)error {
+	if(setxattr([path fileSystemRepresentation], [name UTF8String], [data bytes], [data length], 0, 0) < 0) {
+		if(error)
+			*error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno];
+		
+		return NO;
+	}
+	
+	return YES;
+}
+
+
+
+- (NSData *)extendedAttributeForName:(NSString *)name atPath:(NSString *)path error:(NSError **)error {
+	void		*value;
+	ssize_t		size;
+	
+	if((size = getxattr([path fileSystemRepresentation], [name UTF8String], NULL, 0, 0, 0)) < 0) {
+		if(error)
+			*error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno];
+		
+		return NULL;
+	}
+	
+	value = malloc(size);
+	
+	if(getxattr([path fileSystemRepresentation], [name UTF8String], value, size, 0, 0) < 0) {
+		if(error)
+			*error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno];
+		
+		free(value);
+		
+		return NULL;
+	}
+	
+	return [NSData dataWithBytesNoCopy:value length:size freeWhenDone:YES];
+}
+
+
+
+- (BOOL)removeExtendedAttributeForName:(NSString *)name atPath:(NSString *)path error:(NSError **)error {
+	if(removexattr([path fileSystemRepresentation], [name UTF8String], 0) < 0) {
+		if(error)
+			*error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno];
+		
+		return NO;
+	}
+	
+	return YES;
 }
 
 @end

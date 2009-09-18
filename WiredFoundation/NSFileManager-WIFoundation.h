@@ -45,4 +45,8 @@
 - (id)enumeratorWithFileAtPath:(NSString *)path;
 - (NSArray *)libraryResourcesForTypes:(NSArray *)types inDirectory:(NSString *)directory;
 
+- (BOOL)setExtendedAttribute:(NSData *)data forName:(NSString *)name atPath:(NSString *)path error:(NSError **)error;
+- (NSData *)extendedAttributeForName:(NSString *)name atPath:(NSString *)path error:(NSError **)error;
+- (BOOL)removeExtendedAttributeForName:(NSString *)name atPath:(NSString *)path error:(NSError **)error;
+
 @end
