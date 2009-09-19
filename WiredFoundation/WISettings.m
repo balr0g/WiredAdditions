@@ -30,36 +30,58 @@
 #import <WiredFoundation/NSNumber-WIFoundation.h>
 #import <WiredFoundation/WISettings.h>
 
-static NSMutableDictionary		*WISettingsSharedSettings;
-
 @interface WISettings(Private)
 
-+ (WISettings *)_settings;
-
 - (id)_initWithIdentifier:(NSString *)identifier;
-
-- (NSString *)_identifier;
-
-- (void)_setObject:(id)object forKey:(id)key;
-- (id)_objectForKey:(id)key;
-- (void)_removeObjectForKey:(id)key;
-
-- (void)_synchronize;
 
 @end
 
 
 @implementation WISettings(Private)
 
-+ (WISettings *)_settings {
-	WISettings		*settings;
+- (id)_initWithIdentifier:(NSString *)identifier {
+	self = [super init];
+
+	if([identifier length] > 0) {
+		_identifier		= [identifier retain];
+		_defaults		= [[[NSUserDefaults standardUserDefaults] persistentDomainForName:_identifier] mutableCopy];
+
+		if(!_defaults)
+			_defaults	= [[NSMutableDictionary alloc] init];
+	} else {
+		_defaults		= [[NSUserDefaults standardUserDefaults] retain];
+	}
 	
-	settings = [WISettingsSharedSettings objectForKey:self];
+	_defaultValues		= [[self defaults] retain];
+
+	return self;
+}
+
+@end
+
+
+
+@implementation WISettings
+
++ (id)settings {
+	return [self settingsWithIdentifier:@""];
+}
+
+
+
++ (id)settingsWithIdentifier:(NSString *)identifier {
+	static NSMutableDictionary		*dictionary;
+	id								settings;
+	
+	if(!dictionary)
+		dictionary = [[NSMutableDictionary alloc] init];
+	
+	settings = [dictionary objectForKey:identifier];
 	
 	if(!settings) {
-		[self setIdentifier:NULL];
-	
-		settings = [WISettingsSharedSettings objectForKey:self];
+		settings = [[[self alloc] _initWithIdentifier:identifier] autorelease];
+		
+		[dictionary setObject:settings forKey:identifier];
 	}
 	
 	return settings;
@@ -69,45 +91,52 @@ static NSMutableDictionary		*WISettingsSharedSettings;
 
 #pragma mark -
 
-- (id)_initWithIdentifier:(NSString *)identifier {
-	self = [super init];
+- (NSDictionary *)defaults {
+	return [NSDictionary dictionary];
+}
 
-	if(identifier) {
-		_identifier = [identifier retain];
-		_defaults = [[[NSUserDefaults standardUserDefaults] persistentDomainForName:_identifier] mutableCopy];
 
-		if(!_defaults)
-			_defaults = [[NSMutableDictionary alloc] init];
-	} else {
-		_defaults = [NSUserDefaults standardUserDefaults];
+
+#pragma mark -
+
+- (BOOL)synchronize {
+	NSUserDefaults		*defaults;
+	
+	defaults = [NSUserDefaults standardUserDefaults];
+	
+	if(_identifier) {
+		[defaults removePersistentDomainForName:_identifier];
+		[defaults setPersistentDomain:_defaults forName:_identifier];
 	}
 	
-	_defaultValues = [[[self class] defaults] retain];
-
-	return self;
+	return [defaults synchronize];
 }
 
 
 
 #pragma mark -
 
-- (NSString *)_identifier {
-	return _identifier;
+- (void)dealloc {
+	[_identifier release];
+	[_defaultValues release];
+	[_defaults release];
+	
+	[super dealloc];
 }
 
 
 
 #pragma mark -
 
-- (void)_setObject:(id)object forKey:(id)key {
+- (void)setObject:(id)object forKey:(id)key {
 	[_defaults setObject:object forKey:key];
 
-	[self performSelectorOnce:@selector(_synchronize) withObject:NULL afterDelay:1.0];
+	[self performSelectorOnce:@selector(synchronize) withObject:NULL afterDelay:1.0];
 }
 
 
 
-- (id)_objectForKey:(id)key {
+- (id)objectForKey:(id)key {
 	id		object;
 	
 	object = [_defaults objectForKey:key];
@@ -120,174 +149,87 @@ static NSMutableDictionary		*WISettingsSharedSettings;
 
 
 
-- (void)_removeObjectForKey:(id)key {
+- (void)removeObjectForKey:(id)key {
 	[_defaults removeObjectForKey:key];
 }
 
 
 
-#pragma mark -
-
-- (void)_synchronize {
-	NSUserDefaults		*defaults;
-	
-	defaults = [NSUserDefaults standardUserDefaults];
-	
-	if(_identifier) {
-		[defaults removePersistentDomainForName:_identifier];
-		[defaults setPersistentDomain:_defaults forName:_identifier];
-	}
-	
-	[defaults synchronize];
-}
-
-@end
-
-
-
-@implementation WISettings
-
-+ (void)setIdentifier:(NSString *)identifier {
-	WISettings		*settings;
-	
-	if(!WISettingsSharedSettings)
-		WISettingsSharedSettings = [[NSMutableDictionary alloc] init];
-	
-	settings = [[self alloc] _initWithIdentifier:identifier];
-	[WISettingsSharedSettings setObject:settings forKey:self];
-	[settings release];
+- (void)setString:(NSString *)object forKey:(id)key {
+	[self setObject:object forKey:key];
 }
 
 
 
-+ (NSString *)identifier {
-	return [[WISettingsSharedSettings objectForKey:self] _identifier];
+- (NSString *)stringForKey:(id)key {
+	return [self objectForKey:key];
 }
 
 
 
-#pragma mark -
-
-+ (NSDictionary *)defaults {
-	return [NSDictionary dictionary];
+- (void)setBool:(BOOL)value forKey:(id)key {
+	[self setObject:[NSNumber numberWithBool:value] forKey:key];
 }
 
 
 
-#pragma mark -
-
-+ (void)synchronize {
-	[[self _settings] _synchronize];
+- (BOOL)boolForKey:(id)key {
+	return [[self objectForKey:key] boolValue];
 }
 
 
 
-#pragma mark -
-
-- (void)dealloc {
-	[_identifier release];
-	[_defaultValues release];
-	
-	[super dealloc];
+- (void)setInt:(int)value forKey:(id)key {
+	[self setObject:[NSNumber numberWithInt:value] forKey:key];
 }
 
 
 
-#pragma mark -
-
-+ (void)setObject:(id)object forKey:(id)key {
-	[[self _settings] _setObject:object forKey:key];
+- (int)intForKey:(id)key {
+	return [[self objectForKey:key] intValue];
 }
 
 
 
-+ (id)objectForKey:(id)key {
-	return [[self _settings] _objectForKey:key];
+- (void)setInteger:(NSInteger)value forKey:(id)key {
+	[self setObject:[NSNumber numberWithInteger:value] forKey:key];
 }
 
 
 
-+ (void)removeObjectForKey:(id)key {
-	[[self _settings] _removeObjectForKey:key];
+- (NSInteger)integerForKey:(id)key {
+	return [[self objectForKey:key] integerValue];
 }
 
 
 
-+ (void)setString:(NSString *)object forKey:(id)key {
-	[[self _settings] _setObject:object forKey:key];
+- (void)setFloat:(float)value forKey:(id)key {
+	[self setObject:[NSNumber numberWithFloat:value] forKey:key];
 }
 
 
 
-+ (NSString *)stringForKey:(id)key {
-	return [[self _settings] _objectForKey:key];
+- (float)floatForKey:(id)key {
+	return [[self objectForKey:key] floatValue];
 }
 
 
 
-+ (void)setBool:(BOOL)value forKey:(id)key {
-	[[self _settings] _setObject:[NSNumber numberWithBool:value] forKey:key];
+- (void)setDouble:(double)value forKey:(id)key {
+	[self setObject:[NSNumber numberWithDouble:value] forKey:key];
 }
 
 
 
-+ (BOOL)boolForKey:(id)key {
-	return [[[self _settings] _objectForKey:key] boolValue];
-}
-
-
-
-+ (void)setInt:(int)value forKey:(id)key {
-	[[self _settings] _setObject:[NSNumber numberWithInt:value] forKey:key];
-}
-
-
-
-+ (int)intForKey:(id)key {
-	return [[[self _settings] _objectForKey:key] intValue];
-}
-
-
-
-+ (void)setInteger:(NSInteger)value forKey:(id)key {
-	[[self _settings] _setObject:[NSNumber numberWithInteger:value] forKey:key];
-}
-
-
-
-+ (NSInteger)integerForKey:(id)key {
-	return [[[self _settings] _objectForKey:key] integerValue];
-}
-
-
-
-+ (void)setFloat:(float)value forKey:(id)key {
-	[[self _settings] _setObject:[NSNumber numberWithFloat:value] forKey:key];
-}
-
-
-
-+ (float)floatForKey:(id)key {
-	return [[[self _settings] _objectForKey:key] floatValue];
-}
-
-
-
-+ (void)setDouble:(double)value forKey:(id)key {
-	[[self _settings] _setObject:[NSNumber numberWithDouble:value] forKey:key];
-}
-
-
-
-+ (double)doubleForKey:(id)key {
-	return [[[self _settings] _objectForKey:key] doubleValue];
+- (double)doubleForKey:(id)key {
+	return [[self objectForKey:key] doubleValue];
 }
 
 
 
 #pragma mark -
 
-+ (void)addObject:(id)object toArrayForKey:(id)arrayKey {
+- (void)addObject:(id)object toArrayForKey:(id)arrayKey {
 	NSMutableArray		*array;
 	
 	array = [[[self objectForKey:arrayKey] mutableCopy] autorelease];
@@ -297,7 +239,7 @@ static NSMutableDictionary		*WISettingsSharedSettings;
 
 
 
-+ (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object inArrayForKey:(id)arrayKey {
+- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object inArrayForKey:(id)arrayKey {
 	NSMutableArray		*array;
 	
 	array = [[[self objectForKey:arrayKey] mutableCopy] autorelease];
@@ -307,7 +249,7 @@ static NSMutableDictionary		*WISettingsSharedSettings;
 
 
 
-+ (void)removeObjectAtIndex:(NSUInteger)index fromArrayForKey:(id)arrayKey {
+- (void)removeObjectAtIndex:(NSUInteger)index fromArrayForKey:(id)arrayKey {
 	NSMutableArray		*array;
 	
 	array = [[[self objectForKey:arrayKey] mutableCopy] autorelease];
@@ -319,7 +261,7 @@ static NSMutableDictionary		*WISettingsSharedSettings;
 
 #pragma mark -
 
-+ (void)setObject:(id)object forKey:(id)key inDictionaryForKey:(id)dictionaryKey {
+- (void)setObject:(id)object forKey:(id)key inDictionaryForKey:(id)dictionaryKey {
 	NSMutableDictionary		*dictionary;
 	
 	dictionary = [[[self objectForKey:dictionaryKey] mutableCopy] autorelease];
@@ -329,7 +271,7 @@ static NSMutableDictionary		*WISettingsSharedSettings;
 
 
 
-+ (void)removeObjectForKey:(id)key inDictionaryForKey:(id)dictionaryKey {
+- (void)removeObjectForKey:(id)key inDictionaryForKey:(id)dictionaryKey {
 	NSMutableDictionary		*dictionary;
 	
 	dictionary = [[[self objectForKey:dictionaryKey] mutableCopy] autorelease];

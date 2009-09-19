@@ -32,34 +32,34 @@
 	NSDictionary					*_defaultValues;
 }
 
-+ (void)setIdentifier:(NSString *)identifier;
-+ (NSString *)identifier;
++ (id)settings;
++ (id)settingsWithIdentifier:(NSString *)identifier;
 
-+ (NSDictionary *)defaults;
+- (NSDictionary *)defaults;
 
-+ (void)synchronize;
+- (BOOL)synchronize;
 
-+ (void)setObject:(id)object forKey:(id)key;
-+ (id)objectForKey:(id)key;
-+ (void)removeObjectForKey:(id)key;
-+ (void)setString:(NSString *)string forKey:(id)key;
-+ (NSString *)stringForKey:(id)key;
-+ (void)setBool:(BOOL)value forKey:(id)key;
-+ (BOOL)boolForKey:(id)key;
-+ (void)setInt:(int)value forKey:(id)key;
-+ (int)intForKey:(id)key;
-+ (void)setInteger:(NSInteger)value forKey:(id)key;
-+ (NSInteger)integerForKey:(id)key;
-+ (void)setFloat:(float)value forKey:(id)key;
-+ (float)floatForKey:(id)key;
-+ (void)setDouble:(double)value forKey:(id)key;
-+ (double)doubleForKey:(id)key;
+- (void)setObject:(id)object forKey:(id)key;
+- (id)objectForKey:(id)key;
+- (void)removeObjectForKey:(id)key;
+- (void)setString:(NSString *)string forKey:(id)key;
+- (NSString *)stringForKey:(id)key;
+- (void)setBool:(BOOL)value forKey:(id)key;
+- (BOOL)boolForKey:(id)key;
+- (void)setInt:(int)value forKey:(id)key;
+- (int)intForKey:(id)key;
+- (void)setInteger:(NSInteger)value forKey:(id)key;
+- (NSInteger)integerForKey:(id)key;
+- (void)setFloat:(float)value forKey:(id)key;
+- (float)floatForKey:(id)key;
+- (void)setDouble:(double)value forKey:(id)key;
+- (double)doubleForKey:(id)key;
 
-+ (void)addObject:(id)object toArrayForKey:(id)arrayKey;
-+ (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object inArrayForKey:(id)arrayKey;
-+ (void)removeObjectAtIndex:(NSUInteger)index fromArrayForKey:(id)arrayKey;
+- (void)addObject:(id)object toArrayForKey:(id)arrayKey;
+- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object inArrayForKey:(id)arrayKey;
+- (void)removeObjectAtIndex:(NSUInteger)index fromArrayForKey:(id)arrayKey;
 
-+ (void)setObject:(id)object forKey:(id)key inDictionaryForKey:(id)dictionaryKey;
-+ (void)removeObjectForKey:(id)key inDictionaryForKey:(id)dictionaryKey;
+- (void)setObject:(id)object forKey:(id)key inDictionaryForKey:(id)dictionaryKey;
+- (void)removeObjectForKey:(id)key inDictionaryForKey:(id)dictionaryKey;
 
 @end
