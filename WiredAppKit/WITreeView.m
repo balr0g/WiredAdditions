@@ -563,45 +563,53 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 #pragma mark -
 
 - (void)selectPath:(NSString *)path {
-	NSTableView		*tableView;
+	NSTableView		*tableView, *selectedTableView;
 	NSArray			*components, *rootComponents;
 	NSString		*rootPath, *partialPath, *component, *name;
-	NSUInteger		i, j, count, fileCount;
+	NSUInteger		i, j, viewCount, componentCount, fileCount;
 	
 	if([_views count] == 0)
 		return;
 
-	rootPath		= [self rootPath];
-	rootComponents	= [rootPath pathComponents];
-	partialPath		= rootPath;
-	components		= [[path pathComponents] subarrayFromIndex:[rootComponents count]];
-	tableView		= [_views objectAtIndex:0];
-	count			= [components count];
+	rootPath			= [self rootPath];
+	rootComponents		= [rootPath pathComponents];
+	partialPath			= rootPath;
+	components			= [[path pathComponents] subarrayFromIndex:[rootComponents count]];
+	tableView			= [_views objectAtIndex:0];
+	selectedTableView	= NULL;
+	viewCount			= [_views count];
+	componentCount		= [components count];
 	
-	for(i = 0; i < count; i++) {
-		if(i >= [_views count])
-			break;
-		
-		component	= [components objectAtIndex:i];
-		tableView	= [_views objectAtIndex:i];
-		fileCount	= [[self delegate] treeView:self numberOfItemsForPath:partialPath];
-		
-		for(j = 0; j < fileCount; j++) {
-			name = [[self delegate] treeView:self nameForRow:j inPath:partialPath];
+	for(i = 0; i < viewCount; i++) {
+		tableView = [_views objectAtIndex:i];
+
+		if(i < componentCount) {
+			component = [components objectAtIndex:i];
+			fileCount = [[self delegate] treeView:self numberOfItemsForPath:partialPath];
 			
-			if([component isEqualToString:name]) {
-				[tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:j] byExtendingSelection:NO];
+			for(j = 0; j < fileCount; j++) {
+				name = [[self delegate] treeView:self nameForRow:j inPath:partialPath];
 				
-				break;
+				if([component isEqualToString:name]) {
+					[tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:j] byExtendingSelection:NO];
+					
+					selectedTableView = tableView;
+					break;
+				}
 			}
+			
+			partialPath = [partialPath stringByAppendingPathComponent:component];
+		} else {
+			[tableView deselectAll:self];
 		}
-		
-		partialPath = [partialPath stringByAppendingPathComponent:[components objectAtIndex:i]];
+			
 	}
 	
-	[[self window] makeFirstResponder:tableView];
-
-	[self scrollPoint:NSMakePoint([self _widthOfTableViews:[_views indexOfObject:tableView]], 0.0)];
+	if(selectedTableView) {
+		[[self window] makeFirstResponder:selectedTableView];
+		
+		[self scrollPoint:NSMakePoint([self _widthOfTableViews:[_views indexOfObject:selectedTableView]], 0.0)];
+	}
 }
 
 
