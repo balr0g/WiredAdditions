@@ -649,16 +649,26 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 - (NSRect)frameOfRow:(NSInteger)row inPath:(NSString *)path {
 	NSTableView		*tableView;
-	NSUInteger		count;
+	NSRect			frame;
+	NSUInteger		i, count;
 	
-	count = [[path pathComponents] count];
+	for(i = 0; i < count; i++) {
+		tableView = [_views objectAtIndex:i];
+		
+		if([[self _pathForTableView:tableView] isEqualToString:path]) {
+			frame = [tableView frameOfCellAtColumn:0 row:row];
+			
+			if(i > 2)
+				frame.origin.x += [self _widthOfTableViews:i - 2];
+			
+			frame.origin.x -= 140.0;
+			frame.origin.y += 40.0;
+
+			return [tableView convertRect:frame toView:NULL];
+		}
+	}
 	
-	if(count < 2 || count > [_views count])
-		return NSZeroRect;
-	
-	tableView = [_views objectAtIndex:count - 2];
-	
-	return [tableView frameOfCellAtColumn:0 row:row];
+	return NSZeroRect;
 }
 
 
@@ -1105,22 +1115,6 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 
 #pragma mark -
-
-- (NSRect)convertRect:(NSRect)rect toView:(NSView *)view {
-	NSEnumerator		*enumerator;
-	NSTableView			*tableView;
-	
-	enumerator = [_views objectEnumerator];
-	
-	while((tableView = [enumerator nextObject])) {
-		if(NSPointInRect(rect.origin, [tableView frame]))
-			return [tableView convertRect:rect toView:view];
-	}
-	
-	return [super convertRect:rect toView:view];
-}
-
-
 
 - (void)drawRect:(NSRect)rect {
 	[[NSColor whiteColor] set];
