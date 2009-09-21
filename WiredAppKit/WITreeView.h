@@ -83,7 +83,7 @@ extern NSString * const WIFileModificationDate;
 - (NSString *)selectedPath;
 - (NSArray *)selectedPaths;
 
-- (void)selectPath:(NSString *)path;
+- (void)selectPath:(NSString *)path byExtendingSelection:(BOOL)byExtendingSelection;
 - (void)selectRowIndexes:(NSIndexSet *)indexes byExtendingSelection:(BOOL)extendingSelection;
 
 - (NSRect)frameOfRow:(NSInteger)row inPath:(NSString *)path;

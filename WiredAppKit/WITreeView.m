@@ -274,8 +274,6 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	
 	_path = path;
 	
-	[self reloadData];
-	
 	if(!_inChangedPath) {
 		_inChangedPath = YES;
 		[[self delegate] treeView:self changedPath:_path];
@@ -455,6 +453,8 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	_rootPath = rootPath;
 	
 	[self _setPath:rootPath];
+	
+	[self reloadData];
 }
 
 
@@ -529,29 +529,36 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 
 - (NSArray *)selectedPaths {
+	NSTableView			*tableView, *lastSelectedTableView;
 	NSMutableArray		*paths;
 	NSIndexSet			*indexes;
 	NSString			*path, *name;
-	id					responder;
-	NSUInteger			index;
+	NSUInteger			i, index, count;
 	
-	paths		= [NSMutableArray array];
-	responder	= [[self window] firstResponder];
+	lastSelectedTableView	= NULL;
+	paths					= [NSMutableArray array];
+	count					= [_views count];
 	
-	if([responder isKindOfClass:[NSTableView class]]) {
-		path = [self _pathForTableView:responder];
+	for(i = 0; i < count; i++) {
+		tableView = [_views objectAtIndex:i];
 		
-		if(path) {
-			indexes		= [responder selectedRowIndexes];
-			index		= [indexes firstIndex];
+		if([[tableView selectedRowIndexes] firstIndex] != NSNotFound && [self _pathForTableView:tableView])
+			lastSelectedTableView = tableView;
+		else
+			break;
+	}
+	
+	if(lastSelectedTableView) {
+		path		= [self _pathForTableView:lastSelectedTableView];
+		indexes		= [lastSelectedTableView selectedRowIndexes];
+		index		= [indexes firstIndex];
+		
+		while(index != NSNotFound) {
+			name = [[self dataSource] treeView:self nameForRow:index inPath:path];
 			
-			while(index != NSNotFound) {
-				name = [[self dataSource] treeView:self nameForRow:index inPath:path];
-				
-				[paths addObject:[path stringByAppendingPathComponent:name]];
-				
-				index = [indexes indexGreaterThanIndex:index];
-			}
+			[paths addObject:[path stringByAppendingPathComponent:name]];
+			
+			index = [indexes indexGreaterThanIndex:index];
 		}
 	}
 	
@@ -562,7 +569,7 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 #pragma mark -
 
-- (void)selectPath:(NSString *)path {
+- (void)selectPath:(NSString *)path byExtendingSelection:(BOOL)byExtendingSelection {
 	NSTableView		*tableView, *selectedTableView;
 	NSArray			*components, *rootComponents;
 	NSString		*rootPath, *partialPath, *component, *name;
@@ -591,7 +598,8 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 				name = [[self delegate] treeView:self nameForRow:j inPath:partialPath];
 				
 				if([component isEqualToString:name]) {
-					[tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:j] byExtendingSelection:NO];
+					[tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:j]
+						   byExtendingSelection:byExtendingSelection];
 					
 					selectedTableView = tableView;
 					break;
@@ -652,8 +660,6 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	_reloadingData = YES;
 	[_views makeObjectsPerformSelector:@selector(reloadData)];
 	_reloadingData = NO;
-	
-	[self selectPath:[self _path]];
 }
 
 
@@ -880,7 +886,9 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 			[self _addTableView];
 	}
 	
-	[[self _tableViewsAheadOfTableView:tableView] makeObjectsPerformSelector:@selector(deselectAll:) withObject:self];
+	[[self _tableViewsAheadOfTableView:tableView]
+		makeObjectsPerformSelector:@selector(deselectAll:)
+						withObject:self];
 	
 	[self _setPath:path];
 	[self _sizeToFit];
