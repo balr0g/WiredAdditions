@@ -382,6 +382,15 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	return [_views subarrayWithRange:NSMakeRange(index + 1, [_views count] - index - 1)];
 }
 
+
+
+#pragma mark -
+
+- (void)_WI_viewFrameDidChangeNotification:(NSNotification *)notification {
+	[self _sizeToFit];
+	[self _resizeDetailView];
+}
+
 @end
 
 
@@ -666,15 +675,6 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 #pragma mark -
 
-- (void)_WI_viewFrameDidChangeNotification:(NSNotification *)notification {
-	[self _sizeToFit];
-	[self _resizeDetailView];
-}
-
-
-
-#pragma mark -
-
 - (void)keyDown:(NSEvent *)event {
 	NSString		*path, *name;
 	NSTableView		*tableView;
@@ -726,8 +726,6 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 						
 						if(index > 0) {
 							tableView = [_views objectAtIndex:index - 1];
-							
-							[[self window] makeFirstResponder:tableView];
 
 							if([[responder selectedRowIndexes] count] > 1)
 								path = [self _path];
@@ -735,6 +733,12 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 								path = [[self _path] stringByDeletingLastPathComponent];
 							
 							[self _setPath:path];
+							
+							[[self window] makeFirstResponder:tableView];
+							
+							[[self _tableViewsAheadOfTableView:tableView]
+								makeObjectsPerformSelector:@selector(deselectAll:)
+												withObject:self];
 
 							handled = YES;
 						}
