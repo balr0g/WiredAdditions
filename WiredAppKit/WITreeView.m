@@ -791,6 +791,12 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 
 - (void)tableViewSingleClick:(id)sender {
+	if([sender isKindOfClass:[NSTableView class]]) {
+		[[self _tableViewsAheadOfTableView:sender]
+			makeObjectsPerformSelector:@selector(deselectAll:)
+							withObject:self];
+	}
+	
 	if([self action])
 		[[self target] performSelector:[self action] withObject:self];
 }
