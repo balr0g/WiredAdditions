@@ -652,6 +652,8 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	NSRect			frame;
 	NSUInteger		i, count;
 	
+	count = [_views count];
+	
 	for(i = 0; i < count; i++) {
 		tableView = [_views objectAtIndex:i];
 		
