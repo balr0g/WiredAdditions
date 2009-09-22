@@ -93,7 +93,7 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 			   name:NSViewFrameDidChangeNotification
 			 object:self];
 	
-	[self setRootPath:@"/"];
+	[self _setPath:@"/"];
 	
 	[self _addTableView];
 	[self _addTableView];
@@ -294,7 +294,7 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 
 - (NSUInteger)_numberOfUsedPathComponents {
-	return [[[self _path] pathComponents] count] - [[[self rootPath] pathComponents] count];
+	return [[[self _path] pathComponents] count] - 1;
 }
 
 
@@ -351,7 +351,7 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 - (NSString *)_pathForTableView:(NSTableView *)tableView {
 	NSArray			*components;
 	NSString		*path;
-	NSUInteger		index, count;
+	NSUInteger		index;
 	
 	index = [_views indexOfObject:tableView];
 	
@@ -359,15 +359,14 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 		return NULL;
 	
 	if(index == 0) {
-		path = [self rootPath];
+		path = @"/";
 	} else {
 		components = [[self _path] pathComponents];
-		count = [[[self rootPath] pathComponents] count];
 		
-		if(index + count > [components count])
+		if(index + 1 > [components count])
 			return NULL;
 		
-		path = [NSString pathWithComponents:[components subarrayToIndex:index + count]];
+		path = [NSString pathWithComponents:[components subarrayToIndex:index + 1]];
 	}
 	
 	return path;
@@ -473,25 +472,6 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 - (id)dataSource {
 	return dataSource;
-}
-
-
-
-- (void)setRootPath:(NSString *)rootPath {
-	[rootPath retain];
-	[_rootPath release];
-	
-	_rootPath = rootPath;
-	
-	[self _setPath:rootPath];
-	
-	[self reloadData];
-}
-
-
-
-- (NSString *)rootPath {
-	return _rootPath;
 }
 
 
@@ -602,17 +582,15 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 - (void)selectPath:(NSString *)path byExtendingSelection:(BOOL)byExtendingSelection {
 	NSTableView		*tableView, *selectedTableView;
-	NSArray			*components, *rootComponents;
-	NSString		*rootPath, *partialPath, *component, *name;
+	NSArray			*components;
+	NSString		*partialPath, *component, *name;
 	NSUInteger		i, j, viewCount, componentCount, fileCount;
 	
 	if([_views count] == 0)
 		return;
 
-	rootPath			= [self rootPath];
-	rootComponents		= [rootPath pathComponents];
-	partialPath			= rootPath;
-	components			= [[path pathComponents] subarrayFromIndex:[rootComponents count]];
+	partialPath			= @"/";
+	components			= [[path pathComponents] subarrayFromIndex:1];
 	tableView			= [_views objectAtIndex:0];
 	selectedTableView	= NULL;
 	viewCount			= [_views count];

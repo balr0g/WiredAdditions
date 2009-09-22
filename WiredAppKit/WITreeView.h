@@ -49,7 +49,6 @@ extern NSString * const WIFileModificationDate;
 	
 	id								_target;
 	NSMutableArray					*_views;
-	NSString						*_rootPath;
 	NSString						*_path;
 	SEL								_doubleAction;
 	SEL								_spaceAction;
@@ -76,8 +75,6 @@ extern NSString * const WIFileModificationDate;
 - (id)delegate;
 - (void)setDataSource:(id)dataSource;
 - (id)dataSource;
-- (void)setRootPath:(NSString *)path;
-- (NSString *)rootPath;
 - (void)setDoubleAction:(SEL)doubleAction;
 - (SEL)doubleAction;
 - (void)setSpaceAction:(SEL)spaceAction;
