@@ -157,7 +157,7 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 
 - (void)_scrollToIndex:(NSUInteger)index {
-	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(_scrollToSelectionAnimated) object:NULL];
+	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(_scrollForwardToSelectionAnimated) object:NULL];
 	
 	_scrollingPoint = NSMakePoint([self _widthOfTableViews:index], 0.0);
 	
@@ -167,7 +167,7 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 
 - (void)_scrollToSelection {
-	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(_scrollToSelectionAnimated) object:NULL];
+	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(_scrollForwardToSelectionAnimated) object:NULL];
 	
 	_scrollingPoint = NSMakePoint([self frame].size.width, 0.0);
 	
@@ -714,18 +714,20 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 						tableView = [_views objectAtIndex:index + 1];
 
 						if([[self dataSource] treeView:self numberOfItemsForPath:path] > 0) {
-							if([tableView selectedRow] == -1)
-								[tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
-							
-							if([tableView selectedRow] >= 0) {
-								[[self window] makeFirstResponder:tableView];
-								
-								name = [[self dataSource] treeView:self nameForRow:[tableView selectedRow] inPath:path];
-								
-								[self _setPath:[path stringByAppendingPathComponent:name]];
-								
-								handled = YES;
+							if([tableView selectedRow] == -1) {
+								[tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0]
+									   byExtendingSelection:NO];
 							}
+							
+							[[self window] makeFirstResponder:tableView];
+							
+							name = [[self dataSource] treeView:self nameForRow:[tableView selectedRow] inPath:path];
+							
+							[self _setPath:[path stringByAppendingPathComponent:name]];
+							
+							[tableView scrollRowToVisible:0];
+						
+							handled = YES;
 						}
 					} else {
 						index = [_views indexOfObject:responder];
