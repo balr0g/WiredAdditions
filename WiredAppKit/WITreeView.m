@@ -660,12 +660,6 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 		if([[self _pathForTableView:tableView] isEqualToString:path]) {
 			frame = [tableView frameOfCellAtColumn:0 row:row];
 			
-			if(i > 2)
-				frame.origin.x += [self _widthOfTableViews:i - 2];
-			
-			frame.origin.x -= 140.0;
-			frame.origin.y += 40.0;
-
 			return [tableView convertRect:frame toView:NULL];
 		}
 	}
