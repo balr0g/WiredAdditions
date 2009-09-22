@@ -884,6 +884,8 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	NSIndexSet		*indexes;
 	NSUInteger		index;
 	
+	[self _hideDetailView];
+	
 	if(_selectingProgrammatically || _reloadingData || _inChangedSelection)
 		return;
 	
@@ -916,8 +918,6 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	
 	if(![[self dataSource] treeView:self isPathExpandable:path] && [indexes count] == 1)
 		[self _showDetailViewForPath:path];
-	else
-		[self _hideDetailView];
 	
 	_inChangedSelection = NO;
 }
