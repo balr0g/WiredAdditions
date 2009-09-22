@@ -232,6 +232,10 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	else
 		[_modifiedTextField setStringValue:@""];
 	
+	[_moreInfoButton setHidden:![[self delegate] respondsToSelector:@selector(treeView:showMoreInfoForPath:)]];
+	
+	[self validate];
+
 	if(![_detailView superview])
 		[self addSubview:_detailView];
 }
@@ -424,6 +428,24 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	[_dateFormatter release];
 	
 	[super dealloc];
+}
+
+
+
+#pragma mark -
+
+- (IBAction)moreInfo:(id)sender {
+	[[self delegate] treeView:self showMoreInfoForPath:[self _path]];
+}
+
+
+
+#pragma mark -
+
+- (void)validate {
+	if([[self delegate] respondsToSelector:@selector(treeView:validateMoreInfoButtonForPath:)])
+		[_moreInfoButton setEnabled:[[self delegate] treeView:self validateMoreInfoButtonForPath:[self _path]]];
+	
 }
 
 

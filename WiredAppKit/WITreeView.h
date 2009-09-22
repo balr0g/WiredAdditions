@@ -42,6 +42,7 @@ extern NSString * const WIFileModificationDate;
 	IBOutlet NSTextField			*_sizeTextField;
 	IBOutlet NSTextField			*_createdTextField;
 	IBOutlet NSTextField			*_modifiedTextField;
+	IBOutlet NSButton				*_moreInfoButton;
 
 	id								delegate;
 	id								dataSource;
@@ -66,6 +67,10 @@ extern NSString * const WIFileModificationDate;
 	BOOL							_inChangedPath;
 	BOOL							_inChangedSelection;
 }
+
+- (IBAction)moreInfo:(id)sender;
+
+- (void)validate;
 
 - (void)setDelegate:(id)delegate;
 - (id)delegate;
@@ -116,5 +121,8 @@ extern NSString * const WIFileModificationDate;
 - (NSArray *)treeView:(WITreeView *)treeView namesOfPromisedFilesDroppedAtDestination:(NSURL *)destination forDraggedPaths:(NSArray *)paths;
 
 - (void)treeViewShouldCopyInfo:(WITreeView *)treeView;
+
+- (BOOL)treeView:(WITreeView *)tree validateMoreInfoButtonForPath:(NSString *)path;
+- (void)treeView:(WITreeView *)tree showMoreInfoForPath:(NSString *)path;
 
 @end
