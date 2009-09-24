@@ -36,12 +36,7 @@ extern NSString * const WIFileModificationDate;
 @interface WITreeView : NSControl {
 	IBOutlet NSView					*_detailView;
 	IBOutlet NSImageView			*_iconImageView;
-	IBOutlet NSView					*_attributesView;
-	IBOutlet NSTextField			*_nameTextField;
-	IBOutlet NSTextField			*_kindTextField;
-	IBOutlet NSTextField			*_sizeTextField;
-	IBOutlet NSTextField			*_createdTextField;
-	IBOutlet NSTextField			*_modifiedTextField;
+	IBOutlet WebView				*_attributesWebView;
 	IBOutlet NSButton				*_moreInfoButton;
 
 	id								delegate;
@@ -60,6 +55,8 @@ extern NSString * const WIFileModificationDate;
 	
 	NSTimer							*_scrollingTimer;
 	NSPoint							_scrollingPoint;
+	
+	NSString						*_detailTemplate;
 	
 	BOOL							_selectingProgrammatically;
 	BOOL							_reloadingData;

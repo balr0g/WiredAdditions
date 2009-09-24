@@ -29,6 +29,7 @@
 // --- Frameworks
 #import <Carbon/Carbon.h>
 #import <Cocoa/Cocoa.h>
+#import <WebKit/WebKit.h>
 #import <WiredFoundation/WiredFoundation.h>
 #import <ExceptionHandling/NSExceptionHandler.h>
 

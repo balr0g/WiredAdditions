@@ -57,6 +57,7 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 - (void)_scrollForwardToSelectionAnimated;
 
 - (void)_showDetailViewForPath:(NSString *)path;
+- (NSString *)_HTMLStringForPath:(NSString *)path attributes:(NSDictionary *)attributes;
 - (void)_hideDetailView;
 - (void)_resizeDetailView;
 
@@ -85,6 +86,10 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	
 	[NSBundle loadNibNamed:@"TreeDetail" owner:self];
 	
+	_detailTemplate = [[NSString alloc] initWithContentsOfFile:[[self bundle] pathForResource:@"TreeDetail" ofType:@"html"]
+													  encoding:NSUTF8StringEncoding
+														 error:NULL];
+
 	[self setPostsFrameChangedNotifications:YES];
 	
 	[[NSNotificationCenter defaultCenter]
@@ -197,7 +202,6 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 - (void)_showDetailViewForPath:(NSString *)path {
 	NSDictionary	*attributes;
 	NSImage			*icon;
-	id				value;
 	
 	attributes = [[self delegate] treeView:self attributesForPath:path];
 	
@@ -213,24 +217,7 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	[icon setSize:NSMakeSize(128.0, 128.0)];
 	[_iconImageView setImage:icon];
 	
-	[_nameTextField setStringValue:[path lastPathComponent]];
-	
-	if((value = [attributes objectForKey:WIFileKind]))
-		[_kindTextField setStringValue:value];
-	else
-		[_kindTextField setStringValue:@""];
-	
-	[_sizeTextField setStringValue:[NSString humanReadableStringForSizeInBytes:[[attributes objectForKey:WIFileSize] unsignedLongLongValue]]];
-
-	if((value = [attributes objectForKey:WIFileCreationDate]))
-		[_createdTextField setStringValue:[_dateFormatter stringFromDate:value]];
-	else
-		[_createdTextField setStringValue:@""];
-		
-	if((value = [attributes objectForKey:WIFileModificationDate]))
-		[_modifiedTextField setStringValue:[_dateFormatter stringFromDate:value]];
-	else
-		[_modifiedTextField setStringValue:@""];
+	[[_attributesWebView mainFrame] loadHTMLString:[self _HTMLStringForPath:path attributes:attributes] baseURL:NULL];
 	
 	[_moreInfoButton setHidden:![[self delegate] respondsToSelector:@selector(treeView:showMoreInfoForPath:)]];
 	
@@ -242,6 +229,41 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 
 
+- (NSString *)_HTMLStringForPath:(NSString *)path attributes:(NSDictionary *)attributes {
+	NSMutableString		*string;
+	id					value;
+	
+	string = [[_detailTemplate mutableCopy] autorelease];
+	
+	[string replaceOccurrencesOfString:@"<? namelabel ?>" withString:WILS(@"Name:", @"Tree detail attribute label")];
+	[string replaceOccurrencesOfString:@"<? kindlabel ?>" withString:WILS(@"Kind:", @"Tree detail attribute label")];
+	[string replaceOccurrencesOfString:@"<? sizelabel ?>" withString:WILS(@"Size:", @"Tree detail attribute label")];
+	[string replaceOccurrencesOfString:@"<? createdlabel ?>" withString:WILS(@"Created:", @"Tree detail attribute label")];
+	[string replaceOccurrencesOfString:@"<? modifiedlabel ?>" withString:WILS(@"Modified:", @"Tree detail attribute label")];
+	
+	[string replaceOccurrencesOfString:@"<? name ?>" withString:[path lastPathComponent]];
+	
+	value = [attributes objectForKey:WIFileKind];
+
+	[string replaceOccurrencesOfString:@"<? kind ?>" withString:value ? value : @""];
+	
+	value = [NSString humanReadableStringForSizeInBytes:[[attributes objectForKey:WIFileSize] unsignedLongLongValue]];
+
+	[string replaceOccurrencesOfString:@"<? size ?>" withString:value];
+
+	value = [attributes objectForKey:WIFileCreationDate];
+	
+	[string replaceOccurrencesOfString:@"<? created ?>" withString:value ? [_dateFormatter stringFromDate:value] : @""];
+
+	value = [attributes objectForKey:WIFileModificationDate];
+	
+	[string replaceOccurrencesOfString:@"<? modified ?>" withString:value ? [_dateFormatter stringFromDate:value] : @""];
+	
+	return string;
+}
+
+
+
 - (void)_hideDetailView {
 	[_detailView removeFromSuperview];
 }
@@ -249,23 +271,33 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 
 - (void)_resizeDetailView {
-	NSRect		frame, lastScrollViewFrame, viewFrame;
+	id				object;
+	NSRect			frame, lastScrollViewFrame, viewFrame;
+	CGFloat			height;
 	
 	lastScrollViewFrame = [[[_views objectAtIndex:[self _numberOfUsedPathComponents]] enclosingScrollView] frame];
 	
-	frame = [_detailView frame];
-	frame.size.width = lastScrollViewFrame.size.width - [NSScroller scrollerWidth] - 1.0;
-	frame.size.height = lastScrollViewFrame.size.height;
-	frame.origin.x = [self _widthOfTableViews:[self _numberOfUsedPathComponents]];
+	frame				= [_detailView frame];
+	frame.size.width	= lastScrollViewFrame.size.width - [NSScroller scrollerWidth] - 1.0;
+	frame.size.height	= lastScrollViewFrame.size.height;
+	frame.origin.x		= [self _widthOfTableViews:[self _numberOfUsedPathComponents]];
+
 	[_detailView setFrame:frame];
 	
-	viewFrame = [_iconImageView frame];
-	viewFrame.origin.x = (frame.size.width / 2.0) - (viewFrame.size.width / 2.0);
+	viewFrame			= [_iconImageView frame];
+	viewFrame.origin.x	= (frame.size.width / 2.0) - (viewFrame.size.width / 2.0);
+	
 	[_iconImageView setFrame:viewFrame];
 	
-	viewFrame = [_attributesView frame];
-	viewFrame.origin.x = (frame.size.width / 2.0) - (viewFrame.size.width / 2.0);
-	[_attributesView setFrame:viewFrame];
+	object = [[_attributesWebView windowScriptObject] evaluateWebScript:@"document.getElementById(\"detail\").offsetHeight"];
+	
+	if(object != [WebUndefined undefined]) {
+		height				= [object floatValue];
+		viewFrame			= [_moreInfoButton frame];
+		viewFrame.origin.y	= [_attributesWebView frame].origin.y + [_attributesWebView frame].size.height - height - 40.0;
+	
+		[_moreInfoButton setFrame:viewFrame];
+	}
 }
 
 
@@ -425,6 +457,7 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	[_path release];
 	[_detailView release];
 	[_dateFormatter release];
+	[_detailTemplate release];
 	
 	[super dealloc];
 }
@@ -1108,6 +1141,20 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 			[[self window] setFrame:windowFrame display:YES];
 		}
 	}
+}
+
+
+
+#pragma mark -
+
+- (void)webView:(WebView *)webView didFinishLoadForFrame:(WebFrame *)frame {
+	[self _resizeDetailView];
+}
+
+
+
+- (NSArray *)webView:(WebView *)webView contextMenuItemsForElement:(NSDictionary *)element defaultMenuItems:(NSArray *)defaultMenuItems {
+	return NULL;
 }
 
 
