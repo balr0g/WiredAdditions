@@ -214,6 +214,8 @@
 		77A4CC2810148EA20072F8E5 /* NSLocale-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4CC2610148EA20072F8E5 /* NSLocale-WIFoundation.m */; };
 		77A4CC2910148EA20072F8E5 /* NSLocale-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A4CC2510148EA20072F8E5 /* NSLocale-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77A4CC2A10148EA20072F8E5 /* NSLocale-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4CC2610148EA20072F8E5 /* NSLocale-WIFoundation.m */; };
+		77CA4F4D106ADF7D00A0463B /* TreeDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = 77CA4F4C106ADF7D00A0463B /* TreeDetail.html */; };
+		77CA5179106AF14700A0463B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77CA5178106AF14700A0463B /* WebKit.framework */; };
 		77CE0A6410545C7100E16594 /* wi-speed-calculator.c in Sources */ = {isa = PBXBuildFile; fileRef = 77CE0A6210545C7100E16594 /* wi-speed-calculator.c */; };
 		77CE0A6510545C7100E16594 /* wi-speed-calculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 77CE0A6310545C7100E16594 /* wi-speed-calculator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77D31F7F104C16C2006BF8D5 /* wi-byteorder.c in Sources */ = {isa = PBXBuildFile; fileRef = 77D31F7A104C169C006BF8D5 /* wi-byteorder.c */; };
@@ -582,6 +584,8 @@
 		77B7C4AB0973FF5E009367B0 /* NSApplication-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSApplication-WIAppKit.h"; path = "WiredAppKit/NSApplication-WIAppKit.h"; sourceTree = "<group>"; };
 		77C84DED0B773382000F8478 /* WIDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = WIDateFormatter.m; path = WiredFoundation/WIDateFormatter.m; sourceTree = "<group>"; };
 		77C84DEE0B773382000F8478 /* WIDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = WIDateFormatter.h; path = WiredFoundation/WIDateFormatter.h; sourceTree = "<group>"; };
+		77CA4F4C106ADF7D00A0463B /* TreeDetail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = TreeDetail.html; path = WiredAppKit/TreeDetail.html; sourceTree = "<group>"; };
+		77CA5178106AF14700A0463B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		77CBFEAB0BE0CA62009F6E48 /* NSProcessInfo-WIFoundation.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSProcessInfo-WIFoundation.m"; path = "WiredFoundation/NSProcessInfo-WIFoundation.m"; sourceTree = "<group>"; };
 		77CBFEAC0BE0CA62009F6E48 /* NSProcessInfo-WIFoundation.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSProcessInfo-WIFoundation.h"; path = "WiredFoundation/NSProcessInfo-WIFoundation.h"; sourceTree = "<group>"; };
 		77CE0A6210545C7100E16594 /* wi-speed-calculator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "wi-speed-calculator.c"; path = "libwired/libwired/net/wi-speed-calculator.c"; sourceTree = "<group>"; };
@@ -872,6 +876,7 @@
 				7712BBFA0E5C1964001C4210 /* Cocoa.framework in Frameworks */,
 				7712BBFB0E5C1964001C4210 /* ExceptionHandling.framework in Frameworks */,
 				7712BBFC0E5C1964001C4210 /* Quartz.framework in Frameworks */,
+				77CA5179106AF14700A0463B /* WebKit.framework in Frameworks */,
 				7712BDC30E5C205C001C4210 /* WiredFoundation.framework in Frameworks */,
 				7712BBFD0E5C1964001C4210 /* libcrypto.dylib in Frameworks */,
 			);
@@ -950,6 +955,7 @@
 				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
 				7724739909DD82E30010335B /* ExceptionHandling.framework */,
 				A5604A050D4069060080EA07 /* Quartz.framework */,
+				77CA5178106AF14700A0463B /* WebKit.framework */,
 				A565B3B00D5D99BC00AF91BA /* libcrypto.dylib */,
 				77D339D0104DCFED006BF8D5 /* libicucore.dylib */,
 				A565B3B10D5D99BC00AF91BA /* libssl.dylib */,
@@ -1032,6 +1038,7 @@
 				7770104F105AA6D30088F15F /* ReleaseNotes.xib */,
 				77701071105AA76A0088F15F /* TreeDetail.xib */,
 				77701080105AA7CA0088F15F /* ViewOptions.xib */,
+				77CA4F4C106ADF7D00A0463B /* TreeDetail.html */,
 				7712BD1B0E5C1DB7001C4210 /* NSImage-Baaadge.tiff */,
 				7712BD1C0E5C1DB7001C4210 /* NSImage-Baadge.tiff */,
 				7712BD1D0E5C1DB7001C4210 /* NSImage-Badge.tiff */,
@@ -1862,6 +1869,7 @@
 				77701051105AA6D30088F15F /* ReleaseNotes.xib in Resources */,
 				77701073105AA76A0088F15F /* TreeDetail.xib in Resources */,
 				77701082105AA7CA0088F15F /* ViewOptions.xib in Resources */,
+				77CA4F4D106ADF7D00A0463B /* TreeDetail.html in Resources */,
 				7712BD1E0E5C1DB7001C4210 /* NSImage-Baaadge.tiff in Resources */,
 				7712BD1F0E5C1DB7001C4210 /* NSImage-Baadge.tiff in Resources */,
 				7712BD200E5C1DB7001C4210 /* NSImage-Badge.tiff in Resources */,
