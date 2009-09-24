@@ -370,16 +370,16 @@ static void _WITableViewManagerShader(void *info, const CGFloat *in, CGFloat *ou
 	count = [tableColumns count] - 1;
 	
 	for(i = 0; i < count; i++)
-		width += [[tableColumns objectAtIndex:i] width];
+		width += [(NSTableColumn *) [tableColumns objectAtIndex:i] width];
 	
 	scrollView = [_tableView enclosingScrollView];
 	size = [scrollView contentSize];
 	
 	if(width >= size.width - 50.0) {
-		width = [[tableColumns objectAtIndex:count - 1] width] / 2.0;
+		width = [(NSTableColumn *) [tableColumns objectAtIndex:count - 1] width] / 2.0;
 
-		[[tableColumns objectAtIndex:count - 1] setWidth:width];
-		[[tableColumns objectAtIndex:count] setWidth:width];
+		[(NSTableColumn *) [tableColumns objectAtIndex:count - 1] setWidth:width];
+		[(NSTableColumn *) [tableColumns objectAtIndex:count] setWidth:width];
 	}
 }
 
