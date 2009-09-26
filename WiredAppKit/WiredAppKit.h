@@ -52,6 +52,7 @@
 #import <WiredAppKit/WITreeScroller.h>
 #import <WiredAppKit/WITreeTableView.h>
 #import <WiredAppKit/WITreeView.h>
+#import <WiredAppKit/WIUnclickableProgressIndicator.h>
 #import <WiredAppKit/WIWindow.h>
 #import <WiredAppKit/WIWindowController.h>
 

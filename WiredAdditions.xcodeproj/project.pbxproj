@@ -294,6 +294,8 @@
 		77DBEBC60E62B9EF00B738D3 /* WIP7Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = A565B3CB0D5D9E9100AF91BA /* WIP7Spec.m */; };
 		77DBEBC70E62B9EF00B738D3 /* WISocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 77489B650CC8ACCE00E95A83 /* WISocket.m */; };
 		77DBEBC80E62B9EF00B738D3 /* WIThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 77489B610CC8ACCE00E95A83 /* WIThread.m */; };
+		77EF365E106E55DC00883C96 /* WIUnclickableProgressIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 77EF365C106E55DC00883C96 /* WIUnclickableProgressIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77EF365F106E55DC00883C96 /* WIUnclickableProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EF365D106E55DC00883C96 /* WIUnclickableProgressIndicator.m */; };
 		A53F8FC40E60844C00D7E426 /* WIExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 77246ED509DD7D230010335B /* WIExceptionHandler.m */; };
 		A53F8FC50E60845000D7E426 /* WIExceptionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 77246ED409DD7D230010335B /* WIExceptionHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A565B2980D5D968A00AF91BA /* WIP7Socket.m in Sources */ = {isa = PBXBuildFile; fileRef = A565B2960D5D968A00AF91BA /* WIP7Socket.m */; };
@@ -599,6 +601,8 @@
 		77D5170A0984F4AD0057D51F /* NSMenu-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMenu-WIAppKit.h"; path = "WiredAppKit/NSMenu-WIAppKit.h"; sourceTree = "<group>"; };
 		77D5170B0984F4AD0057D51F /* NSMenu-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMenu-WIAppKit.m"; path = "WiredAppKit/NSMenu-WIAppKit.m"; sourceTree = "<group>"; };
 		77DBEB930E62B97300B738D3 /* libWiredNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWiredNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		77EF365C106E55DC00883C96 /* WIUnclickableProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WIUnclickableProgressIndicator.h; path = WiredAppKit/WIUnclickableProgressIndicator.h; sourceTree = "<group>"; };
+		77EF365D106E55DC00883C96 /* WIUnclickableProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WIUnclickableProgressIndicator.m; path = WiredAppKit/WIUnclickableProgressIndicator.m; sourceTree = "<group>"; };
 		77FFC162075E178D008ED58A /* WIObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WIObject.h; path = WiredFoundation/WIObject.h; sourceTree = "<group>"; };
 		77FFC163075E178D008ED58A /* WIObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WIObject.m; path = WiredFoundation/WIObject.m; sourceTree = "<group>"; };
 		A5239EE30A114C5C009DD940 /* NSMenuItem-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSMenuItem-WIAppKit.m"; path = "WiredAppKit/NSMenuItem-WIAppKit.m"; sourceTree = "<group>"; };
@@ -1176,6 +1180,8 @@
 				A523A5A50A12AD90009DD940 /* WITextAttachment.h */,
 				A544C1370758DFA9008446CF /* WITextView.m */,
 				A544C1360758DFA9008446CF /* WITextView.h */,
+				77EF365D106E55DC00883C96 /* WIUnclickableProgressIndicator.m */,
+				77EF365C106E55DC00883C96 /* WIUnclickableProgressIndicator.h */,
 				A544C1310758DFA9008446CF /* WIWindow.m */,
 				A544C1320758DFA9008446CF /* WIWindow.h */,
 				A544C12F0758DFA9008446CF /* WIWindowController.m */,
@@ -1563,6 +1569,7 @@
 				A5BCA5FD0F533542004C5986 /* WITreeView.h in Headers */,
 				7712BBAA0E5C1964001C4210 /* WIWindow.h in Headers */,
 				7712BBAB0E5C1964001C4210 /* WIWindowController.h in Headers */,
+				77EF365E106E55DC00883C96 /* WIUnclickableProgressIndicator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2016,6 +2023,7 @@
 				A5BCA5FA0F533542004C5986 /* WITreeScrollView.m in Sources */,
 				A5BCA5FC0F533542004C5986 /* WITreeTableView.m in Sources */,
 				A5BCA5FE0F533542004C5986 /* WITreeView.m in Sources */,
+				77EF365F106E55DC00883C96 /* WIUnclickableProgressIndicator.m in Sources */,
 				7712BBEB0E5C1964001C4210 /* WIWindow.m in Sources */,
 				7712BBEC0E5C1964001C4210 /* WIWindowController.m in Sources */,
 			);
