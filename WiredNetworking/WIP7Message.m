@@ -374,7 +374,8 @@
 
 
 - (BOOL)setDate:(NSDate *)date forName:(NSString *)name {
-	return [self setString:[[WIDateFormatter dateFormatterForRFC3339] stringFromDate:date] forName:name];
+	return [self setDouble:[date timeIntervalSince1970] forName:name];
+;
 }
 
 
