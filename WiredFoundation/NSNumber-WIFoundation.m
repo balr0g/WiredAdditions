@@ -87,7 +87,7 @@
 
 
 
-- (NSInteger)unsignedIntegerValue {
+- (NSUInteger)unsignedIntegerValue {
 	return [self unsignedIntValue];
 }
 

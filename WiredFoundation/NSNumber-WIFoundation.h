@@ -38,7 +38,7 @@
 - (id)initWithInteger:(NSInteger)integer;
 - (id)initWithUnsignedInteger:(NSUInteger)integer;
 - (NSInteger)integerValue;
-- (NSInteger)unsignedIntegerValue;
+- (NSUInteger)unsignedIntegerValue;
 
 #endif
 
