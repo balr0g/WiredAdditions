@@ -453,6 +453,8 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 
 - (void)dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	
 	[_views release];
 	[_path release];
 	[_detailView release];
