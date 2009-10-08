@@ -107,7 +107,7 @@
 
 - (NSArray *)directoryContentsWithFileAtPath:(NSString *)path {
 	if(![self directoryExistsAtPath:path])
-		return [NSArray arrayWithObject:path];
+		return [NSArray arrayWithObject:[path lastPathComponent]];
 	
 	return [self directoryContentsAtPath:path];
 }
@@ -116,7 +116,7 @@
 
 - (id)enumeratorWithFileAtPath:(NSString *)path {
 	if(![self directoryExistsAtPath:path])
-		return [[NSArray arrayWithObject:path] objectEnumerator];
+		return [[NSArray arrayWithObject:[path lastPathComponent]] objectEnumerator];
 
 	return [self enumeratorAtPath:path];
 }
