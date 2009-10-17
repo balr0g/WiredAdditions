@@ -83,6 +83,9 @@ NSString * const WILibWiredErrorKey					= @"WILibWiredErrorKey";
 #pragma mark -
 
 - (NSString *)localizedDescription {
+	if([[self userInfo] objectForKey:NSLocalizedDescriptionKey])
+		return [[self userInfo] objectForKey:NSLocalizedDescriptionKey];
+	
 	if([[self domain] isEqualToString:WIWiredNetworkingErrorDomain]) {
 		switch([self code]) {
 			case WIAddressLookupFailed:
@@ -130,6 +133,9 @@ NSString * const WILibWiredErrorKey					= @"WILibWiredErrorKey";
 - (NSString *)localizedFailureReason {
 	NSString		*error;
 	id				argument;
+	
+	if([[self userInfo] objectForKey:NSLocalizedFailureReasonErrorKey])
+		return [[self userInfo] objectForKey:NSLocalizedFailureReasonErrorKey];
 	
 	if([[self domain] isEqualToString:WIWiredNetworkingErrorDomain]) {
 		error = [[[self userInfo] objectForKey:WILibWiredErrorKey] localizedFailureReason];
