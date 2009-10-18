@@ -39,3 +39,18 @@
 - (id)representedObjectOfSelectedItem;
 
 @end
+
+
+@interface NSPopUpButtonCell(WIAppKit)
+
+- (void)addItem:(NSMenuItem *)item;
+- (void)insertItem:(NSMenuItem *)item atIndex:(NSUInteger)index;
+- (void)removeItem:(NSMenuItem *)item;
+
+- (NSInteger)tagOfSelectedItem;
+- (NSMenuItem *)itemWithTag:(NSInteger)tag;
+
+- (void)selectItemWithRepresentedObject:(id)representedObject;
+- (id)representedObjectOfSelectedItem;
+
+@end

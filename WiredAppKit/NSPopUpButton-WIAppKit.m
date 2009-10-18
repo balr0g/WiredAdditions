@@ -31,6 +31,56 @@
 @implementation NSPopUpButton(WIAppKit)
 
 - (void)addItem:(NSMenuItem *)item {
+	[[self cell] addItem:item];
+}
+
+
+
+- (void)insertItem:(NSMenuItem *)item atIndex:(NSUInteger)index {
+	[[self cell] insertItem:item atIndex:index];
+}
+
+
+
+- (void)removeItem:(NSMenuItem *)item {
+	[[self cell] removeItem:item];
+}
+
+
+
+#pragma mark -
+
+- (NSInteger)tagOfSelectedItem {
+	return [[self cell] tagOfSelectedItem];
+}
+
+
+
+- (NSMenuItem *)itemWithTag:(NSInteger)tag {
+	return [[self cell] itemWithTag:tag];
+}
+
+
+
+#pragma mark -
+
+- (void)selectItemWithRepresentedObject:(id)representedObject {
+	[[self cell] selectItemWithRepresentedObject:representedObject];
+}
+
+
+
+- (id)representedObjectOfSelectedItem {
+	return [[self cell] representedObjectOfSelectedItem];
+}
+
+@end
+
+
+
+@implementation NSPopUpButtonCell(WIAppKit)
+
+- (void)addItem:(NSMenuItem *)item {
 	[[self menu] addItem:item];
 }
 
