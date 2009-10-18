@@ -74,4 +74,28 @@
 	return item;
 }
 
+
+
++ (NSMenuItem *)itemWithTitle:(NSString *)title image:(NSImage *)image {
+	NSMenuItem		*item;
+
+	item = [self itemWithTitle:title];
+	[item setImage:image];
+	
+	return item;
+}
+
+
+
+#pragma mark -
+
++ (NSMenuItem *)itemWithAttributedTitle:(NSAttributedString *)title tag:(NSInteger)tag {
+	NSMenuItem		*item;
+
+	item = [self itemWithTitle:[title string] tag:tag];
+	[item setAttributedTitle:title];
+	
+	return item;
+}
+
 @end

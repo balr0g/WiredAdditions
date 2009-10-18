@@ -34,5 +34,8 @@
 + (NSMenuItem *)itemWithTitle:(NSString *)title action:(SEL)action;
 + (NSMenuItem *)itemWithTitle:(NSString *)title action:(SEL)action keyEquivalent:(NSString *)keyEquivalent;
 + (NSMenuItem *)itemWithTitle:(NSString *)title representedObject:(id)representedObject;
++ (NSMenuItem *)itemWithTitle:(NSString *)title image:(NSImage *)image;
+
++ (NSMenuItem *)itemWithAttributedTitle:(NSAttributedString *)title tag:(NSInteger)tag;
 
 @end
