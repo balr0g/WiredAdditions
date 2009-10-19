@@ -35,7 +35,7 @@
 
 - (void)setTitle:(NSString *)title withSubtitle:(NSString *)subtitle {
 	if(subtitle)
-		[self setTitle:[NSSWF:@"%@ %C %@", title, 0x2014, subtitle]];
+		[self setTitle:[NSSWF:@"%@ \u2014 %@", title, subtitle]];
 	else
 		[self setTitle:title];
 }
