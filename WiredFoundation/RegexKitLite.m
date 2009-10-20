@@ -52,7 +52,7 @@
 #define RKL_STRONG_REF
 #endif // __OBJC_GC__
 
-#include <objc/objc-runtime.h>
+//#include <objc/objc-runtime.h>
 #include <libkern/OSAtomic.h>
 #include <mach-o/loader.h>
 #include <AvailabilityMacros.h>

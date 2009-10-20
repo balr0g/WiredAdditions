@@ -161,9 +161,9 @@
 		7712BDAD0E5C1FC5001C4210 /* WIURL.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C11C0758DFA9008446CF /* WIURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BDAF0E5C1FD9001C4210 /* WISettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 776627E80795354B00F691E2 /* WISettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BDB10E5C1FED001C4210 /* WITextFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C11D0758DFA9008446CF /* WITextFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7712BDC30E5C205C001C4210 /* WiredFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation.framework */; };
+		7712BDC30E5C205C001C4210 /* WiredFoundation in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation */; };
 		7712BDE60E5C20AE001C4210 /* NSEvent-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C08F0758DEEE008446CF /* NSEvent-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7712BECB0E5C2216001C4210 /* WiredFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation.framework */; };
+		7712BECB0E5C2216001C4210 /* WiredFoundation in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation */; };
 		7712BF130E5C224F001C4210 /* WiredAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7712BC930E5C1A87001C4210 /* WiredAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BF150E5C2292001C4210 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		7712C0A20E5C23D1001C4210 /* NSApplication-WIAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C4AA0973FF5E009367B0 /* NSApplication-WIAppKit.m */; };
@@ -202,6 +202,9 @@
 		77701051105AA6D30088F15F /* ReleaseNotes.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7770104F105AA6D30088F15F /* ReleaseNotes.xib */; };
 		77701073105AA76A0088F15F /* TreeDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77701071105AA76A0088F15F /* TreeDetail.xib */; };
 		77701082105AA7CA0088F15F /* ViewOptions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77701080105AA7CA0088F15F /* ViewOptions.xib */; };
+		778DFE2B108DF71E00A74B39 /* WiredFoundation in Copy Files (Headers) */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation */; };
+		778DFE85108DF77600A74B39 /* WiredNetworking in Copy Files (Headers) */ = {isa = PBXBuildFile; fileRef = 774897900CC8A63200E95A83 /* WiredNetworking */; };
+		778DFEA8108DF7A200A74B39 /* wired in Copy Files (Headers) */ = {isa = PBXBuildFile; fileRef = A5B34B0B0E9ACB82005B7884 /* wired */; };
 		778EC2D10EAF4DE000DCDC82 /* WIP7NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 778EC2CB0EAF4DB600DCDC82 /* WIP7NotificationCenter.m */; };
 		778EC2D20EAF4DE100DCDC82 /* WIP7NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 778EC2CB0EAF4DB600DCDC82 /* WIP7NotificationCenter.m */; };
 		778EC2D30EAF4DE800DCDC82 /* WIP7NotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 778EC2CA0EAF4DB600DCDC82 /* WIP7NotificationCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -479,16 +482,52 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		778DFE29108DF6E200A74B39 /* Copy Files (Headers) */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /tmp/WiredAdditionsHeaders;
+			dstSubfolderSpec = 0;
+			files = (
+				778DFE2B108DF71E00A74B39 /* WiredFoundation in Copy Files (Headers) */,
+			);
+			name = "Copy Files (Headers)";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		778DFE84108DF77200A74B39 /* Copy Files (Headers) */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /tmp/WiredAdditionsHeaders;
+			dstSubfolderSpec = 0;
+			files = (
+				778DFE85108DF77600A74B39 /* WiredNetworking in Copy Files (Headers) */,
+			);
+			name = "Copy Files (Headers)";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		778DFEA7108DF79F00A74B39 /* Copy Files (Headers) */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /tmp/WiredAdditionsHeaders;
+			dstSubfolderSpec = 0;
+			files = (
+				778DFEA8108DF7A200A74B39 /* wired in Copy Files (Headers) */,
+			);
+			name = "Copy Files (Headers)";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		77056C8809D7E9C4002AC912 /* NSSplitView-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSSplitView-WIAppKit.m"; path = "WiredAppKit/NSSplitView-WIAppKit.m"; sourceTree = "<group>"; };
 		77056C8909D7E9C4002AC912 /* NSSplitView-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSSplitView-WIAppKit.h"; path = "WiredAppKit/NSSplitView-WIAppKit.h"; sourceTree = "<group>"; };
-		7712BB320E5C1726001C4210 /* WiredFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiredFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7712BB320E5C1726001C4210 /* WiredFoundation */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = folder; path = WiredFoundation; sourceTree = BUILT_PRODUCTS_DIR; };
 		7712BB510E5C17A7001C4210 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = prefix.pch; path = WiredFoundation/prefix.pch; sourceTree = "<group>"; };
 		7712BB520E5C17B0001C4210 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WiredFoundation/Info.plist; sourceTree = "<group>"; };
-		7712BC030E5C1964001C4210 /* WiredAppKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiredAppKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7712BC030E5C1964001C4210 /* WiredAppKit */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = WiredAppKit; sourceTree = BUILT_PRODUCTS_DIR; };
 		7712BC780E5C19D6001C4210 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WiredAppKit/Info.plist; sourceTree = "<group>"; };
 		7712BC790E5C19DB001C4210 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = prefix.pch; path = WiredAppKit/prefix.pch; sourceTree = "<group>"; };
 		7712BC8D0E5C1A5A001C4210 /* WiredFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WiredFoundation.h; path = WiredFoundation/WiredFoundation.h; sourceTree = "<group>"; };
@@ -529,7 +568,7 @@
 		773F64380E5DBC21001A753B /* NSFileManager-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager-WIAppKit.h"; path = "WiredAppKit/NSFileManager-WIAppKit.h"; sourceTree = "<group>"; };
 		773F64390E5DBC21001A753B /* NSFileManager-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager-WIAppKit.m"; path = "WiredAppKit/NSFileManager-WIAppKit.m"; sourceTree = "<group>"; };
 		773F65070E5DBDC1001A753B /* libWiredFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWiredFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		774897900CC8A63200E95A83 /* WiredNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiredNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		774897900CC8A63200E95A83 /* WiredNetworking */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = folder; path = WiredNetworking; sourceTree = BUILT_PRODUCTS_DIR; };
 		774897A50CC8A66000E95A83 /* WiredNetworking.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = WiredNetworking.h; path = WiredNetworking/WiredNetworking.h; sourceTree = "<group>"; };
 		774898740CC8A82600E95A83 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Info.plist; path = WiredNetworking/Info.plist; sourceTree = "<group>"; };
 		77489B610CC8ACCE00E95A83 /* WIThread.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = WIThread.m; path = WiredNetworking/WIThread.m; sourceTree = "<group>"; };
@@ -881,7 +920,7 @@
 				7712BBFB0E5C1964001C4210 /* ExceptionHandling.framework in Frameworks */,
 				7712BBFC0E5C1964001C4210 /* Quartz.framework in Frameworks */,
 				77CA5179106AF14700A0463B /* WebKit.framework in Frameworks */,
-				7712BDC30E5C205C001C4210 /* WiredFoundation.framework in Frameworks */,
+				7712BDC30E5C205C001C4210 /* WiredFoundation in Frameworks */,
 				7712BBFD0E5C1964001C4210 /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -894,19 +933,12 @@
 				774897870CC8A63200E95A83 /* Carbon.framework in Frameworks */,
 				774897890CC8A63200E95A83 /* ExceptionHandling.framework in Frameworks */,
 				7712BF150E5C2292001C4210 /* Foundation.framework in Frameworks */,
-				7712BECB0E5C2216001C4210 /* WiredFoundation.framework in Frameworks */,
+				7712BECB0E5C2216001C4210 /* WiredFoundation in Frameworks */,
 				A565B3B20D5D99BC00AF91BA /* libcrypto.dylib in Frameworks */,
 				A565B3B30D5D99BC00AF91BA /* libssl.dylib in Frameworks */,
 				A5C2403C0E9AC9E100A81F49 /* libwired.a in Frameworks */,
 				A565B3950D5D994F00AF91BA /* libxml2.dylib in Frameworks */,
 				A565B3AF0D5D999A00AF91BA /* libz.dylib in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A5C23CFD0E9AC2AB00A81F49 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -916,9 +948,9 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7712BB320E5C1726001C4210 /* WiredFoundation.framework */,
-				7712BC030E5C1964001C4210 /* WiredAppKit.framework */,
-				774897900CC8A63200E95A83 /* WiredNetworking.framework */,
+				7712BB320E5C1726001C4210 /* WiredFoundation */,
+				7712BC030E5C1964001C4210 /* WiredAppKit */,
+				774897900CC8A63200E95A83 /* WiredNetworking */,
 				773F65070E5DBDC1001A753B /* libWiredFoundation.a */,
 				77DBEB930E62B97300B738D3 /* libWiredNetworking.a */,
 				A5C23CFF0E9AC2AB00A81F49 /* libwired.a */,
@@ -1728,7 +1760,7 @@
 			name = WiredFoundation;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = WiredAdditions;
-			productReference = 7712BB320E5C1726001C4210 /* WiredFoundation.framework */;
+			productReference = 7712BB320E5C1726001C4210 /* WiredFoundation */;
 			productType = "com.apple.product-type.framework";
 		};
 		7712BB670E5C1964001C4210 /* WiredAppKit */ = {
@@ -1748,7 +1780,7 @@
 			name = WiredAppKit;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = WiredAdditions;
-			productReference = 7712BC030E5C1964001C4210 /* WiredAppKit.framework */;
+			productReference = 7712BC030E5C1964001C4210 /* WiredAppKit */;
 			productType = "com.apple.product-type.framework";
 		};
 		773F65060E5DBDC1001A753B /* StaticWiredFoundation */ = {
@@ -1757,6 +1789,7 @@
 			buildPhases = (
 				773F65030E5DBDC1001A753B /* Headers */,
 				773F65040E5DBDC1001A753B /* Sources */,
+				778DFE29108DF6E200A74B39 /* Copy Files (Headers) */,
 			);
 			buildRules = (
 			);
@@ -1785,7 +1818,7 @@
 			name = WiredNetworking;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = WiredAdditions;
-			productReference = 774897900CC8A63200E95A83 /* WiredNetworking.framework */;
+			productReference = 774897900CC8A63200E95A83 /* WiredNetworking */;
 			productType = "com.apple.product-type.framework";
 		};
 		77DBEB340E62B97300B738D3 /* StaticWiredNetworking */ = {
@@ -1794,6 +1827,7 @@
 			buildPhases = (
 				77DBEB350E62B97300B738D3 /* Headers */,
 				77DBEB620E62B97300B738D3 /* Sources */,
+				778DFE84108DF77200A74B39 /* Copy Files (Headers) */,
 			);
 			buildRules = (
 			);
@@ -1813,7 +1847,7 @@
 				A5C23D0A0E9AC2B800A81F49 /* Run Script (configure) */,
 				A5C23CFB0E9AC2AB00A81F49 /* Headers */,
 				A5C23CFC0E9AC2AB00A81F49 /* Sources */,
-				A5C23CFD0E9AC2AB00A81F49 /* Frameworks */,
+				778DFEA7108DF79F00A74B39 /* Copy Files (Headers) */,
 			);
 			buildRules = (
 			);
@@ -1928,7 +1962,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if echo $DEBUG_INFORMATION_FORMAT | grep -q dwarf; then\n\tCFLAGS=\"-gdwarf-2\"\nelse\n\tCFLAGS=\"-gstabs\"\nfi\n\nif echo $CONFIGURATION | grep -q Release; then\n\tCFLAGS=\"$CFLAGS -O2\"\nelse\n\tCFLAGS=\"$CFLAGS -O0\"\nfi\n\nif echo $GCC_VERSION | grep -q clang; then\n\tCC=\"$PLATFORM_DEVELOPER_BIN_DIR/clang\"\nelse\n\tCC=\"$PLATFORM_DEVELOPER_BIN_DIR/gcc-$GCC_VERSION\"\nfi\n\nBUILD=$(\"$SRCROOT/libwired/config.guess\")\n\ncd libwired\n\nfor i in $ARCHS; do\n\tif [ ! -f \"$DERIVED_SOURCES_DIR/$i/config.h\" ]; then\n\t\tHOST=\"$i-apple-darwin$(uname -r)\"\n\t\tARCH_CONFIGUREFLAGS=\"--enable-warnings --enable-pthreads --enable-p7\"\n\t\tARCH_CFLAGS=\"$CFLAGS\"\n\t\tARCH_CPPFLAGS=\"$CPPFLAGS\"\n\t\tARCH_CC=\"$CC -arch $i\"\n\n\t\tif [ \"$SDKROOT\" ]; then\n\t\t\tARCH_SDKROOT=\"$SDKROOT\"\n\t\telse\n\t\t\tif [ \"$i\" = \"i386\" -o \"$i\" = \"ppc\" ]; then\n\t\t\t\tARCH_SDKROOT=\"$DEVELOPER_SDK_DIR/MacOSX10.4u.sdk\"\n\t\t\t\tMACOSX_DEPLOYMENT_TARGET=10.4\n\t\t\telif [ \"$i\" = \"x86_64\" -o \"$i\" = \"ppc64\" ]; then\n\t\t\t\tARCH_SDKROOT=\"$DEVELOPER_SDK_DIR/MacOSX10.5.sdk\"\n\t\t\t\tMACOSX_DEPLOYMENT_TARGET=10.5\n\t\t\tfi\n\t\tfi\n\n\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -isysroot $ARCH_SDKROOT\"\n\t\n\t\tif [ \"$IPHONEOS_DEPLOYMENT_TARGET\" ]; then\n\t\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -miphoneos-version-min=$IPHONEOS_DEPLOYMENT_TARGET\"\n\t\telif [ \"$MACOSX_DEPLOYMENT_TARGET\" ]; then\n\t\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET\"\n\t\t\tARCH_CONFIGUREFLAGS=\"$ARCH_CONFIGUREFLAGS --enable-ssl\"\n\t\tfi\n\t\n\t\techo CC=\"$ARCH_CC\" CFLAGS=\"$ARCH_CFLAGS\" CPPFLAGS=\"$ARCH_CPPFLAGS\" ./configure --host=\"$HOST\" --build=\"$BUILD\" $ARCH_CONFIGUREFLAGS\n\t\tCC=\"$ARCH_CC\" CFLAGS=\"$ARCH_CFLAGS\" CPPFLAGS=\"$ARCH_CPPFLAGS\" ./configure --host=\"$HOST\" --build=\"$BUILD\" $ARCH_CONFIGUREFLAGS || exit 1\n\n\t\tmkdir -p \"$DERIVED_SOURCES_DIR/$i\"\n\t\tcp config.h \"$DERIVED_SOURCES_DIR/$i/config.h\"\n\tfi\ndone\n";
+			shellScript = "if echo $DEBUG_INFORMATION_FORMAT | grep -q dwarf; then\n\tCFLAGS=\"-gdwarf-2\"\nelse\n\tCFLAGS=\"-gstabs\"\nfi\n\nif echo $CONFIGURATION | grep -q Release; then\n\tCFLAGS=\"$CFLAGS -O2\"\nelse\n\tCFLAGS=\"$CFLAGS -O0\"\nfi\n\nif echo $CONFIGURATION | grep -q iPhone; then\n\tCONFIGUREFLAGS=\"\"\nelse\n\tCONFIGUREFLAGS=\"--enable-pthreads\"\nfi\n\nif echo $GCC_VERSION | grep -q clang; then\n\tCC=\"$PLATFORM_DEVELOPER_BIN_DIR/clang\"\nelse\n\tCC=\"$PLATFORM_DEVELOPER_BIN_DIR/gcc-$GCC_VERSION\"\nfi\n\nBUILD=$(\"$SRCROOT/libwired/config.guess\")\n\ncd libwired\n\nfor i in $ARCHS; do\n\tif [ ! -f \"$DERIVED_SOURCES_DIR/$i/config.h\" ]; then\n\t\tHOST=\"$i-apple-darwin$(uname -r)\"\n\t\tARCH_CONFIGUREFLAGS=\"$CONFIGURE_FLAGS --enable-warnings --enable-p7\"\n\t\tARCH_CFLAGS=\"$CFLAGS\"\n\t\tARCH_CPPFLAGS=\"$CPPFLAGS\"\n\t\tARCH_CC=\"$CC -arch $i\"\n\n\t\tif [ \"$SDKROOT\" ]; then\n\t\t\tARCH_SDKROOT=\"$SDKROOT\"\n\t\telse\n\t\t\tif [ \"$i\" = \"i386\" -o \"$i\" = \"ppc\" ]; then\n\t\t\t\tARCH_SDKROOT=\"$DEVELOPER_SDK_DIR/MacOSX10.4u.sdk\"\n\t\t\t\tMACOSX_DEPLOYMENT_TARGET=10.4\n\t\t\telif [ \"$i\" = \"x86_64\" -o \"$i\" = \"ppc64\" ]; then\n\t\t\t\tARCH_SDKROOT=\"$DEVELOPER_SDK_DIR/MacOSX10.5.sdk\"\n\t\t\t\tMACOSX_DEPLOYMENT_TARGET=10.5\n\t\t\tfi\n\t\tfi\n\n\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -isysroot $ARCH_SDKROOT\"\n\t\n\t\tif [ \"$IPHONEOS_DEPLOYMENT_TARGET\" ]; then\n\t\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -miphoneos-version-min=$IPHONEOS_DEPLOYMENT_TARGET\"\n\t\telif [ \"$MACOSX_DEPLOYMENT_TARGET\" ]; then\n\t\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET\"\n\t\t\tARCH_CONFIGUREFLAGS=\"$ARCH_CONFIGUREFLAGS --enable-ssl\"\n\t\tfi\n\t\n\t\techo CC=\"$ARCH_CC\" CFLAGS=\"$ARCH_CFLAGS\" CPPFLAGS=\"$ARCH_CPPFLAGS\" ./configure --host=\"$HOST\" --build=\"$BUILD\" $ARCH_CONFIGUREFLAGS\n\t\tCC=\"$ARCH_CC\" CFLAGS=\"$ARCH_CFLAGS\" CPPFLAGS=\"$ARCH_CPPFLAGS\" ./configure --host=\"$HOST\" --build=\"$BUILD\" $ARCH_CONFIGUREFLAGS || exit 1\n\n\t\tmkdir -p \"$DERIVED_SOURCES_DIR/$i\"\n\t\tcp config.h \"$DERIVED_SOURCES_DIR/$i/config.h\"\n\tfi\ndone\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2646,7 +2681,7 @@
 					WI_P7,
 				);
 				GCC_VERSION = 4.0;
-				SDKROOT = iphoneos2.0;
+				SDKROOT = iphoneos3.1;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug/iPhone;
@@ -2789,7 +2824,7 @@
 				GCC_VERSION = 4.0;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.0;
+				SDKROOT = iphoneos3.1;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Test/iPhone;
@@ -2932,7 +2967,7 @@
 				GCC_VERSION = 4.0;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.0;
+				SDKROOT = iphoneos3.1;
 			};
 			name = Release/iPhone;
 		};
