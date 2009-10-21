@@ -29,6 +29,7 @@
 #import <wired/wired.h>
 
 #import <WiredNetworking/NSNumber-WINetworking.h>
+#import <WiredNetworking/NSProcessInfo-WINetworking.h>
 #import <WiredNetworking/NSString-WINetworking.h>
 
 #import <WiredNetworking/WIAddress.h>

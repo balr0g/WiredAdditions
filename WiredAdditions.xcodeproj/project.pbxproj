@@ -161,9 +161,9 @@
 		7712BDAD0E5C1FC5001C4210 /* WIURL.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C11C0758DFA9008446CF /* WIURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BDAF0E5C1FD9001C4210 /* WISettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 776627E80795354B00F691E2 /* WISettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BDB10E5C1FED001C4210 /* WITextFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C11D0758DFA9008446CF /* WITextFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7712BDC30E5C205C001C4210 /* WiredFoundation in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation */; };
+		7712BDC30E5C205C001C4210 /* WiredFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation.framework */; };
 		7712BDE60E5C20AE001C4210 /* NSEvent-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C08F0758DEEE008446CF /* NSEvent-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7712BECB0E5C2216001C4210 /* WiredFoundation in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation */; };
+		7712BECB0E5C2216001C4210 /* WiredFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation.framework */; };
 		7712BF130E5C224F001C4210 /* WiredAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7712BC930E5C1A87001C4210 /* WiredAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BF150E5C2292001C4210 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		7712C0A20E5C23D1001C4210 /* NSApplication-WIAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B7C4AA0973FF5E009367B0 /* NSApplication-WIAppKit.m */; };
@@ -202,8 +202,12 @@
 		77701051105AA6D30088F15F /* ReleaseNotes.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7770104F105AA6D30088F15F /* ReleaseNotes.xib */; };
 		77701073105AA76A0088F15F /* TreeDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77701071105AA76A0088F15F /* TreeDetail.xib */; };
 		77701082105AA7CA0088F15F /* ViewOptions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77701080105AA7CA0088F15F /* ViewOptions.xib */; };
-		778DFE2B108DF71E00A74B39 /* WiredFoundation in Copy Files (Headers) */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation */; };
-		778DFE85108DF77600A74B39 /* WiredNetworking in Copy Files (Headers) */ = {isa = PBXBuildFile; fileRef = 774897900CC8A63200E95A83 /* WiredNetworking */; };
+		778D2261108F486100C78828 /* NSProcessInfo-WINetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 778D225F108F486100C78828 /* NSProcessInfo-WINetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		778D2262108F486100C78828 /* NSProcessInfo-WINetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 778D2260108F486100C78828 /* NSProcessInfo-WINetworking.m */; };
+		778D2263108F486100C78828 /* NSProcessInfo-WINetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 778D225F108F486100C78828 /* NSProcessInfo-WINetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		778D2264108F486100C78828 /* NSProcessInfo-WINetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 778D2260108F486100C78828 /* NSProcessInfo-WINetworking.m */; };
+		778DFE2B108DF71E00A74B39 /* WiredFoundation.framework in Copy Files (Headers) */ = {isa = PBXBuildFile; fileRef = 7712BB320E5C1726001C4210 /* WiredFoundation.framework */; };
+		778DFE85108DF77600A74B39 /* WiredNetworking.framework in Copy Files (Headers) */ = {isa = PBXBuildFile; fileRef = 774897900CC8A63200E95A83 /* WiredNetworking.framework */; };
 		778DFEA8108DF7A200A74B39 /* wired in Copy Files (Headers) */ = {isa = PBXBuildFile; fileRef = A5B34B0B0E9ACB82005B7884 /* wired */; };
 		778EC2D10EAF4DE000DCDC82 /* WIP7NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 778EC2CB0EAF4DB600DCDC82 /* WIP7NotificationCenter.m */; };
 		778EC2D20EAF4DE100DCDC82 /* WIP7NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 778EC2CB0EAF4DB600DCDC82 /* WIP7NotificationCenter.m */; };
@@ -489,7 +493,7 @@
 			dstPath = /tmp/WiredAdditionsHeaders;
 			dstSubfolderSpec = 0;
 			files = (
-				778DFE2B108DF71E00A74B39 /* WiredFoundation in Copy Files (Headers) */,
+				778DFE2B108DF71E00A74B39 /* WiredFoundation.framework in Copy Files (Headers) */,
 			);
 			name = "Copy Files (Headers)";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,7 +504,7 @@
 			dstPath = /tmp/WiredAdditionsHeaders;
 			dstSubfolderSpec = 0;
 			files = (
-				778DFE85108DF77600A74B39 /* WiredNetworking in Copy Files (Headers) */,
+				778DFE85108DF77600A74B39 /* WiredNetworking.framework in Copy Files (Headers) */,
 			);
 			name = "Copy Files (Headers)";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,10 +528,10 @@
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		77056C8809D7E9C4002AC912 /* NSSplitView-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSSplitView-WIAppKit.m"; path = "WiredAppKit/NSSplitView-WIAppKit.m"; sourceTree = "<group>"; };
 		77056C8909D7E9C4002AC912 /* NSSplitView-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSSplitView-WIAppKit.h"; path = "WiredAppKit/NSSplitView-WIAppKit.h"; sourceTree = "<group>"; };
-		7712BB320E5C1726001C4210 /* WiredFoundation */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = folder; path = WiredFoundation; sourceTree = BUILT_PRODUCTS_DIR; };
+		7712BB320E5C1726001C4210 /* WiredFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiredFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7712BB510E5C17A7001C4210 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = prefix.pch; path = WiredFoundation/prefix.pch; sourceTree = "<group>"; };
 		7712BB520E5C17B0001C4210 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WiredFoundation/Info.plist; sourceTree = "<group>"; };
-		7712BC030E5C1964001C4210 /* WiredAppKit */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = WiredAppKit; sourceTree = BUILT_PRODUCTS_DIR; };
+		7712BC030E5C1964001C4210 /* WiredAppKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiredAppKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7712BC780E5C19D6001C4210 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WiredAppKit/Info.plist; sourceTree = "<group>"; };
 		7712BC790E5C19DB001C4210 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = prefix.pch; path = WiredAppKit/prefix.pch; sourceTree = "<group>"; };
 		7712BC8D0E5C1A5A001C4210 /* WiredFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WiredFoundation.h; path = WiredFoundation/WiredFoundation.h; sourceTree = "<group>"; };
@@ -568,7 +572,7 @@
 		773F64380E5DBC21001A753B /* NSFileManager-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager-WIAppKit.h"; path = "WiredAppKit/NSFileManager-WIAppKit.h"; sourceTree = "<group>"; };
 		773F64390E5DBC21001A753B /* NSFileManager-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager-WIAppKit.m"; path = "WiredAppKit/NSFileManager-WIAppKit.m"; sourceTree = "<group>"; };
 		773F65070E5DBDC1001A753B /* libWiredFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWiredFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		774897900CC8A63200E95A83 /* WiredNetworking */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = folder; path = WiredNetworking; sourceTree = BUILT_PRODUCTS_DIR; };
+		774897900CC8A63200E95A83 /* WiredNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiredNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		774897A50CC8A66000E95A83 /* WiredNetworking.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = WiredNetworking.h; path = WiredNetworking/WiredNetworking.h; sourceTree = "<group>"; };
 		774898740CC8A82600E95A83 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Info.plist; path = WiredNetworking/Info.plist; sourceTree = "<group>"; };
 		77489B610CC8ACCE00E95A83 /* WIThread.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = WIThread.m; path = WiredNetworking/WIThread.m; sourceTree = "<group>"; };
@@ -613,6 +617,8 @@
 		77725681097E720A0003B608 /* NSError-WIFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError-WIFoundation.m"; path = "WiredFoundation/NSError-WIFoundation.m"; sourceTree = "<group>"; };
 		777C493B07981CDD00D1D429 /* NSWorkspace-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSWorkspace-WIAppKit.h"; path = "WiredAppKit/NSWorkspace-WIAppKit.h"; sourceTree = "<group>"; };
 		777C493C07981CDD00D1D429 /* NSWorkspace-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSWorkspace-WIAppKit.m"; path = "WiredAppKit/NSWorkspace-WIAppKit.m"; sourceTree = "<group>"; };
+		778D225F108F486100C78828 /* NSProcessInfo-WINetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSProcessInfo-WINetworking.h"; path = "WiredNetworking/NSProcessInfo-WINetworking.h"; sourceTree = "<group>"; };
+		778D2260108F486100C78828 /* NSProcessInfo-WINetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSProcessInfo-WINetworking.m"; path = "WiredNetworking/NSProcessInfo-WINetworking.m"; sourceTree = "<group>"; };
 		778E7D3D096AC58500258FE6 /* NSTabView-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSTabView-WIAppKit.h"; path = "WiredAppKit/NSTabView-WIAppKit.h"; sourceTree = "<group>"; };
 		778E7D3E096AC58500258FE6 /* NSTabView-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSTabView-WIAppKit.m"; path = "WiredAppKit/NSTabView-WIAppKit.m"; sourceTree = "<group>"; };
 		778EC2CA0EAF4DB600DCDC82 /* WIP7NotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WIP7NotificationCenter.h; path = WiredNetworking/WIP7NotificationCenter.h; sourceTree = "<group>"; };
@@ -920,7 +926,7 @@
 				7712BBFB0E5C1964001C4210 /* ExceptionHandling.framework in Frameworks */,
 				7712BBFC0E5C1964001C4210 /* Quartz.framework in Frameworks */,
 				77CA5179106AF14700A0463B /* WebKit.framework in Frameworks */,
-				7712BDC30E5C205C001C4210 /* WiredFoundation in Frameworks */,
+				7712BDC30E5C205C001C4210 /* WiredFoundation.framework in Frameworks */,
 				7712BBFD0E5C1964001C4210 /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -933,7 +939,7 @@
 				774897870CC8A63200E95A83 /* Carbon.framework in Frameworks */,
 				774897890CC8A63200E95A83 /* ExceptionHandling.framework in Frameworks */,
 				7712BF150E5C2292001C4210 /* Foundation.framework in Frameworks */,
-				7712BECB0E5C2216001C4210 /* WiredFoundation in Frameworks */,
+				7712BECB0E5C2216001C4210 /* WiredFoundation.framework in Frameworks */,
 				A565B3B20D5D99BC00AF91BA /* libcrypto.dylib in Frameworks */,
 				A565B3B30D5D99BC00AF91BA /* libssl.dylib in Frameworks */,
 				A5C2403C0E9AC9E100A81F49 /* libwired.a in Frameworks */,
@@ -948,9 +954,9 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7712BB320E5C1726001C4210 /* WiredFoundation */,
-				7712BC030E5C1964001C4210 /* WiredAppKit */,
-				774897900CC8A63200E95A83 /* WiredNetworking */,
+				7712BB320E5C1726001C4210 /* WiredFoundation.framework */,
+				7712BC030E5C1964001C4210 /* WiredAppKit.framework */,
+				774897900CC8A63200E95A83 /* WiredNetworking.framework */,
 				773F65070E5DBDC1001A753B /* libWiredFoundation.a */,
 				77DBEB930E62B97300B738D3 /* libWiredNetworking.a */,
 				A5C23CFF0E9AC2AB00A81F49 /* libwired.a */,
@@ -1129,6 +1135,8 @@
 			children = (
 				A5F548250F3F9DA700DF8A2F /* NSNumber-WINetworking.m */,
 				A5F548260F3F9DA700DF8A2F /* NSNumber-WINetworking.h */,
+				778D2260108F486100C78828 /* NSProcessInfo-WINetworking.m */,
+				778D225F108F486100C78828 /* NSProcessInfo-WINetworking.h */,
 				776B111E0DEC435100B92187 /* NSString-WINetworking.m */,
 				776B111F0DEC435100B92187 /* NSString-WINetworking.h */,
 			);
@@ -1649,6 +1657,7 @@
 				A5B34B430E9ACB85005B7884 /* wired in Headers */,
 				774897A60CC8A66400E95A83 /* WiredNetworking.h in Headers */,
 				A5F548280F3F9DA700DF8A2F /* NSNumber-WINetworking.h in Headers */,
+				778D2261108F486100C78828 /* NSProcessInfo-WINetworking.h in Headers */,
 				776B11210DEC435100B92187 /* NSString-WINetworking.h in Headers */,
 				77489B730CC8ACCE00E95A83 /* WIAddress.h in Headers */,
 				77489B6E0CC8ACCE00E95A83 /* WIError.h in Headers */,
@@ -1667,6 +1676,7 @@
 			files = (
 				77DBEBBC0E62B9E800B738D3 /* WiredNetworking.h in Headers */,
 				A5F5482A0F3F9DA700DF8A2F /* NSNumber-WINetworking.h in Headers */,
+				778D2263108F486100C78828 /* NSProcessInfo-WINetworking.h in Headers */,
 				77DBEBB60E62B9E800B738D3 /* NSString-WINetworking.h in Headers */,
 				77DBEBB70E62B9E800B738D3 /* WIAddress.h in Headers */,
 				77DBEBB80E62B9E800B738D3 /* WIError.h in Headers */,
@@ -1760,7 +1770,7 @@
 			name = WiredFoundation;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = WiredAdditions;
-			productReference = 7712BB320E5C1726001C4210 /* WiredFoundation */;
+			productReference = 7712BB320E5C1726001C4210 /* WiredFoundation.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		7712BB670E5C1964001C4210 /* WiredAppKit */ = {
@@ -1780,7 +1790,7 @@
 			name = WiredAppKit;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = WiredAdditions;
-			productReference = 7712BC030E5C1964001C4210 /* WiredAppKit */;
+			productReference = 7712BC030E5C1964001C4210 /* WiredAppKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		773F65060E5DBDC1001A753B /* StaticWiredFoundation */ = {
@@ -1818,7 +1828,7 @@
 			name = WiredNetworking;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = WiredAdditions;
-			productReference = 774897900CC8A63200E95A83 /* WiredNetworking */;
+			productReference = 774897900CC8A63200E95A83 /* WiredNetworking.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		77DBEB340E62B97300B738D3 /* StaticWiredNetworking */ = {
@@ -2103,6 +2113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5F548270F3F9DA700DF8A2F /* NSNumber-WINetworking.m in Sources */,
+				778D2262108F486100C78828 /* NSProcessInfo-WINetworking.m in Sources */,
 				776B11200DEC435100B92187 /* NSString-WINetworking.m in Sources */,
 				77489B720CC8ACCE00E95A83 /* WIAddress.m in Sources */,
 				77489B740CC8ACCE00E95A83 /* WIError.m in Sources */,
@@ -2120,6 +2131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5F548290F3F9DA700DF8A2F /* NSNumber-WINetworking.m in Sources */,
+				778D2264108F486100C78828 /* NSProcessInfo-WINetworking.m in Sources */,
 				77DBEBC10E62B9EF00B738D3 /* NSString-WINetworking.m in Sources */,
 				77DBEBC20E62B9EF00B738D3 /* WIAddress.m in Sources */,
 				77DBEBC30E62B9EF00B738D3 /* WIError.m in Sources */,
