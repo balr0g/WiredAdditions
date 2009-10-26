@@ -70,7 +70,9 @@ typedef float					CGFloat;
 #import <WiredFoundation/WIMacros.h>
 #import <WiredFoundation/WIReadWriteLock.h>
 #import <WiredFoundation/WISettings.h>
+#import <WiredFoundation/WISizeFormatter.h>
 #import <WiredFoundation/WITextFilter.h>
+#import <WiredFoundation/WITimeIntervalFormatter.h>
 #import <WiredFoundation/WITypes.h>
 #import <WiredFoundation/WIURL.h>
 

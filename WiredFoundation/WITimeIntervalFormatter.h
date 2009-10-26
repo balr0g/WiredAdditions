@@ -1,7 +1,7 @@
 /* $Id$ */
 
 /*
- *  Copyright (c) 2006-2009 Axel Andersson
+ *  Copyright (c) 2009 Axel Andersson
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -26,10 +26,10 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-@interface NSSet(WISetAdditions)
+@interface WITimeIntervalFormatter : NSFormatter
 
-- (NSSet *)setByMinusingSet:(NSSet *)set;
-- (NSSet *)setByUnioningSet:(NSSet *)set;
-- (NSSet *)setByIntersectingSet:(NSSet *)set;
+- (NSString *)stringFromTimeInterval:(NSTimeInterval)interval;
+- (NSString *)stringFromTimeIntervalSinceDate:(NSDate *)date;
+- (NSString *)stringFromNumber:(NSNumber *)number;
 
 @end

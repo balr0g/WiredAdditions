@@ -169,6 +169,14 @@
 		7712C0EB0E5C2561001C4210 /* NSWorkspace-WIAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 777C493C07981CDD00D1D429 /* NSWorkspace-WIAppKit.m */; };
 		7712C0EC0E5C2561001C4210 /* NSWorkspace-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 777C493B07981CDD00D1D429 /* NSWorkspace-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712C1070E5C25A9001C4210 /* WISettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 776627E70795354B00F691E2 /* WISettings.m */; };
+		7727274D1095CE7C00977C49 /* WISizeFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 772727321095CE0B00977C49 /* WISizeFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7727275A1095CED900977C49 /* WISizeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 772727331095CE0B00977C49 /* WISizeFormatter.m */; };
+		7727275B1095CEDA00977C49 /* WISizeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 772727331095CE0B00977C49 /* WISizeFormatter.m */; };
+		7727275C1095CEDD00977C49 /* WISizeFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 772727321095CE0B00977C49 /* WISizeFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		772728121095D7C700977C49 /* WITimeIntervalFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 772728101095D7C700977C49 /* WITimeIntervalFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		772728131095D7C700977C49 /* WITimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 772728111095D7C700977C49 /* WITimeIntervalFormatter.m */; };
+		772728141095D7C700977C49 /* WITimeIntervalFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 772728101095D7C700977C49 /* WITimeIntervalFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		772728151095D7C700977C49 /* WITimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 772728111095D7C700977C49 /* WITimeIntervalFormatter.m */; };
 		773913DC105AFE4100C1DEE1 /* WICrashReportsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 773913DA105AFE4100C1DEE1 /* WICrashReportsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		773913DD105AFE4100C1DEE1 /* WICrashReportsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 773913DB105AFE4100C1DEE1 /* WICrashReportsController.m */; };
 		773913FC105B007E00C1DEE1 /* CrashReports.xib in Resources */ = {isa = PBXBuildFile; fileRef = 773913FA105B007E00C1DEE1 /* CrashReports.xib */; };
@@ -563,6 +571,10 @@
 		77246ED409DD7D230010335B /* WIExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WIExceptionHandler.h; path = WiredAppKit/WIExceptionHandler.h; sourceTree = "<group>"; };
 		77246ED509DD7D230010335B /* WIExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WIExceptionHandler.m; path = WiredAppKit/WIExceptionHandler.m; sourceTree = "<group>"; };
 		7724739909DD82E30010335B /* ExceptionHandling.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExceptionHandling.framework; path = /System/Library/Frameworks/ExceptionHandling.framework; sourceTree = "<absolute>"; };
+		772727321095CE0B00977C49 /* WISizeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WISizeFormatter.h; path = WiredFoundation/WISizeFormatter.h; sourceTree = "<group>"; };
+		772727331095CE0B00977C49 /* WISizeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WISizeFormatter.m; path = WiredFoundation/WISizeFormatter.m; sourceTree = "<group>"; };
+		772728101095D7C700977C49 /* WITimeIntervalFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WITimeIntervalFormatter.h; path = WiredFoundation/WITimeIntervalFormatter.h; sourceTree = "<group>"; };
+		772728111095D7C700977C49 /* WITimeIntervalFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WITimeIntervalFormatter.m; path = WiredFoundation/WITimeIntervalFormatter.m; sourceTree = "<group>"; };
 		773913DA105AFE4100C1DEE1 /* WICrashReportsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WICrashReportsController.h; path = WiredAppKit/WICrashReportsController.h; sourceTree = "<group>"; };
 		773913DB105AFE4100C1DEE1 /* WICrashReportsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WICrashReportsController.m; path = WiredAppKit/WICrashReportsController.m; sourceTree = "<group>"; };
 		773913FB105B007E00C1DEE1 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = WiredAppKit/English.lproj/CrashReports.xib; sourceTree = "<group>"; };
@@ -1247,8 +1259,12 @@
 				A57FDFC407C8257A00AC49F2 /* WIReadWriteLock.h */,
 				776627E70795354B00F691E2 /* WISettings.m */,
 				776627E80795354B00F691E2 /* WISettings.h */,
+				772727331095CE0B00977C49 /* WISizeFormatter.m */,
+				772727321095CE0B00977C49 /* WISizeFormatter.h */,
 				A544C1380758DFA9008446CF /* WITextFilter.m */,
 				A544C11D0758DFA9008446CF /* WITextFilter.h */,
+				772728111095D7C700977C49 /* WITimeIntervalFormatter.m */,
+				772728101095D7C700977C49 /* WITimeIntervalFormatter.h */,
 				A544C1390758DFA9008446CF /* WIURL.m */,
 				A544C11C0758DFA9008446CF /* WIURL.h */,
 			);
@@ -1546,7 +1562,9 @@
 				7712BACA0E5C1726001C4210 /* WIObject.h in Headers */,
 				7712BACE0E5C1726001C4210 /* WIReadWriteLock.h in Headers */,
 				7712BDAF0E5C1FD9001C4210 /* WISettings.h in Headers */,
+				7727274D1095CE7C00977C49 /* WISizeFormatter.h in Headers */,
 				7712BDB10E5C1FED001C4210 /* WITextFilter.h in Headers */,
+				772728121095D7C700977C49 /* WITimeIntervalFormatter.h in Headers */,
 				7712BAD70E5C1726001C4210 /* WITypes.h in Headers */,
 				7712BDAD0E5C1FC5001C4210 /* WIURL.h in Headers */,
 				77D339C4104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h in Headers */,
@@ -1646,7 +1664,9 @@
 				77DBEA400E62B8E700B738D3 /* WIObject.h in Headers */,
 				77DBEA410E62B8E700B738D3 /* WIReadWriteLock.h in Headers */,
 				77DBEA430E62B8E700B738D3 /* WISettings.h in Headers */,
+				7727275C1095CEDD00977C49 /* WISizeFormatter.h in Headers */,
 				77DBEA440E62B8E700B738D3 /* WITextFilter.h in Headers */,
+				772728141095D7C700977C49 /* WITimeIntervalFormatter.h in Headers */,
 				77DBEA450E62B8E700B738D3 /* WITypes.h in Headers */,
 				77DBEA460E62B8E700B738D3 /* WIURL.h in Headers */,
 				77D339C8104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h in Headers */,
@@ -2009,7 +2029,9 @@
 				7712BB0C0E5C1726001C4210 /* WIObject.m in Sources */,
 				7712BB100E5C1726001C4210 /* WIReadWriteLock.m in Sources */,
 				7712C1070E5C25A9001C4210 /* WISettings.m in Sources */,
+				7727275A1095CED900977C49 /* WISizeFormatter.m in Sources */,
 				7712BB180E5C1726001C4210 /* WITextFilter.m in Sources */,
+				772728131095D7C700977C49 /* WITimeIntervalFormatter.m in Sources */,
 				7712BB190E5C1726001C4210 /* WIURL.m in Sources */,
 				77D339C7104DCF8E006BF8D5 /* RegexKitLite.m in Sources */,
 				77D339C5104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m in Sources */,
@@ -2105,7 +2127,9 @@
 				77DBEA260E62B8E100B738D3 /* WIObject.m in Sources */,
 				77DBEA270E62B8E100B738D3 /* WIReadWriteLock.m in Sources */,
 				77DBEA280E62B8E100B738D3 /* WISettings.m in Sources */,
+				7727275B1095CEDA00977C49 /* WISizeFormatter.m in Sources */,
 				77DBEA290E62B8E100B738D3 /* WITextFilter.m in Sources */,
+				772728151095D7C700977C49 /* WITimeIntervalFormatter.m in Sources */,
 				77DBEA2A0E62B8E100B738D3 /* WIURL.m in Sources */,
 				77D339CB104DCF8E006BF8D5 /* RegexKitLite.m in Sources */,
 				77D339C9104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m in Sources */,

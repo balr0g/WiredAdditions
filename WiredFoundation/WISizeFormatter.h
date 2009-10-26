@@ -1,7 +1,7 @@
 /* $Id$ */
 
 /*
- *  Copyright (c) 2006-2009 Axel Andersson
+ *  Copyright (c) 2009 Axel Andersson
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -26,39 +26,26 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <WiredFoundation/NSSet-WIAdditions.h>
+enum _WISizeFormatterStyle {
+	WISizeFormatterStyleBytes	= 0,
+	WISizeFormatterStyleBits
+};
+typedef enum _WISizeFormatterStyle		WISizeFormatterStyle;
 
-@implementation NSSet(WISetAdditions)
 
-- (NSSet *)setByMinusingSet:(NSSet *)set {
-	NSMutableSet	*mutableSet;
-	
-	mutableSet = [self mutableCopy];
-	[mutableSet minusSet:set];
-	
-	return [mutableSet autorelease];
+@interface WISizeFormatter : NSFormatter {
+	NSNumberFormatter					*_numberFormatter;
+	NSNumberFormatter					*_rawNumberFormatter;
+	WISizeFormatterStyle				_sizeStyle;
+	BOOL								_appendsRawNumber;
 }
 
+- (void)setSizeStyle:(WISizeFormatterStyle)sizeStyle;
+- (WISizeFormatterStyle)sizeStyle;
+- (void)setAppendsRawNumber:(BOOL)appendsRawNumber;
+- (BOOL)appendsRawNumber;
 
-
-- (NSSet *)setByUnioningSet:(NSSet *)set {
-	NSMutableSet	*mutableSet;
-	
-	mutableSet = [self mutableCopy];
-	[mutableSet unionSet:set];
-	
-	return [mutableSet autorelease];
-}
-
-
-
-- (NSSet *)setByIntersectingSet:(NSSet *)set {
-	NSMutableSet	*mutableSet;
-	
-	mutableSet = [self mutableCopy];
-	[mutableSet intersectSet:set];
-	
-	return [mutableSet autorelease];
-}
+- (NSString *)stringFromSize:(unsigned long long)size;
+- (NSString *)stringFromNumber:(NSNumber *)number;
 
 @end
