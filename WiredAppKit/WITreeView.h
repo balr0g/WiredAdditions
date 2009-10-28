@@ -48,6 +48,9 @@ extern NSString * const WIFileModificationDate;
 	SEL								_doubleAction;
 	SEL								_spaceAction;
 	
+	NSFont							*_font;
+	CGFloat							_rowHeight;
+	
 	NSDragOperation					_draggingSourceOperationMaskForLocal;
 	NSDragOperation					_draggingSourceOperationMaskForNonLocal;
 	
@@ -76,6 +79,8 @@ extern NSString * const WIFileModificationDate;
 - (SEL)doubleAction;
 - (void)setSpaceAction:(SEL)spaceAction;
 - (SEL)spaceAction;
+- (void)setRowHeight:(CGFloat)rowHeight;
+- (CGFloat)rowHeight;
 
 - (void)setDraggingSourceOperationMask:(NSDragOperation)mask forLocal:(BOOL)isLocal;
 

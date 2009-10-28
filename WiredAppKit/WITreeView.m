@@ -27,6 +27,7 @@
  */
 
 #import <WiredAppKit/NSEvent-WIAppKit.h>
+#import <WiredAppKit/NSFont-WIAppKit.h>
 #import <WiredAppKit/WITreeCell.h>
 #import <WiredAppKit/WITreeTableView.h>
 #import <WiredAppKit/WITreeScrollView.h>
@@ -99,6 +100,9 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 			 object:self];
 	
 	[self _setPath:@"/"];
+
+	[self setRowHeight:17.0];
+	[self setFont:[NSFont systemFont]];
 	
 	[self _addTableView];
 	[self _addTableView];
@@ -342,7 +346,16 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	
 	frame = [self frame];
 	
-	tableView = [[[WITreeTableView alloc] initWithFrame:NSMakeRect(0.0, 0.0, 10.0, 10.0)] autorelease];
+	cell = [[[WITreeCell alloc] init] autorelease];
+	[cell setFont:_font];
+	
+	tableColumn = [[[NSTableColumn alloc] initWithIdentifier:@""] autorelease];
+	[tableColumn setEditable:NO];
+	[tableColumn setDataCell:cell];
+	[tableColumn setWidth:230.0];
+	
+	tableView = [[[WITreeTableView alloc] initWithFrame:NSMakeRect(0.0, 0.0, 10.0, 10.0)
+										   tableColumns:[NSArray arrayWithObject:tableColumn]] autorelease];
 	[tableView setDelegate:self];
 	[tableView setDataSource:self];
 	[tableView setHeaderView:NULL];
@@ -353,20 +366,13 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	[tableView setDoubleAction:@selector(tableViewDoubleClick:)];
 	[tableView setEscapeAction:@selector(tableViewEscape:)];
 	[tableView setSpaceAction:@selector(tableViewSpace:)];
+	[tableView setFont:_font];
+	[tableView setRowHeight:_rowHeight];
 	[tableView setColumnAutoresizingStyle:NSTableViewUniformColumnAutoresizingStyle];
 	[tableView setDraggingSourceOperationMask:_draggingSourceOperationMaskForLocal forLocal:YES];
 	[tableView setDraggingSourceOperationMask:_draggingSourceOperationMaskForNonLocal forLocal:NO];
 	[tableView registerForDraggedTypes:[self registeredDraggedTypes]];
 	[tableView setMenu:[self menu]];
-	
-	cell = [[[WITreeCell alloc] init] autorelease];
-	
-	tableColumn = [[[NSTableColumn alloc] initWithIdentifier:@""] autorelease];
-	[tableColumn setEditable:NO];
-	[tableColumn setDataCell:cell];
-	[tableColumn setWidth:230.0];
-	
-	[tableView addTableColumn:tableColumn];
 	
 	scrollView = [[WITreeScrollView alloc] initWithFrame:NSMakeRect(0.0, -1.0, _WITreeViewInitialTableViewWidth, frame.size.height + 2.0)];
 	[scrollView setDelegate:self];
@@ -457,6 +463,7 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 	
 	[_views release];
 	[_path release];
+	[_font release];
 	[_detailView release];
 	[_dateFormatter release];
 	[_detailTemplate release];
@@ -543,6 +550,49 @@ NSString * const WIFileModificationDate					= @"WIFileModificationDate";
 
 - (SEL)spaceAction {
 	return _spaceAction;
+}
+
+
+
+- (void)setFont:(NSFont *)font {
+	NSEnumerator		*enumerator;
+	NSTableView			*tableView;
+	
+	[font retain];
+	[_font release];
+	
+	_font = font;
+	
+	enumerator = [_views objectEnumerator];
+	
+	while((tableView = [enumerator nextObject]))
+		[tableView setFont:font];
+}
+
+
+
+- (NSFont *)font {
+	return _font;
+}
+
+
+
+- (void)setRowHeight:(CGFloat)rowHeight {
+	NSEnumerator		*enumerator;
+	NSTableView			*tableView;
+	
+	_rowHeight = rowHeight;
+	
+	enumerator = [_views objectEnumerator];
+	
+	while((tableView = [enumerator nextObject]))
+		[tableView setRowHeight:rowHeight];
+}
+
+
+
+- (CGFloat)rowHeight {
+	return _rowHeight;
 }
 
 

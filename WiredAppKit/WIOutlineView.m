@@ -68,6 +68,24 @@
 
 
 
+- (id)initWithFrame:(NSRect)frame tableColumns:(NSArray *)tableColumns {
+	NSEnumerator		*enumerator;
+	NSTableColumn		*tableColumn;
+	
+	self = [super initWithFrame:frame];
+	
+	enumerator = [tableColumns objectEnumerator];
+	
+	while((tableColumn = [enumerator nextObject]))
+		[self addTableColumn:tableColumn];
+	
+	[self _initTableView];
+	
+	return self;
+}
+
+
+
 - (void)dealloc {
 	[NSObject cancelPreviousPerformRequestsWithTarget:_tableViewManager];
 
