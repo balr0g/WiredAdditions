@@ -263,6 +263,26 @@
 	return [string autorelease];
 }
 
+
+
+#pragma mark -
+
+- (NSComparisonResult)caseInsensitiveAndNumericCompare:(NSString *)string { 
+	return [self compare:string
+				 options:NSCaseInsensitiveSearch | NSNumericSearch
+				   range:NSMakeRange(0, [self length])
+				  locale:[NSLocale currentLocale]];
+}
+
+
+
+- (NSComparisonResult)finderCompare:(NSString *)string { 
+	return [self compare:string
+				 options:NSCaseInsensitiveSearch | NSNumericSearch | 256 /* NSWidthInsensitiveSearch */ | 512 /* NSForcedOrderingSearch */
+				   range:NSMakeRange(0, [self length])
+				  locale:[NSLocale currentLocale]];
+}
+
 @end
 
 

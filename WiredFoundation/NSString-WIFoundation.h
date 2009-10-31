@@ -61,6 +61,9 @@
 
 - (NSString *)stringByApplyingFilter:(WITextFilter *)filter;
 
+- (NSComparisonResult)caseInsensitiveAndNumericCompare:(NSString *)string;
+- (NSComparisonResult)finderCompare:(NSString *)string;
+
 @end
 
 
