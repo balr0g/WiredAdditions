@@ -28,6 +28,13 @@
 
 #import <WiredFoundation/RegexKitLite.h>
 
+@interface NSString(RegexKitLite_WIFoundation)
+
+- (NSRange)rangeOfRegex:(NSString *)regex options:(RKLRegexOptions)options capture:(NSInteger)capture;
+
+@end
+
+
 @interface NSMutableString(RegexKitLite_WIFoundation)
 
 - (NSUInteger)replaceOccurrencesOfRegex:(NSString *)regex withString:(NSString *)replacement options:(RKLRegexOptions)options;
