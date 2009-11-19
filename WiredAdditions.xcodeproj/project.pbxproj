@@ -225,6 +225,11 @@
 		77A4CC2810148EA20072F8E5 /* NSLocale-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4CC2610148EA20072F8E5 /* NSLocale-WIFoundation.m */; };
 		77A4CC2910148EA20072F8E5 /* NSLocale-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A4CC2510148EA20072F8E5 /* NSLocale-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77A4CC2A10148EA20072F8E5 /* NSLocale-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A4CC2610148EA20072F8E5 /* NSLocale-WIFoundation.m */; };
+		77AA6E0610B55327008996EB /* wi-null.c in Sources */ = {isa = PBXBuildFile; fileRef = 77AA6E0410B55327008996EB /* wi-null.c */; };
+		77AA6E0710B55327008996EB /* wi-null.h in Headers */ = {isa = PBXBuildFile; fileRef = 77AA6E0510B55327008996EB /* wi-null.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77AA6E0A10B55332008996EB /* wi-sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = 77AA6E0810B55332008996EB /* wi-sqlite3.c */; };
+		77AA6E0B10B55332008996EB /* wi-sqlite3.h in Headers */ = {isa = PBXBuildFile; fileRef = 77AA6E0910B55332008996EB /* wi-sqlite3.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77AA6E5A10B554F4008996EB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AA6E5910B554F4008996EB /* libsqlite3.dylib */; };
 		77B0F8FB108F49620027C204 /* WiredFoundation in Copy Files (Headers) */ = {isa = PBXBuildFile; fileRef = 77B0F8F9108F49550027C204 /* WiredFoundation */; };
 		77B0F8FC108F49650027C204 /* WiredNetworking in Copy Files (Headers) */ = {isa = PBXBuildFile; fileRef = 77B0F8FA108F495F0027C204 /* WiredNetworking */; };
 		77CA4F4D106ADF7D00A0463B /* TreeDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = 77CA4F4C106ADF7D00A0463B /* TreeDetail.html */; };
@@ -443,8 +448,8 @@
 		A5C23F900E9AC53E00A81F49 /* wi-wired.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C23E180E9AC4D500A81F49 /* wi-wired.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5C23F910E9AC53E00A81F49 /* wi-x509.c in Sources */ = {isa = PBXBuildFile; fileRef = A5C23DAF0E9AC4D500A81F49 /* wi-x509.c */; };
 		A5C23F920E9AC53E00A81F49 /* wi-x509.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C23DB00E9AC4D500A81F49 /* wi-x509.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A5C23F930E9AC53E00A81F49 /* wi-xml.c in Sources */ = {isa = PBXBuildFile; fileRef = A5C23E020E9AC4D500A81F49 /* wi-xml.c */; };
-		A5C23F940E9AC53E00A81F49 /* wi-xml.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C23E030E9AC4D500A81F49 /* wi-xml.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5C23F930E9AC53E00A81F49 /* wi-libxml2.c in Sources */ = {isa = PBXBuildFile; fileRef = A5C23E020E9AC4D500A81F49 /* wi-libxml2.c */; };
+		A5C23F940E9AC53E00A81F49 /* wi-libxml2.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C23E030E9AC4D500A81F49 /* wi-libxml2.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5C23F950E9AC53E00A81F49 /* wired.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C23D270E9AC49800A81F49 /* wired.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5C23FAE0E9AC67C00A81F49 /* wi-private.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C23FAD0E9AC67C00A81F49 /* wi-private.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5C2403C0E9AC9E100A81F49 /* libwired.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C23CFF0E9AC2AB00A81F49 /* libwired.a */; };
@@ -638,6 +643,11 @@
 		77A4CA2110148B9D0072F8E5 /* NSDateComponents-WIFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDateComponents-WIFoundation.h"; path = "WiredFoundation/NSDateComponents-WIFoundation.h"; sourceTree = "<group>"; };
 		77A4CC2510148EA20072F8E5 /* NSLocale-WIFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSLocale-WIFoundation.h"; path = "WiredFoundation/NSLocale-WIFoundation.h"; sourceTree = "<group>"; };
 		77A4CC2610148EA20072F8E5 /* NSLocale-WIFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSLocale-WIFoundation.m"; path = "WiredFoundation/NSLocale-WIFoundation.m"; sourceTree = "<group>"; };
+		77AA6E0410B55327008996EB /* wi-null.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "wi-null.c"; path = "libwired/libwired/data/wi-null.c"; sourceTree = "<group>"; };
+		77AA6E0510B55327008996EB /* wi-null.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "wi-null.h"; path = "libwired/libwired/data/wi-null.h"; sourceTree = "<group>"; };
+		77AA6E0810B55332008996EB /* wi-sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "wi-sqlite3.c"; path = "libwired/libwired/thirdparty/wi-sqlite3.c"; sourceTree = "<group>"; };
+		77AA6E0910B55332008996EB /* wi-sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "wi-sqlite3.h"; path = "libwired/libwired/thirdparty/wi-sqlite3.h"; sourceTree = "<group>"; };
+		77AA6E5910B554F4008996EB /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = /usr/lib/libsqlite3.dylib; sourceTree = "<absolute>"; };
 		77B0F8F9108F49550027C204 /* WiredFoundation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WiredFoundation; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B0F8FA108F495F0027C204 /* WiredNetworking */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WiredNetworking; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B7C4AA0973FF5E009367B0 /* NSApplication-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSApplication-WIAppKit.m"; path = "WiredAppKit/NSApplication-WIAppKit.m"; sourceTree = "<group>"; };
@@ -864,8 +874,8 @@
 		A5C23DFF0E9AC4D500A81F49 /* wi-settings.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "wi-settings.h"; path = "libwired/libwired/misc/wi-settings.h"; sourceTree = "<group>"; };
 		A5C23E000E9AC4D500A81F49 /* wi-test.c */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.c; name = "wi-test.c"; path = "libwired/libwired/misc/wi-test.c"; sourceTree = "<group>"; };
 		A5C23E010E9AC4D500A81F49 /* wi-test.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "wi-test.h"; path = "libwired/libwired/misc/wi-test.h"; sourceTree = "<group>"; };
-		A5C23E020E9AC4D500A81F49 /* wi-xml.c */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.c; name = "wi-xml.c"; path = "libwired/libwired/misc/wi-xml.c"; sourceTree = "<group>"; };
-		A5C23E030E9AC4D500A81F49 /* wi-xml.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "wi-xml.h"; path = "libwired/libwired/misc/wi-xml.h"; sourceTree = "<group>"; };
+		A5C23E020E9AC4D500A81F49 /* wi-libxml2.c */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.c; name = "wi-libxml2.c"; path = "libwired/libwired/thirdparty/wi-libxml2.c"; sourceTree = "<group>"; };
+		A5C23E030E9AC4D500A81F49 /* wi-libxml2.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "wi-libxml2.h"; path = "libwired/libwired/thirdparty/wi-libxml2.h"; sourceTree = "<group>"; };
 		A5C23E0F0E9AC4D500A81F49 /* wi-address.c */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.c; name = "wi-address.c"; path = "libwired/libwired/net/wi-address.c"; sourceTree = "<group>"; };
 		A5C23E100E9AC4D500A81F49 /* wi-address.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "wi-address.h"; path = "libwired/libwired/net/wi-address.h"; sourceTree = "<group>"; };
 		A5C23E110E9AC4D500A81F49 /* wi-host.c */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.c; name = "wi-host.c"; path = "libwired/libwired/net/wi-host.c"; sourceTree = "<group>"; };
@@ -955,6 +965,7 @@
 				7712BF150E5C2292001C4210 /* Foundation.framework in Frameworks */,
 				77CFB76E109083D10000A4C4 /* WiredFoundation.framework in Frameworks */,
 				A565B3B20D5D99BC00AF91BA /* libcrypto.dylib in Frameworks */,
+				77AA6E5A10B554F4008996EB /* libsqlite3.dylib in Frameworks */,
 				A565B3B30D5D99BC00AF91BA /* libssl.dylib in Frameworks */,
 				A5C2403C0E9AC9E100A81F49 /* libwired.a in Frameworks */,
 				A565B3950D5D994F00AF91BA /* libxml2.dylib in Frameworks */,
@@ -1000,6 +1011,7 @@
 			isa = PBXGroup;
 			children = (
 				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
+				77AA6E4B10B554C1008996EB /* Linked Libraries */,
 				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -1014,11 +1026,6 @@
 				7724739909DD82E30010335B /* ExceptionHandling.framework */,
 				A5604A050D4069060080EA07 /* Quartz.framework */,
 				77CA5178106AF14700A0463B /* WebKit.framework */,
-				A565B3B00D5D99BC00AF91BA /* libcrypto.dylib */,
-				77D339D0104DCFED006BF8D5 /* libicucore.dylib */,
-				A565B3B10D5D99BC00AF91BA /* libssl.dylib */,
-				A565B3AE0D5D999A00AF91BA /* libz.dylib */,
-				A565B3940D5D994F00AF91BA /* libxml2.dylib */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -1188,6 +1195,19 @@
 				A5796C4A0EBA4CF000FF6E51 /* version.pl */,
 			);
 			name = Scripts;
+			sourceTree = "<group>";
+		};
+		77AA6E4B10B554C1008996EB /* Linked Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				A565B3B00D5D99BC00AF91BA /* libcrypto.dylib */,
+				77D339D0104DCFED006BF8D5 /* libicucore.dylib */,
+				77AA6E5910B554F4008996EB /* libsqlite3.dylib */,
+				A565B3B10D5D99BC00AF91BA /* libssl.dylib */,
+				A565B3AE0D5D999A00AF91BA /* libz.dylib */,
+				A565B3940D5D994F00AF91BA /* libxml2.dylib */,
+			);
+			name = "Linked Libraries";
 			sourceTree = "<group>";
 		};
 		77D339BB104DCF56006BF8D5 /* RegexKitLite */ = {
@@ -1461,11 +1481,15 @@
 				A5C23E120E9AC4D500A81F49 /* wi-host.h */,
 				A5C23E130E9AC4D500A81F49 /* wi-ip.c */,
 				A5C23E140E9AC4D500A81F49 /* wi-ip.h */,
+				A5C23E020E9AC4D500A81F49 /* wi-libxml2.c */,
+				A5C23E030E9AC4D500A81F49 /* wi-libxml2.h */,
 				A5C23E4A0E9AC4D500A81F49 /* wi-lock.c */,
 				A5C23E4B0E9AC4D500A81F49 /* wi-lock.h */,
 				A5C23E390E9AC4D500A81F49 /* wi-log.c */,
 				A5C23E3A0E9AC4D500A81F49 /* wi-log.h */,
 				A5C23D2D0E9AC4A800A81F49 /* wi-macros.h */,
+				77AA6E0410B55327008996EB /* wi-null.c */,
+				77AA6E0510B55327008996EB /* wi-null.h */,
 				A5C23DC40E9AC4D500A81F49 /* wi-number.c */,
 				A5C23DC50E9AC4D500A81F49 /* wi-number.h */,
 				A5C23E220E9AC4D500A81F49 /* wi-p7-message.c */,
@@ -1499,6 +1523,8 @@
 				A5C23E160E9AC4D500A81F49 /* wi-socket.h */,
 				77CE0A6210545C7100E16594 /* wi-speed-calculator.c */,
 				77CE0A6310545C7100E16594 /* wi-speed-calculator.h */,
+				77AA6E0810B55332008996EB /* wi-sqlite3.c */,
+				77AA6E0910B55332008996EB /* wi-sqlite3.h */,
 				A5C23DC80E9AC4D500A81F49 /* wi-string.c */,
 				A5C23DC90E9AC4D500A81F49 /* wi-string.h */,
 				A5C23E3D0E9AC4D500A81F49 /* wi-system.c */,
@@ -1523,8 +1549,6 @@
 				A5C23E180E9AC4D500A81F49 /* wi-wired.h */,
 				A5C23DAF0E9AC4D500A81F49 /* wi-x509.c */,
 				A5C23DB00E9AC4D500A81F49 /* wi-x509.h */,
-				A5C23E020E9AC4D500A81F49 /* wi-xml.c */,
-				A5C23E030E9AC4D500A81F49 /* wi-xml.h */,
 				A5C23D270E9AC49800A81F49 /* wired.h */,
 			);
 			name = libwired;
@@ -1738,9 +1762,11 @@
 				A5C23F520E9AC53E00A81F49 /* wi-fts.h in Headers */,
 				A5C23F540E9AC53E00A81F49 /* wi-host.h in Headers */,
 				A5C23F560E9AC53E00A81F49 /* wi-ip.h in Headers */,
+				A5C23F940E9AC53E00A81F49 /* wi-libxml2.h in Headers */,
 				A5C23F580E9AC53E00A81F49 /* wi-lock.h in Headers */,
 				A5C23F5A0E9AC53E00A81F49 /* wi-log.h in Headers */,
 				A5C23F5B0E9AC53E00A81F49 /* wi-macros.h in Headers */,
+				77AA6E0710B55327008996EB /* wi-null.h in Headers */,
 				A5C23F5D0E9AC53E00A81F49 /* wi-number.h in Headers */,
 				A5C23F5F0E9AC53E00A81F49 /* wi-p7-message.h in Headers */,
 				A5C23F610E9AC53E00A81F49 /* wi-p7-private.h in Headers */,
@@ -1758,6 +1784,7 @@
 				A5C23F780E9AC53E00A81F49 /* wi-settings.h in Headers */,
 				A5C23F7A0E9AC53E00A81F49 /* wi-socket.h in Headers */,
 				77CE0A6510545C7100E16594 /* wi-speed-calculator.h in Headers */,
+				77AA6E0B10B55332008996EB /* wi-sqlite3.h in Headers */,
 				A5C23F7C0E9AC53E00A81F49 /* wi-string.h in Headers */,
 				A5C23F7E0E9AC53E00A81F49 /* wi-system.h in Headers */,
 				A5C23F800E9AC53E00A81F49 /* wi-task.h in Headers */,
@@ -1770,7 +1797,6 @@
 				A5C23F8E0E9AC53E00A81F49 /* wi-version.h in Headers */,
 				A5C23F900E9AC53E00A81F49 /* wi-wired.h in Headers */,
 				A5C23F920E9AC53E00A81F49 /* wi-x509.h in Headers */,
-				A5C23F940E9AC53E00A81F49 /* wi-xml.h in Headers */,
 				A5C23F950E9AC53E00A81F49 /* wired.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1996,7 +2022,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if echo $DEBUG_INFORMATION_FORMAT | grep -q dwarf; then\n\tCFLAGS=\"-gdwarf-2\"\nelse\n\tCFLAGS=\"-gstabs\"\nfi\n\nif echo $CONFIGURATION | grep -q Release; then\n\tCFLAGS=\"$CFLAGS -O2\"\nelse\n\tCFLAGS=\"$CFLAGS -O0\"\nfi\n\nif echo $CONFIGURATION | grep -q iPhone; then\n\tCONFIGUREFLAGS=\"\"\nelse\n\tCONFIGUREFLAGS=\"--enable-pthreads\"\nfi\n\nif echo $GCC_VERSION | grep -q clang; then\n\tCC=\"$PLATFORM_DEVELOPER_BIN_DIR/clang\"\nelse\n\tCC=\"$PLATFORM_DEVELOPER_BIN_DIR/gcc-$GCC_VERSION\"\nfi\n\nBUILD=$(\"$SRCROOT/libwired/config.guess\")\n\ncd libwired\n\nfor i in $ARCHS; do\n\tif [ ! -f \"$DERIVED_SOURCES_DIR/$i/config.h\" ]; then\n\t\tHOST=\"$i-apple-darwin$(uname -r)\"\n\t\tARCH_CONFIGUREFLAGS=\"$CONFIGURE_FLAGS --enable-warnings --enable-p7\"\n\t\tARCH_CFLAGS=\"$CFLAGS\"\n\t\tARCH_CPPFLAGS=\"$CPPFLAGS\"\n\t\tARCH_CC=\"$CC -arch $i\"\n\n\t\tif [ \"$SDKROOT\" ]; then\n\t\t\tARCH_SDKROOT=\"$SDKROOT\"\n\t\telse\n\t\t\tif [ \"$i\" = \"i386\" -o \"$i\" = \"ppc\" ]; then\n\t\t\t\tARCH_SDKROOT=\"$DEVELOPER_SDK_DIR/MacOSX10.4u.sdk\"\n\t\t\t\tMACOSX_DEPLOYMENT_TARGET=10.4\n\t\t\telif [ \"$i\" = \"x86_64\" -o \"$i\" = \"ppc64\" ]; then\n\t\t\t\tARCH_SDKROOT=\"$DEVELOPER_SDK_DIR/MacOSX10.5.sdk\"\n\t\t\t\tMACOSX_DEPLOYMENT_TARGET=10.5\n\t\t\tfi\n\t\tfi\n\n\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -isysroot $ARCH_SDKROOT\"\n\t\n\t\tif [ \"$IPHONEOS_DEPLOYMENT_TARGET\" ]; then\n\t\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -miphoneos-version-min=$IPHONEOS_DEPLOYMENT_TARGET\"\n\t\telif [ \"$MACOSX_DEPLOYMENT_TARGET\" ]; then\n\t\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET\"\n\t\t\tARCH_CONFIGUREFLAGS=\"$ARCH_CONFIGUREFLAGS --enable-ssl\"\n\t\tfi\n\t\n\t\techo CC=\"$ARCH_CC\" CFLAGS=\"$ARCH_CFLAGS\" CPPFLAGS=\"$ARCH_CPPFLAGS\" ./configure --host=\"$HOST\" --build=\"$BUILD\" $ARCH_CONFIGUREFLAGS\n\t\tCC=\"$ARCH_CC\" CFLAGS=\"$ARCH_CFLAGS\" CPPFLAGS=\"$ARCH_CPPFLAGS\" ./configure --host=\"$HOST\" --build=\"$BUILD\" $ARCH_CONFIGUREFLAGS || exit 1\n\n\t\tmkdir -p \"$DERIVED_SOURCES_DIR/$i\"\n\t\tcp config.h \"$DERIVED_SOURCES_DIR/$i/config.h\"\n\tfi\ndone\n";
+			shellScript = "if echo $DEBUG_INFORMATION_FORMAT | grep -q dwarf; then\n\tCFLAGS=\"-gdwarf-2\"\nelse\n\tCFLAGS=\"-gstabs\"\nfi\n\nif echo $CONFIGURATION | grep -q Release; then\n\tCFLAGS=\"$CFLAGS -O2\"\nelse\n\tCFLAGS=\"$CFLAGS -O0\"\nfi\n\nif echo $CONFIGURATION | grep -q iPhone; then\n\tCONFIGUREFLAGS=\"\"\nelse\n\tCONFIGUREFLAGS=\"--enable-pthreads\"\nfi\n\nif echo $GCC_VERSION | grep -q clang; then\n\tCC=\"$PLATFORM_DEVELOPER_BIN_DIR/clang\"\nelse\n\tCC=\"$PLATFORM_DEVELOPER_BIN_DIR/gcc-$GCC_VERSION\"\nfi\n\nBUILD=$(\"$SRCROOT/libwired/config.guess\")\n\ncd libwired\n\nfor i in $ARCHS; do\n\tif [ ! -f \"$DERIVED_SOURCES_DIR/$i/config.h\" ]; then\n\t\tHOST=\"$i-apple-darwin$(uname -r)\"\n\t\tARCH_CONFIGUREFLAGS=\"$CONFIGURE_FLAGS --enable-warnings --enable-p7 --enable-sqlite3\"\n\t\tARCH_CFLAGS=\"$CFLAGS\"\n\t\tARCH_CPPFLAGS=\"$CPPFLAGS\"\n\t\tARCH_CC=\"$CC -arch $i\"\n\n\t\tif [ \"$SDKROOT\" ]; then\n\t\t\tARCH_SDKROOT=\"$SDKROOT\"\n\t\telse\n\t\t\tif [ \"$i\" = \"i386\" -o \"$i\" = \"ppc\" ]; then\n\t\t\t\tARCH_SDKROOT=\"$DEVELOPER_SDK_DIR/MacOSX10.4u.sdk\"\n\t\t\t\tMACOSX_DEPLOYMENT_TARGET=10.4\n\t\t\telif [ \"$i\" = \"x86_64\" -o \"$i\" = \"ppc64\" ]; then\n\t\t\t\tARCH_SDKROOT=\"$DEVELOPER_SDK_DIR/MacOSX10.5.sdk\"\n\t\t\t\tMACOSX_DEPLOYMENT_TARGET=10.5\n\t\t\tfi\n\t\tfi\n\n\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -isysroot $ARCH_SDKROOT\"\n\t\n\t\tif [ \"$IPHONEOS_DEPLOYMENT_TARGET\" ]; then\n\t\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -miphoneos-version-min=$IPHONEOS_DEPLOYMENT_TARGET\"\n\t\telif [ \"$MACOSX_DEPLOYMENT_TARGET\" ]; then\n\t\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET\"\n\t\t\tARCH_CONFIGUREFLAGS=\"$ARCH_CONFIGUREFLAGS --enable-ssl\"\n\t\tfi\n\t\n\t\techo CC=\"$ARCH_CC\" CFLAGS=\"$ARCH_CFLAGS\" CPPFLAGS=\"$ARCH_CPPFLAGS\" ./configure --host=\"$HOST\" --build=\"$BUILD\" $ARCH_CONFIGUREFLAGS\n\t\tCC=\"$ARCH_CC\" CFLAGS=\"$ARCH_CFLAGS\" CPPFLAGS=\"$ARCH_CPPFLAGS\" ./configure --host=\"$HOST\" --build=\"$BUILD\" $ARCH_CONFIGUREFLAGS || exit 1\n\n\t\tmkdir -p \"$DERIVED_SOURCES_DIR/$i\"\n\t\tcp config.h \"$DERIVED_SOURCES_DIR/$i/config.h\"\n\tfi\ndone\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2197,8 +2223,10 @@
 				A5C23F510E9AC53E00A81F49 /* wi-fts.c in Sources */,
 				A5C23F530E9AC53E00A81F49 /* wi-host.c in Sources */,
 				A5C23F550E9AC53E00A81F49 /* wi-ip.c in Sources */,
+				A5C23F930E9AC53E00A81F49 /* wi-libxml2.c in Sources */,
 				A5C23F570E9AC53E00A81F49 /* wi-lock.c in Sources */,
 				A5C23F590E9AC53E00A81F49 /* wi-log.c in Sources */,
+				77AA6E0610B55327008996EB /* wi-null.c in Sources */,
 				A5C23F5C0E9AC53E00A81F49 /* wi-number.c in Sources */,
 				A5C23F5E0E9AC53E00A81F49 /* wi-p7-message.c in Sources */,
 				A5C23F600E9AC53E00A81F49 /* wi-p7-private.c in Sources */,
@@ -2215,6 +2243,7 @@
 				A5C23F770E9AC53E00A81F49 /* wi-settings.c in Sources */,
 				A5C23F790E9AC53E00A81F49 /* wi-socket.c in Sources */,
 				77CE0A6410545C7100E16594 /* wi-speed-calculator.c in Sources */,
+				77AA6E0A10B55332008996EB /* wi-sqlite3.c in Sources */,
 				A5C23F7B0E9AC53E00A81F49 /* wi-string.c in Sources */,
 				A5C23F7D0E9AC53E00A81F49 /* wi-system.c in Sources */,
 				A5C23F7F0E9AC53E00A81F49 /* wi-task.c in Sources */,
@@ -2227,7 +2256,6 @@
 				A5C23F8D0E9AC53E00A81F49 /* wi-version.c in Sources */,
 				A5C23F8F0E9AC53E00A81F49 /* wi-wired.c in Sources */,
 				A5C23F910E9AC53E00A81F49 /* wi-x509.c in Sources */,
-				A5C23F930E9AC53E00A81F49 /* wi-xml.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2557,6 +2585,9 @@
 					WI_PTHREADS,
 					WI_PLIST,
 					WI_P7,
+					WI_SQLITE3,
+					WI_LIBXML2,
+					WI_ZLIB,
 				);
 				GCC_VERSION = 4.0;
 				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
@@ -2587,6 +2618,9 @@
 					WI_PTHREADS,
 					WI_PLIST,
 					WI_P7,
+					WI_SQLITE3,
+					WI_LIBXML2,
+					WI_ZLIB,
 				);
 				GCC_VERSION = 4.0;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -2740,9 +2774,14 @@
 					WIConfigurationDebug,
 					WI_DIGESTS,
 					WI_CIPHERS,
+					WI_RSA,
+					WI_SSL,
 					WI_PTHREADS,
 					WI_PLIST,
 					WI_P7,
+					WI_SQLITE3,
+					WI_LIBXML2,
+					WI_ZLIB,
 				);
 				GCC_VERSION = 4.0;
 				SDKROOT = iphoneos3.1;
@@ -2889,9 +2928,14 @@
 					WIConfigurationTest,
 					WI_DIGESTS,
 					WI_CIPHERS,
+					WI_RSA,
+					WI_SSL,
 					WI_PTHREADS,
 					WI_PLIST,
 					WI_P7,
+					WI_SQLITE3,
+					WI_LIBXML2,
+					WI_ZLIB,
 				);
 				GCC_VERSION = 4.0;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -3040,9 +3084,14 @@
 					WIConfigurationRelease,
 					WI_DIGESTS,
 					WI_CIPHERS,
+					WI_RSA,
+					WI_SSL,
 					WI_PTHREADS,
 					WI_PLIST,
 					WI_P7,
+					WI_SQLITE3,
+					WI_LIBXML2,
+					WI_ZLIB,
 				);
 				GCC_VERSION = 4.0;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -3290,6 +3339,9 @@
 					WI_PTHREADS,
 					WI_PLIST,
 					WI_P7,
+					WI_SQLITE3,
+					WI_LIBXML2,
+					WI_ZLIB,
 				);
 				GCC_VERSION = 4.0;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
