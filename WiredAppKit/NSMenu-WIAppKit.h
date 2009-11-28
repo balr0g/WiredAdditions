@@ -29,6 +29,8 @@
 @interface NSMenu(WIAppKit)
 
 - (void)setOnStateForItemsWithTag:(int)tag;
+
+- (void)addItems:(NSArray *)items;
 - (void)removeAllItems;
 
 @end

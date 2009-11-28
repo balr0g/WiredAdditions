@@ -42,6 +42,20 @@
 
 
 
+#pragma mark -
+
+- (void)addItems:(NSArray *)items {
+	NSEnumerator	*enumerator;
+	NSMenuItem		*item;
+	
+	enumerator = [items objectEnumerator];
+	
+	while((item = [enumerator nextObject]))
+		[self addItem:item];
+}
+
+
+
 - (void)removeAllItems {
 	while([self numberOfItems] > 0)
 		[self removeItemAtIndex:0];

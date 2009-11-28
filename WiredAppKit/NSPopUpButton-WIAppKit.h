@@ -29,6 +29,7 @@
 @interface NSPopUpButton(WIAppKit)
 
 - (void)addItem:(NSMenuItem *)item;
+- (void)addItems:(NSArray *)items;
 - (void)insertItem:(NSMenuItem *)item atIndex:(NSUInteger)index;
 - (void)removeItem:(NSMenuItem *)item;
 
@@ -44,6 +45,7 @@
 @interface NSPopUpButtonCell(WIAppKit)
 
 - (void)addItem:(NSMenuItem *)item;
+- (void)addItems:(NSArray *)items;
 - (void)insertItem:(NSMenuItem *)item atIndex:(NSUInteger)index;
 - (void)removeItem:(NSMenuItem *)item;
 

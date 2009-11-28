@@ -26,12 +26,19 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+#import <WiredAppKit/NSMenu-WIAppKit.h>
 #import <WiredAppKit/NSPopUpButton-WIAppKit.h>
 
 @implementation NSPopUpButton(WIAppKit)
 
 - (void)addItem:(NSMenuItem *)item {
 	[[self cell] addItem:item];
+}
+
+
+
+- (void)addItems:(NSArray *)items {
+	[[self cell] addItems:items];
 }
 
 
@@ -82,6 +89,12 @@
 
 - (void)addItem:(NSMenuItem *)item {
 	[[self menu] addItem:item];
+}
+
+
+
+- (void)addItems:(NSArray *)items {
+	[[self menu] addItems:items];
 }
 
 
