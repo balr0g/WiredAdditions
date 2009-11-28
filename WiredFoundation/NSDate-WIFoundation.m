@@ -31,42 +31,71 @@
 @implementation NSDate(WIFoundation)
 
 + (NSDate *)dateAtStartOfCurrentDay {
-	NSDate				*date;
-	NSDateComponents	*components;
-	
-	date = [NSDate date];
-	
-	components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:date];
-	[components setHour:-[components hour]];
-	[components setMinute:-[components minute]];
-	[components setSecond:-[components second]];
-	
-	return [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:date options:0];
+	return [[NSDate date] dateAtStartOfDay];
 }
 
 
 
 + (NSDate *)dateAtStartOfCurrentWeek {
-	NSDate				*date;
+	return [[NSDate date] dateAtStartOfWeek];
+}
+
+
+
++ (NSDate *)dateAtStartOfCurrentMonth {
+	return [[NSDate date] dateAtStartOfMonth];
+}
+
+
+
++ (NSDate *)dateAtStartOfCurrentYear {
+	return [[NSDate date] dateAtStartOfYear];
+}
+
+
+
+#pragma mark -
+
+- (NSDate *)dateAtStartOfDay {
 	NSDateComponents	*components;
 	
-	date = [self dateAtStartOfCurrentDay];
+	components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:self];
 	
-	components = [[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:date];
-	[components setWeekday:-[components weekday] + 1];
+	[components setHour:-[components hour]];
+	[components setMinute:-[components minute]];
+	[components setSecond:-[components second]];
+	
+	return [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:self options:0];
+}
+
+
+
+- (NSDate *)dateAtStartOfWeek {
+	NSDate				*date;
+	NSDateComponents	*components;
+	NSInteger			firstWeekday;
+	
+	date			= [self dateAtStartOfDay];
+	firstWeekday	= [[NSCalendar currentCalendar] firstWeekday];
+	components		= [[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:date];
+	
+	if([components weekday] < firstWeekday)
+		[components setWeekday:-[components weekday] + firstWeekday - 7];
+	else
+		[components setWeekday:-[components weekday] + firstWeekday];
 	
 	return [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:date options:0];
 }
 
 
 
-+ (NSDate *)dateAtStartOfCurrentMonth {
+- (NSDate *)dateAtStartOfMonth {
 	NSDate				*date;
 	NSDateComponents	*components;
 	
-	date = [self dateAtStartOfCurrentDay];
+	date			= [self dateAtStartOfDay];
+	components		= [[NSCalendar currentCalendar] components:NSDayCalendarUnit fromDate:date];
 	
-	components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit fromDate:date];
 	[components setDay:-[components day] + 1];
 	
 	return [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:date options:0];
@@ -74,13 +103,13 @@
 
 
 
-+ (NSDate *)dateAtStartOfCurrentYear {
+- (NSDate *)dateAtStartOfYear {
 	NSDate				*date;
 	NSDateComponents	*components;
 	
-	date = [self dateAtStartOfCurrentMonth];
+	date			= [self dateAtStartOfMonth];
+	components		= [[NSCalendar currentCalendar] components:NSMonthCalendarUnit fromDate:date];
 	
-	components = [[NSCalendar currentCalendar] components:NSMonthCalendarUnit fromDate:date];
 	[components setMonth:-[components month] + 1];
 	
 	return [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:date options:0];

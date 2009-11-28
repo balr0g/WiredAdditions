@@ -33,6 +33,11 @@
 + (NSDate *)dateAtStartOfCurrentMonth;
 + (NSDate *)dateAtStartOfCurrentYear;
 
+- (NSDate *)dateAtStartOfDay;
+- (NSDate *)dateAtStartOfWeek;
+- (NSDate *)dateAtStartOfMonth;
+- (NSDate *)dateAtStartOfYear;
+
 - (BOOL)isAtBeginningOfAnyEpoch;
 - (NSDate *)dateByAddingDays:(NSInteger)days;
 
