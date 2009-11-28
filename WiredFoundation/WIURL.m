@@ -320,7 +320,7 @@
 	}
 	
 	if([[self path] length] > 0)
-		[string appendString:[[self path] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+		[string appendString:[[self path] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding charactersToLeaveUnescaped:@"#"]];
 	
 	if([[self query] length] > 0)
 		[string appendFormat:@"?%@", [[self query] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];

@@ -235,10 +235,21 @@
 
 #pragma mark -
 
+- (NSString *)stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)encoding charactersToLeaveUnescaped:(NSString *)charactersToLeaveUnescaped {
+	return [(NSString *) CFURLCreateStringByAddingPercentEscapes(NULL,
+																 (CFStringRef) self,
+																 (CFStringRef) charactersToLeaveUnescaped,
+																 NULL,
+																 CFStringConvertNSStringEncodingToEncoding(encoding)) autorelease];
+}
+
+
+
 - (NSString *)stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)encoding legalURLCharactersToBeEscaped:(NSString *)legalURLCharactersToBeEscaped {
 	return [(NSString *) CFURLCreateStringByAddingPercentEscapes(NULL,
 																 (CFStringRef) self,
-																 NULL, (CFStringRef) legalURLCharactersToBeEscaped,
+																 NULL,
+																 (CFStringRef) legalURLCharactersToBeEscaped,
 																 CFStringConvertNSStringEncodingToEncoding(encoding)) autorelease];
 }
 
