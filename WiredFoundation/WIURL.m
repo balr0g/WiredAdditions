@@ -445,6 +445,9 @@
 - (NSString *)hostpair {
 	if([[[WIURL _portmap] objectForKey:[self scheme]] unsignedIntValue] == [self port])
 		return [self host];
+	
+	if([[self host] containsSubstring:@":"])
+		return [NSSWF:@"[%@]:%lu", [self host], [self port]];
 
 	return [NSSWF:@"%@:%lu", [self host], [self port]];
 }
