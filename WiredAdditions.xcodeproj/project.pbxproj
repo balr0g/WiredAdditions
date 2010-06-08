@@ -2022,7 +2022,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if echo $DEBUG_INFORMATION_FORMAT | grep -q dwarf; then\n\tCFLAGS=\"-gdwarf-2\"\nelse\n\tCFLAGS=\"-gstabs\"\nfi\n\nif echo $CONFIGURATION | grep -q Release; then\n\tCFLAGS=\"$CFLAGS -O2\"\nelse\n\tCFLAGS=\"$CFLAGS -O0\"\nfi\n\nif echo $CONFIGURATION | grep -q iPhone; then\n\tCONFIGUREFLAGS=\"\"\nelse\n\tCONFIGUREFLAGS=\"--enable-pthreads\"\nfi\n\nif echo $GCC_VERSION | grep -q clang; then\n\tCC=\"$PLATFORM_DEVELOPER_BIN_DIR/clang\"\nelse\n\tCC=\"$PLATFORM_DEVELOPER_BIN_DIR/gcc-$GCC_VERSION\"\nfi\n\nBUILD=$(\"$SRCROOT/libwired/config.guess\")\n\ncd libwired\n\nfor i in $ARCHS; do\n\tif [ ! -f \"$DERIVED_SOURCES_DIR/$i/config.h\" ]; then\n\t\tHOST=\"$i-apple-darwin$(uname -r)\"\n\t\tARCH_CONFIGUREFLAGS=\"$CONFIGURE_FLAGS --enable-warnings --enable-p7\"\n\t\tARCH_CFLAGS=\"$CFLAGS\"\n\t\tARCH_CPPFLAGS=\"$CPPFLAGS\"\n\t\tARCH_CC=\"$CC -arch $i\"\n\n\t\tif [ \"$SDKROOT\" ]; then\n\t\t\tARCH_SDKROOT=\"$SDKROOT\"\n\t\telse\n\t\t\tif [ \"$i\" = \"i386\" -o \"$i\" = \"ppc\" ]; then\n\t\t\t\tARCH_SDKROOT=\"$DEVELOPER_SDK_DIR/MacOSX10.4u.sdk\"\n\t\t\t\tMACOSX_DEPLOYMENT_TARGET=10.4\n\t\t\telif [ \"$i\" = \"x86_64\" -o \"$i\" = \"ppc64\" ]; then\n\t\t\t\tARCH_SDKROOT=\"$DEVELOPER_SDK_DIR/MacOSX10.5.sdk\"\n\t\t\t\tMACOSX_DEPLOYMENT_TARGET=10.5\n\t\t\tfi\n\t\tfi\n\n\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -isysroot $ARCH_SDKROOT\"\n\t\n\t\tif [ \"$IPHONEOS_DEPLOYMENT_TARGET\" ]; then\n\t\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -miphoneos-version-min=$IPHONEOS_DEPLOYMENT_TARGET\"\n\t\telif [ \"$MACOSX_DEPLOYMENT_TARGET\" ]; then\n\t\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET\"\n\t\t\tARCH_CONFIGUREFLAGS=\"$ARCH_CONFIGUREFLAGS --enable-ssl\"\n\t\tfi\n\t\n\t\techo CC=\"$ARCH_CC\" CFLAGS=\"$ARCH_CFLAGS\" CPPFLAGS=\"$ARCH_CPPFLAGS\" ./configure --host=\"$HOST\" --build=\"$BUILD\" $ARCH_CONFIGUREFLAGS\n\t\tCC=\"$ARCH_CC\" CFLAGS=\"$ARCH_CFLAGS\" CPPFLAGS=\"$ARCH_CPPFLAGS\" ./configure --host=\"$HOST\" --build=\"$BUILD\" $ARCH_CONFIGUREFLAGS || exit 1\n\n\t\tmkdir -p \"$DERIVED_SOURCES_DIR/$i\"\n\t\tcp config.h \"$DERIVED_SOURCES_DIR/$i/config.h\"\n\tfi\ndone\n";
+			shellScript = "if echo $DEBUG_INFORMATION_FORMAT | grep -q dwarf; then\n\tCFLAGS=\"-gdwarf-2\"\nelse\n\tCFLAGS=\"-gstabs\"\nfi\n\nif echo $CONFIGURATION | grep -q Release; then\n\tCFLAGS=\"$CFLAGS -O2\"\nelse\n\tCFLAGS=\"$CFLAGS -O0\"\nfi\n\nif echo $CONFIGURATION | grep -q iPhone; then\n\tCONFIGUREFLAGS=\"\"\nelse\n\tCONFIGUREFLAGS=\"--enable-pthreads\"\nfi\n\nif echo $GCC_VERSION | grep -q clang; then\n\tCC=\"$PLATFORM_DEVELOPER_BIN_DIR/clang\"\nelse\n\tCC=\"$PLATFORM_DEVELOPER_BIN_DIR/gcc-$GCC_VERSION\"\nfi\n\nBUILD=$(\"$SRCROOT/libwired/config.guess\")\n\ncd libwired\n\nfor i in $ARCHS; do\n\tif [ ! -f \"$DERIVED_SOURCES_DIR/$i/config.h\" ]; then\n\t\tHOST=\"$i-apple-darwin$(uname -r)\"\n\t\tARCH_CONFIGUREFLAGS=\"$CONFIGURE_FLAGS --enable-warnings --enable-p7\"\n\t\tARCH_CFLAGS=\"$CFLAGS\"\n\t\tARCH_CPPFLAGS=\"$CPPFLAGS\"\n\t\tARCH_CC=\"$CC -arch $i\"\n\n\t\tif [ \"$SDKROOT\" ]; then\n\t\t\tARCH_SDKROOT=\"$SDKROOT\"\n\t\telse\n\t\t\tif [ \"$i\" = \"i386\" -o \"$i\" = \"ppc\" ]; then\n\t\t\t\tARCH_SDKROOT=\"$DEVELOPER_SDK_DIR/MacOSX10.5.sdk\"\n\t\t\t\tMACOSX_DEPLOYMENT_TARGET=10.5\n\t\t\telif [ \"$i\" = \"x86_64\" -o \"$i\" = \"ppc64\" ]; then\n\t\t\t\tARCH_SDKROOT=\"$DEVELOPER_SDK_DIR/MacOSX10.5.sdk\"\n\t\t\t\tMACOSX_DEPLOYMENT_TARGET=10.5\n\t\t\tfi\n\t\tfi\n\n\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -isysroot $ARCH_SDKROOT\"\n\t\n\t\tif [ \"$IPHONEOS_DEPLOYMENT_TARGET\" ]; then\n\t\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -miphoneos-version-min=$IPHONEOS_DEPLOYMENT_TARGET\"\n\t\telif [ \"$MACOSX_DEPLOYMENT_TARGET\" ]; then\n\t\t\tARCH_CPPFLAGS=\"$ARCH_CPPFLAGS -mmacosx-version-min=$MACOSX_DEPLOYMENT_TARGET\"\n\t\t\tARCH_CONFIGUREFLAGS=\"$ARCH_CONFIGUREFLAGS --enable-ssl\"\n\t\tfi\n\t\n\t\techo CC=\"$ARCH_CC\" CFLAGS=\"$ARCH_CFLAGS\" CPPFLAGS=\"$ARCH_CPPFLAGS\" ./configure --host=\"$HOST\" --build=\"$BUILD\" $ARCH_CONFIGUREFLAGS\n\t\tCC=\"$ARCH_CC\" CFLAGS=\"$ARCH_CFLAGS\" CPPFLAGS=\"$ARCH_CPPFLAGS\" ./configure --host=\"$HOST\" --build=\"$BUILD\" $ARCH_CONFIGUREFLAGS || exit 1\n\n\t\tmkdir -p \"$DERIVED_SOURCES_DIR/$i\"\n\t\tcp config.h \"$DERIVED_SOURCES_DIR/$i/config.h\"\n\tfi\ndone\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2411,6 +2411,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2434,6 +2435,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2457,6 +2459,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2484,6 +2487,7 @@
 					"\"$(SRCROOT)/build/Test/Universal\"",
 				);
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredAppKit/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2511,6 +2515,7 @@
 					"\"$(SRCROOT)/build/Test/Universal\"",
 				);
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredAppKit/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2538,6 +2543,7 @@
 					"\"$(SRCROOT)/build/Test/Universal\"",
 				);
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredAppKit/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2590,13 +2596,13 @@
 					WI_ZLIB,
 				);
 				GCC_VERSION = 4.0;
-				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.5;
 				"MACOSX_DEPLOYMENT_TARGET[arch=ppc64]" = 10.5;
-				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.5;
 				"MACOSX_DEPLOYMENT_TARGET[arch=x86_64]" = 10.5;
-				"SDKROOT[arch=i386]" = macosx10.4;
+				"SDKROOT[arch=i386]" = macosx10.5;
 				"SDKROOT[arch=ppc64]" = macosx10.5;
-				"SDKROOT[arch=ppc]" = macosx10.4;
+				"SDKROOT[arch=ppc]" = macosx10.5;
 				"SDKROOT[arch=x86_64]" = macosx10.5;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
@@ -2624,14 +2630,14 @@
 				);
 				GCC_VERSION = 4.0;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.5;
 				"MACOSX_DEPLOYMENT_TARGET[arch=ppc64]" = 10.5;
-				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.5;
 				"MACOSX_DEPLOYMENT_TARGET[arch=x86_64]" = 10.5;
 				PREBINDING = NO;
-				"SDKROOT[arch=i386]" = macosx10.4;
+				"SDKROOT[arch=i386]" = macosx10.5;
 				"SDKROOT[arch=ppc64]" = macosx10.5;
-				"SDKROOT[arch=ppc]" = macosx10.4;
+				"SDKROOT[arch=ppc]" = macosx10.5;
 				"SDKROOT[arch=x86_64]" = macosx10.5;
 			};
 			name = Release/Universal;
@@ -2639,6 +2645,7 @@
 		773F65080E5DBDC2001A753B /* Debug/Native */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2654,6 +2661,7 @@
 		773F650A0E5DBDC2001A753B /* Test/Universal */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2669,6 +2677,7 @@
 		773F650B0E5DBDC2001A753B /* Release/Universal */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2691,6 +2700,7 @@
 					"\"$(SRCROOT)/build/Test/Universal\"",
 				);
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2718,6 +2728,7 @@
 					"\"$(SRCROOT)/build/Test/Universal\"",
 				);
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2745,6 +2756,7 @@
 					"\"$(SRCROOT)/build/Test/Universal\"",
 				);
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2795,6 +2807,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2822,6 +2835,7 @@
 					"\"$(SRCROOT)/build/Test/Universal\"",
 				);
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredAppKit/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2849,6 +2863,7 @@
 					"\"$(SRCROOT)/build/Test/Universal\"",
 				);
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2869,6 +2884,7 @@
 		77CBE7540E9E309B00EB2878 /* Debug/iPhone */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2884,6 +2900,7 @@
 		77CBE7560E9E309B00EB2878 /* Debug/iPhone */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2951,6 +2968,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2978,6 +2996,7 @@
 					"\"$(SRCROOT)/build/Test/Universal\"",
 				);
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredAppKit/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -3005,6 +3024,7 @@
 					"\"$(SRCROOT)/build/Test/Universal\"",
 				);
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -3025,6 +3045,7 @@
 		77CBE75D0E9E30A400EB2878 /* Test/iPhone */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -3040,6 +3061,7 @@
 		77CBE75F0E9E30A400EB2878 /* Test/iPhone */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -3106,6 +3128,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -3133,6 +3156,7 @@
 					"\"$(SRCROOT)/build/Test/Universal\"",
 				);
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredAppKit/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -3160,6 +3184,7 @@
 					"\"$(SRCROOT)/build/Test/Universal\"",
 				);
 				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -3180,6 +3205,7 @@
 		77CBE7660E9E30AA00EB2878 /* Release/iPhone */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredFoundation/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -3195,6 +3221,7 @@
 		77CBE7680E9E30AA00EB2878 /* Release/iPhone */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -3231,6 +3258,7 @@
 		77DBEB8F0E62B97300B738D3 /* Debug/Native */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -3246,6 +3274,7 @@
 		77DBEB910E62B97300B738D3 /* Test/Universal */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -3261,6 +3290,7 @@
 		77DBEB920E62B97300B738D3 /* Release/Universal */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WiredNetworking/prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -3345,14 +3375,14 @@
 				);
 				GCC_VERSION = 4.0;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.5;
 				"MACOSX_DEPLOYMENT_TARGET[arch=ppc64]" = 10.5;
-				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.5;
 				"MACOSX_DEPLOYMENT_TARGET[arch=x86_64]" = 10.5;
 				PREBINDING = NO;
-				"SDKROOT[arch=i386]" = macosx10.4;
+				"SDKROOT[arch=i386]" = macosx10.5;
 				"SDKROOT[arch=ppc64]" = macosx10.5;
-				"SDKROOT[arch=ppc]" = macosx10.4;
+				"SDKROOT[arch=ppc]" = macosx10.5;
 				"SDKROOT[arch=x86_64]" = macosx10.5;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
