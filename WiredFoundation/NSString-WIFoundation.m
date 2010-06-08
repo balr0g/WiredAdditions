@@ -93,36 +93,6 @@
 
 
 
-#if MAC_OS_X_VERSION_10_5 > MAC_OS_X_VERSION_MAX_ALLOWED
-
-- (NSInteger)integerValue {
-	return [self intValue];
-}
-
-
-
-- (long long)longLongValue {
-	NSScanner		*scanner;
-	long long		longLongValue;
-
-	if([self length] < 10) {
-		return [self intValue];
-	} else {
-		scanner = [[NSScanner alloc] initWithString:self];
-
-		if(![scanner scanLongLong:&longLongValue])
-			longLongValue = 0;
-
-		[scanner release];
-
-		return longLongValue;
-	}
-}
-
-#endif
-
-
-
 - (unsigned long long)unsignedLongLongValue {
 	return (unsigned long long) [self longLongValue];
 }

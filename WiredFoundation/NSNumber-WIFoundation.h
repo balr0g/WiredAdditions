@@ -31,15 +31,4 @@
 + (NSNumber *)numberWithTimeval:(struct timeval)tv;
 - (struct timeval)timevalValue;
 
-#if MAC_OS_X_VERSION_10_5 > MAC_OS_X_VERSION_MAX_ALLOWED
-
-+ (NSNumber *)numberWithInteger:(NSInteger)integer;
-+ (NSNumber *)numberWithUnsignedInteger:(NSUInteger)integer;
-- (id)initWithInteger:(NSInteger)integer;
-- (id)initWithUnsignedInteger:(NSUInteger)integer;
-- (NSInteger)integerValue;
-- (NSUInteger)unsignedIntegerValue;
-
-#endif
-
 @end

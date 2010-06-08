@@ -51,46 +51,4 @@
 	return tv;
 }
 
-
-
-#pragma mark -
-
-#if MAC_OS_X_VERSION_10_5 > MAC_OS_X_VERSION_MAX_ALLOWED
-
-+ (NSNumber *)numberWithInteger:(NSInteger)integer {
-	return [self numberWithInt:integer];
-}
-
-
-
-+ (NSNumber *)numberWithUnsignedInteger:(NSUInteger)integer {
-	return [self numberWithUnsignedInt:integer];
-}
-
-
-
-- (id)initWithInteger:(NSInteger)integer {
-	return [self initWithInt:integer];
-}
-
-
-
-- (id)initWithUnsignedInteger:(NSUInteger)integer {
-	return [self initWithUnsignedInt:integer];
-}
-
-
-
-- (NSInteger)integerValue {
-	return [self intValue];
-}
-
-
-
-- (NSUInteger)unsignedIntegerValue {
-	return [self unsignedIntValue];
-}
-
-#endif
-
 @end

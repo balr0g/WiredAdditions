@@ -37,10 +37,6 @@
 + (id)UUIDString;
 
 - (NSUInteger)UTF8StringLength;
-#if MAC_OS_X_VERSION_10_5 > MAC_OS_X_VERSION_MAX_ALLOWED
-- (NSInteger)integerValue;
-- (long long)longLongValue;
-#endif
 - (unsigned long long)unsignedLongLongValue;
 - (unsigned int)unsignedIntValue;
 - (NSUInteger)unsignedIntegerValue;
