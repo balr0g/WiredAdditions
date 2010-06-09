@@ -242,7 +242,7 @@
 		77D339C4104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D339C0104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77D339C5104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D339C1104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m */; };
 		77D339C6104DCF8E006BF8D5 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D339C2104DCF8E006BF8D5 /* RegexKitLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77D339C7104DCF8E006BF8D5 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D339C3104DCF8E006BF8D5 /* RegexKitLite.m */; };
+		77D339C7104DCF8E006BF8D5 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D339C3104DCF8E006BF8D5 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		77D339C8104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D339C0104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77D339C9104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D339C1104DCF8E006BF8D5 /* RegexKitLite-WIFoundation.m */; };
 		77D339CA104DCF8E006BF8D5 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 77D339C2104DCF8E006BF8D5 /* RegexKitLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
