@@ -21,6 +21,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		637BE0301436290E00442833 /* libmycrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 637BE02F1436290E00442833 /* libmycrypto.dylib */; };
+		637BE0311436292D00442833 /* libmycrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 637BE02F1436290E00442833 /* libmycrypto.dylib */; };
+		637BE0321436293100442833 /* libmycrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 637BE02F1436290E00442833 /* libmycrypto.dylib */; };
 		7712BA9A0E5C1726001C4210 /* NSArray-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C08A0758DEEE008446CF /* NSArray-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BA9D0E5C1726001C4210 /* NSData-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C07C0758DEEE008446CF /* NSData-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BA9E0E5C1726001C4210 /* NSDate-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C0740758DEEE008446CF /* NSDate-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -70,7 +73,6 @@
 		7712BB290E5C1726001C4210 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 		7712BB2A0E5C1726001C4210 /* ExceptionHandling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7724739909DD82E30010335B /* ExceptionHandling.framework */; };
 		7712BB2B0E5C1726001C4210 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5604A050D4069060080EA07 /* Quartz.framework */; };
-		7712BB2C0E5C1726001C4210 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A565B3B00D5D99BC00AF91BA /* libcrypto.dylib */; };
 		7712BB6C0E5C1964001C4210 /* NSBezierPath-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A569E7FA0CCBFB740046F90E /* NSBezierPath-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BB6D0E5C1964001C4210 /* NSColor-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C0890758DEEE008446CF /* NSColor-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BB740E5C1964001C4210 /* NSFont-WIAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C07E0758DEEE008446CF /* NSFont-WIAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -147,7 +149,6 @@
 		7712BBFA0E5C1964001C4210 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 		7712BBFB0E5C1964001C4210 /* ExceptionHandling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7724739909DD82E30010335B /* ExceptionHandling.framework */; };
 		7712BBFC0E5C1964001C4210 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5604A050D4069060080EA07 /* Quartz.framework */; };
-		7712BBFD0E5C1964001C4210 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A565B3B00D5D99BC00AF91BA /* libcrypto.dylib */; };
 		7712BC8E0E5C1A5A001C4210 /* WiredFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7712BC8D0E5C1A5A001C4210 /* WiredFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BCF60E5C1CEA001C4210 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7712BCF20E5C1CEA001C4210 /* InfoPlist.strings */; };
 		7712BCF70E5C1CEA001C4210 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7712BCF40E5C1CEA001C4210 /* Localizable.strings */; };
@@ -322,7 +323,6 @@
 		A565B2990D5D968A00AF91BA /* WIP7Socket.h in Headers */ = {isa = PBXBuildFile; fileRef = A565B2970D5D968A00AF91BA /* WIP7Socket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A565B3950D5D994F00AF91BA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A565B3940D5D994F00AF91BA /* libxml2.dylib */; };
 		A565B3AF0D5D999A00AF91BA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A565B3AE0D5D999A00AF91BA /* libz.dylib */; };
-		A565B3B20D5D99BC00AF91BA /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A565B3B00D5D99BC00AF91BA /* libcrypto.dylib */; };
 		A565B3B30D5D99BC00AF91BA /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A565B3B10D5D99BC00AF91BA /* libssl.dylib */; };
 		A565B3CF0D5D9E9100AF91BA /* WIP7Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = A565B3CB0D5D9E9100AF91BA /* WIP7Spec.m */; };
 		A565B3D00D5D9E9100AF91BA /* WIP7Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A565B3CC0D5D9E9100AF91BA /* WIP7Message.m */; };
@@ -539,6 +539,7 @@
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		637BE02F1436290E00442833 /* libmycrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmycrypto.dylib; sourceTree = "<group>"; };
 		77056C8809D7E9C4002AC912 /* NSSplitView-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSSplitView-WIAppKit.m"; path = "WiredAppKit/NSSplitView-WIAppKit.m"; sourceTree = "<group>"; };
 		77056C8909D7E9C4002AC912 /* NSSplitView-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSSplitView-WIAppKit.h"; path = "WiredAppKit/NSSplitView-WIAppKit.h"; sourceTree = "<group>"; };
 		7712BB510E5C17A7001C4210 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = prefix.pch; path = WiredFoundation/prefix.pch; sourceTree = "<group>"; };
@@ -767,7 +768,6 @@
 		A565B2970D5D968A00AF91BA /* WIP7Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WIP7Socket.h; path = WiredNetworking/WIP7Socket.h; sourceTree = "<group>"; };
 		A565B3940D5D994F00AF91BA /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = /usr/lib/libxml2.dylib; sourceTree = "<absolute>"; };
 		A565B3AE0D5D999A00AF91BA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = /usr/lib/libz.dylib; sourceTree = "<absolute>"; };
-		A565B3B00D5D99BC00AF91BA /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = /usr/lib/libcrypto.dylib; sourceTree = "<absolute>"; };
 		A565B3B10D5D99BC00AF91BA /* libssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.dylib; path = /usr/lib/libssl.dylib; sourceTree = "<absolute>"; };
 		A565B3CB0D5D9E9100AF91BA /* WIP7Spec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WIP7Spec.m; path = WiredNetworking/WIP7Spec.m; sourceTree = "<group>"; };
 		A565B3CC0D5D9E9100AF91BA /* WIP7Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WIP7Message.m; path = WiredNetworking/WIP7Message.m; sourceTree = "<group>"; };
@@ -935,8 +935,8 @@
 				7712BB290E5C1726001C4210 /* Cocoa.framework in Frameworks */,
 				7712BB2A0E5C1726001C4210 /* ExceptionHandling.framework in Frameworks */,
 				7712BB2B0E5C1726001C4210 /* Quartz.framework in Frameworks */,
-				7712BB2C0E5C1726001C4210 /* libcrypto.dylib in Frameworks */,
 				77D339D1104DCFED006BF8D5 /* libicucore.dylib in Frameworks */,
+				637BE0301436290E00442833 /* libmycrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -951,7 +951,7 @@
 				7712BBFC0E5C1964001C4210 /* Quartz.framework in Frameworks */,
 				77CA5179106AF14700A0463B /* WebKit.framework in Frameworks */,
 				77CFB76B109083C00000A4C4 /* WiredFoundation.framework in Frameworks */,
-				7712BBFD0E5C1964001C4210 /* libcrypto.dylib in Frameworks */,
+				637BE0321436293100442833 /* libmycrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -964,12 +964,12 @@
 				774897890CC8A63200E95A83 /* ExceptionHandling.framework in Frameworks */,
 				7712BF150E5C2292001C4210 /* Foundation.framework in Frameworks */,
 				77CFB76E109083D10000A4C4 /* WiredFoundation.framework in Frameworks */,
-				A565B3B20D5D99BC00AF91BA /* libcrypto.dylib in Frameworks */,
 				77AA6E5A10B554F4008996EB /* libsqlite3.dylib in Frameworks */,
 				A565B3B30D5D99BC00AF91BA /* libssl.dylib in Frameworks */,
 				A5C2403C0E9AC9E100A81F49 /* libwired.a in Frameworks */,
 				A565B3950D5D994F00AF91BA /* libxml2.dylib in Frameworks */,
 				A565B3AF0D5D999A00AF91BA /* libz.dylib in Frameworks */,
+				637BE0311436292D00442833 /* libmycrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1200,7 +1200,7 @@
 		77AA6E4B10B554C1008996EB /* Linked Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				A565B3B00D5D99BC00AF91BA /* libcrypto.dylib */,
+				637BE02F1436290E00442833 /* libmycrypto.dylib */,
 				77D339D0104DCFED006BF8D5 /* libicucore.dylib */,
 				77AA6E5910B554F4008996EB /* libsqlite3.dylib */,
 				A565B3B10D5D99BC00AF91BA /* libssl.dylib */,
@@ -2421,6 +2421,10 @@
 				);
 				INFOPLIST_FILE = WiredFoundation/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -2445,6 +2449,10 @@
 				);
 				INFOPLIST_FILE = WiredFoundation/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -2469,6 +2477,10 @@
 				);
 				INFOPLIST_FILE = WiredFoundation/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -2497,6 +2509,10 @@
 				);
 				INFOPLIST_FILE = WiredAppKit/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -2525,6 +2541,10 @@
 				);
 				INFOPLIST_FILE = WiredAppKit/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -2553,6 +2573,10 @@
 				);
 				INFOPLIST_FILE = WiredAppKit/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -2701,6 +2725,10 @@
 				);
 				INFOPLIST_FILE = WiredNetworking/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -2729,6 +2757,10 @@
 				);
 				INFOPLIST_FILE = WiredNetworking/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -2757,6 +2789,10 @@
 				);
 				INFOPLIST_FILE = WiredNetworking/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -2808,6 +2844,10 @@
 				);
 				INFOPLIST_FILE = WiredFoundation/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -2836,6 +2876,10 @@
 				);
 				INFOPLIST_FILE = WiredAppKit/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -2864,6 +2908,10 @@
 				);
 				INFOPLIST_FILE = WiredNetworking/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -2969,6 +3017,10 @@
 				);
 				INFOPLIST_FILE = WiredFoundation/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -2997,6 +3049,10 @@
 				);
 				INFOPLIST_FILE = WiredAppKit/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -3025,6 +3081,10 @@
 				);
 				INFOPLIST_FILE = WiredNetworking/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -3129,6 +3189,10 @@
 				);
 				INFOPLIST_FILE = WiredFoundation/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -3157,6 +3221,10 @@
 				);
 				INFOPLIST_FILE = WiredAppKit/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
@@ -3185,6 +3253,10 @@
 				);
 				INFOPLIST_FILE = WiredNetworking/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,
