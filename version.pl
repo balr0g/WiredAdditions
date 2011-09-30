@@ -8,16 +8,20 @@ $ENV{"PATH"} = "/opt/local/bin:/usr/local/bin:/usr/bin";
 
 my $latest_revision = 0;
 
-foreach ("", "libwired", "wired", "wired/libwired", "WiredAdditions", "WiredAdditions/libwired" ) {
-	my $revision = `svn info $_ 2>/dev/null | grep "^Last Changed Rev:"`;
-	$revision =~ s/(.+): (\d+)\n/$2/;
-	
-	if($revision && $revision > $latest_revision) {
-		$latest_revision = $revision;
-	}
-}
+#foreach ("", "libwired", "wired", "wired/libwired", "WiredAdditions", "WiredAdditions/libwired" ) {
+#	my $revision = `svn info $_ 2>/dev/null | grep "^Last Changed Rev:"`;
+#	my $revision = `git --git-dir=$_/.git rev-parse --verify --short HEAD`;
+#	$revision =~ s/(.+): (\d+)\n/$2/;	
+#	if($revision && $revision > $latest_revision) {
+#		$latest_revision = $revision;
+#	}
+#}
 
-die "$0: No Subversion revision found" unless $latest_revision;
+my $latest_revision = `git --git-dir=$ARGV[1]/.git rev-parse --verify --short HEAD`;
+
+
+
+die "$0: No Git revision found" unless $latest_revision;
 
 my @files = @ARGV;
 
