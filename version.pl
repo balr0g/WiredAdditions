@@ -2,6 +2,7 @@
 
 use strict;
 
+
 die "$0: Must be run from Xcode" unless $ENV{"BUILT_PRODUCTS_DIR"};
 
 $ENV{"PATH"} = "/opt/local/bin:/usr/local/bin:/usr/bin";
@@ -17,13 +18,16 @@ my $latest_revision = 0;
 #	}
 #}
 
-my $latest_revision = `git --git-dir=$ARGV[1]/.git rev-parse --verify --short HEAD`;
-
+my $repo = $ARGV[0];
+$latest_revision = `git --git-dir=$repo/.git rev-parse --verify --short HEAD`;
+print $latest_revision;
 
 
 die "$0: No Git revision found" unless $latest_revision;
 
-my @files = @ARGV;
+#my @files = @ARGV;
+
+my @files;
 
 if(@files == 0) {
 	push(@files, "$ENV{BUILT_PRODUCTS_DIR}/$ENV{INFOPLIST_PATH}");
