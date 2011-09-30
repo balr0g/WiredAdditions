@@ -323,7 +323,6 @@
 		A565B2990D5D968A00AF91BA /* WIP7Socket.h in Headers */ = {isa = PBXBuildFile; fileRef = A565B2970D5D968A00AF91BA /* WIP7Socket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A565B3950D5D994F00AF91BA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A565B3940D5D994F00AF91BA /* libxml2.dylib */; };
 		A565B3AF0D5D999A00AF91BA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A565B3AE0D5D999A00AF91BA /* libz.dylib */; };
-		A565B3B30D5D99BC00AF91BA /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A565B3B10D5D99BC00AF91BA /* libssl.dylib */; };
 		A565B3CF0D5D9E9100AF91BA /* WIP7Spec.m in Sources */ = {isa = PBXBuildFile; fileRef = A565B3CB0D5D9E9100AF91BA /* WIP7Spec.m */; };
 		A565B3D00D5D9E9100AF91BA /* WIP7Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A565B3CC0D5D9E9100AF91BA /* WIP7Message.m */; };
 		A565B3D10D5D9E9100AF91BA /* WIP7Spec.h in Headers */ = {isa = PBXBuildFile; fileRef = A565B3CD0D5D9E9100AF91BA /* WIP7Spec.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -965,7 +964,6 @@
 				7712BF150E5C2292001C4210 /* Foundation.framework in Frameworks */,
 				77CFB76E109083D10000A4C4 /* WiredFoundation.framework in Frameworks */,
 				77AA6E5A10B554F4008996EB /* libsqlite3.dylib in Frameworks */,
-				A565B3B30D5D99BC00AF91BA /* libssl.dylib in Frameworks */,
 				A5C2403C0E9AC9E100A81F49 /* libwired.a in Frameworks */,
 				A565B3950D5D994F00AF91BA /* libxml2.dylib in Frameworks */,
 				A565B3AF0D5D999A00AF91BA /* libz.dylib in Frameworks */,
