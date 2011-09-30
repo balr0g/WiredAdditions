@@ -20,6 +20,7 @@ my $latest_revision = 0;
 
 my $repo = $ARGV[0];
 $latest_revision = `git --git-dir=$repo/.git rev-parse --verify --short HEAD`;
+chomp($latest_revision);
 print $latest_revision;
 
 
