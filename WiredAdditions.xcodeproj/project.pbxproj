@@ -1925,6 +1925,7 @@
 			isa = PBXProject;
 			buildConfigurationList = 773966CD0857539700058AF5 /* Build configuration list for PBXProject "WiredAdditions" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -2579,6 +2580,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 773966DB085753DC00058AF5 /* WiredAdditions.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2595,14 +2597,10 @@
 					WI_LIBXML2,
 					WI_ZLIB,
 				);
-				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.5;
-				"MACOSX_DEPLOYMENT_TARGET[arch=ppc64]" = 10.5;
-				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.5;
-				"MACOSX_DEPLOYMENT_TARGET[arch=x86_64]" = 10.5;
-				"SDKROOT[arch=i386]" = macosx10.5;
-				"SDKROOT[arch=ppc64]" = macosx10.5;
-				"SDKROOT[arch=ppc]" = macosx10.5;
-				"SDKROOT[arch=x86_64]" = macosx10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.4;
+				SDKROOT = macosx10.6;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug/Native;
@@ -2628,15 +2626,11 @@
 					WI_ZLIB,
 				);
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.5;
-				"MACOSX_DEPLOYMENT_TARGET[arch=ppc64]" = 10.5;
-				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.5;
-				"MACOSX_DEPLOYMENT_TARGET[arch=x86_64]" = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.4;
 				PREBINDING = NO;
-				"SDKROOT[arch=i386]" = macosx10.5;
-				"SDKROOT[arch=ppc64]" = macosx10.5;
-				"SDKROOT[arch=ppc]" = macosx10.5;
-				"SDKROOT[arch=x86_64]" = macosx10.5;
+				SDKROOT = macosx10.6;
 			};
 			name = Release/Universal;
 		};
@@ -2793,7 +2787,8 @@
 					WI_LIBXML2,
 					WI_ZLIB,
 				);
-				SDKROOT = iphoneos3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				SDKROOT = iphoneos5.0;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug/iPhone;
@@ -2952,8 +2947,9 @@
 					WI_ZLIB,
 				);
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1;
+				SDKROOT = iphoneos5.0;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Test/iPhone;
@@ -3112,8 +3108,9 @@
 					WI_ZLIB,
 				);
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1;
+				SDKROOT = iphoneos5.0;
 			};
 			name = Release/iPhone;
 		};
@@ -3353,7 +3350,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = stabs;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					WIConfigurationTest,
@@ -3369,15 +3366,11 @@
 					WI_ZLIB,
 				);
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.5;
-				"MACOSX_DEPLOYMENT_TARGET[arch=ppc64]" = 10.5;
-				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.5;
-				"MACOSX_DEPLOYMENT_TARGET[arch=x86_64]" = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
+				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.4;
 				PREBINDING = NO;
-				"SDKROOT[arch=i386]" = macosx10.5;
-				"SDKROOT[arch=ppc64]" = macosx10.5;
-				"SDKROOT[arch=ppc]" = macosx10.5;
-				"SDKROOT[arch=x86_64]" = macosx10.5;
+				SDKROOT = macosx10.6;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Test/Universal;
