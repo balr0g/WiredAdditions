@@ -21,8 +21,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		6315724D1436310400F21CA7 /* libmyssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6315724C1436310400F21CA7 /* libmyssl.dylib */; };
+		6315724F1436311300F21CA7 /* libmyssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6315724C1436310400F21CA7 /* libmyssl.dylib */; };
+		631572501436312700F21CA7 /* libmycrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 637BE02F1436290E00442833 /* libmycrypto.dylib */; };
 		637BE0301436290E00442833 /* libmycrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 637BE02F1436290E00442833 /* libmycrypto.dylib */; };
-		637BE0311436292D00442833 /* libmycrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 637BE02F1436290E00442833 /* libmycrypto.dylib */; };
 		637BE0321436293100442833 /* libmycrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 637BE02F1436290E00442833 /* libmycrypto.dylib */; };
 		7712BA9A0E5C1726001C4210 /* NSArray-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C08A0758DEEE008446CF /* NSArray-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7712BA9D0E5C1726001C4210 /* NSData-WIFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C07C0758DEEE008446CF /* NSData-WIFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -538,6 +540,7 @@
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		6315724C1436310400F21CA7 /* libmyssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmyssl.dylib; sourceTree = "<group>"; };
 		637BE02F1436290E00442833 /* libmycrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmycrypto.dylib; sourceTree = "<group>"; };
 		77056C8809D7E9C4002AC912 /* NSSplitView-WIAppKit.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = "NSSplitView-WIAppKit.m"; path = "WiredAppKit/NSSplitView-WIAppKit.m"; sourceTree = "<group>"; };
 		77056C8909D7E9C4002AC912 /* NSSplitView-WIAppKit.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = "NSSplitView-WIAppKit.h"; path = "WiredAppKit/NSSplitView-WIAppKit.h"; sourceTree = "<group>"; };
@@ -936,6 +939,7 @@
 				7712BB2B0E5C1726001C4210 /* Quartz.framework in Frameworks */,
 				77D339D1104DCFED006BF8D5 /* libicucore.dylib in Frameworks */,
 				637BE0301436290E00442833 /* libmycrypto.dylib in Frameworks */,
+				6315724D1436310400F21CA7 /* libmyssl.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -967,7 +971,8 @@
 				A5C2403C0E9AC9E100A81F49 /* libwired.a in Frameworks */,
 				A565B3950D5D994F00AF91BA /* libxml2.dylib in Frameworks */,
 				A565B3AF0D5D999A00AF91BA /* libz.dylib in Frameworks */,
-				637BE0311436292D00442833 /* libmycrypto.dylib in Frameworks */,
+				631572501436312700F21CA7 /* libmycrypto.dylib in Frameworks */,
+				6315724F1436311300F21CA7 /* libmyssl.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1199,6 +1204,7 @@
 			isa = PBXGroup;
 			children = (
 				637BE02F1436290E00442833 /* libmycrypto.dylib */,
+				6315724C1436310400F21CA7 /* libmyssl.dylib */,
 				77D339D0104DCFED006BF8D5 /* libicucore.dylib */,
 				77AA6E5910B554F4008996EB /* libsqlite3.dylib */,
 				A565B3B10D5D99BC00AF91BA /* libssl.dylib */,
